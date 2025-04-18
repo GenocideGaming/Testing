@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunUO Shard", "RunUO Shard.csproj", "{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529} = {C63C25C0-92FF-4906-BC3E-EB9C63AF5529}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunUO-Core", "..\RunUO-Core\RunUO-Core.csproj", "{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Debug|x86.ActiveCfg = Debug|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Debug|x86.Build.0 = Debug|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Release|Any CPU.ActiveCfg = Release|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Release|x86.ActiveCfg = Release|x86
+		{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}.Release|x86.Build.0 = Release|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Debug|x86.ActiveCfg = Debug|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Debug|x86.Build.0 = Debug|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Release|Any CPU.ActiveCfg = Release|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Release|x86.ActiveCfg = Release|x86
+		{C63C25C0-92FF-4906-BC3E-EB9C63AF5529}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

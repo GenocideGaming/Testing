@@ -1,0 +1,39 @@
+using System;
+
+namespace Server.Items
+{
+    public class Urn : Item
+	{
+		[Constructable]
+        public Urn()
+            : base(Utility.RandomList(0x0B45, 0x0B46, 0x0B47, 0x0B48, 0x42B2, 0x42B3 ))
+		{
+			Movable = true;
+			Stackable = false;
+		}
+
+        public Urn(Serial serial)
+            : base(serial)
+		{            
+		}
+
+        public override void OnSingleClick(Mobile from)
+        {            
+            LabelTo(from, "an urn");
+        }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 );
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+}

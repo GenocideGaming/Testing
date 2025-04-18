@@ -1,0 +1,222 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Server.Mobiles;
+
+namespace Server.Multis
+{
+    public class WaterTaxi : BaseBoat
+    {
+        public virtual WaterTaxiWaypoint[] Waypoints { get { return null; } }
+        private WaitTimer mWaitTimer;
+
+        public override int NorthID { get { return 0x0; } }
+        public override int EastID { get { return 0x1; } }
+        public override int SouthID { get { return 0x2; } }
+        public override int WestID { get { return 0x3; } }
+
+        public override int HoldDistance { get { return 4; } }
+        public override int TillerManDistance { get { return -4; } }
+
+        public override Point2D StarboardOffset { get { return new Point2D(2, 0); } }
+        public override Point2D PortOffset { get { return new Point2D(-2, 0); } }
+
+        public override Point3D MarkOffset { get { return new Point3D(0, 1, 3); } }
+        
+        public WaterTaxi()
+            : base()
+        {
+            PPlank.Locked = false;
+            SPlank.Locked = false;
+        }
+        public WaterTaxi( Serial serial ) : base( serial )
+		{
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int)0 );
+		}
+        public override bool CheckDecay()
+        {
+            return false;
+        }
+        public override bool StartCourse(bool single, bool message)
+        {
+            if (mWaitTimer != null)
+            {
+                mWaitTimer.Stop();
+                mWaitTimer = null;
+
+                PPlank.Close();
+                SPlank.Close();
+            }
+            Speed = FastSpeed;
+            Order = BoatOrder.Course;
+
+            if (m_MoveTimer != null)
+            {
+                m_MoveTimer.Stop();
+            }
+            m_MoveTimer = new MoveTimer(this, TimeSpan.FromSeconds(0.75), false);
+            m_MoveTimer.Start();
+
+            IPooledEnumerable mobiles = GetMobilesInRange(15);
+
+            foreach (Mobile mobile in mobiles)
+            {
+                if (mobile is PlayerMobile)
+                {
+                    mobile.SendSound(0x03D);
+                }
+            }
+            mobiles.Free();
+
+            return true;
+        }
+        public override bool DoMovement(bool message)
+        {
+            Direction dir;
+            int speed;
+
+            Point2D dest = (Point2D)Waypoints[NextNavPoint].Location;
+
+            int maxSpeed;
+            dir = GetMovementFor(dest.X, dest.Y, out maxSpeed);
+
+            if (maxSpeed == 0)
+            {
+                if (Waypoints[NextNavPoint].Say != string.Empty)
+                    TillerMan.Say(Waypoints[NextNavPoint].Say);
+
+                if (Waypoints[NextNavPoint].TeleportToNextWaypoint)
+                {
+                    if(NextNavPoint + 1 < Waypoints.Length)
+                    {
+                        NextNavPoint++;
+                        Teleport(Waypoints[NextNavPoint].Location.X - Waypoints[NextNavPoint-1].Location.X, Waypoints[NextNavPoint].Location.Y - Waypoints[NextNavPoint-1].Location.Y, 0);
+                        return true;
+                    }
+                }
+                //we have arrived at our destination
+                if (Waypoints[NextNavPoint].WaitTime > TimeSpan.Zero)
+                {
+                    m_MoveTimer.Stop();
+                    m_MoveTimer = null;
+
+                    mWaitTimer = new WaitTimer(this, Waypoints[NextNavPoint].WaitTime);
+                    mWaitTimer.Start();
+
+                    TillerMan.Say("All aboard!");
+                    PPlank.Open();
+                    SPlank.Open();
+
+                    return false;
+                }
+                else
+                {
+                    if (NextNavPoint + 1 < Waypoints.Length)
+                    {
+                        NextNavPoint++;
+                        return true;
+                    }
+                    else
+                    {
+                        NextNavPoint = 0; //start at the beginning
+                        return true;
+                    }
+                }
+                
+            }
+
+            if (dir == Left || dir == BackwardLeft || dir == Backward)
+            {
+                return Turn(-2, true);
+            }
+            else if (dir == Right || dir == BackwardRight)
+            {
+                return Turn(2, true);
+            }
+            speed = Math.Min(this.Speed, maxSpeed);
+
+            return Move(dir, speed, true);
+
+        }
+        public override void OnSpeech(SpeechEventArgs e)
+        {
+            //base.OnSpeech(e); we respond to no commands, evil commands crash the server
+
+            if (e.Mobile.AccessLevel >= AccessLevel.GameMaster)
+            {
+                if (e.Speech.Contains("starttaxi"))
+                {
+                    NextNavPoint = 0;
+                    StartCourse(false, false);
+                }
+                else if (e.Speech.Contains("continuetaxi"))
+                {
+                    StartCourse(false, false);
+                }
+
+            }
+        }
+        public override bool CanCommand(Mobile m)
+        {
+            if (m.AccessLevel < AccessLevel.GameMaster)
+                return false;
+            else
+                return true;
+        }
+        public class WaterTaxiWaypoint
+        {
+            private Point2D mLocation;
+            private TimeSpan mWaitTime;
+            private string mSay;
+            private bool mTeleportToNextWaypoint;
+
+            public Point2D Location { get { return mLocation; } set { mLocation = value; } }
+            public TimeSpan WaitTime { get { return mWaitTime; } set { mWaitTime = value; } }
+            public string Say { get { return mSay; } set { mSay = value; } }
+            public bool TeleportToNextWaypoint { get { return mTeleportToNextWaypoint; } set { mTeleportToNextWaypoint = value; } }
+
+            public WaterTaxiWaypoint(Point2D location) : this(location, TimeSpan.Zero, string.Empty, false) { }
+            public WaterTaxiWaypoint(Point2D location, TimeSpan waitTime) : this(location, waitTime, string.Empty, false) { }
+            public WaterTaxiWaypoint(Point2D location, bool teleportToNextWaypoint) : this(location, TimeSpan.Zero, string.Empty, teleportToNextWaypoint) { }
+            public WaterTaxiWaypoint(Point2D location, string say) : this(location, TimeSpan.Zero, say, false) { }
+            public WaterTaxiWaypoint(Point2D location, TimeSpan waitTime, string say, bool teleportToNextWaypoint)
+            {
+                Location = location;
+                WaitTime = waitTime;
+                Say = say;
+                TeleportToNextWaypoint = teleportToNextWaypoint;
+            }
+        }
+        public class WaitTimer : Timer
+        {
+            private WaterTaxi mTaxi;
+
+            public WaitTimer(WaterTaxi taxi, TimeSpan delay) : base(delay)
+            {
+                mTaxi = taxi;
+            }
+
+            protected override void OnTick()
+            {
+                base.OnTick();
+                mTaxi.TillerMan.Say("We are about to depart, please keep your arms inside the ship at all times.");
+                mTaxi.NextNavPoint++;
+                mTaxi.StartCourse(false, false);
+
+            }
+        }
+    }
+}

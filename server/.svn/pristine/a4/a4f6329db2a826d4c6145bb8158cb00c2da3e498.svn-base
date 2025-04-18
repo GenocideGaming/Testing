@@ -1,0 +1,2024 @@
+using Server;
+using System;
+using System.Collections;
+using Server.Multis;
+using Server.Targeting;
+using Server.Items;
+using Server.Mobiles;
+
+namespace Server.Multis.Deeds
+{
+	public class HousePlacementTarget : MultiTarget
+	{
+		private HouseDeed m_Deed;
+
+		public HousePlacementTarget( HouseDeed deed ) : base( deed.MultiID, deed.Offset )
+		{
+			m_Deed = deed;
+		}
+
+		protected override void OnTarget( Mobile from, object o )
+		{
+			IPoint3D ip = o as IPoint3D;
+
+			if ( ip != null )
+			{
+				if ( ip is Item )
+					ip = ((Item)ip).GetWorldTop();
+
+				Point3D p = new Point3D( ip );
+
+				Region reg = Region.Find( new Point3D( p ), from.Map );
+
+				if ( from.AccessLevel >= AccessLevel.GameMaster || reg.AllowHousing( from, p ) )
+					m_Deed.OnPlacement( from, p );
+				else if ( reg.IsPartOf( typeof( TreasureRegion ) ) )
+					from.SendLocalizedMessage( 1043287 ); // The house could not be created here.  Either something is blocking the house, or the house would not be on valid terrain.
+				else
+					from.SendLocalizedMessage( 501265 ); // Housing can not be created in this area.
+			}
+		}
+	}
+
+	public abstract class HouseDeed : Item
+	{
+		private int m_MultiID;
+		private Point3D m_Offset;
+
+		[CommandProperty( AccessLevel.GameMaster )]
+		public int MultiID
+		{
+			get
+			{
+				return m_MultiID;
+			}
+			set
+			{
+				m_MultiID = value;
+			}
+		}
+
+		[CommandProperty( AccessLevel.GameMaster )]
+		public Point3D Offset
+		{
+			get
+			{
+				return m_Offset;
+			}
+			set
+			{
+				m_Offset = value;
+			}
+		}
+
+		public HouseDeed( int id, Point3D offset ) : base( 0x14F0 )
+		{
+			Weight = 1.0;
+			LootType = LootType.Newbied;
+
+			m_MultiID = id;
+			m_Offset = offset;
+		}
+
+		public HouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 1 ); // version
+
+			writer.Write( m_Offset );
+
+			writer.Write( m_MultiID );
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+
+			switch ( version )
+			{
+				case 1:
+				{
+					m_Offset = reader.ReadPoint3D();
+
+					goto case 0;
+				}
+				case 0:
+				{
+					m_MultiID = reader.ReadInt();
+
+					break;
+				}
+			}
+
+			if ( Weight == 0.0 )
+				Weight = 1.0;
+		}
+
+		public override void OnDoubleClick( Mobile from )
+		{
+            if (from is BaseCreature)
+            {
+                from.SendMessage("You can't place a house as a monster!"); // pseudoseer is possessing a monster
+                return;
+            }
+            
+            if ( !IsChildOf( from.Backpack ) )
+			{
+				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
+			}
+			else if ( from.AccessLevel < AccessLevel.GameMaster && BaseHouse.HasAccountHouse( from ) )
+			{
+				from.SendLocalizedMessage( 501271 ); // You already own a house, you may not place another!
+			}
+			else
+			{
+				from.SendLocalizedMessage( 1010433 ); /* House placement cancellation could result in a
+													   * 60 second delay in the return of your deed.
+													   */
+
+				from.Target = new HousePlacementTarget( this );
+			}
+		}
+
+		public abstract BaseHouse GetHouse( Mobile owner );
+		public abstract Rectangle2D[] Area{ get; }
+
+		public void OnPlacement( Mobile from, Point3D p )
+		{
+			if ( Deleted )
+				return;
+
+			if ( !IsChildOf( from.Backpack ) )
+			{
+				from.SendLocalizedMessage( 1042001 ); // That must be in your pack for you to use it.
+			}
+			else if ( from.AccessLevel < AccessLevel.GameMaster && BaseHouse.HasAccountHouse( from ) )
+			{
+				from.SendLocalizedMessage( 501271 ); // You already own a house, you may not place another!
+			}
+			else
+			{
+				ArrayList toMove;
+				Point3D center = new Point3D( p.X - m_Offset.X, p.Y - m_Offset.Y, p.Z - m_Offset.Z );
+				HousePlacementResult res = HousePlacement.Check( from, m_MultiID, center, out toMove );
+
+				switch ( res )
+				{
+					case HousePlacementResult.Valid:
+					{
+						BaseHouse house = GetHouse( from );
+						house.MoveToWorld( center, from.Map );
+						Delete();
+
+						for ( int i = 0; i < toMove.Count; ++i )
+						{
+							object o = toMove[i];
+
+							if ( o is Mobile )
+								((Mobile)o).Location = house.BanLocation;
+							else if ( o is Item )
+								((Item)o).Location = house.BanLocation;
+						}
+
+						break;
+					}
+					case HousePlacementResult.BadItem:
+					case HousePlacementResult.BadLand:
+					case HousePlacementResult.BadStatic:
+					case HousePlacementResult.BadRegionHidden:
+					{
+						from.SendLocalizedMessage( 1043287 ); // The house could not be created here.  Either something is blocking the house, or the house would not be on valid terrain.
+						break;
+					}
+					case HousePlacementResult.NoSurface:
+					{
+						from.SendMessage( "The house could not be created here.  Part of the foundation would not be on any surface." );
+						break;
+					}
+					case HousePlacementResult.BadRegion:
+					{
+						from.SendLocalizedMessage( 501265 ); // Housing cannot be created in this area.
+						break;
+					}
+					case HousePlacementResult.BadRegionTemp:
+					{
+						from.SendLocalizedMessage( 501270 ); //Lord British has decreed a 'no build' period, thus you cannot build this house at this time.
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	public class StonePlasterHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public StonePlasterHouseDeed() : base( 0x64, new Point3D( 0, 4, 0 ) )
+		{
+		}
+
+		public StonePlasterHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallOldHouse( owner, 0x64 );
+		}
+
+		public override int LabelNumber{ get{ return 1041211; } }
+		public override Rectangle2D[] Area{ get{ return SmallOldHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class FieldStoneHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public FieldStoneHouseDeed() : base( 0x66, new Point3D( 0, 4, 0 ) )
+		{
+		}
+
+		public FieldStoneHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallOldHouse( owner, 0x66 );
+		}
+
+		public override int LabelNumber{ get{ return 1041212; } }
+		public override Rectangle2D[] Area{ get{ return SmallOldHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class SmallBrickHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public SmallBrickHouseDeed() : base( 0x68, new Point3D( 0, 4, 0 ) )
+		{
+		}
+
+		public SmallBrickHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallOldHouse( owner, 0x68 );
+		}
+
+		public override int LabelNumber{ get{ return 1041213; } }
+		public override Rectangle2D[] Area{ get{ return SmallOldHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class WoodHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public WoodHouseDeed() : base( 0x6A, new Point3D( 0, 4, 0 ) )
+		{
+		}
+
+		public WoodHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallOldHouse( owner, 0x6A );
+		}
+
+		public override int LabelNumber{ get{ return 1041214; } }
+		public override Rectangle2D[] Area{ get{ return SmallOldHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class WoodPlasterHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public WoodPlasterHouseDeed() : base( 0x6C, new Point3D( 0, 4, 0 ) )
+		{
+		}
+
+		public WoodPlasterHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallOldHouse( owner, 0x6C );
+		}
+
+		public override int LabelNumber{ get{ return 1041215; } }
+		public override Rectangle2D[] Area{ get{ return SmallOldHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class ThatchedRoofCottageDeed : HouseDeed
+	{
+		[Constructable]
+		public ThatchedRoofCottageDeed() : base( 0x6E, new Point3D( 0, 4, 0 ) )
+		{
+		}
+
+		public ThatchedRoofCottageDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallOldHouse( owner, 0x6E );
+		}
+
+		public override int LabelNumber{ get{ return 1041216; } }
+		public override Rectangle2D[] Area{ get{ return SmallOldHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class BrickHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public BrickHouseDeed() : base( 0x74, new Point3D( -1, 7, 0 ) )
+		{
+		}
+
+		public BrickHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new GuildHouse( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041219; } }
+		public override Rectangle2D[] Area{ get{ return GuildHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class TwoStoryWoodPlasterHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public TwoStoryWoodPlasterHouseDeed() : base( 0x76, new Point3D( -3, 7, 0 ) )
+		{
+		}
+
+		public TwoStoryWoodPlasterHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new TwoStoryHouse( owner, 0x76 );
+		}
+
+		public override int LabelNumber{ get{ return 1041220; } }
+		public override Rectangle2D[] Area{ get{ return TwoStoryHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class TwoStoryStonePlasterHouseDeed : HouseDeed
+	{
+		[Constructable]
+		public TwoStoryStonePlasterHouseDeed() : base( 0x78, new Point3D( -3, 7, 0 ) )
+		{
+		}
+
+		public TwoStoryStonePlasterHouseDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new TwoStoryHouse( owner, 0x78 );
+		}
+
+		public override int LabelNumber{ get{ return 1041221; } }
+		public override Rectangle2D[] Area{ get{ return TwoStoryHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class TowerDeed : HouseDeed
+	{
+		[Constructable]
+		public TowerDeed() : base( 0x7A, new Point3D( 0, 7, 0 ) )
+		{
+		}
+
+		public TowerDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new Tower( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041222; } }
+		public override Rectangle2D[] Area{ get{ return Tower.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+		public class LargePatioDeed : HouseDeed
+	{
+		[Constructable]
+		public LargePatioDeed() : base( 0x8C, new Point3D( -4, 7, 0 ) )
+		{
+		}
+
+		public LargePatioDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new LargePatioHouse( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041231; } }
+		public override Rectangle2D[] Area{ get{ return LargePatioHouse.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+
+	public class SmallTowerDeed : HouseDeed
+	{
+		[Constructable]
+		public SmallTowerDeed() : base( 0x98, new Point3D( 3, 4, 0 ) )
+		{
+		}
+
+		public SmallTowerDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallTower( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041237; } }
+		public override Rectangle2D[] Area{ get{ return SmallTower.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class LogCabinDeed : HouseDeed
+	{
+		[Constructable]
+		public LogCabinDeed() : base( 0x9A, new Point3D( 1, 6, 0 ) )
+		{
+		}
+
+		public LogCabinDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new LogCabin( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041238; } }
+		public override Rectangle2D[] Area{ get{ return LogCabin.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class SandstonePatioDeed : HouseDeed
+	{
+		[Constructable]
+		public SandstonePatioDeed() : base( 0x9C, new Point3D( -1, 4, 0 ) )
+		{
+		}
+
+		public SandstonePatioDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SandStonePatio( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041239; } }
+		public override Rectangle2D[] Area{ get{ return SandStonePatio.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class VillaDeed : HouseDeed
+	{
+		[Constructable]
+		public VillaDeed() : base( 0x9E, new Point3D( 3, 6, 0 ) )
+		{
+		}
+
+		public VillaDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new TwoStoryVilla( owner );
+		}
+
+		public override int LabelNumber{ get{ return 1041240; } }
+		public override Rectangle2D[] Area{ get{ return TwoStoryVilla.AreaArray; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class StoneWorkshopDeed : HouseDeed
+	{
+		[Constructable]
+		public StoneWorkshopDeed() : base( 0xA0, new Point3D( -1, 4, 0 ) )
+		{
+		}
+
+		public StoneWorkshopDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallShop( owner, 0xA0 );
+		}
+
+		public override int LabelNumber{ get{ return 1041241; } }
+		public override Rectangle2D[] Area{ get{ return SmallShop.AreaArray2; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+
+	public class MarbleWorkshopDeed : HouseDeed
+	{
+		[Constructable]
+		public MarbleWorkshopDeed() : base( 0xA2, new Point3D( -1, 4, 0 ) )
+		{
+		}
+
+		public MarbleWorkshopDeed( Serial serial ) : base( serial )
+		{
+		}
+
+		public override BaseHouse GetHouse( Mobile owner )
+		{
+			return new SmallShop( owner, 0xA2 );
+		}
+
+		public override int LabelNumber{ get{ return 1041242; } }
+		public override Rectangle2D[] Area{ get{ return SmallShop.AreaArray1; } }
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int) 0 ); // version
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+		}
+	}
+        public class MediumWoodAndPlasterDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumWoodAndPlasterDeed()
+            : base(0xA3, new Point3D(0, 4, 0))
+        {
+        }
+
+        public MediumWoodAndPlasterDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumWoodAndPlaster(owner);
+        }
+
+        public override int LabelNumber { get { return 1063535; } }
+        public override Rectangle2D[] Area { get { return MediumWoodAndPlaster.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+    public class MediumFieldstoneLDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumFieldstoneLDeed()
+            : base(0xA4, new Point3D(-4, 6, 0))
+        {
+        }
+
+        public MediumFieldstoneLDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumFieldstoneL(owner);
+        }
+
+        public override int LabelNumber { get { return 1063534; } }
+        public override Rectangle2D[] Area { get { return MediumFieldstoneL.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class WoodAndPlasterCabinDeed : HouseDeed
+    {
+        [Constructable]
+        public WoodAndPlasterCabinDeed()
+            : base(0xA5, new Point3D(-2, 6, 0))
+        {
+        }
+
+        public WoodAndPlasterCabinDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new WoodAndPlasterCabin(owner);
+        }
+
+        public override int LabelNumber { get { return 1063536; } }
+        public override Rectangle2D[] Area { get { return WoodAndPlasterCabin.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class TwoStoryFieldstonePatioDeed : HouseDeed
+    {
+        [Constructable]
+        public TwoStoryFieldstonePatioDeed()
+            : base(0xA7, new Point3D(-4, 8, 0))
+        {
+        }
+
+        public TwoStoryFieldstonePatioDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new TwoStoryFieldstonePatio(owner);
+        }
+
+        public override int LabelNumber { get { return 1063538; } }
+        public override Rectangle2D[] Area { get { return TwoStoryFieldstonePatio.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class SmallWoodAndPlasterVillaDeed : HouseDeed
+    {
+        [Constructable]
+        public SmallWoodAndPlasterVillaDeed()
+            : base(0xA8, new Point3D(-2, 3, 0))
+        {
+        }
+
+        public SmallWoodAndPlasterVillaDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new SmallWoodAndPlasterVilla(owner);
+        }
+
+        public override int LabelNumber { get { return 1063558; } }
+        public override Rectangle2D[] Area { get { return SmallWoodAndPlasterVilla.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class TwoStoryWoodBalconyDeed : HouseDeed
+    {
+        [Constructable]
+        public TwoStoryWoodBalconyDeed()
+            : base(0xA6, new Point3D(-3, 4, 0))
+        {
+        }
+
+        public TwoStoryWoodBalconyDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new TwoStoryWoodBalcony(owner);
+        }
+
+        public override int LabelNumber { get { return 1063537; } }
+        public override Rectangle2D[] Area { get { return TwoStoryWoodBalcony.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    
+    public class MediumFieldstonePatioDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumFieldstonePatioDeed()
+            : base(0xAB, new Point3D(6, -4, 0))
+        {
+        }
+
+        public MediumFieldstonePatioDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumFieldstonePatio(owner);
+        }
+
+        public override int LabelNumber { get { return 1063539; } }
+        public override Rectangle2D[] Area { get { return MediumFieldstonePatio.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LogCabinHDeed : HouseDeed
+    {
+        [Constructable]
+        public LogCabinHDeed()
+            : base(0xAC, new Point3D(-2, 4, 0))
+        {
+        }
+
+        public LogCabinHDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new LogCabinH(owner);
+        }
+
+        public override int LabelNumber { get { return 1063540; } }
+        public override Rectangle2D[] Area { get { return LogCabinH.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LogCabinPatioDeed : HouseDeed
+    {
+        [Constructable]
+        public LogCabinPatioDeed()
+            : base(0xAD, new Point3D(1, 4, 0))
+        {
+        }
+
+        public LogCabinPatioDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new LogCabinPatio(owner);
+        }
+
+        public override int LabelNumber { get { return 1063541; } }
+        public override Rectangle2D[] Area { get { return LogCabinPatio.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LargeStoneCompoundDeed : HouseDeed
+    {
+        [Constructable]
+        public LargeStoneCompoundDeed()
+            : base(0xAE, new Point3D(3, 6, 0))
+        {
+        }
+
+        public LargeStoneCompoundDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new LargeStoneCompound(owner);
+        }
+
+        public override int LabelNumber { get { return 1063542; } }
+        public override Rectangle2D[] Area { get { return LargeStoneCompound.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LargeStoneDuelingPitDeed : HouseDeed
+    {
+        [Constructable]
+        public LargeStoneDuelingPitDeed()
+            : base(0xAF, new Point3D(-3, 10, 0))
+        {
+        }
+
+        public LargeStoneDuelingPitDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new LargeStoneDuelingPit(owner);
+        }
+
+        public override int LabelNumber { get { return 1063543; } }
+        public override Rectangle2D[] Area { get { return LargeStoneDuelingPit.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class MediumDuelingTowerDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumDuelingTowerDeed()
+            : base(0xB0, new Point3D(0, 6, 0))
+        {
+        }
+
+        public MediumDuelingTowerDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumDuelingTower(owner);
+        }
+
+        public override int LabelNumber { get { return 1063544; } }
+        public override Rectangle2D[] Area { get { return MediumDuelingTower.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LargeSandstonePatioDeed : HouseDeed
+    {
+        [Constructable]
+        public LargeSandstonePatioDeed()
+            : base(0xB1, new Point3D(8, -5, 0))
+        {
+        }
+
+        public LargeSandstonePatioDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new LargeSandstonePatio(owner);
+        }
+
+        public override int LabelNumber { get { return 1063545; } }
+        public override Rectangle2D[] Area { get { return LargeSandstonePatio.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class MediumStoneCompoundDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumStoneCompoundDeed()
+            : base(0xB2, new Point3D(5, 6, 0))
+        {
+        }
+
+        public MediumStoneCompoundDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumStoneCompound(owner);
+        }
+
+        public override int LabelNumber { get { return 1063546; } }
+        public override Rectangle2D[] Area { get { return MediumStoneCompound.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class StoneTowerDeed : HouseDeed
+    {
+        [Constructable]
+        public StoneTowerDeed()
+            : base(0xB3, new Point3D(-1, 6, 0))
+        {
+        }
+
+        public StoneTowerDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new StoneTower(owner);
+        }
+
+        public override int LabelNumber { get { return 1063547; } }
+        public override Rectangle2D[] Area { get { return StoneTower.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class BrickPorchDeed : HouseDeed
+    {
+        [Constructable]
+        public BrickPorchDeed()
+            : base(0xB4, new Point3D(0, 6, 0))
+        {
+        }
+
+        public BrickPorchDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new BrickPorch(owner);
+        }
+
+        public override int LabelNumber { get { return 1063548; } }
+        public override Rectangle2D[] Area { get { return BrickPorch.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class MediumMarbleShopDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumMarbleShopDeed()
+            : base(0xB5, new Point3D(3, 7, 0))
+        {
+        }
+
+        public MediumMarbleShopDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumMarbleShop(owner);
+        }
+
+        public override int LabelNumber { get { return 1063549; } }
+        public override Rectangle2D[] Area { get { return MediumMarbleShop.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class MediumBrickPatioDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumBrickPatioDeed()
+            : base(0xB6, new Point3D(-5, 5, 0))
+        {
+        }
+
+        public MediumBrickPatioDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumBrickPatio(owner);
+        }
+
+        public override int LabelNumber { get { return 1063550; } }
+        public override Rectangle2D[] Area { get { return MediumBrickPatio.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LargeBrickVillaDeed : HouseDeed
+    {
+        [Constructable]
+        public LargeBrickVillaDeed()
+            : base(0xB7, new Point3D(-1, 6, 0))
+        {
+        }
+
+        public LargeBrickVillaDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new LargeBrickVilla(owner);
+        }
+
+        public override int LabelNumber { get { return 1063551; } }
+        public override Rectangle2D[] Area { get { return LargeBrickVilla.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class MediumSandstoneDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumSandstoneDeed()
+            : base(0xB8, new Point3D(6, -3, 0))
+        {
+        }
+
+        public MediumSandstoneDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumSandstone(owner);
+        }
+
+        public override int LabelNumber { get { return 1063552; } }
+        public override Rectangle2D[] Area { get { return MediumSandstone.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class BellTowerDeed : HouseDeed
+    {
+        [Constructable]
+        public BellTowerDeed()
+            : base(0xB9, new Point3D(5, -2, 0))
+        {
+        }
+
+        public BellTowerDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new BellTower(owner);
+        }
+
+        public override int LabelNumber { get { return 1063553; } }
+        public override Rectangle2D[] Area { get { return BellTower.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class TwoStorySquareBrickDeed : HouseDeed
+    {
+        [Constructable]
+        public TwoStorySquareBrickDeed()
+            : base(0xBA, new Point3D(0, 6, 0))
+        {
+        }
+
+        public TwoStorySquareBrickDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new TwoStorySquareBrick(owner);
+        }
+
+        public override int LabelNumber { get { return 1063554; } }
+        public override Rectangle2D[] Area { get { return TwoStorySquareBrick.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class WoodAndPlasterFDeed : HouseDeed
+    {
+        [Constructable]
+        public WoodAndPlasterFDeed()
+            : base(0xBB, new Point3D(6, -5, 0))
+        {
+        }
+
+        public WoodAndPlasterFDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new WoodAndPlasterF(owner);
+        }
+
+        public override int LabelNumber { get { return 1063556; } }
+        public override Rectangle2D[] Area { get { return WoodAndPlasterF.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class TwoStoryBrickTDeed : HouseDeed
+    {
+        [Constructable]
+        public TwoStoryBrickTDeed()
+            : base(0xBC, new Point3D(-2, 7, 0))
+        {
+        }
+
+        public TwoStoryBrickTDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new TwoStoryBrickT(owner);
+        }
+
+        public override int LabelNumber { get { return 1063557; } }
+        public override Rectangle2D[] Area { get { return TwoStoryBrickT.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class WoodPatioTerraceDeed : HouseDeed
+    {
+        [Constructable]
+        public WoodPatioTerraceDeed()
+            : base(0xBD, new Point3D(-4, 6, 0))
+        {
+        }
+
+        public WoodPatioTerraceDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new WoodPatioTerrace(owner);
+        }
+
+        public override int LabelNumber { get { return 1063558; } }
+        public override Rectangle2D[] Area { get { return WoodPatioTerrace.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class FieldStoneShopDeed : HouseDeed
+    {
+        [Constructable]
+        public FieldStoneShopDeed()
+            : base(0xBE, new Point3D(-4, 6, 0))
+        {
+        }
+
+        public FieldStoneShopDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new FieldStoneShop(owner);
+        }
+
+        public override int LabelNumber { get { return 1063559; } }
+        public override Rectangle2D[] Area { get { return FieldStoneShop.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class HShapedWoodCabinDeed : HouseDeed
+    {
+        [Constructable]
+        public HShapedWoodCabinDeed()
+            : base(0xBF, new Point3D(-2, 4, 0))
+        {
+        }
+
+        public HShapedWoodCabinDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new HShapedWoodCabin(owner);
+        }
+
+        public override int LabelNumber { get { return 1063561; } }
+        public override Rectangle2D[] Area { get { return HShapedWoodCabin.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+
+    public class MediumTowerDeed : HouseDeed
+    {
+        [Constructable]
+        public MediumTowerDeed()
+            : base(0xC0, new Point3D(0, 6, 0))
+        {
+        }
+
+        public MediumTowerDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new MediumTower(owner);
+        }
+
+        public override int LabelNumber { get { return 1063562; } }
+        public override Rectangle2D[] Area { get { return MediumTower.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class RoacheMansionDeed: HouseDeed
+    {
+        [Constructable]
+        public RoacheMansionDeed()
+            : base(0xC1, new Point3D(-4, 6, 0))
+        {
+        }
+
+        public RoacheMansionDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new RoacheMansion(owner);
+        }
+
+        public override int LabelNumber { get { return 1063563; } }
+        public override Rectangle2D[] Area { get { return RoacheMansion.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class SmallBrickVillaDeed : HouseDeed
+    {
+        [Constructable]
+        public SmallBrickVillaDeed()
+            : base(0xC2, new Point3D(-2, 3, 0))
+        {
+        }
+
+        public SmallBrickVillaDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new SmallBrickVilla(owner);
+        }
+
+        public override int LabelNumber { get { return 1063564; } }
+        public override Rectangle2D[] Area { get { return SmallBrickVilla.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class SmallFieldStoneVillaDeed : HouseDeed
+    {
+        [Constructable]
+        public SmallFieldStoneVillaDeed()
+            : base(0xC3, new Point3D(-2, 3, 0))
+        {
+        }
+
+        public SmallFieldStoneVillaDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new SmallFieldStoneVilla(owner);
+        }
+
+        public override int LabelNumber { get { return 1063565; } }
+        public override Rectangle2D[] Area { get { return SmallFieldStoneVilla.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class SmallSandStoneVillaDeed : HouseDeed
+    {
+        [Constructable]
+        public SmallSandStoneVillaDeed()
+            : base(0xC4, new Point3D(-2, 3, 0))
+        {
+        }
+
+        public SmallSandStoneVillaDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new SmallSandStoneVilla(owner);
+        }
+
+        public override int LabelNumber { get { return 1063566; } }
+        public override Rectangle2D[] Area { get { return SmallSandStoneVilla.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class SmallWoodVillaDeed : HouseDeed
+    {
+        [Constructable]
+        public SmallWoodVillaDeed()
+            : base(0xC5, new Point3D(-2, 3, 0))
+        {
+        }
+
+        public SmallWoodVillaDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new SmallWoodVilla(owner);
+        }
+
+        public override int LabelNumber { get { return 1063567; } }
+        public override Rectangle2D[] Area { get { return SmallWoodVilla.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class WoodAndBrickMansionDeed : HouseDeed
+    {
+        [Constructable]
+        public WoodAndBrickMansionDeed()
+            : base(0xC6, new Point3D(6, 6, 0))
+        {
+        }
+
+        public WoodAndBrickMansionDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override BaseHouse GetHouse(Mobile owner)
+        {
+            return new WoodAndBrickMansion(owner);
+        }
+
+        public override int LabelNumber { get { return 1063568; } }
+        public override Rectangle2D[] Area { get { return WoodAndBrickMansion.AreaArray; } }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+    }
+
+ 
+}

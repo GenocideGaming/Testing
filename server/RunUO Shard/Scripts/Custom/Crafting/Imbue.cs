@@ -1,0 +1,510 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Server.Engines.Craft;
+using Server.Scripts.Custom.Crafting;
+using Server.Items;
+using Server.Targeting;
+using System.Reflection;
+using Server.Scripts;
+using Server.Mobiles;
+using System.Windows.Forms;
+
+namespace Server.Engines.Craft
+{
+    public enum ImbueResult
+    {
+        None,
+        NotInBackpack,
+        BadItem,
+        BadResource,
+        AlreadyEnchanted,
+        Success, //the only one that leads to enchantment
+        Failure,
+        Broken,
+        NoResources,
+        NoSkill,
+        Newbied
+    }
+
+    public class Imbue
+    {
+        public static ImbueResult Invoke(Mobile caller, ArtifactServiceContract contract, Item item, CraftResource resource, Type resourceType, ref object returnMessage)
+        {
+            if (item == null)
+                return ImbueResult.BadItem;
+
+            if (!item.IsChildOf(caller.Backpack))
+                return ImbueResult.NotInBackpack;
+
+            if (!(item is BaseArmor) && !(item is BaseWeapon) && !(item is BaseInstrument))
+                return ImbueResult.BadItem;
+
+            if (CraftResources.GetType(resource) != CraftResourceType.Artifact)
+                return ImbueResult.BadResource;
+
+            if (item.CheckNewbied())
+                return ImbueResult.Newbied;
+
+            CraftSystem craftSystem = null;
+            if (contract != null) {
+                if (!contract.IsChildOf(caller.Backpack))
+                {
+                    return ImbueResult.NotInBackpack;
+                }
+                int messageID = 0;
+
+                if ( !BaseTool.CheckAccessible( contract, caller ) )
+				    messageID = 1044263; // The tool must be on your person to use.
+
+                if (messageID > 0)
+                {
+                    returnMessage = messageID;
+                    return ImbueResult.None;
+                }
+
+                craftSystem = contract.CraftSystem;
+            }
+            if (craftSystem == null)
+            {
+                craftSystem = BaseArtifact.GetCraftSystem(item);
+                if (craftSystem == null)
+                {
+                    caller.SendMessage("That is an invalid item!");
+                    return ImbueResult.None;
+                }
+            }
+            
+            //make sure we can actually make the item we want to imbue
+            CraftItem craftItem = craftSystem.CraftItems.SearchFor(item.GetType());
+
+            if (craftItem == null)
+                return ImbueResult.BadItem;
+
+            CraftResourceInfo resourceInfo = CraftResources.GetInfo(resource);
+
+            if (resourceInfo == null || resourceInfo.ResourceTypes.Length == 0)
+            {
+                return ImbueResult.BadResource;
+            }
+
+            CraftSubRes subResource = craftSystem.CraftSubRes2.SearchFor(resourceType);
+
+            if (subResource == null)
+                return ImbueResult.BadResource;
+
+            CraftAttributeInfo attributes = resourceInfo.AttributeInfo;
+
+            if (attributes == null)
+                return ImbueResult.BadResource;
+
+            Item[] artifacts = caller.Backpack.FindItemsByType(resourceType, true);
+
+            if (artifacts == null || artifacts.Length == 0 || !(artifacts[0] is BaseArtifact))
+                return ImbueResult.NoResources;
+
+            BaseArtifact artifact = artifacts[0] as BaseArtifact;
+            /* // don't use this now; this is checked when the contracts are created
+            if (caller.Skills[craftSystem.MainSkill].Fixed < subResource.RequiredSkill)
+                return ImbueResult.NoSkill;
+            
+
+            if (!SuccessRoll(caller.Skills[craftSystem.MainSkill].Value, subResource.RequiredSkill))
+            {
+                item.Consume();
+                artifacts[0].Consume(1);
+                tool.UsesRemaining--;
+                return ImbueResult.Broken;
+            }
+             * */
+
+
+            // NEED TO CHECK whether the level of the deed is high enough!
+            if (contract == null)
+            {
+                if (artifact.Level > 1)
+                {
+                    caller.SendMessage("You must use a runic tool to apply an artifact of that level!");
+                    return ImbueResult.None;
+                }
+            }
+            else
+            {
+                if (artifact.Level > contract.Level)
+                {
+                    caller.SendMessage("A level " + contract.Level + " contract does not cover a level " + artifact.Level + " artifact!");
+                    return ImbueResult.None;
+                }
+            }
+
+            ImbueResult mutateResult = Mutate(item, attributes);
+            if (mutateResult != ImbueResult.Success)
+                return mutateResult;
+
+            artifacts[0].Consume(1);
+            if (contract != null)
+            {
+                contract.Consume();
+            }
+            //tool.UsesRemaining--;
+            //if (tool.UsesRemaining <= 0)
+            //    tool.Delete();
+
+            PlayerMobile player = caller as PlayerMobile;
+            if (player != null)
+                player.ItemsImbuedThisSession++;
+
+            return ImbueResult.Success;
+        }
+        
+        public static ImbueResult InvokeOld(Mobile caller, CraftSystem craftSystem, BaseTool tool, Item item, CraftResource resource, Type resourceType, ref object returnMessage)
+        {
+            if (item == null)
+                return ImbueResult.BadItem;
+
+            if (!item.IsChildOf(caller.Backpack))
+                return ImbueResult.NotInBackpack;
+
+            if (!(item is BaseArmor) && !(item is BaseWeapon) && !(item is BaseInstrument))
+                return ImbueResult.BadItem;
+       
+            if (CraftResources.GetType(resource) != CraftResourceType.Artifact) 
+                return ImbueResult.BadResource;
+            
+            if (item.CheckNewbied())
+            	return ImbueResult.Newbied;
+
+            int messageID = craftSystem.CanCraft(caller, tool, item.GetType()); //returns 0 if we can craft, otherwise an error message
+
+            if (messageID > 0)
+            {
+
+                returnMessage = messageID;
+                return ImbueResult.None;
+            }
+
+            //make sure we can actually make the item we want to imbue
+            CraftItem craftItem = craftSystem.CraftItems.SearchFor(item.GetType());
+
+            if (craftItem == null)
+                return ImbueResult.BadItem;
+           
+            CraftResourceInfo resourceInfo = CraftResources.GetInfo(resource);
+
+            if (resourceInfo == null || resourceInfo.ResourceTypes.Length == 0)
+            {
+                return ImbueResult.BadResource;
+            }
+
+            CraftSubRes subResource = craftSystem.CraftSubRes2.SearchFor(resourceType);
+
+            if (subResource == null)
+                return ImbueResult.BadResource;
+           
+            CraftAttributeInfo attributes = resourceInfo.AttributeInfo;
+
+            if (attributes == null)
+                return ImbueResult.BadResource;
+
+            Item[] artifacts = caller.Backpack.FindItemsByType(resourceType, true);
+
+            if (artifacts == null || artifacts.Length == 0)
+                return ImbueResult.NoResources;
+
+            if (caller.Skills[craftSystem.MainSkill].Fixed < subResource.RequiredSkill)
+                return ImbueResult.NoSkill;
+
+            if (!SuccessRoll(caller.Skills[craftSystem.MainSkill].Value, subResource.RequiredSkill))
+            {
+                item.Consume();
+                artifacts[0].Consume(1);
+                tool.UsesRemaining--;
+                return ImbueResult.Broken;
+            }
+
+            ImbueResult mutateResult = Mutate(item, attributes);
+            if (mutateResult != ImbueResult.Success)
+                return mutateResult;
+           
+            artifacts[0].Consume(1);
+            tool.UsesRemaining--;
+            if (tool.UsesRemaining <= 0)
+                tool.Delete();
+
+            PlayerMobile player = caller as PlayerMobile;
+            if (player != null)
+                player.ItemsImbuedThisSession++;
+
+            return ImbueResult.Success;
+        }
+
+        public static bool SuccessRoll(double skillValue, double itemRequiredSkill)
+        {
+            double successChance = FeatureList.ArtifactCrafting.BaseSuccessChance + (skillValue - itemRequiredSkill) / (100.0 - itemRequiredSkill);
+
+            if (successChance >= Utility.RandomDouble())
+                return true;
+            else
+                return false;
+
+        }
+   
+        public static bool IsExceptional(Item item)
+        {
+            BaseWeapon weapon = item as BaseWeapon;
+            if (weapon != null)
+            {
+                return weapon.Quality == WeaponQuality.Exceptional;
+            }
+            BaseArmor armor = item as BaseArmor;
+            if (armor != null)
+            {
+                return armor.Quality == ArmorQuality.Exceptional;
+            }
+            BaseInstrument instrument = item as BaseInstrument;
+            if (instrument != null)
+            {
+                return instrument.Quality == InstrumentQuality.Exceptional;
+            }
+            return true; //incase we are fed a bad item
+        }
+        public static ImbueResult Mutate(Item item, CraftAttributeInfo attributes)
+        {
+            BaseWeapon weapon = item as BaseWeapon;
+            if (weapon != null && (attributes.WeaponDamageLevel != WeaponDamageLevel.Regular || attributes.WeaponAcurracyLevel != WeaponAccuracyLevel.Regular || attributes.Slayer != SlayerName.None))
+            {
+                int effectCount = CountEffects(weapon);
+                //weapons have any two of the three types (damage, accuracy, durability)
+                if (effectCount > 1 && attributes.Slayer == SlayerName.None) //only if we aren't trying to put on slayer
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+                //must check that we aren't trying to apply the same type of effect and waste an artifact
+                if (weapon.DamageLevel != WeaponDamageLevel.Regular && attributes.WeaponDamageLevel != WeaponDamageLevel.Regular)
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+                if (weapon.AccuracyLevel != WeaponAccuracyLevel.Regular && attributes.WeaponAcurracyLevel != WeaponAccuracyLevel.Regular)
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+                if ((weapon.Slayer != SlayerName.None && weapon.Slayer2 != SlayerName.None) && attributes.Slayer != SlayerName.None)
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+                if ((weapon.Slayer == attributes.Slayer && weapon.Slayer != SlayerName.None) || (weapon.Slayer2 == attributes.Slayer && weapon.Slayer2 != SlayerName.None))
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+
+                if(weapon.DamageLevel == WeaponDamageLevel.Regular)
+                    weapon.DamageLevel = attributes.WeaponDamageLevel;
+                if(weapon.AccuracyLevel == WeaponAccuracyLevel.Regular)
+                    weapon.AccuracyLevel = attributes.WeaponAcurracyLevel;
+
+                if (weapon.Slayer == SlayerName.None)
+                    weapon.Slayer = attributes.Slayer;
+                else if (weapon.Slayer2 == SlayerName.None)
+                    weapon.Slayer2 = attributes.Slayer;
+
+                if (weapon.Quality == WeaponQuality.Exceptional)
+                    weapon.Quality = WeaponQuality.Regular;
+
+                weapon.Identified = true;
+
+                return ImbueResult.Success;
+            }
+
+            BaseArmor armor = item as BaseArmor;
+            if (armor != null && attributes.ArmorProtectionLevel != ArmorProtectionLevel.Regular)
+            {
+                int effectCount = CountEffects(armor);
+
+                if (effectCount > 1)
+                    return ImbueResult.AlreadyEnchanted;
+
+
+                if (armor.ProtectionLevel != ArmorProtectionLevel.Regular && attributes.ArmorProtectionLevel != ArmorProtectionLevel.Regular)
+                    return ImbueResult.AlreadyEnchanted;
+
+
+                if(armor.ProtectionLevel == ArmorProtectionLevel.Regular)
+                    armor.ProtectionLevel = attributes.ArmorProtectionLevel;
+
+                if (armor.Quality == ArmorQuality.Exceptional)
+                    armor.Quality = ArmorQuality.Regular;
+
+                armor.Identified = true;
+
+                return ImbueResult.Success;
+            }
+
+            BaseInstrument instrument = item as BaseInstrument;
+            if (instrument != null && (attributes.Slayer != SlayerName.None))
+            {
+                int effectCount = CountEffects(instrument);
+                //instrument have any two of the three types (damage, accuracy, durability)
+                //if (effectCount > 1 && attributes.Slayer == SlayerName.None) //only if we aren't trying to put on slayer
+                //{
+                    //return ImbueResult.AlreadyEnchanted;
+                //}
+                if ((instrument.Slayer != SlayerName.None && instrument.Slayer2 != SlayerName.None) && attributes.Slayer != SlayerName.None)
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+                if ((instrument.Slayer == attributes.Slayer && instrument.Slayer != SlayerName.None) || (instrument.Slayer2 == attributes.Slayer && instrument.Slayer2 != SlayerName.None))
+                {
+                    return ImbueResult.AlreadyEnchanted;
+                }
+
+                if (instrument.Slayer == SlayerName.None)
+                    instrument.Slayer = attributes.Slayer;
+                else if (instrument.Slayer2 == SlayerName.None)
+                    instrument.Slayer2 = attributes.Slayer;
+
+                if (instrument.Quality == InstrumentQuality.Exceptional)
+                    instrument.Quality = InstrumentQuality.Regular;
+
+                instrument.Identified = true;
+
+                return ImbueResult.Success;
+            }
+
+            return ImbueResult.BadItem;
+        }
+
+        private static int CountEffects(BaseArmor armor)
+        {
+            int count = 0;
+            if (armor.ProtectionLevel != ArmorProtectionLevel.Regular)
+                count++;
+
+            return count;
+        }
+
+        private static int CountEffects(BaseWeapon weapon)
+        {
+            int count = 0;
+            if (weapon.DamageLevel != WeaponDamageLevel.Regular)
+                count++;
+            if (weapon.AccuracyLevel != WeaponAccuracyLevel.Regular)
+                count++;
+
+            return count;
+        }
+        private static int CountEffects(BaseInstrument instrument)
+        {
+            int count = 0;
+            return count;
+        }
+
+        /* // This has been moved into the artifacts class
+        public static void BeginTargetFromDoubleClick(Mobile caller, ImbuingTool clickedTool, CraftSystem craftSystem, BaseTool tool)
+        {
+            if (!clickedArtifact.IsChildOf(caller.Backpack))
+                return;
+            CraftSubRes resource = craftSystem.CraftSubRes2.SearchFor(clickedArtifact.GetType());
+            if (resource == null)
+            {
+                caller.SendMessage("That artifact is not suitable for your crafting skill.");
+                return;
+            }
+            if (caller.Skills[craftSystem.MainSkill].Value < resource.RequiredSkill)
+                caller.SendMessage("You do not have the skill to work with that artifact.");
+            else
+            {
+                caller.Target = new InternalTarget(craftSystem, tool, resource.ItemType, clickedArtifact.Resource, true);
+                caller.SendMessage("Target an item to enhance with the properties of your selected material.");
+            }
+        }
+        **/
+
+        /* // Not sure when this was ever used -mob 11/17/2012
+        public static void BeginTarget(Mobile caller, CraftSystem craftSystem, BaseTool tool)
+        {
+            CraftContext context = craftSystem.GetContext(caller);
+
+            if (context == null)
+                return;
+
+            int lastRes = context.LastResourceIndex2;
+            CraftSubResCol subRes = craftSystem.CraftSubRes2;
+
+            if (lastRes >= 0 && lastRes < subRes.Count)
+            {
+                CraftSubRes res = subRes.GetAt(lastRes);
+
+                if (caller.Skills[craftSystem.MainSkill].Value < res.RequiredSkill)
+                {
+                    caller.SendGump(new CraftGump(caller, craftSystem, tool, res.Message));
+                }
+                else
+                {
+                    CraftResource resource = CraftResources.GetFromType(res.ItemType);
+
+                    if (resource != CraftResource.None)
+                    {
+                        caller.Target = new InternalTarget(craftSystem, tool, res.ItemType, resource, false);
+                        caller.SendLocalizedMessage(1061004); // Target an item to enhance with the properties of your selected material.
+                    }
+                    else
+                    {
+                        caller.SendGump(new CraftGump(caller, craftSystem, tool, 1061010)); // You must select a special material in order to enhance an item with its properties.
+                    }
+                }
+            }
+            else
+            {
+                caller.SendGump(new CraftGump(caller, craftSystem, tool, 1061010)); // You must select a special material in order to enhance an item with its properties.
+            }
+        }
+        
+        private class InternalTarget : Target
+        {
+            private CraftSystem mCraftSystem;
+            private BaseTool mTool;
+            private Type mResourceType;
+            private CraftResource mResource;
+            private bool mFromDoubleClick;
+
+            public InternalTarget(CraftSystem craftSystem, BaseTool tool, Type resourceType, CraftResource resource, bool fromDoubleClick)
+                : base(2, false, TargetFlags.None)
+            {
+                mCraftSystem = craftSystem;
+                mTool = tool;
+                mResourceType = resourceType;
+                mResource = resource;
+                mFromDoubleClick = fromDoubleClick;
+            }
+
+            protected override void OnTarget(Mobile from, object targeted)
+            {
+                if (targeted is Item)
+                {
+                    object message = null;
+                    ImbueResult res = Imbue.InvokeOld(from, mCraftSystem, mTool, (Item)targeted, mResource, mResourceType, ref message);
+
+                    switch (res)
+                    {
+                        case ImbueResult.NotInBackpack: message = 1061005; break; // The item must be in your backpack to enhance it.
+                        case ImbueResult.AlreadyEnchanted: message = 1061012; break; // This item is already enhanced with the properties of a special material.
+                        case ImbueResult.BadItem: message = 1061011; break; // You cannot enhance this type of item with the properties of the selected special material.
+                        case ImbueResult.BadResource: message = 1061010; break; // You must select a special material in order to enhance an item with its properties.
+                        case ImbueResult.Broken: message = 1061080; break; // You attempt to enhance the item, but fail catastrophically. The item is lost.
+                        case ImbueResult.Failure: message = 1061082; break; // You attempt to enhance the item, but fail. Some material is lost in the process.
+                        case ImbueResult.Success: message = 1061008; break; // You enhance the item with the properties of the special material.
+                        case ImbueResult.NoSkill: message = 1044153; break; // You don't have the required skills to attempt this item.
+                       	case ImbueResult.Newbied: message = 1061011; break; // You cannot enhance this type of item with the properties of the selected special material.
+                    }
+
+                    if (mFromDoubleClick)
+                        from.SendLocalizedMessage((int)message);
+                    else
+                        from.SendGump(new CraftGump(from, mCraftSystem, mTool, message));
+                }
+            }
+        }
+         */
+    }
+
+}

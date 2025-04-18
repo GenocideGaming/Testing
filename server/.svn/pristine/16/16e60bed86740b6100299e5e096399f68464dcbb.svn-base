@@ -1,0 +1,96 @@
+using System;
+using Server.Mobiles;
+using Server.Network;
+using Server.Targeting;
+using Server.Scripts;
+
+namespace Server.Spells.Fifth
+{
+    public class SummonCreatureSpell : MagerySpell
+    {
+        private static SpellInfo m_Info = new SpellInfo(
+                "Summon Creature", "Kal Xen",
+                16,
+                false,
+                Reagent.Bloodmoss,
+                Reagent.MandrakeRoot,
+                Reagent.SpidersSilk
+            );
+
+        public override SpellCircle Circle { get { return SpellCircle.Fifth; } }
+
+        public SummonCreatureSpell(Mobile caster, Item scroll)
+            : base(caster, scroll, m_Info)
+        {
+        }
+
+        // NOTE: Creature list based on 1hr of summon/release on OSI.
+
+        private static Type[] m_Types = new Type[]
+			{                
+				typeof( PolarBear ),
+				typeof( GrizzlyBear ),
+				typeof( BlackBear ),
+				typeof( Horse ),
+				typeof( Walrus ),
+				typeof( Chicken ),
+				typeof( Scorpion ),
+				typeof( GiantSerpent ),
+				typeof( Llama ),
+				typeof( Alligator ),
+				typeof( GreyWolf ),
+				typeof( Slime ),
+				typeof( Eagle ),
+				typeof( Gorilla ),
+				typeof( SnowLeopard ),
+				typeof( Pig ),
+				typeof( Hind ),
+				typeof( Rabbit )                
+			};
+
+        public override bool CheckCast()
+        {
+            if (!base.CheckCast())
+                return false;
+
+            if ((Caster.Followers + 1) > Caster.FollowersMax)
+            {
+                Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
+                return false;
+            }
+
+            return true;
+        }
+
+        public override void OnCast()
+        {
+            if (CheckSequence())
+            {
+                try
+                {
+                    BaseCreature creature = (BaseCreature)Activator.CreateInstance(m_Types[Utility.Random(m_Types.Length)]);
+
+                    TimeSpan duration;
+
+                    int baseDuration = FeatureList.Followers.SummonBaseDuration;
+                    int durationBonus = (int)((Caster.Skills[SkillName.SpiritSpeak].Value / 100) * FeatureList.Followers.SpiritSpeakSummonDurationBonus);
+
+                    duration = TimeSpan.FromSeconds(baseDuration + durationBonus);
+
+                    SpellHelper.Summon(creature, Caster, 0x215, duration, false, false);
+                }
+
+                catch
+                {
+                }
+            }
+
+            FinishSequence();
+        }
+
+        public override TimeSpan GetCastDelay()
+        {
+            return base.GetCastDelay() + TimeSpan.FromSeconds(6.0);
+        }
+    }
+}

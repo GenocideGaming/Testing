@@ -1,0 +1,303 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Server.Scripts;
+
+namespace Server.Multis
+{
+    public class CalorTaxi : WaterTaxi
+    {
+        [Constructable]
+        public CalorTaxi() : base() { }
+        public override WaterTaxi.WaterTaxiWaypoint[] Waypoints
+        {
+            get
+            {
+                return new WaterTaxiWaypoint[]
+                { 
+                    new WaterTaxiWaypoint(new Point2D(1067, 1915), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1072, 1903)),
+                    new WaterTaxiWaypoint(new Point2D(1079, 1886)), new WaterTaxiWaypoint(new Point2D(1083, 1861)),
+                    new WaterTaxiWaypoint(new Point2D(1090, 1853)), 
+                    new WaterTaxiWaypoint(new Point2D(1101, 1854), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),
+                    new WaterTaxiWaypoint(new Point2D(1131, 1853)), new WaterTaxiWaypoint(new Point2D(1156, 1830)),
+                    new WaterTaxiWaypoint(new Point2D(1178, 1803)), new WaterTaxiWaypoint(new Point2D(1187, 1791)),
+                    new WaterTaxiWaypoint(new Point2D(1213, 1795), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1210, 1796)),
+                    new WaterTaxiWaypoint(new Point2D(1215, 1810)), new WaterTaxiWaypoint(new Point2D(1206, 1821)),
+                    new WaterTaxiWaypoint(new Point2D(1192, 1856)), new WaterTaxiWaypoint(new Point2D(1179, 1886)),
+                    new WaterTaxiWaypoint(new Point2D(1176, 1892), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1166, 1934)),
+                    new WaterTaxiWaypoint(new Point2D(1144, 1960)), new WaterTaxiWaypoint(new Point2D(1090, 1960)),
+                    new WaterTaxiWaypoint(new Point2D(1073, 1948)), new WaterTaxiWaypoint(new Point2D(1077, 1933)),
+                    new WaterTaxiWaypoint(new Point2D(1077, 1932))
+                };
+
+
+    
+            }
+        }
+
+        public CalorTaxi( Serial serial ) : base( serial )
+		{
+            Rename("Calor Water Taxi");
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+
+			int version = reader.ReadInt();
+
+            StartCourse(false, false);
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+
+			writer.Write( (int)0 );
+		}
+    }
+
+    public class GalvenTaxi : WaterTaxi
+    {
+        [Constructable]
+        public GalvenTaxi() : base() { }
+        public override WaterTaxi.WaterTaxiWaypoint[] Waypoints
+        {
+            get
+            {
+                return new WaterTaxiWaypoint[]
+                { 
+                    new WaterTaxiWaypoint(new Point2D(1329, 1405), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes), "The ship will be departing for the Galven Isles shortly.", false ),  
+                    new WaterTaxiWaypoint(new Point2D(1329, 1407)), 
+                    new WaterTaxiWaypoint(new Point2D(1320, 1423), true), 
+                    new WaterTaxiWaypoint(new Point2D(1266, 1148)),
+                    new WaterTaxiWaypoint(new Point2D(1266, 1163)), 
+                    new WaterTaxiWaypoint(new Point2D(1195, 1115)), 
+                    new WaterTaxiWaypoint(new Point2D(1170, 1105),  TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1103, 1090)), 
+                    new WaterTaxiWaypoint(new Point2D(1007, 1091),  TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(975, 1099), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(984, 1117)), 
+                    new WaterTaxiWaypoint(new Point2D(991, 1122)),
+                    new WaterTaxiWaypoint(new Point2D(1027, 1145), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1050, 1139)),
+                    new WaterTaxiWaypoint(new Point2D(1082, 1144)), 
+                    new WaterTaxiWaypoint(new Point2D(1085, 1165)),
+                    new WaterTaxiWaypoint(new Point2D(1116, 1190)), 
+                    new WaterTaxiWaypoint(new Point2D(1152, 1208)),
+                    new WaterTaxiWaypoint(new Point2D(1160, 1193), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1163, 1173)),
+                    new WaterTaxiWaypoint(new Point2D(1187, 1153)),
+                    new WaterTaxiWaypoint(new Point2D(1221, 1148)), 
+                    new WaterTaxiWaypoint(new Point2D(1266, 1163)),
+                    new WaterTaxiWaypoint(new Point2D(1266, 1148), true), 
+                    new WaterTaxiWaypoint(new Point2D(1320, 1423)), 
+                    new WaterTaxiWaypoint(new Point2D(1343, 1407)), 
+                    new WaterTaxiWaypoint(new Point2D(1329, 1405))
+                };
+
+            }
+        }
+
+        public GalvenTaxi(Serial serial)
+            : base(serial)
+        {
+            Rename("Cave taxi");
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+
+            StartCourse(false, false);
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0);
+        }
+    }
+
+    public class VermellTaxi : WaterTaxi
+    {
+        [Constructable]
+        public VermellTaxi() : base() { }
+        public override WaterTaxi.WaterTaxiWaypoint[] Waypoints
+        {
+            get
+            {
+                return new WaterTaxiWaypoint[]
+                { 
+                    new WaterTaxiWaypoint(new Point2D(1775, 1656), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes), "We Will be departing for the Vermellian Isands shortly.", false ),  
+                    new WaterTaxiWaypoint(new Point2D(1776, 1528)), 
+                    new WaterTaxiWaypoint(new Point2D(1745, 1454)), 
+                    new WaterTaxiWaypoint(new Point2D(1738, 1437), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),
+                    new WaterTaxiWaypoint(new Point2D(1725, 1390)), 
+                    new WaterTaxiWaypoint(new Point2D(1738, 1392), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),
+                    new WaterTaxiWaypoint(new Point2D(1750, 1390)),   
+                    new WaterTaxiWaypoint(new Point2D(1785, 1375)), 
+                    new WaterTaxiWaypoint(new Point2D(1837, 1415)), 
+                    new WaterTaxiWaypoint(new Point2D(1812, 1563)),  
+                    new WaterTaxiWaypoint(new Point2D(1802, 1789)), 
+                    new WaterTaxiWaypoint(new Point2D(1784, 1759)),
+                    new WaterTaxiWaypoint(new Point2D(1746, 1759), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(1732, 1759)),
+                    new WaterTaxiWaypoint(new Point2D(1732, 1745)), 
+                    new WaterTaxiWaypoint(new Point2D(1772, 1690))
+                };
+
+            }
+        }
+
+        public VermellTaxi(Serial serial)
+            : base(serial)
+        {
+            Rename("Cave taxi");
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+
+            StartCourse(false, false);
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0);
+        }
+    }
+
+    public class BowanTaxi : WaterTaxi
+    {
+        [Constructable]
+        public BowanTaxi() : base() { }
+        public override WaterTaxi.WaterTaxiWaypoint[] Waypoints
+        {
+            get
+            {
+                return new WaterTaxiWaypoint[]
+                { 
+                    new WaterTaxiWaypoint(new Point2D(834, 1829), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes), "We will be departing for the Western Isles shortly.", false ),  
+                    new WaterTaxiWaypoint(new Point2D(820, 1829)), 
+                    new WaterTaxiWaypoint(new Point2D(777, 1790)), 
+                    new WaterTaxiWaypoint(new Point2D(773, 1723)), 
+                    new WaterTaxiWaypoint(new Point2D(768, 1671)),
+                    new WaterTaxiWaypoint(new Point2D(769, 1654), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(790, 1610)),
+                    new WaterTaxiWaypoint(new Point2D(840, 1536)),   
+                    new WaterTaxiWaypoint(new Point2D(851, 1504), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)), 
+                    new WaterTaxiWaypoint(new Point2D(893, 1465)), 
+                    new WaterTaxiWaypoint(new Point2D(853, 1411)),  
+                    new WaterTaxiWaypoint(new Point2D(825, 1390)), 
+                    new WaterTaxiWaypoint(new Point2D(842, 1390), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),
+                    new WaterTaxiWaypoint(new Point2D(873, 1398)), 
+                    new WaterTaxiWaypoint(new Point2D(909, 1408), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),
+                    new WaterTaxiWaypoint(new Point2D(920, 1418)), 
+                    new WaterTaxiWaypoint(new Point2D(937, 1418)), 
+                    new WaterTaxiWaypoint(new Point2D(939, 1431), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),
+                    new WaterTaxiWaypoint(new Point2D(891, 1522)),   
+                    new WaterTaxiWaypoint(new Point2D(810, 1647)), 
+                    new WaterTaxiWaypoint(new Point2D(794, 1724)), 
+                    new WaterTaxiWaypoint(new Point2D(788, 1775)),  
+                    new WaterTaxiWaypoint(new Point2D(786, 1858)), 
+                    new WaterTaxiWaypoint(new Point2D(854, 1869)),
+                    new WaterTaxiWaypoint(new Point2D(883, 1831)), 
+                    new WaterTaxiWaypoint(new Point2D(855, 1830))
+                     
+                };
+
+            }
+        }
+
+        public BowanTaxi(Serial serial)
+            : base(serial)
+        {
+            Rename("Cave taxi");
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+
+            StartCourse(false, false);
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0);
+        }
+    }
+
+    public class AlbusTaxi : WaterTaxi
+    {
+        [Constructable]
+        public AlbusTaxi() : base() { }
+        public override WaterTaxi.WaterTaxiWaypoint[] Waypoints
+        {
+            get
+            {
+                return new WaterTaxiWaypoint[]
+                { 
+                    new WaterTaxiWaypoint(new Point2D(1190, 919), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes), "We will be departing for the North Docks shortly.", false ),  
+                    new WaterTaxiWaypoint(new Point2D(1180, 919)), 
+                    new WaterTaxiWaypoint(new Point2D(1151, 915)), 
+                    new WaterTaxiWaypoint(new Point2D(1118, 913)), 
+                    new WaterTaxiWaypoint(new Point2D(1080, 875)), 
+                    new WaterTaxiWaypoint(new Point2D(1027, 776)),
+                    new WaterTaxiWaypoint(new Point2D(927, 675)),  
+                    new WaterTaxiWaypoint(new Point2D(772, 606)),
+                    new WaterTaxiWaypoint(new Point2D(654, 586), TimeSpan.FromMinutes(FeatureList.WaterTaxis.DestinationWaitTimeInMinutes)),   
+                    new WaterTaxiWaypoint(new Point2D(604, 583)), 
+                    new WaterTaxiWaypoint(new Point2D(693, 542)), 
+                    new WaterTaxiWaypoint(new Point2D(773, 606)),  
+                    new WaterTaxiWaypoint(new Point2D(957, 752)), 
+                    new WaterTaxiWaypoint(new Point2D(1030, 895)),
+                    new WaterTaxiWaypoint(new Point2D(1137, 941)), 
+                    new WaterTaxiWaypoint(new Point2D(1198, 942)),
+                    new WaterTaxiWaypoint(new Point2D(1200, 928)), 
+                    new WaterTaxiWaypoint(new Point2D(1200, 919))
+                     
+                };
+
+            }
+        }
+
+        public AlbusTaxi(Serial serial)
+            : base(serial)
+        {
+            Rename("Cave taxi");
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+
+            StartCourse(false, false);
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0);
+        }
+    }
+}

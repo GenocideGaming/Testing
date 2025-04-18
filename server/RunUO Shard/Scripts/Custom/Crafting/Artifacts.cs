@@ -1,0 +1,811 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Server.Items;
+using Server.Engines.Craft;
+using Server.Network;
+using Server.Targeting;
+using Server.Scripts.Custom.Crafting;
+
+namespace Server.Items
+{
+    public class BaseArtifact : Item
+    {
+        public override int LabelNumber { get { return 1063520;  /*index into cliloc */ } }
+        public virtual int Level { get { return 0; } }
+
+        private CraftResource mResource;
+
+        public CraftResource Resource { get { return mResource; } set { mResource = value; } }
+
+        private bool mIdentified;
+
+        [CommandProperty(AccessLevel.GameMaster)]    
+        public bool Identified { get { return mIdentified; } set { mIdentified = value; } }
+
+        public override double DefaultWeight
+        {
+            get
+            {
+                return 0.1;
+            }
+        }
+
+        public BaseArtifact(CraftResource resource)
+            : base(0x1F1E)
+        {
+            mResource = resource;
+            mIdentified = false;
+        }
+     
+
+        public BaseArtifact(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)1); //version
+            writer.Write((bool)mIdentified);
+            writer.Write((int)mResource);
+
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+            switch (version)
+            {
+                case 1:
+                    mIdentified = reader.ReadBool();
+                    goto case 0;
+                case 0:
+                    mResource = (CraftResource)reader.ReadInt();
+                    break;
+            }
+            
+        }
+
+        public override void OnDoubleClick(Mobile from)
+        {
+            base.OnDoubleClick(from);
+
+            /*List<ImbuingTool> toolsInPack = from.Backpack.FindItemsByType<ImbuingTool>(true);
+
+            if (toolsInPack.Count == 0)
+            {
+                from.SendMessage("You must have a remarkable crafting tool in your backpack to imbue an item.");
+                return;
+            }
+            if (toolsInPack.Count > 1)
+            {
+                from.SendMessage("You may only have one remarkable tool in your pack at once to imbue an item.");
+                return;
+            }*/
+
+            //Imbue.BeginTargetFromDoubleClick(from, this, toolsInPack[0].CraftSystem, toolsInPack[0]);
+            if (!this.IsChildOf(from.Backpack))
+            {
+                from.SendLocalizedMessage(1061005); // must be on your person
+                return;
+            }
+            else if (Level > 1)
+            {
+                from.SendMessage("You must use a runic tool to apply this artifact");
+                return;
+            }
+            else
+            {
+                from.SendMessage("Target an item to enhance with the properties of this artifact.");
+                //from.BeginTarget(0, false, Targeting.TargetFlags.None, new TargetCallback(ItemTargetted));
+                from.Target = new InternalTarget(null, this.GetType(), this.Resource, true);
+            }
+        }
+
+        public InternalTarget GetArtifactTarget(ArtifactServiceContract contract)
+        {
+            return new InternalTarget(contract, this.GetType(), this.Resource, true);
+        }
+
+        public static CraftSystem GetCraftSystem(Item item) {
+            if (item == null) { return null; }
+
+            if (DefBlacksmithy.CraftSystem.CraftItems.SearchFor(item.GetType()) != null) 
+            {
+                return DefBlacksmithy.CraftSystem;
+            }
+            else if (DefCarpentry.CraftSystem.CraftItems.SearchFor(item.GetType()) != null) 
+            {
+                return DefCarpentry.CraftSystem;
+            }
+            else if (DefTailoring.CraftSystem.CraftItems.SearchFor(item.GetType()) != null) 
+            {
+                return DefTailoring.CraftSystem;
+            }
+            return null;
+        }
+
+        public override void OnSingleClick(Mobile from)
+        {
+            NetState ns = from.NetState;
+
+            if (ns != null)
+            {
+                ns.Send(new MessageLocalized(Serial, ItemID, MessageType.Label, 0x3B2, 3, LabelNumber, "", ""));
+            }
+        }
+
+        public class InternalTarget : Target
+        {
+            private ArtifactServiceContract mContract;
+            private Type mResourceType;
+            private CraftResource mResource;
+            private bool mFromDoubleClick;
+
+            public InternalTarget(ArtifactServiceContract contract, Type resourceType, CraftResource resource, bool fromDoubleClick)
+                : base(2, false, TargetFlags.None)
+            {
+                mContract = contract;
+                mResourceType = resourceType;
+                mResource = resource;
+                mFromDoubleClick = fromDoubleClick;
+            }
+
+            protected override void OnTarget(Mobile from, object targeted)
+            {
+                if (targeted is Item)
+                {
+                    object message = null;
+                    ImbueResult res = Imbue.Invoke(from, mContract, (Item)targeted, mResource, mResourceType, ref message);
+
+                    switch (res)
+                    {
+                        case ImbueResult.NotInBackpack: message = 1061005; break; // The item must be in your backpack to enhance it.
+                        case ImbueResult.AlreadyEnchanted: message = 1061012; break; // This item is already enhanced with the properties of a special material.
+                        case ImbueResult.BadItem: message = 1061011; break; // You cannot enhance this type of item with the properties of the selected special material.
+                        case ImbueResult.BadResource: message = 1061010; break; // You must select a special material in order to enhance an item with its properties.
+                        case ImbueResult.Broken: message = 1061080; break; // You attempt to enhance the item, but fail catastrophically. The item is lost.
+                        case ImbueResult.Failure: message = 1061082; break; // You attempt to enhance the item, but fail. Some material is lost in the process.
+                        case ImbueResult.Success: message = 1061008; break; // You enhance the item with the properties of the special material.
+                        case ImbueResult.NoSkill: message = 1044153; break; // You don't have the required skills to attempt this item.
+                        case ImbueResult.Newbied: message = 1061011; break; // You cannot enhance this type of item with the properties of the selected special material.
+                    }
+
+                    //if (mFromDoubleClick)
+                    if (message != null)
+                        from.SendLocalizedMessage((int)message);
+                    //else
+                    //    from.SendGump(new CraftGump(from, mCraftSystem, mTool, message));
+                }
+            }
+        }
+    }
+
+    
+  
+    public class ArtifactOfMight : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063491;  /*index into cliloc */ } }
+
+        public override int Level { get { return 0; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2201;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfMight() : base(CraftResource.ArtifactOfMight) { }
+
+        public ArtifactOfMight(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfForce : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063492;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2201;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfForce() : base(CraftResource.ArtifactOfForce) { }
+
+        public ArtifactOfForce(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfPower : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063493;  /*index into cliloc */ } }
+
+        public override int Level { get { return 2; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2201;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfPower() : base(CraftResource.ArtifactOfPower) { }
+
+        public ArtifactOfPower(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfVanquishing : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063494;  /*index into cliloc */ } }
+
+        public override int Level { get { return 3; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2201;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfVanquishing() : base(CraftResource.ArtifactOfVanquishing) { }
+
+        public ArtifactOfVanquishing(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfSurpassingAccuracy : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063501;  /*index into cliloc */ } }
+
+        public override int Level { get { return 0; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2213;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfSurpassingAccuracy() : base(CraftResource.ArtifactOfSurpassingAccuracy) { }
+
+        public ArtifactOfSurpassingAccuracy(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+    public class ArtifactOfEminentAccuracy : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063502;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2213;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfEminentAccuracy() : base(CraftResource.ArtifactOfEminentAccuracy) { }
+
+        public ArtifactOfEminentAccuracy(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+    public class ArtifactOfExceedingAccuracy : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063503;  /*index into cliloc */ } }
+
+        public override int Level { get { return 2; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2213;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfExceedingAccuracy() : base(CraftResource.ArtifactOfExceedingAccuracy) { }
+
+        public ArtifactOfExceedingAccuracy(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfSupremeAccuracy : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063504;  /*index into cliloc */ } }
+
+        public override int Level { get { return 3; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2213;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfSupremeAccuracy() : base(CraftResource.ArtifactOfSupremeAccuracy) { }
+
+        public ArtifactOfSupremeAccuracy(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfGuarding : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063506;  /*index into cliloc */ } }
+
+        public override int Level { get { return 0; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2219;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfGuarding() : base(CraftResource.ArtifactOfGuarding) { }
+
+        public ArtifactOfGuarding(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfHardening : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063507;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2219;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfHardening() : base(CraftResource.ArtifactOfHardening) { }
+
+        public ArtifactOfHardening(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+    public class ArtifactOfFortification : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063508;  /*index into cliloc */ } }
+
+        public override int Level { get { return 2; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2219;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfFortification() : base(CraftResource.ArtifactOfFortification) { }
+
+        public ArtifactOfFortification(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfInvulnerability : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063509;  /*index into cliloc */ } }
+
+        public override int Level { get { return 3; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2219;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfInvulnerability() : base(CraftResource.ArtifactofInvulnerability) { }
+
+        public ArtifactOfInvulnerability(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+    public class ArtifactOfSilver : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063510;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2207;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfSilver() : base(CraftResource.ArtifactOfUndeadSlayer) { }
+
+        public ArtifactOfSilver(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfElementalSlaying : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063511;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2207;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfElementalSlaying() : base(CraftResource.ArtifactOfElementalSlayer) { }
+
+        public ArtifactOfElementalSlaying(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfArachnidSlaying : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063512;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2207;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfArachnidSlaying() : base(CraftResource.ArtifactOfArachnidSlayer) { }
+
+        public ArtifactOfArachnidSlaying(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+
+    public class ArtifactOfRepondSlaying : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063513;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2207;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfRepondSlaying() : base(CraftResource.ArtifactOfRepondSlayer) { }
+
+        public ArtifactOfRepondSlaying(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+    public class ArtifactOfReptileSlaying : BaseArtifact
+    {
+        public override int LabelNumber { get { return 1063514;  /*index into cliloc */ } }
+
+        public override int Level { get { return 1; } }
+
+        [Hue, CommandProperty(AccessLevel.GameMaster)]
+        public override int Hue
+        {
+            get
+            {
+                return 2207;
+            }
+            set
+            {
+                base.Hue = value;
+            }
+        }
+
+        [Constructable]
+        public ArtifactOfReptileSlaying() : base(CraftResource.ArtifactOfReptileSlayer) { }
+
+        public ArtifactOfReptileSlaying(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+
+    }
+}

@@ -1,0 +1,104 @@
+using System;
+using System.Collections;
+using Server.Items;
+using Server.Targeting;
+
+namespace Server.Mobiles
+{
+	[CorpseName( "a skeletal corpse" )]
+	public class Skeleton : BaseCreature
+	{
+		[Constructable]
+		public Skeleton() : base( AIType.AI_Generic, FightMode.Closest, 10, 1, 0.2, 0.4 )
+		{
+			Name = "a skeleton";
+			Body = Utility.RandomList( 50, 56 );
+			BaseSoundID = 0x48D;
+
+			SetStr( 56, 80 );
+			SetDex( 56, 75 );
+			SetInt( 16, 40 );
+
+			SetHits( 50, 75 );
+
+			SetDamage( 3, 6 );
+
+            VirtualArmor = 15;
+
+            SetSkill(SkillName.Tactics, 100.0, 100.0);
+
+			SetSkill( SkillName.MagicResist, 20.0, 25.0 );
+			SetSkill( SkillName.Wrestling, 10.0, 15.0 );
+
+			Fame = 450;
+			Karma = -450;
+
+			switch (Utility.Random(3))
+			{
+				case 0: PackItem(new Bandage(1)); break;
+				case 1: PackItem(new Bandage(2)); break;
+				case 2: PackItem(new Bandage(3)); break;
+
+			}
+
+		}
+
+		public override void GenerateLoot()
+		{
+            base.PackAddGoldTier(1);
+            base.PackAddArtifactChanceTier(1);
+            base.PackAddMapChanceTier(1);
+
+			switch ( Utility.Random( 5 ))
+			{
+				case 0: PackItem( new BoneArms() ); break;
+				case 1: PackItem( new BoneChest() ); break;
+				case 2: PackItem( new BoneGloves() ); break;
+				case 3: PackItem( new BoneLegs() ); break;
+				case 4: PackItem( new BoneHelm() ); break;
+			}
+
+            if (0.1 > Utility.RandomDouble())
+                PackItem(new BoneDust());
+		}
+
+		public override bool BleedImmune{ get{ return true; } }
+		public override Poison PoisonImmune{ get{ return Poison.Lesser; } }
+
+		public Skeleton( Serial serial ) : base( serial )
+		{
+		}
+
+		public override OppositionGroup OppositionGroup
+		{
+			get{ return OppositionGroup.FeyAndUndead; }
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+			int version = reader.ReadInt();
+		}
+
+        public override void AggressiveAction(Mobile aggressor, bool criminal)
+        {
+            base.AggressiveAction(aggressor, criminal);
+
+            if (aggressor.HueMod == 1882)
+            {
+                AOS.Damage(aggressor, 50, 0, 100, 0, 0, 0);
+                aggressor.BodyMod = 0;
+                aggressor.HueMod = -1;
+                aggressor.FixedParticles(0x36BD, 20, 10, 5044, EffectLayer.Head);
+                aggressor.PlaySound(0x307);
+                aggressor.SendMessage("Your skin is scorched as the undead paint burns away!"); // Your skin is scorched as the tribal paint burns away!
+            }
+        }
+	}
+}

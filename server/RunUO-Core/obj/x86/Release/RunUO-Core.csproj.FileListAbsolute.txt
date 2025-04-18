@@ -1,0 +1,24 @@
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO Shard\RunUO.exe.config
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO Shard\RunUO.exe
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO Shard\RunUO.pdb
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CopyComplete
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO-Core\obj\x86\Release\RunUO.exe
+C:\Users\Admin\Documents\GitHub\Ravenous-Core\server\RunUO-Core\obj\x86\Release\RunUO.pdb
+C:\Ravenous\Ravenous Core\server\RunUO Shard\RunUO.exe.config
+C:\Ravenous\Ravenous Core\server\RunUO Shard\RunUO.exe
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.AssemblyReference.cache
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Release\RunUO.exe
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Release\RunUO.pdb
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO Shard\RunUO.exe.config
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO Shard\RunUO.exe
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO Shard\RunUO.pdb
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.AssemblyReference.cache
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.SuggestedBindingRedirects.cache
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CopyComplete
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO.exe
+C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO.pdb

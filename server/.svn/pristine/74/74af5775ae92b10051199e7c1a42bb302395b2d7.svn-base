@@ -1,0 +1,63 @@
+using System;
+using Server;
+using Server.Items;
+
+namespace Server.Mobiles
+{
+    [CorpseName("a fire elemental corpse")]
+    public class SummonedFireElemental : BaseCreature
+    {
+        public override double DispelDifficulty { get { return 117.5; } }
+        public override double DispelFocus { get { return 45.0; } }
+
+        [Constructable]
+        public SummonedFireElemental()
+            : base(AIType.AI_Generic, FightMode.Closest, 10, 1, 0.2, 0.4)
+        {
+            Name = "a fire elemental";
+            Body = 15;
+            BaseSoundID = 838;
+
+            SetStr(126, 155);
+            SetDex(166, 185);
+            SetInt(101, 125);
+
+            SetHits(125, 150);
+
+            SetDamage(7, 14);
+
+            VirtualArmor = 5;
+
+            SetSkill(SkillName.Tactics, 100.0, 100.0);
+
+            SetSkill(SkillName.EvalInt, 100.0, 100.0);
+            SetSkill(SkillName.Magery, 80.0, 85.0);
+            SetSkill(SkillName.MagicResist, 75.0, 75.0);
+            SetSkill(SkillName.Wrestling, 70.0, 75.0);
+
+            Fame = 4500;
+            Karma = -4500;
+
+            ControlSlots = 2;
+
+            AddItem(new LightSource());
+        }
+
+        public SummonedFireElemental(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+    }
+}

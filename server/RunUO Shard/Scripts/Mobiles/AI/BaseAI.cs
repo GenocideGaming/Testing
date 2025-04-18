@@ -1,0 +1,8358 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Server;
+using Server.Items;
+using Server.Targeting;
+using Server.Targets;
+using Server.Network;
+using Server.Regions;
+using Server.ContextMenus;
+using Server.Engines.Quests;
+using Server.Spells;
+using Server.Spells.First;
+using Server.Spells.Second;
+using Server.Spells.Third;
+using Server.Spells.Fourth;
+using Server.Spells.Fifth;
+using Server.Spells.Sixth;
+using Server.Spells.Seventh;
+using Server.Spells.Eighth;
+using Server.Scripts;
+using Server.Misc;
+
+using MoveImpl = Server.Movement.MovementImpl;
+
+namespace Server.Mobiles
+{
+    public enum AIType
+    {
+        AI_Use_Default,
+        AI_Generic,
+        AI_Melee,
+        AI_Animal,
+        AI_Archer,
+        AI_Healer,
+        AI_Vendor,
+        AI_Mage,
+        AI_Berserk,
+        AI_Predator,
+        AI_Thief
+    }
+
+    public enum AIGroup
+    {
+        MonsterGeneric,
+        EvilHuman,
+        NeutralHuman,
+        GoodHuman,
+        FactionHuman,
+        Undead,
+        Animal,
+        EvilAnimal,
+        Summoned,
+        Boss,
+        None
+    }
+
+    public enum AISubgroup
+    {
+        MeleeMage1,
+        MeleeMage2,
+        MeleeMage3,
+        MeleeMage4,
+        MeleeMage5,
+        Mage1,
+        Mage2,
+        Mage3,
+        Mage4,
+        Mage5,
+        GroupHealerMage1,
+        GroupHealerMage2,
+        GroupHealerMage3,
+        GroupHealerMage4,
+        GroupHealerMage5,
+        GroupHealerMeleeMage1,
+        GroupHealerMeleeMage2,
+        GroupHealerMeleeMage3,
+        GroupHealerMeleeMage4,
+        GroupHealerMeleeMage5,
+        GroupHealerMelee,
+        GroupMedicMelee,
+        GroupMedicRanged,
+        SuperPredator,
+        Predator,
+        Prey,
+        Berserk,
+        MeleePotion,
+        AntiArmor,
+        Ranged,
+        Scout,
+        Thief,
+        Assassin,
+        Bomber,
+        WanderingHealer,
+        DungeonGuardMelee,
+        DungeonGuardRanged,
+        None
+    }
+
+    public enum ActionType
+    {
+        Wander,
+        Combat,
+        Guard,
+        Flee,
+        Backoff,
+        Interact,
+        None
+    }
+
+    public enum CombatTargeting
+    {
+        OpposingFaction,
+        PlayerGood, //Includes ControlledMobiles
+        PlayerCriminal, //Includes ControlledMobiles
+        PlayerAny, //Includes ControlledMobiles
+        SuperPredator,
+        Predator,
+        Prey,
+        Good,
+        Neutral,
+        Evil,
+        Aggressor,
+        Any,
+        None
+    }
+
+    public enum CombatTargetingWeight
+    {
+        CurrentCombatant,
+        Closest,
+        HighestHitPoints,
+        LowestHitPoints,
+        HighestArmor,
+        LowestArmor,
+        Ranged,
+        Spellcaster,
+        Summoned,
+        Poisoner
+    }
+
+    public enum CombatRange
+    {
+        WeaponAttackRange,
+        SpellRange,
+        Withdraw
+    }
+
+    public enum CombatFlee
+    {
+        Flee75,
+        Flee50,
+        Flee25,
+        Flee10,
+        None
+    }
+
+    public enum CombatAction
+    {
+        AttackOnly,
+        CombatSpell,
+        CombatHealSelf,
+        CombatHealOther,
+        CombatSpecialAction,
+        None
+    }
+
+    public enum CombatSpell
+    {
+        SpellDamage1,
+        SpellDamage2,
+        SpellDamage3,
+        SpellDamage4,
+        SpellDamage5,
+        SpellDamage6,
+        SpellDamage7,
+        SpellDamageAOE7,
+        SpellPoison,
+        SpellNegative1to3,
+        SpellNegative4to7,
+        SpellSummon5,
+        SpellSummon8,
+        SpellDispelSummon,
+        SpellHarmfulField,
+        SpellNegativeField,
+        SpellBeneficial1to2,
+        SpellBeneficial3to4,
+        SpellBeneficial5,
+        None
+    }
+
+    public enum CombatHealSelf
+    {
+        SpellHealSelf75,
+        SpellHealSelf50,
+        SpellHealSelf25,
+        SpellCureSelf,
+        PotionHealSelf75,
+        PotionHealSelf50,
+        PotionHealSelf25,
+        PotionCureSelf,
+        BandageHealSelf75,
+        BandageHealSelf50,
+        BandageHealSelf25,
+        BandageCureSelf,
+        None
+    }
+
+    public enum CombatHealOther
+    {
+        SpellHealOther75,
+        SpellHealOther50,
+        SpellHealOther25,
+        SpellCureOther,
+        BandageHealOther75,
+        BandageHealOther50,
+        BandageHealOther25,
+        BandageCureOther,
+        None
+    }
+
+    public enum CombatSpecialAction
+    {
+        ApplyWeaponPoison,
+        PoisonHit,
+        ThrowBomb,
+        BreathAttack,
+        ThrowingKnife,
+        None
+    }
+
+    public enum GuardAction
+    {
+        DetectHidden,
+        SpellDispelSummon,
+        SpellReveal,
+        None
+    }
+
+    public enum WanderAction
+    {
+        DetectHidden,
+        SpellReveal,
+        Tracking,
+        Stealth,
+        SpellHealSelf100,
+        BandageHealSelf100,
+        PotionHealSelf100,
+        SpellHealOther100,
+        BandageHealOther100,
+        SpellCureSelf,
+        BandageCureSelf,
+        PotionCureSelf,
+        SpellCureOther,
+        BandageCureOther,
+        None
+    }
+
+    public enum InteractAction
+    {
+        Greeting,
+        None
+    }
+
+    public abstract class BaseAI
+    {
+        public Timer m_Timer;
+        protected ActionType m_Action;
+        private DateTime m_NextStopGuard;
+        private DateTime m_NextStopWithdraw;
+        private DateTime m_WalkRandomOutsideHome;
+        private DateTime m_WalkTowardsHome;
+        private int m_WithdrawDistance = 0;
+        private bool m_GuardModeTargetReady = false; //Whether Target was found in GuardMode (delay then fired off)
+        private bool m_WanderModeTargetReady = false; //Whether Target was found in wanderMode (delay then fired off)
+        private DateTime m_GuardModeTargetDelay; //Delay before acting upon discovering target while in GuardMode
+        private DateTime m_WanderModeTargetDelay; //Delay before acting upon discovering target while in WanderMode
+
+        private bool m_LowMana;
+
+        private CombatAction currentCombatAction = CombatAction.AttackOnly;
+        private CombatRange currentCombatRange = CombatRange.WeaponAttackRange;
+
+        private double HealthFledAt = 0; //Will be set when a Mobile flees (used to determine when gained enough health to rally)
+
+        public BaseCreature m_Mobile;
+
+        public BaseAI(BaseCreature m)
+        {
+            m_Mobile = m;
+
+            m_Timer = new AITimer(this);
+
+            bool activate;
+
+            if (!m.PlayerRangeSensitive)
+                activate = true;
+            else if (World.Loading)
+                activate = false;
+            else if (m.Map == null || m.Map == Map.Internal || !m.Map.GetSector(m).Active)
+                activate = false;
+            else
+                activate = true;
+
+            if (activate)
+                m_Timer.Start();
+
+            Action = ActionType.Wander;
+        }
+
+        private class AITimer : Timer
+        {
+            private BaseAI m_Owner;
+
+            public AITimer(BaseAI owner)
+                : base(TimeSpan.FromSeconds(Utility.RandomDouble()), TimeSpan.FromSeconds(Math.Max(0.0, owner.m_Mobile.CurrentSpeed)))
+            {
+                m_Owner = owner;
+
+                m_Owner.m_NextDetectHidden = DateTime.Now;
+
+                Priority = TimerPriority.FiftyMS;
+            }
+
+            protected override void OnTick()
+            {
+                if (m_Owner.m_Mobile.Deleted)
+                {
+                    Stop();
+                    return;
+                }
+
+                if (m_Owner.m_Mobile.NetState != null) // ADDED THIS MONSTER IS POSSESSED
+                {
+                    return;
+                }
+
+                else if (m_Owner.m_Mobile.Map == null || m_Owner.m_Mobile.Map == Map.Internal)
+                {
+                    return;
+                }
+
+                else if (m_Owner.m_Mobile.PlayerRangeSensitive)
+                {
+                    Sector sect = m_Owner.m_Mobile.Map.GetSector(m_Owner.m_Mobile);
+
+                    if (!sect.Active)
+                    {
+                        m_Owner.Deactivate();
+                        return;
+                    }
+                }
+
+                //Mobile Unique OnThink Actions: Breath Attack, Rummage, Etc
+                m_Owner.m_Mobile.OnThink();
+
+                if (m_Owner.m_Mobile.Deleted)
+                {
+                    Stop();
+
+                    return;
+                }
+
+                else if (m_Owner.m_Mobile.Map == null || m_Owner.m_Mobile.Map == Map.Internal)
+                {
+                    return;
+                }
+
+                else
+                {
+                    //Think()
+                    if (!m_Owner.Think())
+                    {
+                        Stop();
+
+                        return;
+                    }
+                }
+            }
+        }
+
+        //NOTE: Change to Action Mode
+        public ActionType Action
+        {
+            get
+            {
+                return m_Action;
+            }
+
+            set
+            {
+                m_Action = value;
+            }
+        }
+
+        //Action Selection and Initialization
+        public virtual bool Think()
+        {
+            //Checks If Mobile is Follower Owned By Player And Player's Current Status
+            GetReactionToPlayerStatus();
+
+            //Normal Creature Behavior
+            if (!m_Mobile.Controlled)
+            {
+                switch (Action)
+                {
+                    case ActionType.Combat:
+                        DoCombatAction();
+                        break;
+
+                    case ActionType.Guard:
+                        DoGuardAction();
+                        break;
+
+                    case ActionType.Wander:
+                        DoWanderAction();
+                        break;
+
+                    //No Longer Used
+                    case ActionType.Backoff:
+                        break;
+
+                    case ActionType.Flee:
+                        DoFleeAction();
+                        break;
+
+                    case ActionType.Interact:
+                        //DoInteractAction();
+                        break;
+                }
+            }
+
+            //Controlled Creature
+            else
+            {
+                switch (m_Mobile.ControlOrder)
+                {
+                    case OrderType.Attack:
+                        DoOrderAttack();
+                        break;
+
+                    case OrderType.Patrol:
+                        DoOrderPatrol();
+                        break;
+
+                    case OrderType.Guard:
+                        DoOrderGuard();
+                        break;
+
+                    case OrderType.Come:
+                        DoOrderCome();
+                        break;
+
+                    case OrderType.Follow:
+                        DoOrderFollow();
+                        break;
+
+                    case OrderType.Stay:
+                        DoOrderStay();
+                        break;
+
+                    case OrderType.Stop:
+                        DoOrderStop();
+                        break;
+
+                    case OrderType.None:
+                        DoOrderNone();
+                        break;
+
+                    case OrderType.Drop:
+                        DoOrderDrop();
+                        break;
+
+                    case OrderType.Friend:
+                        DoOrderFriend();
+                        break;
+
+                    case OrderType.Unfriend:
+                        DoOrderUnfriend();
+                        break;
+
+                    case OrderType.Release:
+                        DoOrderRelease();
+                        break;
+
+                    case OrderType.Transfer:
+                        DoOrderTransfer();
+                        break;
+                }
+            }
+
+            return true;
+        }
+
+        public void CombatMode()
+        {
+            Action = ActionType.Combat;
+
+            m_Mobile.Warmode = true;
+            m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+
+            m_Mobile.NextDecisionTime = DateTime.Now;
+        }
+
+        public void GuardMode()
+        {
+            Action = ActionType.Guard;
+
+            m_Mobile.Warmode = false;
+            m_Mobile.FocusMob = null;
+            m_Mobile.Combatant = null;
+
+            m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+
+            m_NextStopGuard = DateTime.Now + TimeSpan.FromSeconds(10);
+            m_Mobile.NextDecisionTime = DateTime.Now;
+
+            m_GuardModeTargetReady = false;
+            m_GuardModeTargetDelay = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.GuardModeTargetDelay);
+        }
+
+        public void FleeMode()
+        {
+            Action = ActionType.Flee;
+
+            m_Mobile.Warmode = true;
+            m_Mobile.FocusMob = null;
+
+            //Cancel Bandaging
+            if (m_Mobile.DoingBandage)
+            {
+                BandageFail();
+            }
+
+            m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed * FeatureList.BaseCreatureAI.FleeSpeedModifier;
+
+            m_NextStopWithdraw = DateTime.Now;
+            m_Mobile.NextDecisionTime = DateTime.Now;
+        }
+
+        public void WanderMode()
+        {
+            Action = ActionType.Wander;
+
+            m_Mobile.Warmode = false;
+            m_Mobile.Combatant = null;
+            m_Mobile.FocusMob = null;
+            m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+
+            m_Mobile.NextDecisionTime = DateTime.Now;
+
+            m_WalkRandomOutsideHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit);
+            m_WalkTowardsHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit + FeatureList.BaseCreatureAI.WalkTowardsHomeLimit);
+
+            m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+            m_Mobile.NextWanderActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WanderActionDelay);
+
+            m_WanderModeTargetReady = false;
+            m_WanderModeTargetDelay = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WanderModeTargetDelay);
+        }
+
+        public void InteractMode()
+        {
+            Action = ActionType.Interact;
+
+            m_Mobile.Warmode = false;
+            m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+
+            m_Mobile.NextDecisionTime = DateTime.Now;
+        }
+
+        //Follower Order Changed
+        public virtual void OnCurrentOrderChanged()
+        {
+            if (m_Mobile is EnergyVortex || m_Mobile is BladeSpirits)
+                return;
+
+            switch (m_Mobile.ControlOrder)
+            {
+                case OrderType.Attack:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        m_Mobile.ControlMaster.RevealingAction();
+                    }
+
+                    m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = true;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+                    break;
+
+                case OrderType.Patrol:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        m_Mobile.ControlMaster.RevealingAction();
+                    }
+
+                    m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+                    break;
+
+                case OrderType.Guard:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        string petname = String.Format("{0}", m_Mobile.Name);
+                        m_Mobile.ControlMaster.RevealingAction();
+                        m_Mobile.ControlMaster.SendLocalizedMessage(1049671, petname);	//~1_PETNAME~ is now guarding you.
+                    }
+
+                    m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = true;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+                    break;
+
+                case OrderType.Come:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        m_Mobile.ControlMaster.RevealingAction();
+                    }
+
+                    m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+
+                    m_Mobile.ControlDest = m_Mobile.ControlMaster != null ? m_Mobile.ControlMaster.Location : m_Mobile.Location;
+                    break;
+
+                case OrderType.Follow:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        m_Mobile.ControlMaster.RevealingAction();
+                    }
+
+                    m_Mobile.CurrentSpeed = m_Mobile.ActiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+                    break;
+
+                case OrderType.Stay:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        m_Mobile.ControlMaster.RevealingAction();
+                    }
+
+                    m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.FocusMob = null;
+
+                    m_Mobile.Home = m_Mobile.Location;
+                    m_Mobile.ControlDest = m_Mobile.ControlMaster != null ? m_Mobile.ControlMaster.Location : m_Mobile.Home;
+                    break;
+
+                case OrderType.Stop:
+                    if (m_Mobile.ControlMaster != null)
+                    {
+                        m_Mobile.ControlMaster.RevealingAction();
+                    }
+
+                    m_Mobile.Aggressors.Clear();
+
+                    m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+
+                    m_Mobile.Home = m_Mobile.Location;
+                    m_Mobile.ControlDest = m_Mobile.ControlMaster != null ? m_Mobile.ControlMaster.Location : m_Mobile.Home;
+                    break;
+
+                case OrderType.None:
+                    m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.FocusMob = null;
+                    m_Mobile.Combatant = null;
+
+                    m_Mobile.Home = m_Mobile.Location;
+                    m_Mobile.ControlDest = m_Mobile.Location;
+                    break;
+
+                case OrderType.Drop:
+                    m_Mobile.ControlMaster.RevealingAction();
+                    m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+                    m_Mobile.Warmode = true;
+                    m_Mobile.Combatant = null;
+                    break;
+
+                case OrderType.Friend:
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    break;
+
+                case OrderType.Unfriend:
+                    if (m_Mobile.ControlMaster != null)
+                        m_Mobile.ControlMaster.RevealingAction();
+
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    break;
+
+                case OrderType.Release:
+                    if (m_Mobile.ControlMaster != null)
+                        m_Mobile.ControlMaster.RevealingAction();
+
+                    m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.Combatant = null;
+                    break;
+
+                case OrderType.Transfer:
+                    if (m_Mobile.ControlMaster != null)
+                        m_Mobile.ControlMaster.RevealingAction();
+
+                    m_Mobile.CurrentSpeed = m_Mobile.PassiveSpeed;
+                    m_Mobile.NextDecisionTime = DateTime.Now;
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    m_Mobile.Warmode = false;
+                    m_Mobile.Combatant = null;
+                    break;
+            }
+        }
+
+        public bool DoCombatAction()
+        {
+            bool validCombatant = false;
+            bool validControlMaster = false;
+            bool MobileIsFollower = false;
+            bool bandagingOther = false;
+            bool Provoked = false;
+            bool validWeapon = false;
+
+            double manaAmount = m_Mobile.Mana;
+            double manaPercent = (manaAmount / m_Mobile.ManaMax) * 100;
+
+            //Was Pacified Earlier
+            if (m_Mobile.BardPacified)
+            {
+                //Still Pacified
+                if (CheckBardPacified())
+                {
+                    WanderMode();
+
+                    return true;
+                }
+            }
+
+            //Check for Provocation Expiration
+            if (m_Mobile.BardProvoked)
+            {
+                //Check For Other Provoke Conditions (Reset Combatant As Well)
+                if (CheckBardProvoked())
+                {
+                    Provoked = true;
+                }
+
+                //No Longer Provoked
+                else
+                {
+                }
+            }
+
+            //Low Mana Check (Used to determine if Spellcasters should ignore SpellRange and Close to Melee
+            if (manaAmount < 20 || (manaPercent <= FeatureList.BaseCreatureAI.LowManaPercent))
+            {
+                //If Creature Will Normally Cast Spells
+                if (m_Mobile.DictCombatAction[CombatAction.CombatSpell] > 0)
+                {
+                    m_LowMana = true;
+                }
+            }
+
+            else
+            {
+                m_LowMana = false;
+            }
+
+            BaseWeapon weapon = m_Mobile.Weapon as BaseWeapon;
+
+            if (weapon != null)
+                validWeapon = true;
+
+            //Check if Mobile Possibly Invalid Combatant Somehow
+            if (m_Mobile == null)
+                return false;
+
+            if (!m_Mobile.Alive)
+                return false;
+
+            if (m_Mobile.Deleted)
+                return false;
+
+            if (m_Mobile.IsDeadBondedPet)
+                return false;
+
+            //If Attempting to Reach Someone Else for Bandaging But Never Got Close Enough to Start Before Timeout
+            if (m_Mobile.DoingBandage && m_Mobile.HealTarget != null && m_Mobile.HealTarget != m_Mobile && (DateTime.Now > m_Mobile.BandageTimeout))
+            {
+                BandageFail();
+            }
+
+            //Automatic Bandage Fail For Healing Other if Provoked
+            else if (m_Mobile.HealTarget != m_Mobile && Provoked)
+            {
+                BandageFail();
+            }
+
+            //Check if Bandaging Or Attempting to Bandage Someone Else
+            if (m_Mobile.DoingBandage)
+            {
+                //Bandaging Target Still Valid: Also Must Still be Within Range Perception
+                if (m_Mobile.HealTarget != null && (m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget) <= (double)m_Mobile.RangePerception) && m_Mobile.HealTarget.Alive && !m_Mobile.HealTarget.Deleted && m_Mobile.Map == m_Mobile.HealTarget.Map && !m_Mobile.HealTarget.IsDeadBondedPet && m_Mobile.CanSee(m_Mobile.HealTarget))
+                {
+                    //Bandaging Self
+                    if (m_Mobile.HealTarget == m_Mobile)
+                    {
+                    }
+
+                    //First Time Within Range of Healing Target: Being Bandaging
+                    else if (m_Mobile.BandageOtherReady && m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget) < 2)
+                    {
+                        StartBandageHeal(m_Mobile.HealTarget);
+                        bandagingOther = true;
+                    }
+
+                    //Continuing To Bandage Other
+                    else
+                    {
+                        bandagingOther = true;
+                    }
+                }
+
+                //Bandaging Target Now Invalid
+                else
+                {
+                    BandageFail();
+                }
+            }
+
+            //Determine if Current Combatant is Valid
+            if (m_Mobile.Combatant != null && m_Mobile.Combatant.Alive && !m_Mobile.Combatant.Deleted && m_Mobile.Map == m_Mobile.Combatant.Map && !m_Mobile.Combatant.IsDeadBondedPet)
+            {
+                validCombatant = true;
+            }
+
+            //Determine If Mobile is Follower
+            if (m_Mobile.Controlled)
+            {
+                MobileIsFollower = true;
+
+                //Determine if Valid ControlMaster Exists for Follower For Normal Behavior
+                if (m_Mobile.ControlMaster != null && !m_Mobile.ControlMaster.Deleted && m_Mobile.ControlMaster.Map == m_Mobile.Map && m_Mobile.ControlMaster.Alive)
+                {
+                    validControlMaster = true;
+                }
+            }
+
+            //Check for Flee 
+            if (!MobileIsFollower)
+            {
+                //Flee Check
+                FleeCheck();
+
+                //Exit Order If Fleeing (FleeAction Will Have Its Own Movement)
+                if (Action == ActionType.Flee)
+                {
+                    return false;
+                }
+            }
+
+            //Withdraw Timer Expired            
+            if (m_NextStopWithdraw <= DateTime.Now && currentCombatRange == CombatRange.Withdraw)
+            {
+                //Return to DefaultRange                
+                currentCombatRange = GetDefaultCombatRange();
+            }
+
+            //Check If Currently Withdrawing
+            else if (m_NextStopWithdraw > DateTime.Now && currentCombatRange == CombatRange.Withdraw)
+            {
+                //Has No Valid Combatant
+                if (!validCombatant)
+                {
+                    //Stop Withdraw Timer
+                    m_NextStopWithdraw = DateTime.Now;
+
+                    //Return to DefaultRange                
+                    currentCombatRange = GetDefaultCombatRange();
+                }
+
+                //Has Valid Combatant
+                else
+                {
+                    //Sufficiently Withdrawn From Combatant
+                    if (m_Mobile.GetDistanceToSqrt(m_Mobile.Combatant) >= m_WithdrawDistance)
+                    {
+                        //Stop Withdraw Timer
+                        m_NextStopWithdraw = DateTime.Now;
+
+                        //Return to DefaultRange                
+                        currentCombatRange = GetDefaultCombatRange();
+                    }
+
+                    //Will Do Withdraw Movement Later
+                    else
+                    {
+                    }
+                }
+            }
+
+            //Ready For Normal Behavior: Won't make decisions if Withdrawing
+            if (DateTime.Now >= m_NextStopWithdraw && currentCombatRange != CombatRange.Withdraw)
+            {
+                //Ready for New Decision
+                if ((DateTime.Now > m_Mobile.NextDecisionTime) && m_Mobile.Spell == null)
+                {
+                    //If not a Follower
+                    if (!MobileIsFollower)
+                    {
+                        //If Not Provoked
+                        if (!Provoked)
+                        {
+                            //Check For New Target
+                            if (AcquireFocusMob(true))
+                            {
+                                m_Mobile.Combatant = m_Mobile.FocusMob;
+
+                                //Double Check Combatant Here
+                                if (m_Mobile.Combatant != null)
+                                {
+                                    m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+                                    m_Mobile.LastEnemyLocation = m_Mobile.Combatant.Location;
+
+                                    validCombatant = true;
+                                }
+
+                                //If Combatant was deleted we go into guard mode
+                                else
+                                {
+                                    GuardMode();
+                                    if (m_Mobile.Debug) { m_Mobile.DebugSay("Combatant was deleted to Guardmode"); }
+                                    return true;
+                                }
+                            }
+
+                            //Cant Find A Target, Go Into Guard Mode
+                            else
+                            {
+                                validCombatant = false;
+                                if (m_Mobile.CurrentWayPoint == null && m_Mobile.TargetLocation == null) // if it isn't null, start going after the waypoint again rather than guard mode
+                                {
+                                    if (m_Mobile.Debug) { m_Mobile.DebugSay("Cant Find A Target to Guard mode"); }
+                                    GuardMode();
+                                }
+                                else
+                                    WanderMode();
+                                return true;
+                            }
+                        }
+
+                        //Not Provoked
+                        else
+                        {
+                            //Has Valid Combatant
+                            if (validCombatant)
+                            {
+                                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+                            }
+                        }
+                    }
+
+                    //Is Follower
+                    else
+                    {
+                        //Has Valid Combatant
+                        if (validCombatant)
+                        {
+                            m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+                        }
+                    }
+
+                    currentCombatAction = GetCombatAction();
+                    currentCombatRange = GetCombatRange();
+
+                    m_Mobile.NextDecisionTime = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.DecisionTimeDelay);
+                }
+            }
+
+            //Resolve Movement
+            bool validMovement = true;
+
+            if (!CheckMove() || m_Mobile.DisallowAllMoves)
+            {
+                validMovement = false;
+            }
+
+            //If Mobile Has Valid Combatant, Isn't Casting, and Not Doing Bandage On Someone
+            if (validCombatant && m_Mobile.Spell == null && !bandagingOther)
+            {
+                //If Follower
+                if (MobileIsFollower)
+                {
+                    //Follower Has Order With Movement 
+                    if (m_Mobile.ControlOrder == OrderType.Attack || m_Mobile.ControlOrder == OrderType.Guard)
+                    {
+                        //ControlMaster Exists
+                        if (validControlMaster)
+                        {
+                            //Mobile Out of Sight Range of Master
+                            if (m_Mobile.GetDistanceToSqrt(m_Mobile.ControlMaster) > m_Mobile.RangePerception)
+                            {
+                                validMovement = false;
+                            }
+                        }
+
+                        //ControlMaster Doesn't Exist
+                        else
+                        {
+                            //Mobile Out of Sight Range of It's "Home"
+                            if (m_Mobile.GetDistanceToSqrt(m_Mobile.Home) > m_Mobile.RangePerception)
+                            {
+                                validMovement = false;
+                            }
+                        }
+                    }
+
+                    //Follower Has Patrol Order
+                    else if (m_Mobile.ControlOrder == OrderType.Patrol)
+                    {
+                        //Mobile Outside of Sight Range of Patrol Point
+                        if (m_Mobile.GetDistanceToSqrt(m_Mobile.ControlDest) > m_Mobile.RangePerception)
+                        {
+                            validMovement = false;
+                        }
+
+                        //Mobile Outside of Range of Master
+                        else if (validControlMaster && m_Mobile.GetDistanceToSqrt(m_Mobile.ControlMaster) > m_Mobile.RangePerception)
+                        {
+                            validMovement = false;
+                        }
+                    }
+
+                    //Follower Has Stay Order
+                    else if (m_Mobile.ControlOrder == OrderType.Stay)
+                    {
+                        validMovement = false;
+                    }
+                }
+
+                //DoMovement
+                if (validMovement && validCombatant)
+                {
+                    //Distance to Combatant         
+                    int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.Combatant);
+
+                    bool bRun = (iCurrDist > 5);
+
+                    //Do Movement Based on Desired Combat Range
+                    switch (currentCombatRange)
+                    {
+                        case CombatRange.WeaponAttackRange:
+                            //Has Valid Weapon
+                            if (validWeapon)
+                            {
+                                //Outside of Weapon Range Or Can't See Target
+                                if (iCurrDist > weapon.DefMaxRange || !m_Mobile.InLOS(m_Mobile.Combatant))
+                                {
+                                    WalkMobileRange(m_Mobile.Combatant, 1, bRun, 0, 1);
+                                }
+                            }
+
+                            //Weapon Invalid for Some Reason: Assume Mobile Need's to Be Next to Target
+                            else
+                            {
+                                WalkMobileRange(m_Mobile.Combatant, 1, bRun, 0, 1);
+                            }
+
+                            break;
+
+                        case CombatRange.SpellRange:
+                            //Outside of Spell Range or Can't See Target
+                            if ((iCurrDist > FeatureList.BaseCreatureAI.CreatureSpellRange) || !m_Mobile.InLOS(m_Mobile.Combatant))
+                            {
+                                WalkMobileRange(m_Mobile.Combatant, 1, bRun, 0, 1);
+                            }
+                            break;
+
+                        case CombatRange.Withdraw:
+                            //Get Default Withdraw Distance
+                            m_WithdrawDistance = FeatureList.BaseCreatureAI.CreatureWithdrawRange;
+
+                            //If Mobile Casts Spells
+                            if (m_Mobile.DictCombatAction[CombatAction.CombatSpell] > 0)
+                            {
+                                //Increase Withdraw Range to Spell Distance
+                                if (m_WithdrawDistance < FeatureList.BaseCreatureAI.CreatureSpellRange)
+                                {
+                                    m_WithdrawDistance = FeatureList.BaseCreatureAI.CreatureSpellRange;
+                                }
+                            }
+
+                            //If Mobile Has Weapon Equipped
+                            if (weapon != null)
+                            {
+                                //Can Back Up Further
+                                if (m_WithdrawDistance < weapon.DefMaxRange)
+                                {
+                                    BaseRanged rangedWeapon = weapon as BaseRanged;
+
+                                    //If Using a Ranged Weapon: Attempt to Stay up to 1 Space from Max Range (to prevent weird kiting withdraw movement)
+                                    if (rangedWeapon != null && rangedWeapon.DefMaxRange > 4)
+                                    {
+                                        m_WithdrawDistance = rangedWeapon.DefMaxRange - 1;
+                                    }
+
+                                    else
+                                    {
+                                        m_WithdrawDistance = weapon.DefMaxRange;
+                                    }
+                                }
+                            }
+
+                            //Attempt to Move to Withdraw Distance
+                            if (iCurrDist < m_WithdrawDistance)
+                            {
+                                Direction d = m_Mobile.Combatant.GetDirectionTo(m_Mobile);
+
+                                double WithdrawDirectionChance = Utility.RandomDouble();
+
+                                if (WithdrawDirectionChance < .75)
+                                {
+                                    d = (Direction)(int)d;
+                                }
+
+                                else if (WithdrawDirectionChance < .90)
+                                {
+                                    d = (Direction)((int)d + Utility.RandomMinMax(-1, +1));
+                                }
+
+                                else
+                                {
+                                    d = (Direction)((int)d + Utility.RandomMinMax(-2, +2));
+                                }
+
+                                m_Mobile.Move(d);
+                            }
+                            break;
+                    }
+                }
+            }
+
+            //Following and Bandaging a Target
+            else if (bandagingOther)
+            {
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget);
+
+                bool bRun = (iCurrDist > 5);
+
+                WalkMobileRange(m_Mobile.HealTarget, 1, bRun, 0, 1);
+            }
+
+            return true;
+        }
+
+        public bool DoGuardAction()
+        {
+            bool bandagingOther = false;
+            bool pacified = CheckBardPacified();
+
+            //If Not Pactified
+            if (!pacified)
+            {
+                //Check for New Target
+                if (AcquireFocusMob(false))
+                {
+                    //Look at Potential Target 	 	
+                    m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.FocusMob);
+
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    //If No Previous Target Found Yet 	 	
+                    if (!m_GuardModeTargetReady)
+                    {
+                        m_GuardModeTargetReady = true;
+
+                        NextMove = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.DecisionTimeDelay);
+
+                        m_GuardModeTargetDelay = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.GuardModeTargetDelay);
+                    }
+
+                   //Already Acquired a Target, and Targeting Delay Passed 		
+                    else if (m_GuardModeTargetReady && DateTime.Now > m_GuardModeTargetDelay)
+                    {
+                        m_GuardModeTargetReady = false;
+                        m_Mobile.Combatant = m_Mobile.FocusMob;
+
+                        CombatMode();
+                    }
+
+                    return true;
+                }
+            }
+
+            //Pacified
+            else
+            {
+                m_GuardModeTargetReady = false;
+                m_GuardModeTargetDelay = DateTime.Now;
+            }
+
+            //Target Expired: Previously acquired target but lost it at before wait delay expired
+            if (DateTime.Now > m_GuardModeTargetDelay + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.GuardModeTargetDelay * 2))
+            {
+                m_GuardModeTargetReady = false;
+                m_GuardModeTargetDelay = DateTime.Now;
+            }
+
+            //Guard Mode Expired or Pacified
+            if (DateTime.Now > m_NextStopGuard || pacified)
+            {
+                WanderMode();
+
+                return true;
+            }
+
+            //If Attempting to Reach Someone Else for Bandaging But Never Started Before Timeout
+            if (m_Mobile.DoingBandage && m_Mobile.HealTarget != m_Mobile && (DateTime.Now > m_Mobile.BandageTimeout))
+            {
+                BandageFail();
+            }
+
+            //Check if Bandaging Or Attempting to Bandage Someone Else
+            if (m_Mobile.DoingBandage)
+            {
+                //Bandaging Target Still Valid: Also Must Still be Within Range Perception
+                if (m_Mobile.HealTarget != null && (m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget) <= (double)m_Mobile.RangePerception) && m_Mobile.HealTarget.Alive && !m_Mobile.HealTarget.Deleted && m_Mobile.Map == m_Mobile.HealTarget.Map && !m_Mobile.HealTarget.IsDeadBondedPet && m_Mobile.CanSee(m_Mobile.HealTarget))
+                {
+                    //Bandaging Self
+                    if (m_Mobile.HealTarget == m_Mobile)
+                    {
+                    }
+
+                    //First Time Within Range of Healing Target: Being Bandaging
+                    else if (m_Mobile.BandageOtherReady && m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget) < 2)
+                    {
+                        StartBandageHeal(m_Mobile.HealTarget);
+                        bandagingOther = true;
+                    }
+
+                    //Continuing To Bandage Other
+                    else
+                    {
+                        bandagingOther = true;
+                    }
+                }
+
+                //Bandaging Target Now Invalid
+                else
+                {
+                    BandageFail();
+                }
+            }
+
+            //If Bandaging Someone Else
+            if (bandagingOther)
+            {
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget);
+
+                bool bRun = (iCurrDist > 5);
+
+                WalkMobileRange(m_Mobile.HealTarget, 1, bRun, 0, 1);
+
+                return true;
+            }
+
+            //Normal Guard Mode Movement
+            else
+            {
+                //Walks Near Last Known Enemy Location Area
+                double distanceToLastEnemyLocation = m_Mobile.GetDistanceToSqrt(m_Mobile.LastEnemyLocation);
+
+                if (!pacified && m_Mobile.LastEnemyLocation != new Point3D(0, 0, 0) && distanceToLastEnemyLocation < 50)
+                {
+                    //Within Half Perception Distance of Last Enemy Known Location
+                    if (distanceToLastEnemyLocation <= ((double)m_Mobile.RangePerception / 2))
+                    {
+                        WalkRandomAtPoint(m_Mobile.LastEnemyLocation, 2, 2, 1);
+                    }
+
+                    //More Than Half Perception Distance From Location: Move Towards It
+                    else
+                    {
+                        bool bRun = (distanceToLastEnemyLocation > 5);
+
+                        WalkTo(m_Mobile.LastEnemyLocation, 1, bRun, 0, 1);
+                    }
+                }
+
+                //Walk Randomly
+                else
+                {
+                    WalkRandom(2, 2, 1);
+                }
+
+                GetGuardAction();
+            }
+
+            return true;
+        }
+
+        public bool DoWanderAction()
+        {
+            bool bandagingOther = false;
+            bool pacified = false;
+
+            //Currently Pacified
+            if (m_Mobile.BardPacified)
+            {
+                //Still Pacified
+                if (CheckBardPacified())
+                {
+                    pacified = true;
+                }
+
+                //Pacified Timer Expired (Restart Return Home Countdown)
+                else
+                {
+                    m_WalkRandomOutsideHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit);
+                    m_WalkTowardsHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit + FeatureList.BaseCreatureAI.WalkTowardsHomeLimit);
+                }
+            }
+
+            //If Not Pacified and isn't ForceWaypoint with a valid Waypoint
+            if (!pacified 
+                && ((m_Mobile.CurrentWayPoint != null || m_Mobile.TargetLocation != null) && m_Mobile.ForceWaypoint) == false)
+            {
+                //Check For Targets
+                if (AcquireFocusMob(false))
+                {
+                    //Look at Potential Target
+                    m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.FocusMob);
+
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    //If No Previous Target Found Yet
+                    if (!m_WanderModeTargetReady)
+                    {
+                        m_WanderModeTargetReady = true;
+
+                        NextMove = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WanderModeTargetDelay); //Keep Standing Still Until Acting.
+
+                        m_WanderModeTargetDelay = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WanderModeTargetDelay);
+                    }
+
+                    //Already Acquired a Target, and Targeting Delay Passed
+                    else if (m_WanderModeTargetReady && DateTime.Now > m_WanderModeTargetDelay)
+                    {
+                        m_WanderModeTargetReady = false;
+                        m_Mobile.Combatant = m_Mobile.FocusMob;
+
+                        CombatMode();
+                    }
+
+                    return true;
+                }
+
+                //Target Acquisition Expired: Expires after additional delay equal to regular delay
+                if (DateTime.Now > m_WanderModeTargetDelay + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WanderModeTargetDelay))
+                {
+                    m_WanderModeTargetReady = false;
+                    m_WanderModeTargetDelay = DateTime.Now;
+                }
+            }
+
+            //Pacified
+            else
+            {
+                m_WanderModeTargetReady = false;
+                m_WanderModeTargetDelay = DateTime.Now;
+            }
+
+            //If Attempting to Reach Someone Else for Bandaging But Never Started Before Timeout
+            if (m_Mobile.DoingBandage && m_Mobile.HealTarget != m_Mobile && (DateTime.Now > m_Mobile.BandageTimeout))
+            {
+                BandageFail();
+            }
+
+            //Check if Bandaging Or Attempting to Bandage Someone Else
+            if (m_Mobile.DoingBandage)
+            {
+                //Bandaging Target Still Valid: Also Must Still be Within Range Perception
+                if (m_Mobile.HealTarget != null && (m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget) <= (double)m_Mobile.RangePerception) && m_Mobile.HealTarget.Alive && !m_Mobile.HealTarget.Deleted && m_Mobile.Map == m_Mobile.HealTarget.Map && !m_Mobile.HealTarget.IsDeadBondedPet && m_Mobile.CanSee(m_Mobile.HealTarget))
+                {
+                    //Bandaging Self
+                    if (m_Mobile.HealTarget == m_Mobile)
+                    {
+                    }
+
+                    //First Time Within Range of Healing Target: Being Bandaging
+                    else if (m_Mobile.BandageOtherReady && m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget) < 2)
+                    {
+                        StartBandageHeal(m_Mobile.HealTarget);
+                        bandagingOther = true;
+                    }
+
+                    //Continuing To Bandage Other
+                    else
+                    {
+                        bandagingOther = true;
+                    }
+                }
+
+                //Bandaging Target Now Invalid
+                else
+                {
+                    BandageFail();
+                }
+            }
+
+            //If Bandaging Someone Else
+            if (bandagingOther)
+            {
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.HealTarget);
+
+                bool bRun = (iCurrDist > 5);
+
+                WalkMobileRange(m_Mobile.HealTarget, 1, bRun, 0, 1);
+
+                return true;
+            }
+
+            else
+            {
+                //Currently Has Waypoint
+                if (CheckHerding())
+                {
+                    // code handled in CheckHerding function
+                }
+                else if (CheckWaypoint())
+                {
+                    // code handled in CheckWaypoint function
+                }
+                //AOS?
+                else if (m_Mobile.IsAnimatedDead)
+                {
+                    // animated dead follow their master
+                    Mobile master = m_Mobile.SummonMaster;
+
+                    if (master != null && master.Map == m_Mobile.Map && master.InRange(m_Mobile, m_Mobile.RangePerception))
+                        MoveTo(master, false, 1);
+                    else
+                        WalkRandomInHome(2, 2, 1);
+                }
+
+                //If MoveTimer Ready for Movement
+                else if (CheckMove())
+                {
+                    //If Mobile Has Home to Consider and Isn't Pacified
+                    if (m_Mobile.ReturnsHome && !pacified)
+                    {
+                        double distanceFromHome = m_Mobile.GetDistanceToSqrt(m_Mobile.Home);
+
+                        //Within HomeRange
+                        if (distanceFromHome <= (double)m_Mobile.RangeHome)
+                        {
+                            //Reset Wander Home Range Check Times
+                            m_WalkRandomOutsideHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit);
+                            m_WalkTowardsHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit + FeatureList.BaseCreatureAI.WalkTowardsHomeLimit);
+
+                            //Close to Edge of Home Range
+                            if (distanceFromHome > ((double)m_Mobile.RangeHome * .75))
+                            {
+                                //If Not Idle, Move Closer to the Center of Range
+                                if (!m_Mobile.CheckIdle())
+                                {
+                                    DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                                }
+                            }
+
+                            //Close to Center of Home Range
+                            else
+                            {
+                                //If Not Idle, Walk Around HomeRange
+                                if (!m_Mobile.CheckIdle())
+                                {
+                                    WalkRandomInHome(2, 2, 1);
+                                }
+                            }
+                        }
+
+                        //Mobile Outside HomeRange
+                        else
+                        {
+                            //Mobile Allowed to Wander Randomly Outside Homerange
+                            //Console.WriteLine("m_WalkRandomOutsideHome:" + m_WalkRandomOutsideHome + "m_WalkTowardsHome: " + m_WalkTowardsHome + " DateTime.Now:" + DateTime.Now);
+                            //Console.WriteLine("m_Mobile.Aggressed.Count: " + m_Mobile.Aggressed.Count + " m_Mobile.Aggressors.Count: " + m_Mobile.Aggressors.Count);
+                            if (DateTime.Now < m_WalkRandomOutsideHome)
+                            {
+                                WalkRandom(2, 2, 1);
+                            }
+
+                            //Mobile Should Attempt to Walk Home
+                            else if ((DateTime.Now > m_WalkRandomOutsideHome && DateTime.Now < m_WalkTowardsHome) || m_Mobile.Aggressed.Count > 0 || m_Mobile.Aggressors.Count > 0)
+                            {
+                                DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                            }
+
+                            //Mobile Should Teleport Home
+                            else
+                            {
+                                //Effects.SendLocationParticles(EffectItem.Create(m_Mobile.Location, m_Mobile.Map, EffectItem.DefaultDuration), 0x3728, 10, 10, 2023);
+                                m_Mobile.Location = m_Mobile.Home;
+                            }
+                        }
+                    }
+
+                    //Has Home and Is Pacified
+                    else if (m_Mobile.ReturnsHome && pacified)
+                    {
+                        WalkRandom(2, 2, 1);
+
+                        /*
+                        //Reset Teleport Timers
+                        m_WalkRandomOutsideHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit);
+                        m_WalkTowardsHome = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WalkRandomOutsideHomeLimit + FeatureList.BaseCreatureAI.WalkTowardsHomeLimit);
+
+                        double distanceFromHome = m_Mobile.GetDistanceToSqrt(m_Mobile.Home);
+
+                        //Within HomeRange
+                        if (distanceFromHome <= (double)m_Mobile.RangeHome)
+                        {
+                            //Close to Edge of Home Range
+                            if (distanceFromHome > ((double)m_Mobile.RangeHome * .75))
+                            {
+                                //If Not Idle, Move Closer to the Center of Range
+                                if (!m_Mobile.CheckIdle())
+                                {
+                                    DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                                }
+                            }
+
+                            //Close to Center of Home Range
+                            else
+                            {
+                                //If Not Idle, Walk Around HomeRange
+                                if (!m_Mobile.CheckIdle())
+                                {
+                                    WalkRandomInHome(2, 2, 1);
+                                }
+                            }
+                        }
+                           
+                        //Outside of HomeRange
+                        else
+                        {
+                            //Walk Towards Home
+                            if (!m_Mobile.CheckIdle())
+                            {
+                                DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                            }
+                        }
+                        */
+                    }
+
+                    //Doesnt Have Home
+                    else
+                    {
+                        //If Not Idle, Walk Around
+                        if (!m_Mobile.CheckIdle())
+                        {
+                            WalkRandom(2, 2, 1);
+                        }
+                    }
+                }
+
+                //If Ready for a New Wander Action
+                if (DateTime.Now > m_Mobile.NextWanderActionAllowed)
+                {
+                    GetWanderAction();
+                }
+            }
+
+            return true;
+        }
+
+        public bool DoBackoffAction()
+        {
+            return true;
+        }
+
+        public bool DoFleeAction()
+        {
+            bool validCombatant = false;
+
+            //If Still Fleeing
+            if (FleeCheck())
+            {
+                //Current Combatant Was Set In FleeCheck(), But Still Check if Current Combatant is Valid
+                if (m_Mobile.Combatant != null && m_Mobile.Combatant.Alive && !m_Mobile.Combatant.Deleted && m_Mobile.Combatant.Map == m_Mobile.Map && m_Mobile.GetDistanceToSqrt(m_Mobile.Combatant) <= m_Mobile.RangePerception)
+                {
+                    validCombatant = true;
+                }
+
+                //Can't Figure Out Whom to Run From
+                else
+                {
+                    GuardMode();
+                    if (m_Mobile.Debug) { m_Mobile.DebugSay("Can't figure who to run from to Guardmode"); }
+                    return false;
+                }
+
+                //Has Valid Combatant to Flee From
+                if (validCombatant)
+                {
+                    Direction d = m_Mobile.Combatant.GetDirectionTo(m_Mobile);
+
+                    double FleeDirectionChance = Utility.RandomDouble();
+
+                    if (FleeDirectionChance < .60)
+                    {
+                        d = (Direction)(int)d;
+                    }
+
+                    else if (FleeDirectionChance < .75)
+                    {
+                        d = (Direction)((int)d + Utility.RandomMinMax(-1, +1));
+                    }
+
+                    else if (FleeDirectionChance < .90)
+                    {
+                        d = (Direction)((int)d + Utility.RandomMinMax(-2, +2));
+                    }
+
+                    else
+                    {
+                        d = (Direction)((int)d + Utility.RandomMinMax(-3, +3));
+                    }
+
+                    //If Ready for Movement
+                    if (CheckMove())
+                    {
+                        m_Mobile.Direction = d;
+                        m_Mobile.Move(d);
+
+                        TimeSpan delay = TimeSpan.FromSeconds(m_Mobile.CurrentSpeed);
+                        NextMove += delay;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public bool DoInteractAction()
+        {
+            return true;
+        }
+
+        public bool GetReactionToPlayerStatus()
+        {
+            //Mobile is Controlled With a Valid Master That is A Player
+            if (m_Mobile.Controlled == true && m_Mobile.ControlMaster != null && m_Mobile.ControlMaster.Player && m_Mobile.Map == m_Mobile.ControlMaster.Map)
+            {
+                //Mobile Within Perception Range x2 of Master
+                if (m_Mobile.GetDistanceToSqrt(m_Mobile.ControlMaster) <= ((double)m_Mobile.RangePerception * 2))
+                {
+                    //Has Enough Skill To Control Creature (Ignore for Release Order)
+                    if (m_Mobile.ControlOrder != OrderType.Release && m_Mobile.CheckControlChance(m_Mobile.ControlMaster))
+                    {
+                        //Controller is Dead
+                        if (!m_Mobile.ControlMaster.Alive)
+                        {
+                            //Set to Follow Owner if Not Currently Doing So
+                            if (m_Mobile.ControlOrder != OrderType.Follow || m_Mobile.ControlTarget != m_Mobile.ControlMaster)
+                            {
+                                m_Mobile.ControlTarget = m_Mobile.ControlMaster;
+                                m_Mobile.ControlOrder = OrderType.Follow;
+                            }
+
+                            return false;
+                        }
+
+                        //Fine
+                        else
+                        {
+                            return true;
+                        }
+
+                    }
+
+                    //No Check For Release Order
+                    else if (m_Mobile.ControlOrder == OrderType.Release)
+                    {
+                        return true;
+                    }
+
+                    //Out of Range of Master
+                    else
+                    {
+                        //If Order isn't Currently Stop, Switch to Stop
+                        if (m_Mobile.ControlOrder != OrderType.Stop)
+                        {
+                            m_Mobile.ControlOrder = OrderType.Stop;
+                        }
+
+                        return false;
+                    }
+                }
+
+                //Controller Doesnt Have Skill to Control Mobile
+                else
+                {
+                    //If Order isn't Currently Stop, Switch to Stop
+                    if (m_Mobile.ControlOrder != OrderType.Stop)
+                    {
+                        m_Mobile.ControlOrder = OrderType.Stop;
+                    }
+
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public virtual bool DoOrderAttack()
+        {
+            bool validTarget = false;
+            bool validControlMaster = false;
+
+            if (m_Mobile.IsDeadPet)
+                return true;
+
+            //Determine if Control Target is Valid
+            if (m_Mobile.ControlTarget != null && !m_Mobile.ControlTarget.Deleted && m_Mobile.CanSee(m_Mobile.ControlTarget) && m_Mobile.ControlTarget.Map == m_Mobile.Map && m_Mobile.ControlTarget.Alive && !m_Mobile.ControlTarget.IsDeadBondedPet)
+            {
+                validTarget = true;
+            }
+
+            //If Mobile Has Valid ControlMaster
+            if (m_Mobile.ControlMaster != null && !m_Mobile.ControlMaster.Deleted && m_Mobile.ControlMaster.Map == m_Mobile.Map && m_Mobile.ControlMaster.Alive && !m_Mobile.IsDeadBondedPet)
+            {
+                validControlMaster = true;
+            }
+
+            //Has Valid Target
+            if (validTarget && validControlMaster)
+            {
+                m_Mobile.Combatant = m_Mobile.ControlTarget;
+
+                m_Mobile.DoHarmful(m_Mobile.ControlTarget);
+
+                DoCombatAction();
+            }
+
+            //Has No Valid Target
+            else
+            {
+                DoOrderStay();
+            }
+
+            return true;
+        }
+
+        public virtual bool DoOrderPatrol()
+        {
+            Mobile combatant = m_Mobile.Combatant;
+
+            //bool validControlMaster = false;
+            bool foundAggressors = false;
+
+            //Get Aggressor for Mobile        
+            m_Mobile.Combatant = GetAnyAggressor();
+
+            if (m_Mobile.Combatant != null)
+            {
+                foundAggressors = true;
+            }
+
+            //If Aggressors Exist Within Perception Range
+            if (foundAggressors)
+            {
+                //Attack Current Combatant                       
+                DoCombatAction();
+            }
+
+            //No Aggressors Within Perception Range
+            else
+            {
+                //Distance to Patrol Point
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.ControlDest);
+
+                //Not Currently Within Patrol Range
+                if (iCurrDist > m_Mobile.RangePerception)
+                {
+                    bool bRun = (iCurrDist > 5);
+
+                    if (WalkTo(m_Mobile.ControlDest, 1, bRun, 0, 1))
+                    {
+                    }
+                }
+
+                //Within Patrol Range
+                else
+                {
+                    //Currently At Outside Edge of Range Perception
+                    if ((double)iCurrDist > (double)(m_Mobile.RangePerception / 2))
+                    {
+                        //Walk Closer to Center
+                        if (WalkTo(m_Mobile.ControlDest, 1, false, 0, 1))
+                        {
+                        }
+                    }
+
+                    //Randomly Walk In Patrol Region
+                    else
+                    {
+                        WalkRandomInHome(3, 2, 1);
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public virtual bool DoOrderGuard()
+        {
+            Mobile controlMaster = m_Mobile.ControlMaster;
+            Mobile combatant = m_Mobile.Combatant;
+
+            bool validControlMaster = false;
+            bool foundAggressors = false;
+
+            //If Mobile Has Valid ControlMaster
+            if (m_Mobile.ControlMaster != null && !m_Mobile.ControlMaster.Deleted && m_Mobile.ControlMaster.Map == m_Mobile.Map && m_Mobile.ControlMaster.Alive && !m_Mobile.IsDeadBondedPet)
+            {
+                validControlMaster = true;
+
+                //Mobile Resets Home to Master's Current Location If Nearby
+                if (m_Mobile.GetDistanceToSqrt(m_Mobile.ControlMaster) <= m_Mobile.RangePerception * 3)
+                {
+                    m_Mobile.Home = m_Mobile.Location;
+                }
+            }
+
+            //Get Aggressor for Mobile        
+            m_Mobile.Combatant = GetAnyAggressor();
+
+            if (m_Mobile.Combatant != null)
+            {
+                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+                foundAggressors = true;
+            }
+
+            //If Aggressors Exist
+            if (foundAggressors)
+            {
+                //Has ControlMaster
+                if (validControlMaster)
+                {
+                    //Out of Sight of ControlMaster
+                    if (m_Mobile.GetDistanceToSqrt(m_Mobile.ControlMaster) > m_Mobile.RangePerception)
+                    {
+                        //Head Back to Within Perception Sight of Master
+                        m_Mobile.ControlTarget = m_Mobile.ControlMaster;
+                        DoOrderFollow();
+                    }
+
+                    //Within Sight of ControlMaster
+                    else
+                    {
+                        //Attack Current Combatant                       
+                        DoCombatAction();
+                    }
+                }
+
+                //Has No ControlMaster
+                else
+                {
+                    //Valid Combatant                    
+                    DoCombatAction();
+                }
+            }
+
+            //No Aggressors Exist
+            else
+            {
+                //Has ControlMaster
+                if (validControlMaster)
+                {
+                    //Follow ControlMaster  
+                    m_Mobile.ControlTarget = m_Mobile.ControlMaster;
+                    DoOrderFollow();
+                }
+
+                //Has No ControlMaster
+                else
+                {
+                    //Wander
+                    DoOrderStay();
+                }
+            }
+
+            return true;
+        }
+
+        public virtual bool DoOrderCome()
+        {
+            //Valid Controller
+            if (m_Mobile.ControlMaster != null && !m_Mobile.ControlMaster.Deleted && m_Mobile.ControlMaster.Map == m_Mobile.Map && m_Mobile.ControlMaster.Alive && !m_Mobile.IsDeadBondedPet)
+            {
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.ControlDest);
+
+                bool bRun = (iCurrDist > 5);
+
+                if (WalkTo(m_Mobile.ControlDest, 1, bRun, 0, 1))
+                {
+                }
+            }
+
+            return true;
+        }
+
+        public virtual bool DoOrderFollow()
+        {
+            //Clear Combatant
+            if (m_Mobile.Combatant != null)
+            {
+                m_Mobile.Combatant = null;
+            }
+
+            //Mobile Has a ControlTarget to Follow
+            if (m_Mobile.ControlTarget != null && !m_Mobile.ControlTarget.Deleted && m_Mobile.ControlTarget != m_Mobile)
+            {
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.ControlTarget);
+
+                //Out of Range
+                if (iCurrDist > m_Mobile.RangePerception)
+                {
+                }
+
+                //In Range
+                else
+                {
+                    bool bRun = (iCurrDist > 5);
+
+                    if (WalkMobileRange(m_Mobile.ControlTarget, 1, bRun, 0, 1))
+                    {
+                    }
+                }
+            }
+
+            else
+            {
+                m_Mobile.ControlTarget = null;
+                m_Mobile.ControlOrder = OrderType.Stop;
+            }
+
+            return true;
+        }
+
+        public virtual bool DoOrderStay()
+        {
+            //Get Nearest Aggressor as Combatant
+            m_Mobile.Combatant = GetSelfAggressor();
+
+            //Look Towards Current Combatant and Do Fight Actions (Won't Move Though)
+            if (m_Mobile.Combatant != null)
+            {
+                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+                DoCombatAction();
+            }
+
+            //Look Towards Current ControlMaster
+            else if (m_Mobile.ControlMaster != null)
+            {
+                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.ControlMaster);
+            }
+
+            return true;
+        }
+
+        public virtual bool DoOrderStop()
+        {
+            return true;
+        }
+
+        public virtual bool DoOrderNone()
+        {
+            //Get Nearest Aggressor as Combatant
+            m_Mobile.Combatant = GetSelfAggressor();
+
+
+            //Has An Aggressor Nearby
+            if (m_Mobile.Combatant != null)
+            {
+                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.Combatant);
+            }
+
+            //Wander in Home Area
+            else
+            {
+                WalkRandomInHome(3, 2, 1);
+            }
+
+            /*
+           //Look Towards Current ControlMaster
+            else if (m_Mobile.ControlMaster != null)
+            {
+                m_Mobile.Direction = m_Mobile.GetDirectionTo(m_Mobile.ControlMaster);
+            }
+            */
+
+            return true;
+        }
+
+        public virtual bool DoOrderDrop()
+        {
+            if (m_Mobile.IsDeadPet || !m_Mobile.CanDrop)
+                return true;
+
+            m_Mobile.DebugSay("I drop my stuff for my master");
+
+            Container pack = m_Mobile.Backpack;
+
+            if (pack != null)
+            {
+                List<Item> list = pack.Items;
+
+                for (int i = list.Count - 1; i >= 0; --i)
+                    if (i < list.Count)
+                        list[i].MoveToWorld(m_Mobile.Location, m_Mobile.Map);
+            }
+
+            m_Mobile.ControlTarget = null;
+            m_Mobile.ControlOrder = OrderType.Stay;
+
+            return true;
+        }
+
+        public virtual bool DoOrderFriend()
+        {
+            Mobile from = m_Mobile.ControlMaster;
+            Mobile to = m_Mobile.ControlTarget;
+
+            if (from == null || to == null || from == to || from.Deleted || to.Deleted || !to.Player)
+            {
+                m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 502039); // *looks confused*
+            }
+            else
+            {
+                if (from.CanBeBeneficial(to, true))
+                {
+                    NetState fromState = from.NetState, toState = to.NetState;
+
+                    if (fromState != null && toState != null)
+                    {
+                        if (from.HasTrade)
+                        {
+                            from.SendLocalizedMessage(1070947); // You cannot friend a pet with a trade pending
+                        }
+
+                        else if (to.HasTrade)
+                        {
+                            to.SendLocalizedMessage(1070947); // You cannot friend a pet with a trade pending
+                        }
+
+                        else if (m_Mobile.IsPetFriend(to))
+                        {
+                            from.SendLocalizedMessage(1049691); // That person is already a friend.
+                        }
+
+                        else if (!m_Mobile.AllowNewPetFriend)
+                        {
+                            from.SendLocalizedMessage(1005482); // Your pet does not seem to be interested in making new friends right now.
+                        }
+
+                        else
+                        {
+                            // ~1_NAME~ will now accept movement commands from ~2_NAME~.
+                            from.SendLocalizedMessage(1049676, String.Format("{0}\t{1}", m_Mobile.Name, to.Name));
+
+                            /* ~1_NAME~ has granted you the ability to give orders to their pet ~2_PET_NAME~.
+                             * This creature will now consider you as a friend.
+                             */
+                            to.SendLocalizedMessage(1043246, String.Format("{0}\t{1}", from.Name, m_Mobile.Name));
+
+                            m_Mobile.AddPetFriend(to);
+
+                            m_Mobile.ControlTarget = to;
+                            m_Mobile.ControlOrder = OrderType.Follow;
+
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            m_Mobile.ControlTarget = from;
+            m_Mobile.ControlOrder = OrderType.Follow;
+
+            return true;
+        }
+
+        public virtual bool DoOrderUnfriend()
+        {
+            Mobile from = m_Mobile.ControlMaster;
+            Mobile to = m_Mobile.ControlTarget;
+
+            if (from == null || to == null || from == to || from.Deleted || to.Deleted || !to.Player)
+            {
+                m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 502039); // *looks confused*
+            }
+            else if (!m_Mobile.IsPetFriend(to))
+            {
+                from.SendLocalizedMessage(1070953); // That person is not a friend.
+            }
+            else
+            {
+                // ~1_NAME~ will no longer accept movement commands from ~2_NAME~.
+                from.SendLocalizedMessage(1070951, String.Format("{0}\t{1}", m_Mobile.Name, to.Name));
+
+                /* ~1_NAME~ has no longer granted you the ability to give orders to their pet ~2_PET_NAME~.
+                 * This creature will no longer consider you as a friend.
+                 */
+                to.SendLocalizedMessage(1070952, String.Format("{0}\t{1}", from.Name, m_Mobile.Name));
+
+                m_Mobile.RemovePetFriend(to);
+            }
+
+            m_Mobile.ControlTarget = from;
+            m_Mobile.ControlOrder = OrderType.Follow;
+
+            return true;
+        }
+
+        public virtual bool DoOrderTransfer()
+        {
+            if (m_Mobile.IsDeadPet)
+                return true;
+
+            Mobile from = m_Mobile.ControlMaster;
+            Mobile to = m_Mobile.ControlTarget;
+
+            if (from != to && from != null && !from.Deleted && to != null && !to.Deleted && to.Player)
+            {
+                m_Mobile.DebugSay("Begin transfer with {0}", to.Name);
+
+                if (!m_Mobile.CanBeControlledBy(to))
+                {
+                    string args = String.Format("{0}\t{1}\t ", to.Name, from.Name);
+
+                    from.SendLocalizedMessage(1043248, args); // The pet refuses to be transferred because it will not obey ~1_NAME~.~3_BLANK~
+                    to.SendLocalizedMessage(1043249, args); // The pet will not accept you as a master because it does not trust you.~3_BLANK~
+                }
+
+                else if (!m_Mobile.CanBeControlledBy(from))
+                {
+                    string args = String.Format("{0}\t{1}\t ", to.Name, from.Name);
+
+                    from.SendLocalizedMessage(1043250, args); // The pet refuses to be transferred because it will not obey you sufficiently.~3_BLANK~
+                    to.SendLocalizedMessage(1043251, args); // The pet will not accept you as a master because it does not trust ~2_NAME~.~3_BLANK~
+                }
+
+                else if (TransferItem.IsInCombat(m_Mobile))
+                {
+                    from.SendMessage("You may not transfer a pet that has recently been in combat.");
+                    to.SendMessage("The pet may not be transfered to you because it has recently been in combat.");
+                }
+
+                else
+                {
+                    NetState fromState = from.NetState, toState = to.NetState;
+
+                    if (fromState != null && toState != null)
+                    {
+                        if (from.HasTrade)
+                        {
+                            from.SendLocalizedMessage(1010507); // You cannot transfer a pet with a trade pending
+                        }
+
+                        else if (to.HasTrade)
+                        {
+                            to.SendLocalizedMessage(1010507); // You cannot transfer a pet with a trade pending
+                        }
+
+                        else
+                        {
+                            Container c = fromState.AddTrade(toState);
+                            c.DropItem(new TransferItem(m_Mobile));
+                        }
+                    }
+                }
+            }
+
+            m_Mobile.ControlTarget = null;
+            m_Mobile.ControlOrder = OrderType.Stop;
+
+            return true;
+        }
+
+        public virtual bool DoOrderRelease()
+        {
+            m_Mobile.PlaySound(m_Mobile.GetAngerSound());
+
+            m_Mobile.SetControlMaster(null);
+            m_Mobile.SummonMaster = null;
+
+            m_Mobile.BondingBegin = DateTime.MinValue;
+            m_Mobile.OwnerAbandonTime = DateTime.MinValue;
+            m_Mobile.IsBonded = false;
+
+            SpawnEntry se = m_Mobile.Spawner as SpawnEntry;
+
+            //If Came From a Valid Spawner, Reset Creature Home to Spawner
+            if (se != null && se.HomeLocation != Point3D.Zero)
+            {
+                m_Mobile.Home = se.HomeLocation;
+                m_Mobile.RangeHome = se.HomeRange;
+            }
+
+            //Immediate Deletion If Required
+            if (m_Mobile.DeleteOnRelease || m_Mobile.IsDeadPet)
+                m_Mobile.Delete();
+
+            //Start Deletion Timer
+            m_Mobile.BeginDeleteTimer();
+
+            return true;
+        }
+
+        public CombatRange GetCombatRange()
+        {
+            CombatRange range = CombatRange.WeaponAttackRange;
+
+            //Default to WeaponAttackRange if Low on Mana
+            if (m_LowMana)
+                return range;
+
+            int TotalValues = 0;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<CombatRange, int> pair in m_Mobile.DictCombatRange)
+            {
+                TotalValues += pair.Value;
+            }
+
+            double RangeCheck = Utility.RandomDouble();
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            //Determine Desired CombatRange                      
+            foreach (KeyValuePair<CombatRange, int> pair in m_Mobile.DictCombatRange)
+            {
+                range = pair.Key;
+
+                switch (range)
+                {
+                    case CombatRange.WeaponAttackRange:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (RangeCheck >= CumulativeAmount && RangeCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            return range;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatRange.SpellRange:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (RangeCheck >= CumulativeAmount && RangeCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            return range;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatRange.Withdraw:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (!m_Mobile.DisallowAllMoves && RangeCheck >= CumulativeAmount && RangeCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //Begin Withdraw Sequence
+                            m_NextStopWithdraw = DateTime.Now + TimeSpan.FromSeconds(2);
+
+                            return range;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+                }
+            }
+
+            return range;
+        }
+
+        public CombatRange GetDefaultCombatRange()
+        {
+            CombatRange range = CombatRange.WeaponAttackRange;
+            int rangeValue = 0;
+
+            //Return the Highest Valued CombatRange: This Will Be The Default
+            foreach (KeyValuePair<CombatRange, int> pair in m_Mobile.DictCombatRange)
+            {
+                if (pair.Value > rangeValue)
+                {
+                    rangeValue = pair.Value;
+                    range = pair.Key;
+                }
+            }
+
+            return range;
+        }
+
+        public CombatAction GetCombatAction()
+        {
+            CombatAction action = CombatAction.AttackOnly;
+
+            //If Stealthing Do Nothing
+            if (m_Mobile.IsStealthing)
+                return action;
+
+            int TotalValues = 0;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<CombatAction, int> pair in m_Mobile.DictCombatAction)
+            {
+                action = pair.Key;
+
+                //If Action is Ready, Add To Total For ActionDetermination
+                switch (action)
+                {
+                    case CombatAction.AttackOnly:
+
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatAction.CombatSpell:
+                        //Has AI Chance of Wanting to Do Combat Spell
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatSpell] > 0)
+                        {
+                            if (DateTime.Now > m_Mobile.NextSpellTime)
+                            {
+                                TotalValues += pair.Value;
+                            }
+                        }
+                        break;
+
+                    case CombatAction.CombatHealSelf:
+                        //Has AI Chance of Wanting to Do CombatHealSelf
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatHealSelf] > 0)
+                        {
+                            if (NeedCombatSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case CombatAction.CombatHealOther:
+                        //Has AI Chance of Wanting to Do CombatHealOther
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatHealOther] > 0)
+                        {
+                            //If Others Need Healing, Not Already Bandaging Someone, and Not Currently Provoked
+                            if (OthersNeedCombatHealing() && !m_Mobile.DoingBandage && !m_Mobile.BardProvoked)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+
+                        break;
+
+                    case CombatAction.CombatSpecialAction:
+                        //Has AI Chance of Wanting to Do CombatSpecialAction
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatSpecialAction] > 0)
+                        {
+                            if (DateTime.Now > m_Mobile.NextCombatSpecialActionAllowed)
+                            {
+                                TotalValues += pair.Value;
+                            }
+                        }
+                        break;
+                }
+            }
+
+            double ActionCheck = Utility.RandomDouble();
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            //Determine CombatAction                      
+            foreach (KeyValuePair<CombatAction, int> pair in m_Mobile.DictCombatAction)
+            {
+                action = pair.Key;
+
+                AdditionalAmount = 0.0;
+
+                switch (action)
+                {
+                    case CombatAction.AttackOnly:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            return action;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatAction.CombatSpell:
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatSpell] > 0)
+                        {
+                            if (DateTime.Now > m_Mobile.NextSpellTime)
+                            {
+                                AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                {
+                                    if (DoCombatSpell())
+                                    {
+                                    }
+
+                                    return action;
+                                }
+
+                                CumulativeAmount += AdditionalAmount;
+                            }
+                        }
+                        break;
+
+                    case CombatAction.CombatHealSelf:
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatHealSelf] > 0)
+                        {
+                            if (NeedCombatSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        if (DoCombatHealSelf())
+                                        {
+                                        }
+
+                                        return action;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case CombatAction.CombatHealOther:
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatHealOther] > 0)
+                        {
+                            if (OthersNeedCombatHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        if (DoCombatHealOther())
+                                        {
+                                        }
+
+                                        return action;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case CombatAction.CombatSpecialAction:
+                        if (m_Mobile.DictCombatAction[CombatAction.CombatSpecialAction] > 0)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                if (DoCombatSpecialAction())
+                                {
+                                }
+
+                                return action;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+                }
+            }
+
+            return action;
+        }
+
+        public bool DoCombatSpell()
+        {
+            //Exit If Somehow Has No Combatant
+            if (m_Mobile.Combatant == null)
+            {
+                return false;
+            }
+
+            int TotalValues = 0;
+
+            double ActionCheck = Utility.RandomDouble();
+
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            CombatSpell spellGroup = CombatSpell.None;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<CombatSpell, int> pair in m_Mobile.DictCombatSpell)
+            {
+                spellGroup = pair.Key;
+
+                switch (spellGroup)
+                {
+                    case CombatSpell.SpellBeneficial1to2:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpell.SpellBeneficial3to4:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpell.SpellBeneficial5:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpell.SpellDamage1:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage2:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage3:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage4:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage5:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage6:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage7:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamageAOE7:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDispelSummon:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                    break;
+
+                    case CombatSpell.SpellHarmfulField:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellNegative1to3:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellNegative4to7:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellNegativeField:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellPoison:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case CombatSpell.SpellSummon5:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpell.SpellSummon8:
+                        TotalValues += pair.Value;
+                        break;
+                }
+            }
+
+            CumulativeAmount = 0.0;
+            AdditionalAmount = 0.0;
+
+            //Determine CombatAction                      
+            foreach (KeyValuePair<CombatSpell, int> pair in m_Mobile.DictCombatSpell)
+            {
+                spellGroup = pair.Key;
+
+                AdditionalAmount = 0.0;
+                AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                Spell selectedSpell = null;
+
+                //Selected Spell
+                switch (spellGroup)
+                {
+                    case CombatSpell.SpellBeneficial1to2:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            selectedSpell = GetSpellBeneficial1to2();
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpell.SpellBeneficial3to4:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            selectedSpell = GetSpellBeneficial3to4();
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpell.SpellBeneficial5:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if ((m_Mobile.MagicDamageAbsorb < 1) && ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            selectedSpell = GetSpellBeneficial5();
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpell.SpellDamage1:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage1();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage2:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage2();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage3:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage3();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage4:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage4();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage5:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage5();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage6:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage6();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamage7:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamage7();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDamageAOE7:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDamageAOE7();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellDispelSummon:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellDispelSummon();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellHarmfulField:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellHarmfulField();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellNegative1to3:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellNegative1to3();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellNegative4to7:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellNegative4to7();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellNegativeField:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellNegativeField();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellPoison:
+                        if (m_Mobile.InLOS(m_Mobile.Combatant) && SpellInDefaultRange(m_Mobile.Combatant))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                selectedSpell = GetSpellPoison();
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatSpell.SpellSummon5:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            selectedSpell = GetSpellSummon5();
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpell.SpellSummon8:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            selectedSpell = GetSpellSummon8();
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+                }
+
+                if (selectedSpell != null)
+                {
+                    selectedSpell.Cast();
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool DoCombatHealSelf()
+        {
+            double Health = (double)m_Mobile.Hits / (double)m_Mobile.HitsMax;
+
+            bool Health75 = Health <= .75;
+            bool Health50 = Health <= .50;
+            bool Health25 = Health <= .25;
+
+            bool Poisoned = m_Mobile.Poisoned;
+
+            CombatHealSelf healAction = CombatHealSelf.None;
+
+            int TotalValues = 0;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<CombatHealSelf, int> pair in m_Mobile.DictCombatHealSelf)
+            {
+                healAction = pair.Key;
+
+                //If Action is Ready, Add To Total For ActionDetermination
+                switch (healAction)
+                {
+                    case CombatHealSelf.SpellHealSelf75:
+                        if (Health75)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.SpellHealSelf50:
+                        if (Health50)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.SpellHealSelf25:
+                        if (Health25)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.BandageHealSelf75:
+                        if (Health75)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.BandageHealSelf50:
+                        if (Health50)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.BandageHealSelf25:
+                        if (Health25)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.PotionHealSelf75:
+                        if (Health75)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.PotionHealSelf50:
+                        if (Health50)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.PotionHealSelf25:
+                        if (Health25)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.SpellCureSelf:
+                        if (Poisoned)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.BandageCureSelf:
+                        if (Poisoned)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealSelf.PotionCureSelf:
+                        if (Poisoned)
+                            TotalValues += pair.Value;
+                        break;
+                }
+            }
+
+            double ActionCheck = Utility.RandomDouble();
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            //Determine CombatAction                      
+            foreach (KeyValuePair<CombatHealSelf, int> pair in m_Mobile.DictCombatHealSelf)
+            {
+                healAction = pair.Key;
+
+                AdditionalAmount = 0.0;
+
+                switch (healAction)
+                {
+                    case CombatHealSelf.SpellHealSelf75:
+                        if (Health75)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.SpellHealSelf50:
+                        if (Health50)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.SpellHealSelf25:
+                        if (Health25)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.BandageHealSelf75:
+                        if (Health75)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.BandageHealSelf50:
+                        if (Health50)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.BandageHealSelf25:
+                        if (Health25)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.PotionHealSelf75:
+                        if (Health75)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoPotionHeal();
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.PotionHealSelf50:
+                        if (Health50)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoPotionHeal();
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.PotionHealSelf25:
+                        if (Health25)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoPotionHeal();
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.SpellCureSelf:
+                        if (Poisoned)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellCure(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.BandageCureSelf:
+                        if (Poisoned)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealSelf.PotionCureSelf:
+                        if (Poisoned)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoPotionCure();
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+                }
+            }
+
+            return false;
+        }
+
+        public bool DoCombatHealOther()
+        {
+            //Should Be Set From OthersNeedHealing, But If Not
+            if (m_Mobile.HealTarget == null)
+            {
+                return false;
+            }
+
+            double Health = (double)m_Mobile.HealTarget.Hits / (double)m_Mobile.HealTarget.HitsMax;
+
+            bool Health75 = Health <= .75;
+            bool Health50 = Health <= .50;
+            bool Health25 = Health <= .25;
+
+            bool Poisoned = m_Mobile.HealTarget.Poisoned;
+
+            CombatHealOther healAction = CombatHealOther.None;
+
+            int TotalValues = 0;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<CombatHealOther, int> pair in m_Mobile.DictCombatHealOther)
+            {
+                healAction = pair.Key;
+
+                //If Action is Ready, Add To Total For ActionDetermination
+                switch (healAction)
+                {
+                    case CombatHealOther.SpellHealOther75:
+                        if (Health75 && SpellInDefaultRange(m_Mobile.HealTarget))
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.SpellHealOther50:
+                        if (Health50 && SpellInDefaultRange(m_Mobile.HealTarget))
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.SpellHealOther25:
+                        if (Health25 && SpellInDefaultRange(m_Mobile.HealTarget))
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.BandageHealOther75:
+                        if (Health75)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.BandageHealOther50:
+                        if (Health50)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.BandageHealOther25:
+                        if (Health25)
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.SpellCureOther:
+                        if (Poisoned && SpellInDefaultRange(m_Mobile.HealTarget))
+                            TotalValues += pair.Value;
+                        break;
+
+                    case CombatHealOther.BandageCureOther:
+                        if (Poisoned)
+                            TotalValues += pair.Value;
+                        break;
+                }
+            }
+
+            double ActionCheck = Utility.RandomDouble();
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            //Determine CombatAction                      
+            foreach (KeyValuePair<CombatHealOther, int> pair in m_Mobile.DictCombatHealOther)
+            {
+                healAction = pair.Key;
+
+                AdditionalAmount = 0.0;
+
+                switch (healAction)
+                {
+                    case CombatHealOther.SpellHealOther75:
+                        if (Health75 && SpellInDefaultRange(m_Mobile.HealTarget))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.SpellHealOther50:
+                        if (Health50 && SpellInDefaultRange(m_Mobile.HealTarget))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.SpellHealOther25:
+                        if (Health25 && SpellInDefaultRange(m_Mobile.HealTarget))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.BandageHealOther75:
+                        if (Health75)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.BandageHealOther50:
+                        if (Health50)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.BandageHealOther25:
+                        if (Health25)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.SpellCureOther:
+                        if (Poisoned && SpellInDefaultRange(m_Mobile.HealTarget))
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoSpellCure(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case CombatHealOther.BandageCureOther:
+                        if (Poisoned)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoBandageHeal(m_Mobile.HealTarget);
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+                }
+            }
+
+            return false;
+        }
+
+        public bool DoCombatSpecialAction()
+        {
+            CombatSpecialAction specialAction = CombatSpecialAction.None;
+
+            int TotalValues = 0;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<CombatSpecialAction, int> pair in m_Mobile.DictCombatSpecialAction)
+            {
+                specialAction = pair.Key;
+
+                //If Action is Ready, Add To Total For ActionDetermination
+                switch (specialAction)
+                {
+                    case CombatSpecialAction.ApplyWeaponPoison:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpecialAction.PoisonHit:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpecialAction.ThrowBomb:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpecialAction.BreathAttack:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpecialAction.ThrowingKnife:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case CombatSpecialAction.None:
+                        TotalValues += pair.Value;
+                        break;
+                }
+            }
+
+            double ActionCheck = Utility.RandomDouble();
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            //Determine CombatAction                      
+            foreach (KeyValuePair<CombatSpecialAction, int> pair in m_Mobile.DictCombatSpecialAction)
+            {
+                specialAction = pair.Key;
+
+                AdditionalAmount = 0.0;
+
+                switch (specialAction)
+                {
+                    case CombatSpecialAction.ApplyWeaponPoison:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            DoApplyWeaponPoison();
+
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpecialAction.PoisonHit:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //Do SpecialAction
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpecialAction.ThrowBomb:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            DoThrowBomb();
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpecialAction.BreathAttack:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //Do SpecialAction
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpecialAction.ThrowingKnife:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //Do SpecialAction
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case CombatSpecialAction.None:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //Nothing
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+                }
+            }
+
+            return false;
+        }
+
+        public void GetGuardAction()
+        {
+        }
+
+        public bool GetWanderAction()
+        {
+            WanderAction wanderAction = WanderAction.None;
+
+            int TotalValues = 0;
+
+            //Calculate Total Values
+            foreach (KeyValuePair<WanderAction, int> pair in m_Mobile.DictWanderAction)
+            {
+                wanderAction = pair.Key;
+
+                switch (wanderAction)
+                {
+                    case WanderAction.DetectHidden:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case WanderAction.SpellReveal:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case WanderAction.Tracking:
+                        TotalValues += pair.Value;
+                        break;
+
+                    case WanderAction.Stealth:
+                        if (!m_Mobile.Hidden)
+                        {
+                            TotalValues += pair.Value;
+                        }
+                        break;
+
+                    case WanderAction.SpellHealSelf100:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellHealSelf100] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageHealSelf100:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageHealSelf100] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.PotionHealSelf100:
+                        if (m_Mobile.DictWanderAction[WanderAction.PotionHealSelf100] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.SpellCureSelf:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellCureSelf] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageCureSelf:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageCureSelf] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.PotionCureSelf:
+                        if (m_Mobile.DictWanderAction[WanderAction.PotionCureSelf] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.SpellHealOther100:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellHealOther100] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageHealOther100:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageHealOther100] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.SpellCureOther:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellCureOther] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageCureOther:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageCureOther] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    TotalValues += pair.Value;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.None:
+                        TotalValues += pair.Value;
+                        break;
+                }
+            }
+
+            double ActionCheck = Utility.RandomDouble();
+            double CumulativeAmount = 0.0;
+            double AdditionalAmount = 0.0;
+
+            //Determine CombatAction                      
+            foreach (KeyValuePair<WanderAction, int> pair in m_Mobile.DictWanderAction)
+            {
+                wanderAction = pair.Key;
+
+                AdditionalAmount = 0.0;
+
+                switch (wanderAction)
+                {
+                    case WanderAction.DetectHidden:
+
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //DoDetectHidden();
+
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+
+                        break;
+
+                    case WanderAction.SpellReveal:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //DoSpellReveal();
+
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+
+                        break;
+
+                    case WanderAction.Tracking:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            //DoTracking();
+
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+
+                    case WanderAction.Stealth:
+                        if (!m_Mobile.Hidden)
+                        {
+                            AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                            if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                            {
+                                DoStealth();
+
+                                return true;
+                            }
+
+                            CumulativeAmount += AdditionalAmount;
+                        }
+                        break;
+
+                    case WanderAction.SpellHealSelf100:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellHealSelf100] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoSpellHeal(m_Mobile);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageHealSelf100:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageHealSelf100] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoBandageHeal(m_Mobile);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.PotionHealSelf100:
+                        if (m_Mobile.DictWanderAction[WanderAction.PotionHealSelf100] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoPotionHeal();
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.SpellCureSelf:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellCureSelf] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    DoSpellHeal(m_Mobile);
+
+                                    return true;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageCureSelf:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageCureSelf] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoBandageHeal(m_Mobile);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.PotionCureSelf:
+                        if (m_Mobile.DictWanderAction[WanderAction.PotionCureSelf] > 0)
+                        {
+                            if (NeedWanderSelfHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoPotionCure();
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.SpellHealOther100:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellHealOther100] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoSpellHeal(m_Mobile.HealTarget);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageHealOther100:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageHealOther100] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoBandageHeal(m_Mobile.HealTarget);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.SpellCureOther:
+                        if (m_Mobile.DictWanderAction[WanderAction.SpellCureOther] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoSpellCure(m_Mobile.HealTarget);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.BandageCureOther:
+                        if (m_Mobile.DictWanderAction[WanderAction.BandageCureOther] > 0)
+                        {
+                            if (OthersNeedWanderHealing() && !m_Mobile.DoingBandage)
+                            {
+                                if (DateTime.Now > m_Mobile.NextCombatHealActionAllowed)
+                                {
+                                    AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                                    if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                                    {
+                                        DoBandageHeal(m_Mobile.HealTarget);
+
+                                        return true;
+                                    }
+
+                                    CumulativeAmount += AdditionalAmount;
+                                }
+                            }
+                        }
+                        break;
+
+                    case WanderAction.None:
+                        AdditionalAmount = (double)pair.Value / (double)TotalValues;
+
+                        if (ActionCheck >= CumulativeAmount && ActionCheck < (CumulativeAmount + AdditionalAmount))
+                        {
+                            return true;
+                        }
+
+                        CumulativeAmount += AdditionalAmount;
+                        break;
+                }
+            }
+
+            return false;
+        }
+
+        public bool SpellInDefaultRange(Mobile target)
+        {
+            //Return False If Null Target
+            if (target == null)
+            {
+                return false;
+            }
+
+            if (m_Mobile.GetDistanceToSqrt(target) <= FeatureList.BaseCreatureAI.CreatureSpellCastRange)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool NeedCombatSelfHealing()
+        {
+            double Health = (double)m_Mobile.Hits / (double)m_Mobile.HitsMax;
+
+            //Under 75%
+            if (Health <= .75 && m_Mobile.DictCombatHealSelf[CombatHealSelf.SpellHealSelf75] > 0)
+            {
+                return true;
+            }
+
+            if (Health <= .75 && m_Mobile.DictCombatHealSelf[CombatHealSelf.PotionHealSelf75] > 0)
+            {
+                return true;
+            }
+
+            if (Health <= .75 && m_Mobile.DictCombatHealSelf[CombatHealSelf.BandageHealSelf75] > 0)
+            {
+                return true;
+            }
+
+            //Under 50%
+            if (Health <= .50 && m_Mobile.DictCombatHealSelf[CombatHealSelf.SpellHealSelf50] > 0)
+            {
+                return true;
+            }
+
+            if (Health <= .50 && m_Mobile.DictCombatHealSelf[CombatHealSelf.PotionHealSelf50] > 0)
+            {
+                return true;
+            }
+
+            if (Health <= .50 && m_Mobile.DictCombatHealSelf[CombatHealSelf.BandageHealSelf50] > 0)
+            {
+                return true;
+            }
+
+            //Under 25%
+            if (Health <= .25 && m_Mobile.DictCombatHealSelf[CombatHealSelf.SpellHealSelf25] > 0)
+            {
+                return true;
+            }
+
+            if (Health <= .25 && m_Mobile.DictCombatHealSelf[CombatHealSelf.PotionHealSelf25] > 0)
+            {
+                return true;
+            }
+
+            if (Health <= .25 && m_Mobile.DictCombatHealSelf[CombatHealSelf.BandageHealSelf25] > 0)
+            {
+                return true;
+            }
+
+            //Poisoned
+            if (m_Mobile.Poisoned && m_Mobile.DictCombatHealSelf[CombatHealSelf.BandageCureSelf] > 0)
+            {
+                return true;
+            }
+
+            if (m_Mobile.Poisoned && m_Mobile.DictCombatHealSelf[CombatHealSelf.PotionCureSelf] > 0)
+            {
+                return true;
+            }
+
+            if (m_Mobile.Poisoned && m_Mobile.DictCombatHealSelf[CombatHealSelf.SpellCureSelf] > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool NeedWanderSelfHealing()
+        {
+            double Health = (double)m_Mobile.Hits / (double)m_Mobile.HitsMax;
+
+            //Under 100%
+            if (Health < 1 && m_Mobile.DictWanderAction[WanderAction.SpellHealSelf100] > 0)
+            {
+                return true;
+            }
+
+            if (Health < 1 && m_Mobile.DictWanderAction[WanderAction.BandageHealSelf100] > 0)
+            {
+                return true;
+            }
+
+            if (Health < 1 && m_Mobile.DictWanderAction[WanderAction.PotionHealSelf100] > 0)
+            {
+                return true;
+            }
+
+            //Poisoned
+            if (m_Mobile.Poisoned && m_Mobile.DictWanderAction[WanderAction.SpellCureSelf] > 0)
+            {
+                return true;
+            }
+
+            if (m_Mobile.Poisoned && m_Mobile.DictWanderAction[WanderAction.BandageCureSelf] > 0)
+            {
+                return true;
+            }
+
+            if (m_Mobile.Poisoned && m_Mobile.DictWanderAction[WanderAction.PotionCureSelf] > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool OthersNeedCombatHealing()
+        {
+            //Check For Each Mobile
+            Map map = m_Mobile.Map;
+
+            Mobile bestTarget = null;
+
+            int LowestHP = 100000;
+
+            if (map != null)
+            {
+                IPooledEnumerable eable = map.GetMobilesInRange(m_Mobile.Location, m_Mobile.RangePerception);
+
+                foreach (Mobile target in eable)
+                {
+                    //If Target is Not Teammate (Self is Allowed!)
+                    if (!AITeamList.CheckTeamOld(m_Mobile, target))
+                        continue;
+                    if (!AITeamList.CheckSameTeam(m_Mobile, target))
+                        continue;
+
+                    //Ignore If Deleted or Blessed
+                    if (target.Deleted || target.Blessed)
+                        continue;
+
+                    //Ignore If Dead
+                    if (!target.Alive || target.IsDeadBondedPet)
+                        continue;
+
+                    //Ignore ServerStaff
+                    if (target.AccessLevel > AccessLevel.Player)
+                        continue;
+
+                    //Ignore If Target out of Immediate Area
+                    if (!m_Mobile.CanSee(target))
+                        continue;
+
+                    //Ignore If Target out of LOS
+                    if (!m_Mobile.InLOS(target))
+                        continue;
+
+                    double Health = (double)target.Hits / (double)target.HitsMax;
+                    bool Poisoned = target.Poisoned;
+
+                    bool validTarget = false;
+
+                    //Check Target to See If Mobile Can Help It
+
+                    //Under 75%
+                    if (Health <= .75 && m_Mobile.DictCombatHealOther[CombatHealOther.SpellHealOther75] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    if (Health <= .75 && m_Mobile.DictCombatHealOther[CombatHealOther.BandageHealOther75] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    //Under 50%
+                    if (Health <= .50 && m_Mobile.DictCombatHealOther[CombatHealOther.SpellHealOther50] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    if (Health <= .50 && m_Mobile.DictCombatHealOther[CombatHealOther.BandageHealOther50] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    //Under 25%
+                    if (Health <= .25 && m_Mobile.DictCombatHealOther[CombatHealOther.SpellHealOther25] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    if (Health <= .25 && m_Mobile.DictCombatHealOther[CombatHealOther.BandageHealOther25] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    //Poisoned
+                    if (Poisoned && m_Mobile.DictCombatHealOther[CombatHealOther.SpellCureOther] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    if (Poisoned && m_Mobile.DictCombatHealOther[CombatHealOther.BandageCureOther] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    //If Target Is Best Candidate for Healing
+                    if (validTarget && target.Hits < LowestHP)
+                    {
+                        LowestHP = target.Hits;
+                        bestTarget = target;
+                    }
+                }
+
+                //End Search
+                eable.Free();
+
+                //If Found a Valid Heal Target
+                if (bestTarget != null)
+                {
+                    //Set Mobile'sSpellTarget to Target (For Eventual Spell or Bandaging Action)
+                    m_Mobile.HealTarget = bestTarget;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool OthersNeedWanderHealing()
+        {
+            //Check For Each Mobile
+            Map map = m_Mobile.Map;
+
+            Mobile bestTarget = null;
+
+            int LowestHP = 100000;
+
+            if (map != null)
+            {
+                IPooledEnumerable eable = map.GetMobilesInRange(m_Mobile.Location, m_Mobile.RangePerception);
+
+                foreach (Mobile target in eable)
+                {
+                    //If Target is Not Teammate (Self is Allowed!)
+                    if (!AITeamList.CheckTeamOld(m_Mobile, target))
+                        continue;
+
+                    //Ignore If Deleted or Blessed
+                    if (target.Deleted || target.Blessed)
+                        continue;
+
+                    //Ignore If Dead
+                    if (!target.Alive || target.IsDeadBondedPet)
+                        continue;
+
+                    //Ignore ServerStaff
+                    if (target.AccessLevel > AccessLevel.Player)
+                        continue;
+
+                    //Ignore If Target out of Immediate Area
+                    if (!m_Mobile.CanSee(target))
+                        continue;
+
+                    //Ignore If Target out of LOS
+                    if (!m_Mobile.InLOS(target))
+                        continue;
+
+                    double Health = (double)target.Hits / (double)target.HitsMax;
+                    bool Poisoned = target.Poisoned;
+
+                    bool validTarget = false;
+
+                    //Check Target to See If Mobile Can Help It
+
+                    //Under 100%
+                    if (Health < 1 && m_Mobile.DictWanderAction[WanderAction.SpellHealOther100] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    if (Health < 1 && m_Mobile.DictWanderAction[WanderAction.BandageHealOther100] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    //Poisoned
+                    if (Poisoned && m_Mobile.DictWanderAction[WanderAction.SpellCureOther] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    if (Poisoned && m_Mobile.DictWanderAction[WanderAction.BandageCureOther] > 0)
+                    {
+                        validTarget = true;
+                    }
+
+                    //If Target Is Best Candidate for Healing
+                    if (validTarget && target.Hits < LowestHP)
+                    {
+                        LowestHP = target.Hits;
+                        bestTarget = target;
+                    }
+                }
+
+                //End Search
+                eable.Free();
+
+                //If Found a Valid Heal Target
+                if (bestTarget != null)
+                {
+                    //Set Mobile'sSpellTarget to Target (For Eventual Spell or Bandaging Action)
+                    m_Mobile.HealTarget = bestTarget;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool DoSpellHeal(Mobile target)
+        {
+            Spell spell = new GreaterHealSpell(m_Mobile, null);
+
+            if (target != null)
+            {
+                m_Mobile.SpellTarget = target;
+                spell.Cast();
+
+                m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DoSpellCure(Mobile target)
+        {
+            Spell spell = new CureSpell(m_Mobile, null);
+
+            if (target != null)
+            {
+                m_Mobile.SpellTarget = target;
+                spell.Cast();
+
+                m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DoBandageHeal(Mobile target)
+        {
+            if (target == null || !target.Alive || target.Map != m_Mobile.Map || target.Deleted || target.IsDeadBondedPet || !m_Mobile.CanSee(target))
+            {
+                return false;
+            }
+
+            m_Mobile.DoingBandage = true;
+            m_Mobile.HealTarget = target;
+
+            //If Healing Self
+            if (m_Mobile.HealTarget == m_Mobile)
+            {
+                StartBandageHeal(m_Mobile);
+            }
+
+            //Bandaging Someone Else: 
+            else
+            {
+                m_Mobile.BandageOtherReady = true;
+
+                //m_Mobile Will Run Towards Target, and When In Proximity Begin Heal and Timer
+                m_Mobile.BandageTimeout = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.BandageTimeoutLength);
+            }
+
+            return true;
+        }
+
+        public bool StartBandageHeal(Mobile target)
+        {
+            if (target == null)
+                return false;
+
+            //Targeting Self
+            if (target == m_Mobile)
+            {
+                target.BeingBandaged = true;
+                m_Mobile.BandageOtherReady = false;
+
+                m_Mobile.Emote("*begins applying bandage*");
+
+                NextMove = DateTime.Now + TimeSpan.FromSeconds(1.5);
+                m_Mobile.NextCombatTime = DateTime.Now + TimeSpan.FromSeconds(1.5);
+
+                if (m_Mobile.Body.IsHuman)
+                {
+                    m_Mobile.Animate(33, 5, 1, true, false, 0);
+                }
+
+                else
+                {
+                    m_Mobile.Animate(11, 5, 1, true, false, 0);
+                }
+
+                Timer.DelayCall(TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CreatureBandageSelfDuration), new TimerStateCallback(EndBandageHeal), m_Mobile);
+            }
+
+            //Targeting Other
+            else
+            {
+                target.BeingBandaged = true;
+                m_Mobile.BandageOtherReady = false;
+
+                m_Mobile.Emote("*begins applying bandage*");
+
+                NextMove = DateTime.Now + TimeSpan.FromSeconds(1.5);
+                m_Mobile.NextCombatTime = DateTime.Now + TimeSpan.FromSeconds(1.5);
+
+                if (m_Mobile.Body.IsHuman)
+                {
+                    m_Mobile.Animate(16, 7, 1, true, false, 0);
+                }
+
+                else
+                {
+                    m_Mobile.Animate(11, 5, 1, true, false, 0);
+                }
+
+                Timer.DelayCall(TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CreatureBandageOtherDuration), new TimerStateCallback(EndBandageHeal), target);
+
+            }
+
+            return true;
+        }
+
+        public bool BandageFail()
+        {
+            if (m_Mobile == null)
+                return false;
+
+            m_Mobile.DoingBandage = false;
+            m_Mobile.BandageOtherReady = false;
+
+            Mobile healTarget = m_Mobile.HealTarget as Mobile;
+
+            if (healTarget != null)
+            {
+                healTarget.BeingBandaged = false;
+            }
+
+            return true;
+        }
+
+        public virtual void EndBandageHeal(object target)
+        {
+            Mobile healTarget = target as Mobile;
+
+            //If Heal Target Isn't Valid
+            if (healTarget == null || !healTarget.Alive || healTarget.Map != m_Mobile.Map || healTarget.Deleted || healTarget.IsDeadBondedPet || !m_Mobile.CanSee(healTarget))
+            {
+                m_Mobile.DoingBandage = false;
+                healTarget.BeingBandaged = false;
+
+                m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+                return;
+            }
+
+            //If Target is More Than 2 Spaces Away: We Are Being Generous With Proximity
+            else if (m_Mobile.GetDistanceToSqrt(healTarget) > 2)
+            {
+                m_Mobile.DoingBandage = false;
+                healTarget.BeingBandaged = false;
+
+                m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+                return;
+            }
+
+            int MinHealingAmount = (int)Math.Round(((double)m_Mobile.Skills[SkillName.Healing].BaseFixedPoint) / 10 / 2);
+            int MaxHealingAmount = (int)Math.Round(((double)m_Mobile.Skills[SkillName.Healing].BaseFixedPoint) / 10);
+
+            int HealingPercent = Utility.RandomMinMax(MinHealingAmount, MaxHealingAmount);
+
+            double healed = ((double)HealingPercent / 100) * (double)healTarget.HitsMax;
+
+            //Bandage Cure
+            double cureChance = .5 + ((m_Mobile.Skills[SkillName.Healing].Value / 4) / 100);
+
+            if (healTarget.Poisoned)
+            {
+                if (Utility.RandomDouble() < cureChance)
+                {
+                    healTarget.CurePoison(m_Mobile);
+                }
+
+                healed /= 2;
+                healTarget.Heal((int)healed, m_Mobile);
+            }
+
+            else
+            {
+                healTarget.Heal((int)healed, m_Mobile);
+            }
+
+            m_Mobile.PlaySound(0x57);
+
+            m_Mobile.DoingBandage = false;
+            healTarget.BeingBandaged = false;
+
+            m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+        }
+
+        public bool DoPotionHeal()
+        {
+            NextMove = DateTime.Now + TimeSpan.FromSeconds(1.5);
+            m_Mobile.NextCombatTime = DateTime.Now + TimeSpan.FromSeconds(1.5);
+            m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+            if (m_Mobile.Body.IsHuman)
+            {
+                m_Mobile.Animate(34, 5, 1, true, false, 0);
+            }
+
+            else
+            {
+                m_Mobile.Animate(11, 5, 1, true, false, 0);
+            }
+
+            //Percent Healing Amounts
+            int MinHealingAmount = 10;
+            int MaxHealingAmount = 15;
+
+            double healed = ((((double)Utility.RandomMinMax(MinHealingAmount, MaxHealingAmount)) / 100) * (double)m_Mobile.HitsMax);
+
+            m_Mobile.Backpack.AddItem(new Bottle());
+
+            m_Mobile.PlaySound(0x031);
+
+            return true;
+        }
+
+        public bool DoPotionCure()
+        {
+            NextMove = DateTime.Now + TimeSpan.FromSeconds(1.5);
+            m_Mobile.NextCombatTime = DateTime.Now + TimeSpan.FromSeconds(1.5);
+            m_Mobile.NextCombatHealActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatHealActionDelay);
+
+            if (m_Mobile.Poisoned)
+            {
+                if (m_Mobile.Body.IsHuman)
+                {
+                    m_Mobile.Animate(34, 5, 1, true, false, 0);
+                }
+
+                else
+                {
+                    m_Mobile.Animate(11, 5, 1, true, false, 0);
+                }
+
+                double cureChance = Utility.RandomDouble();
+
+                //75% Chance of Cure
+                if (cureChance >= .25)
+                {
+                    m_Mobile.CurePoison(m_Mobile);
+                }
+
+                m_Mobile.Backpack.AddItem(new Bottle());
+
+            }
+
+            m_Mobile.PlaySound(0x031);
+
+            return true;
+        }
+
+        public bool DoApplyWeaponPoison()
+        {
+            bool success = true;
+
+            BaseWeapon weapon = m_Mobile.Weapon as BaseWeapon;
+
+            //No Valid Weapon
+            if (weapon == null)
+                return false;
+
+            bool poisonable = (weapon.Type == WeaponType.Slashing || weapon.Type == WeaponType.Piercing);
+
+            //Not a Poisonable Weapon Type
+            if (!poisonable)
+                return false;
+
+            //Weapon Already Has Poison
+            if (weapon.PoisonCharges > 0)
+                return false;
+
+            NextMove = DateTime.Now + TimeSpan.FromSeconds(1.5);
+            m_Mobile.NextCombatTime = DateTime.Now + TimeSpan.FromSeconds(1.5);
+
+            if (m_Mobile.Body.IsHuman)
+            {
+                m_Mobile.Animate(17, 7, 1, true, false, 0);
+            }
+
+            else
+            {
+                m_Mobile.Animate(11, 5, 1, true, false, 0);
+            }
+
+            double poisoningSkill = m_Mobile.Skills[SkillName.Poisoning].Value;
+            int poisonLevel = (int)(Math.Floor(poisoningSkill / 25));
+
+            Poison m_Poison = Poison.GetPoison(poisonLevel);
+
+            weapon.Poison = m_Poison;
+            weapon.PoisonCharges = 10 - (m_Poison.Level * 2);
+
+            m_Mobile.PlaySound(0x4F);
+            m_Mobile.Emote("*coats weapon in " + m_Poison.Name.ToString() + " poison*");
+            m_Mobile.NextCombatSpecialActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatSpecialActionDelay);
+
+            return success;
+        }
+
+        public bool DoThrowBomb()
+        {
+            bool success = true;
+
+            if (m_Mobile.Combatant != null && m_Mobile.InLOS(m_Mobile.Combatant) && m_Mobile.GetDistanceToSqrt(m_Mobile.Combatant) < 10)
+            {
+                m_Mobile.NextCombatSpecialActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.CombatSpecialActionDelay);
+
+                StartThrowBomb();
+            }
+
+            return success;
+        }
+
+        public void StartThrowBomb()
+        {
+            NextMove = NextMove + TimeSpan.FromSeconds(1.5);
+            m_Mobile.NextCombatTime = m_Mobile.NextCombatTime + TimeSpan.FromSeconds(1.5);
+
+            m_Mobile.DoHarmful(m_Mobile.Combatant);
+
+            if (m_Mobile.Body.IsHuman)
+            {
+                m_Mobile.Animate(31, 7, 1, true, false, 0);
+            }
+            else
+            {
+                m_Mobile.Animate(4, 4, 1, true, false, 0);
+            }
+
+            Timer.DelayCall(TimeSpan.FromSeconds(.5), new TimerStateCallback(ThrowBomb), m_Mobile.Combatant);
+        }
+
+        public virtual void ThrowBomb(object target)
+        {
+            m_Mobile.MovingParticles(m_Mobile.Combatant, 0x1C19, 10, 0, false, true, 0, 0, 9502, 6014, 0x11D, EffectLayer.Waist, 0);
+
+            Timer.DelayCall(TimeSpan.FromSeconds(.5), new TimerStateCallback(ThrowExplosivePotionImpact), m_Mobile.Combatant);
+        }
+
+        public virtual void ThrowExplosivePotionImpact(object target)
+        {
+            if (m_Mobile.CanBeHarmful(m_Mobile.Combatant))
+            {
+                m_Mobile.Combatant.PlaySound(0x11D);
+                m_Mobile.Combatant.Damage(Utility.RandomMinMax(11, 22));
+            }
+        }
+
+        public bool DoStealth()
+        {
+            m_Mobile.Hidden = true;
+            m_Mobile.IsStealthing = true;
+            m_Mobile.StealthAttackReady = true;
+
+            m_Mobile.NextWanderActionAllowed = DateTime.Now + TimeSpan.FromSeconds(FeatureList.BaseCreatureAI.WanderActionDelay);
+
+            return true;
+        }
+
+        public Spell GetSpellBeneficial1to2()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile;
+
+            switch (Utility.Random(3))
+            {
+                case 0: { return new AgilitySpell(m_Mobile, null); }
+                case 1: { return new CunningSpell(m_Mobile, null); }
+                case 2: { return new StrengthSpell(m_Mobile, null); }
+                case 3: { return new ProtectionSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellBeneficial3to4()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new BlessSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellBeneficial5()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new MagicReflectSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage1()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new MagicArrowSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage2()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new HarmSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage3()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new FireballSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage4()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new LightningSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage5()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new MindBlastSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage6()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(2))
+            {
+                case 0: { return new EnergyBoltSpell(m_Mobile, null); }
+                case 1: { return new ExplosionSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamage7()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new FlameStrikeSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDamageAOE7()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(2))
+            {
+                case 0: { return new ChainLightningSpell(m_Mobile, null); }
+                case 1: { return new MeteorSwarmSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellDispelSummon()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new DispelSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellHarmfulField()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(2))
+            {
+                case 0: { return new FireFieldSpell(m_Mobile, null); }
+                case 1: { return new PoisonFieldSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellNegative1to3()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(3))
+            {
+                case 0: { return new ClumsySpell(m_Mobile, null); }
+                case 1: { return new FeeblemindSpell(m_Mobile, null); }
+                case 2: { return new WeakenSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellNegative4to7()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(3))
+            {
+                case 0: { return new CurseSpell(m_Mobile, null); }
+                case 1: { return new ManaDrainSpell(m_Mobile, null); }
+                case 2: { return new ParalyzeSpell(m_Mobile, null); }
+                //case 3: { return new DispelSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellNegativeField()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(3))
+            {
+                case 0: { return new WallOfStoneSpell(m_Mobile, null); }
+                case 1: { return new ParalyzeFieldSpell(m_Mobile, null); }
+                case 2: { return new EnergyFieldSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellPoison()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile.Combatant;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new PoisonSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellSummon5()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile;
+
+            switch (Utility.Random(1))
+            {
+                case 0: { return new SummonCreatureSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Spell GetSpellSummon8()
+        {
+            Spell spell = null;
+
+            m_Mobile.SpellTarget = m_Mobile;
+
+            switch (Utility.Random(5))
+            {
+                case 0: { return new AirElementalSpell(m_Mobile, null); }
+                case 1: { return new EarthElementalSpell(m_Mobile, null); }
+                case 2: { return new FireElementalSpell(m_Mobile, null); }
+                case 3: { return new WaterElementalSpell(m_Mobile, null); }
+                case 4: { return new SummonDaemonSpell(m_Mobile, null); }
+            }
+
+            return spell;
+        }
+
+        public Mobile GetSelfAggressor()
+        {
+            Mobile combatant = m_Mobile.Combatant;
+
+            bool foundAggressors = false;
+
+            int mobileAggressors = 0;
+
+            List<AggressorInfo> aggressors = m_Mobile.Aggressors;
+
+            //Determine Aggressors for Mobile
+            mobileAggressors = (int)m_Mobile.Aggressors.Count;
+
+            //Mobile Has Aggressors
+            if (mobileAggressors > 0)
+            {
+                foundAggressors = true;
+
+                aggressors = m_Mobile.Aggressors;
+
+                for (int i = 0; i < aggressors.Count; ++i)
+                {
+                    AggressorInfo info = aggressors[i];
+                    Mobile attacker = info.Attacker;
+                    //Mobile defender = info.Defender;
+
+                    //Potential Combatant is Valid and Within Perception Range
+                    if (attacker != null && !attacker.Deleted && attacker.GetDistanceToSqrt(m_Mobile) <= m_Mobile.RangePerception)
+                    {
+                        //Have No Current Combatant So Picking This One
+                        if (combatant == null)
+                        {
+                            combatant = attacker;
+                        }
+
+                        //This Attacker is Closer Than My Current Combatant
+                        else if (attacker.GetDistanceToSqrt(m_Mobile) < combatant.GetDistanceToSqrt(m_Mobile))
+                        {
+                            combatant = attacker;
+                        }
+
+                        //Ignoring This Potential Attacker
+                        else
+                        {
+                        }
+                    }
+
+                    /*
+                    //Potential Combatant is Valid and Within Perception Range
+                    if (defender != null && !defender.Deleted && defender.GetDistanceToSqrt(m_Mobile) <= m_Mobile.RangePerception)
+                    {
+                        //Have No Current Combatant So Picking This One
+                        if (combatant == null)
+                        {
+                            combatant = defender;
+                        }
+
+                        //This Attacker is Closer Than My Current Combatant
+                        else if (defender.GetDistanceToSqrt(m_Mobile) < combatant.GetDistanceToSqrt(m_Mobile))
+                        {
+                            combatant = defender;
+                        }
+
+                        //Ignoring This Potential Attacker
+                        else
+                        {
+                        }
+                    }
+                    */
+                }
+            }
+
+            //Has No Aggresor
+            else
+            {
+            }
+
+            //Return Combatant
+            if (foundAggressors)
+            {
+                return combatant;
+            }
+
+            return null;
+        }
+
+        public Mobile GetAnyAggressor()
+        {
+            Mobile controlMaster = m_Mobile.ControlMaster;
+            Mobile combatant = m_Mobile.Combatant;
+
+            bool validControlMaster = false;
+            bool foundAggressors = false;
+
+            int controllerAggressors = 0;
+            int mobileAggressors = 0;
+
+            //If Mobile Has Valid ControlMaster
+            if (m_Mobile.ControlMaster != null && !m_Mobile.ControlMaster.Deleted && m_Mobile.ControlMaster.Map == m_Mobile.Map && m_Mobile.ControlMaster.Alive && !m_Mobile.IsDeadBondedPet)
+            {
+                validControlMaster = true;
+            }
+
+            List<AggressorInfo> aggressors = m_Mobile.Aggressors;
+
+            //Determine Aggressors for Owner If Exists
+            if (validControlMaster)
+            {
+                controllerAggressors = (int)m_Mobile.ControlMaster.Aggressors.Count;
+            }
+
+            //Determine Aggressors for Mobile
+            mobileAggressors = (int)m_Mobile.Aggressors.Count;
+
+            //Controller Exists and Has Aggressors
+            if (validControlMaster && controllerAggressors > 0)
+            {
+                foundAggressors = true;
+
+                aggressors = m_Mobile.ControlMaster.Aggressors;
+
+                for (int i = 0; i < aggressors.Count; ++i)
+                {
+                    AggressorInfo info = aggressors[i];
+                    Mobile attacker = info.Attacker;
+                    //Mobile defender = info.Defender;
+
+                    //Potential Combatant is Valid and Within Perception Range
+                    if (attacker != null && m_Mobile.CanSee(attacker) && attacker != m_Mobile && !attacker.Deleted && attacker.GetDistanceToSqrt(m_Mobile) <= m_Mobile.RangePerception)
+                    {
+                        //Have No Current Combatant So Picking This One
+                        if (combatant == null)
+                        {
+                            combatant = attacker;
+                        }
+
+                        //This Attacker is Closer Than My Current Combatant
+                        else if (attacker.GetDistanceToSqrt(controlMaster) < combatant.GetDistanceToSqrt(controlMaster))
+                        {
+                            foundAggressors = true;
+
+                            combatant = attacker;
+                        }
+
+                        //Ignoring This Potential Target
+                        else
+                        {
+                        }
+                    }
+                }
+            }
+
+            //Mobile Has Aggressors
+            else if (mobileAggressors > 0)
+            {
+                foundAggressors = true;
+
+                aggressors = m_Mobile.Aggressors;
+
+                for (int i = 0; i < aggressors.Count; ++i)
+                {
+                    AggressorInfo info = aggressors[i];
+                    Mobile attacker = info.Attacker;
+                    Mobile defender = info.Defender;
+
+                    //Potential Combatant is Valid and Within Perception Range
+                    if (attacker != null && m_Mobile.CanSee(attacker) && attacker != m_Mobile && !attacker.Deleted && attacker.GetDistanceToSqrt(m_Mobile) <= m_Mobile.RangePerception)
+                    {
+                        //Have No Current Combatant So Picking This One
+                        if (combatant == null)
+                        {
+                            combatant = attacker;
+                        }
+
+                        //This Attacker is Closer Than My Current Combatant
+                        else if (attacker.GetDistanceToSqrt(m_Mobile) < combatant.GetDistanceToSqrt(m_Mobile))
+                        {
+                            combatant = attacker;
+                        }
+
+                        //Ignoring This Potential Attacker
+                        else
+                        {
+                        }
+                    }
+
+                    //Potential Combatant is Valid and Within Perception Range
+                    if (defender != null && m_Mobile.CanSee(defender) && defender != m_Mobile && !defender.Deleted && defender.GetDistanceToSqrt(m_Mobile) <= m_Mobile.RangePerception)
+                    {
+                        //Have No Current Combatant So Picking This One
+                        if (combatant == null)
+                        {
+                            combatant = defender;
+                        }
+
+                        //This Attacker is Closer Than My Current Combatant
+                        else if (defender.GetDistanceToSqrt(m_Mobile) < combatant.GetDistanceToSqrt(m_Mobile))
+                        {
+                            combatant = defender;
+                        }
+
+                        //Ignoring This Potential Attacker
+                        else
+                        {
+                        }
+                    }
+                }
+            }
+
+            //No One Has Aggressors
+            else
+            {
+            }
+
+            //Return Combatant
+            if (foundAggressors)
+            {
+                return combatant;
+            }
+
+            return null;
+        }
+
+        public bool FleeCheck()
+        {
+            //Immobile Creatures Cannot Flee
+            if (m_Mobile.DisallowAllMoves)
+                return false;
+
+            //Will Not Flee if Pacified
+            if (m_Mobile.BardPacified)
+                return false;
+
+            //Will Not Flee if Provoked
+            if (m_Mobile.BardProvoked)
+                return false;
+
+            //Already Fleeing: Check if Continue Fleeing or Rally
+            if (Action == ActionType.Flee)
+            {
+                List<AggressorInfo> aggressors = m_Mobile.Aggressors;
+
+                int validAggressors = 0;
+                double ClosestCombatantRange = 1000;
+                bool validCombatant = false;
+
+                //Current Combatant Still Valid
+                if (m_Mobile.Combatant != null && !m_Mobile.Combatant.Deleted && m_Mobile.Combatant.Map == m_Mobile.Map && m_Mobile.Combatant.Alive && m_Mobile.GetDistanceToSqrt(m_Mobile.Combatant) <= m_Mobile.RangePerception)
+                {
+                    validCombatant = true;
+                }
+
+                //Has Aggressors
+                else if (aggressors.Count > 0)
+                {
+                    for (int i = 0; i < aggressors.Count; ++i)
+                    {
+                        AggressorInfo info = aggressors[i];
+                        Mobile attacker = info.Attacker;
+                        Mobile defender = info.Defender;
+
+                        //Potential Combatant is Valid and Within Perception Range
+                        if (attacker != null && !attacker.Deleted && attacker.Map == m_Mobile.Map && attacker.Alive && m_Mobile.GetDistanceToSqrt(attacker) <= m_Mobile.RangePerception)
+                        {
+                            validAggressors++;
+
+                            //Set Closest Aggressor as Combatant (Will Flee Away From This Mobile)
+                            if (m_Mobile.GetDistanceToSqrt(attacker) < ClosestCombatantRange)
+                            {
+                                m_Mobile.Combatant = attacker;
+
+                                ClosestCombatantRange = m_Mobile.GetDistanceToSqrt(attacker);
+
+                                validCombatant = true;
+                            }
+                        }
+
+                        //Potential Combatant is Valid and Within Perception Range
+                        if (defender != null && !defender.Deleted && defender.Map == m_Mobile.Map && defender.Alive && m_Mobile.GetDistanceToSqrt(defender) <= m_Mobile.RangePerception)
+                        {
+                            validAggressors++;
+
+                            //Set Closest Aggressor as Combatant (Will Flee Away From This Mobile)
+                            if (m_Mobile.GetDistanceToSqrt(defender) < ClosestCombatantRange)
+                            {
+                                m_Mobile.Combatant = defender;
+
+                                ClosestCombatantRange = m_Mobile.GetDistanceToSqrt(defender);
+
+                                validCombatant = true;
+                            }
+                        }
+                    }
+                }
+
+                //Valid Combatant to Flee From
+                if (validCombatant)
+                {
+                    //Has Regained Enough Health Since Last Fled                    
+                    if (HealthRallyCheck())
+                    {
+                        GuardMode();
+                        if (m_Mobile.Debug) { m_Mobile.DebugSay("HealthRallyCheck to Guardmode"); }
+                        return false;
+                    }
+
+                    //Continue Fleeing
+                    else
+                    {
+                        return true;
+                    }
+                }
+
+                //No Valid Combatant to Flee From
+                {
+                    GuardMode();
+                    if (m_Mobile.Debug) { m_Mobile.DebugSay("No Valid Combatant to Flee from to Guardmode"); }
+                    return false;
+                }
+            }
+
+            //Check To See If Should Flee
+            else
+            {
+                double MobileHealth = (double)m_Mobile.Hits / (double)m_Mobile.HitsMax;
+                int HighestFleePriority = 0;
+
+                if (MobileHealth <= .10)
+                {
+                    if (m_Mobile.DictCombatFlee[CombatFlee.Flee10] > HighestFleePriority)
+                    {
+                        HealthFledAt = .10;
+                        HighestFleePriority = m_Mobile.DictCombatFlee[CombatFlee.Flee10];
+                    }
+                }
+
+                else if (MobileHealth <= .25)
+                {
+                    if (m_Mobile.DictCombatFlee[CombatFlee.Flee25] > HighestFleePriority)
+                    {
+                        HealthFledAt = .25;
+                        HighestFleePriority = m_Mobile.DictCombatFlee[CombatFlee.Flee25];
+                    }
+                }
+
+                else if (MobileHealth <= .50)
+                {
+                    if (m_Mobile.DictCombatFlee[CombatFlee.Flee50] > HighestFleePriority)
+                    {
+                        HealthFledAt = .50;
+                        HighestFleePriority = m_Mobile.DictCombatFlee[CombatFlee.Flee50];
+                    }
+                }
+
+                else if (MobileHealth <= .75)
+                {
+                    if (m_Mobile.DictCombatFlee[CombatFlee.Flee75] > HighestFleePriority)
+                    {
+                        HealthFledAt = .75;
+                        HighestFleePriority = m_Mobile.DictCombatFlee[CombatFlee.Flee75];
+                    }
+                }
+
+                double FleeChance = (double)HighestFleePriority / 10;
+                double FleeCheck = Utility.RandomDouble();
+
+                if (FleeChance >= FleeCheck)
+                {
+                    m_Mobile.Emote("!");
+                    m_Mobile.PlaySound(m_Mobile.GetIdleSound());
+
+                    FleeMode();
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool HealthRallyCheck()
+        {
+            double MobileHealth = (double)m_Mobile.Hits / (double)m_Mobile.HitsMax;
+
+            //Fled at 10% Health but Now Healed Up to 25%
+            if (MobileHealth >= .25 && HealthFledAt == .10)
+            {
+                return true;
+            }
+
+            //Fled at 25% Health but Now Healed Up to 50% 	 	
+            if (MobileHealth >= .50 && HealthFledAt == .25)
+            {
+                return true;
+            }
+
+            //Fled at 50% Health but Now Healed Up to 75%
+            if (MobileHealth >= .75 && HealthFledAt == .50)
+            {
+                return true;
+            }
+
+            //Always Rally At 100 Health 	 	
+            if (MobileHealth == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public virtual void OnAggressiveAction(Mobile aggressor)
+        {
+            if (aggressor == m_Mobile)
+                return;
+
+            if (m_Mobile.Blessed)
+                return;
+
+            if (aggressor.Blessed)
+                return;
+
+            //Currently Pacified
+            if (m_Mobile.BardPacified)
+            {
+                //Reduce Pacified Duration With Aggressive Actions
+                DateTime OriginalBardTimeEnd = m_Mobile.BardEndTime;
+                m_Mobile.BardEndTime = m_Mobile.BardEndTime - TimeSpan.FromSeconds(FeatureList.BardChanges.PeacemakingAggressiveTimerReduction);
+            }
+        }
+
+        public virtual bool AcquireFocusMob(bool CurrentlyInCombat)
+        {
+            //Mobile is Dead
+            if (m_Mobile.Deleted)
+                return false;
+
+            //Blessed Things or Vendors Don't Acquire Targets
+            if (m_Mobile.Blessed || m_Mobile is BaseVendor)
+            {
+                //Wandering Healer Exception
+                if (m_Mobile is WanderingHealer || m_Mobile is EvilWanderingHealer)
+                {
+                }
+
+                else
+                {
+                    return false;
+                }
+            }
+
+            //If Mobile is a Guard
+            Mobile mobile = m_Mobile as Mobile;
+
+            if (mobile is BaseGuard)
+            {
+                return false;
+            }
+
+            //Mobile is Controlled
+            else if (m_Mobile.Controlled)
+            {
+                //Mobile Cannot Get Target From Its Master
+                if (m_Mobile.ControlTarget == null || m_Mobile.ControlTarget.Deleted || m_Mobile.ControlTarget.Hidden || !m_Mobile.ControlTarget.Alive || m_Mobile.ControlTarget.IsDeadBondedPet || !m_Mobile.InRange(m_Mobile.ControlTarget, m_Mobile.RangePerception * 2))
+                {
+                    if (m_Mobile.ControlTarget != null && m_Mobile.ControlTarget != m_Mobile.ControlMaster)
+                        m_Mobile.ControlTarget = null;
+
+                    m_Mobile.FocusMob = null;
+
+                    return false;
+                }
+
+                //Mobile's Target is its Master's Target
+                else
+                {
+                    m_Mobile.FocusMob = m_Mobile.ControlTarget;
+                    return (m_Mobile.FocusMob != null);
+                }
+            }
+
+            //Mobile Has a Continuous Target: Currently Only Khadun Revenant
+            if (m_Mobile.ConstantFocus != null)
+            {
+                m_Mobile.FocusMob = m_Mobile.ConstantFocus;
+
+                return (m_Mobile.FocusMob != null);
+            }
+
+            Mobile firstMobileTarget = null;
+            Mobile bestMobileTarget = null;
+
+            double bestMobileTargetValue = 0.0;
+            double CheckMobileTargetValue = 0.0;
+
+            int validTargetCount = 0;
+
+            Map map = m_Mobile.Map;
+
+            if (map != null)
+            {
+                IPooledEnumerable eable = map.GetMobilesInRange(m_Mobile.Location, m_Mobile.RangePerception);
+
+                foreach (Mobile target in eable)
+                {
+                    //Ignore If Deleted or Blessed
+                    if (target.Deleted || target.Blessed)
+                        continue;
+
+                    //Ignore Self
+                    if (target == m_Mobile)
+                        continue;
+
+                    //Ignore If Dead
+                    if (!target.Alive || target.IsDeadBondedPet)
+                        continue;
+
+                    //Ignore ServerStaff
+                    if (target.AccessLevel > AccessLevel.Player)
+                        continue;
+
+                    //Ignore If Out of LOS
+                    if (!m_Mobile.CanSee(target))
+                        continue;
+
+                    //If Can't Hurt Target
+                    if (!m_Mobile.CanBeHarmful(target))
+                        continue;
+
+                    CheckMobileTargetValue = DetermineMobileTargetValue(target, bestMobileTarget, CurrentlyInCombat);
+
+                    //Can Be a Valid Target
+                    if (CheckMobileTargetValue > 0)
+                    {
+                        //First Valid Target: Store Because It Can't Be Properly Compared (being compared to null for BonusWeights)
+                        if (validTargetCount == 0)
+                        {
+                            firstMobileTarget = target;
+                        }
+
+                        validTargetCount++;
+
+                        //If Target Has Better Targeting Value Than Current Best, It Becomes Best
+                        if (CheckMobileTargetValue > bestMobileTargetValue)
+                        {
+                            bestMobileTargetValue = CheckMobileTargetValue;
+                            bestMobileTarget = target;
+                        }
+                    }
+                }
+
+                //Check First Target Against Best Target: First Target Wasn't Properly Compared
+                if (firstMobileTarget != null && firstMobileTarget != bestMobileTarget)
+                {
+                    CheckMobileTargetValue = DetermineMobileTargetValue(firstMobileTarget, bestMobileTarget, CurrentlyInCombat);
+
+                    if (CheckMobileTargetValue > bestMobileTargetValue)
+                    {
+                        bestMobileTarget = firstMobileTarget;
+                    }
+                }
+
+                //End Search
+                eable.Free();
+
+                if (bestMobileTarget != null)
+                {
+                    m_Mobile.FocusMob = bestMobileTarget;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public double DetermineMobileTargetValue(Mobile target, Mobile currentBestTarget, bool CurrentlyInCombat)
+        {
+            int MobValue = 0;
+            int BestTargetValue = 0;
+            int BonusWeightValue = 0;
+
+            bool IsFollower = false;
+
+            //Check if Target is Guard
+            Mobile mobileTarget = target as Mobile;
+
+            if (mobileTarget is BaseGuard)
+            {
+                return 0;
+            }
+
+            BaseCreature targetCreature = target as BaseCreature;
+            BaseWeapon targetWeapon = target.Weapon as BaseWeapon;
+
+            if (targetCreature != null)
+            {
+                if (targetCreature.ControlMaster != null)
+                {
+                    IsFollower = true;
+                }
+            }
+
+            //If Can't Hurt Target
+            if (!m_Mobile.CanBeHarmful(target))
+            {
+                return 0;
+            }
+
+            //If AcquireFocusMob Occuring During Combat
+            if (CurrentlyInCombat)
+            {
+                //If Target is Mobile's Current Combatant
+                if (m_Mobile.Combatant != null && m_Mobile.Combatant == target)
+                {
+                    //Currently don't care if target is in LOS, will still pursue if within PerceptionRange and if CanSee()                   
+                }
+
+                //New Target
+                else
+                {
+                    //Ignore If Out of Line of Sight
+                    if (!m_Mobile.InLOS(target))
+                    {
+                        return 0;
+                    }
+                }
+            }
+
+            //Looking For Targets Outside of Combat
+            else
+            {
+                //Target Isn't In Line of Sight
+                if (!m_Mobile.InLOS(target))
+                {
+                    return 0;
+                }
+            }
+
+            //Determine Targeting Value of Potential Target     
+
+            //None: Doesn't Want To Acquire Targets or Fightback
+            if (m_Mobile.DictCombatTargeting[CombatTargeting.None] > 0)
+            {
+                return 0;
+            }
+
+            //OpposingFaction
+            if (((m_Mobile.GetFactionAllegiance(target) == BaseCreature.Allegiance.Enemy) || m_Mobile.GetEthicAllegiance(target) == BaseCreature.Allegiance.Enemy))
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if (((m_Mobile.GetFactionAllegiance(targetCreature.ControlMaster) == BaseCreature.Allegiance.Enemy) || m_Mobile.GetEthicAllegiance(targetCreature.ControlMaster) == BaseCreature.Allegiance.Enemy))
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction];
+                    }
+                }
+            }
+
+            if (m_Mobile.IsEnemy(target))
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if (m_Mobile.IsEnemy(targetCreature.ControlMaster))
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.OpposingFaction];
+                    }
+                }
+            }
+
+            //PlayerGood
+            if (target.Player && !target.Criminal && target.Kills < 5)
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.PlayerGood] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.PlayerGood];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if (targetCreature.ControlMaster.Player && !targetCreature.ControlMaster.Criminal && targetCreature.ControlMaster.Kills < 5)
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.PlayerGood] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.PlayerGood];
+                    }
+                }
+            }
+
+            bool isTargettingCriminal = false;
+            //PlayerCriminal or Target is Controlled by Player Criminal           
+            if (target.Player && (target.Criminal || target.Kills >= 5))
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.PlayerCriminal] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.PlayerCriminal];
+                    isTargettingCriminal = true;
+                }
+                else if ((target.Criminal && m_Mobile.KillCriminals) || (target.Kills >= 5 && m_Mobile.KillMurderers))
+                {
+                    if (BestTargetValue <= 1) BestTargetValue = 1; // lowest "priority"
+                    isTargettingCriminal = true;
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if (targetCreature.ControlMaster.Player && (targetCreature.ControlMaster.Criminal || targetCreature.ControlMaster.Kills >= 5))
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.PlayerCriminal] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.PlayerCriminal];
+                        isTargettingCriminal = true;
+                    }
+                    else if ((target.Criminal && m_Mobile.KillCriminals) || (target.Kills >= 5 && m_Mobile.KillMurderers))
+                    {
+                        if (BestTargetValue <= 1) BestTargetValue = 1; // lowest "priority"
+                        isTargettingCriminal = true;
+                    }
+                }
+            }
+
+            //PlayerAny or Target is Controlled by PlayerAny
+            if (target.Player)
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.PlayerAny] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.PlayerAny];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if (targetCreature.ControlMaster.Player)
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.PlayerAny] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.PlayerAny];
+                    }
+                }
+            }
+
+            //SuperPredator  
+            if (targetCreature != null)
+            {
+                if (targetCreature.SuperPredator)
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.SuperPredator] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.SuperPredator];
+                    }
+                }
+            }
+
+            //Predator           
+            if (targetCreature != null)
+            {
+                if (targetCreature.Predator)
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.Predator] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Predator];
+                    }
+                }
+            }
+
+            //Prey
+            if (targetCreature != null)
+            {
+                if (targetCreature.Prey)
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.Prey] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Prey];
+                    }
+                }
+            }
+
+            //Good
+            if ((target.Player && !target.Criminal && target.Kills < 5) || (!target.Player && target.Karma > 0))
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.Good] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Good];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if ((targetCreature.ControlMaster.Player && !targetCreature.ControlMaster.Criminal && target.Kills < 5) || (!targetCreature.ControlMaster.Player && target.Karma > 0))
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.Good] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Good];
+                    }
+                }
+            }
+
+            //Neutral  
+            if ((target.Player && target.Criminal) || (!target.Player && target.Karma == 0))
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.Neutral] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Neutral];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if ((targetCreature.ControlMaster.Player && targetCreature.ControlMaster.Criminal) || (!targetCreature.ControlMaster.Player && targetCreature.ControlMaster.Karma == 0))
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.Neutral] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Neutral];
+                    }
+                }
+            }
+
+            //Evil
+            if ((target.Player && (target.Criminal || target.Kills >= 5)) || (!target.Player && target.Karma < 0))
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.Evil] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Evil];
+                }
+            }
+
+            else if (IsFollower)
+            {
+                if ((targetCreature.ControlMaster.Player && (targetCreature.ControlMaster.Criminal || targetCreature.ControlMaster.Kills >= 5)) || (!targetCreature.ControlMaster.Player && targetCreature.ControlMaster.Karma < 0))
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.Evil] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Evil];
+                    }
+                }
+            }
+
+            //Any Target
+            if (m_Mobile.DictCombatTargeting[CombatTargeting.Any] > BestTargetValue)
+            {
+                BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Any];
+            }
+
+            //Aggressor & Teammate Check
+            bool bAggressor = false;
+            bool bAggressed = false;
+
+            for (int a = 0; !bAggressor && a < m_Mobile.Aggressors.Count; ++a)
+            {
+                bAggressor = (m_Mobile.Aggressors[a].Attacker == target);
+            }
+            for (int a = 0; !bAggressed && a < m_Mobile.Aggressed.Count; ++a)
+            {
+                bAggressed = (m_Mobile.Aggressed[a].Defender == target);
+            }
+            //for (int a = 0; !bAggressor && a < m_Mobile.Aggressed.Count; ++a)
+            //    bAggressor = (m_Mobile.Aggressed[a].Defender == target);
+
+            //If Target Was Aggressor
+            if (bAggressor)
+            {
+                if (m_Mobile.DictCombatTargeting[CombatTargeting.Aggressor] > BestTargetValue)
+                {
+                    BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Aggressor];
+                }
+            }
+            else if (bAggressed) // monster attacked before (usually pseudoseer's involved in this case)
+            {
+                if (BestTargetValue < 1) BestTargetValue = 1;
+            }
+
+            //Mobile is a Follower (Commanded)
+            else if (IsFollower)
+            {
+                bAggressor = false;
+
+                for (int a = 0; !bAggressor && a < m_Mobile.Aggressors.Count; ++a)
+                    bAggressor = (m_Mobile.Aggressors[a].Attacker == targetCreature.ControlMaster);
+
+                //for (int a = 0; !bAggressor && a < m_Mobile.Aggressed.Count; ++a)
+                //    bAggressor = (m_Mobile.Aggressed[a].Defender == targetCreature.ControlMaster);
+
+                if (bAggressor)
+                {
+                    if (m_Mobile.DictCombatTargeting[CombatTargeting.Aggressor] > BestTargetValue)
+                    {
+                        BestTargetValue = m_Mobile.DictCombatTargeting[CombatTargeting.Aggressor];
+                    }
+                }
+            }
+
+            //Not Aggressor
+            else
+            {
+                // Flexible Teams
+                if ((m_Mobile.TeamFlags & target.TeamFlags) == 0)
+                {
+                    //Ignore kin
+                    if (AIKinTeamList.CheckKinTeam(m_Mobile, target))
+                    {
+                        return 0;
+                    } 
+                    else if (BestTargetValue <= 1)
+                    {
+                        BestTargetValue = 1; // not on team = lowest level of aggressiveness against the target
+                    }
+                }
+                else
+                {
+                    if (!isTargettingCriminal)
+                    {
+                        return 0; // new version; if on a similar teamflags (and they aren't aggressed on each other, don't attack
+                        // OLD VERSION: not used anymore
+                        //If Is Teammate, Ignore It
+                        if (AITeamList.CheckTeamOld(m_Mobile, target))
+                        {
+                            return 0;
+                        }
+                    }
+                }
+            }
+
+            //Check Weights            
+            if (currentBestTarget != null)
+            {
+                //Current Combatant                
+                if (m_Mobile.Combatant == target)
+                {
+                    BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.CurrentCombatant];
+                }
+
+                //Closest                
+                if (m_Mobile.GetDistanceToSqrt(target) < m_Mobile.GetDistanceToSqrt(currentBestTarget))
+                {
+                    BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.Closest];
+                }
+
+                //Higher Hit Points
+                if (target.Hits > currentBestTarget.Hits)
+                {
+                    BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.HighestHitPoints];
+                }
+
+                //Lower Hit Points
+                if (target.Hits < currentBestTarget.Hits)
+                {
+                    BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.LowestHitPoints];
+                }
+
+                //Higher Armor
+                if (target.ArmorRating > currentBestTarget.ArmorRating)
+                {
+                    BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.HighestArmor];
+                }
+
+                //Lower Armor
+                if (target.ArmorRating < currentBestTarget.ArmorRating)
+                {
+                    BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.LowestArmor];
+                }
+
+                //Ranged
+                if (targetWeapon != null)
+                {
+                    if (targetWeapon is BaseRanged)
+                    {
+                        BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.Ranged];
+                    }
+                }
+
+                //SpellCaster
+                double SpellCasterBonusToDistribute = (double)m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.Spellcaster];
+                double SpellCasterBonus = 0.0;
+
+                SpellCasterBonusToDistribute /= 4;
+
+                //Target Has Higher Magery Skill
+                if (target.Skills[SkillName.Magery].Value > currentBestTarget.Skills[SkillName.Magery].Value)
+                {
+                    SpellCasterBonus += SpellCasterBonusToDistribute;
+                }
+
+                //Target Has More EvalInt
+                if (target.Skills[SkillName.EvalInt].Value > target.Skills[SkillName.EvalInt].Value)
+                {
+                    SpellCasterBonus += SpellCasterBonusToDistribute;
+                }
+
+                //Target Has More MaxMana
+                if ((target.ManaMax) > (currentBestTarget.ManaMax))
+                {
+                    SpellCasterBonus += SpellCasterBonusToDistribute;
+                }
+
+                //Target Has More Mana Remaining
+                if ((target.ManaMax - target.Mana) > (currentBestTarget.ManaMax - currentBestTarget.Mana))
+                {
+                    SpellCasterBonus += SpellCasterBonusToDistribute;
+                }
+
+                BonusWeightValue += (int)(Math.Round(SpellCasterBonus));
+
+                //Summoned
+                if (IsFollower)
+                {
+                    if (targetCreature.Summoned)
+                    {
+                        BonusWeightValue += m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.Summoned];
+                    }
+                }
+
+                //Poisoner
+                double PoisonerBonusToDistribute = (double)m_Mobile.DictCombatTargetingWeight[CombatTargetingWeight.Poisoner];
+                double PoisonerBonus = 0.0;
+
+                PoisonerBonusToDistribute /= 2;
+
+                //Target Has Poisoned Weapon Equipped
+                if (targetWeapon != null)
+                {
+                    if (targetWeapon.PoisonCharges > 0)
+                    {
+                        PoisonerBonus += PoisonerBonusToDistribute;
+                    }
+                }
+
+                //Target Has More Poisoning Skill
+                if (target.Skills[SkillName.Poisoning].Value > target.Skills[SkillName.Poisoning].Value)
+                {
+                    PoisonerBonus += PoisonerBonusToDistribute;
+                }
+
+                BonusWeightValue += (int)(Math.Round(PoisonerBonus));
+            }
+
+            MobValue += BestTargetValue;
+
+            //Add Bonus Weights Only if Initial Targetting Reason is Found
+            if (MobValue > 0)
+            {
+                MobValue += BonusWeightValue;
+            }
+
+            //target           
+
+            return MobValue;
+        }
+
+        //Movement
+        protected PathFollower m_Path;
+        private DateTime m_NextMove;
+        private static Queue m_Obstacles = new Queue();
+
+        public DateTime NextMove
+        {
+            get { return m_NextMove; }
+            set { m_NextMove = value; }
+        }
+
+        public virtual void WalkRandom(int iChanceToNotMove, int iChanceToDir, int iSteps)
+        {
+            if (m_Mobile.Deleted || m_Mobile.DisallowAllMoves)
+                return;
+
+            for (int i = 0; i < iSteps; i++)
+            {
+                if (Utility.Random(8 * iChanceToNotMove) <= 8)
+                {
+                    int iRndMove = Utility.Random(0, 8 + (9 * iChanceToDir));
+
+                    switch (iRndMove)
+                    {
+                        case 0:
+                            DoMove(Direction.Up);
+                            break;
+                        case 1:
+                            DoMove(Direction.North);
+                            break;
+                        case 2:
+                            DoMove(Direction.Left);
+                            break;
+                        case 3:
+                            DoMove(Direction.West);
+                            break;
+                        case 5:
+                            DoMove(Direction.Down);
+                            break;
+                        case 6:
+                            DoMove(Direction.South);
+                            break;
+                        case 7:
+                            DoMove(Direction.Right);
+                            break;
+                        case 8:
+                            DoMove(Direction.East);
+                            break;
+                        default:
+                            DoMove(m_Mobile.Direction);
+                            break;
+                    }
+                }
+            }
+        }
+
+        public virtual bool WalkTo(Point3D location, int iSteps, bool bRun, int iWantDistMin, int iWantDistMax)
+        {
+            if (m_Mobile.Deleted || m_Mobile.DisallowAllMoves)
+                return false;
+
+            if (m_Mobile != null)
+            {
+                for (int i = 0; i < iSteps; i++)
+                {
+                    // Get the curent distance
+                    int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(location);
+
+                    if (iCurrDist < iWantDistMin || iCurrDist > iWantDistMax)
+                    {
+                        bool needCloser = (iCurrDist > iWantDistMax);
+                        bool needFurther = !needCloser;
+
+                        if (needCloser && m_Path != null && m_Path.Goal == (IPoint3D)location)
+                        {
+                            if (m_Path.Follow(bRun, 1))
+                                m_Path = null;
+                        }
+
+                        else
+                        {
+                            Direction dirTo;
+
+                            //if (iCurrDist > iWantDistMax)
+                            dirTo = m_Mobile.GetDirectionTo(location);
+                            //else
+                            //dirTo = location.GetDirectionTo(m_Mobile); FIX THIS
+
+                            // Add the run flag
+                            if (bRun)
+                                dirTo = dirTo | Direction.Running;
+
+                            if (!DoMove(dirTo, true) && needCloser)
+                            {
+                                m_Path = new PathFollower(m_Mobile, location);
+                                m_Path.Mover = new MoveMethod(DoMoveImpl);
+
+                                if (m_Path.Follow(bRun, 1))
+                                    m_Path = null;
+                            }
+
+                            else
+                            {
+                                m_Path = null;
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        return true;
+                    }
+                }
+
+                // Get the curent distance
+                int iNewDist = (int)m_Mobile.GetDistanceToSqrt(location);
+
+                if (iNewDist >= iWantDistMin && iNewDist <= iWantDistMax)
+                    return true;
+                else
+                    return false;
+            }
+
+            return false;
+        }
+
+        public virtual bool WalkMobileRange(Mobile m, int iSteps, bool bRun, int iWantDistMin, int iWantDistMax)
+        {
+            if (m_Mobile.Deleted || m_Mobile.DisallowAllMoves || m == null)
+                return false;
+            return WalkMobileRange((IPoint3D)m, iSteps, bRun, iWantDistMin, iWantDistMax);
+        }
+
+        public virtual bool WalkMobileRange(IPoint3D m, int iSteps, bool bRun, int iWantDistMin, int iWantDistMax)
+        {
+            for (int i = 0; i < iSteps; i++)
+            {
+                // Get the curent distance
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m);
+
+                if (iCurrDist < iWantDistMin || iCurrDist > iWantDistMax)
+                {
+                    bool needCloser = (iCurrDist > iWantDistMax);
+                    bool needFurther = !needCloser;
+
+                    if (needCloser && m_Path != null && m_Path.Goal == m)
+                    {
+                        if (m_Path.Follow(bRun, 1))
+                            m_Path = null;
+                    }
+
+                    else
+                    {
+                        Direction dirTo;
+
+                        if (iCurrDist > iWantDistMax)
+                            dirTo = m_Mobile.GetDirectionTo(m);
+                        else
+                            dirTo = GetDirection(m,m_Mobile);
+
+                        // Add the run flag
+                        if (bRun)
+                            dirTo = dirTo | Direction.Running;
+
+                        if (!DoMove(dirTo, true) && needCloser)
+                        {
+                            m_Path = new PathFollower(m_Mobile, m);
+                            m_Path.Mover = new MoveMethod(DoMoveImpl);
+
+                            if (m_Path.Follow(bRun, 1))
+                                m_Path = null;
+                        }
+
+                        else
+                        {
+                            m_Path = null;
+                        }
+                    }
+                }
+
+                else
+                {
+                    return true;
+                }
+            }
+
+            // Get the curent distance
+            int iNewDist = (int)m_Mobile.GetDistanceToSqrt(m);
+
+            if (iNewDist >= iWantDistMin && iNewDist <= iWantDistMax)
+                return true;
+            else
+                return false;
+
+            return false;
+        }
+
+        public Direction GetDirection(IPoint3D from, IPoint3D to) // copied from Mobile, except for a IPoint object
+        {
+            int dx = to.X - from.X;
+            int dy = to.Y - from.Y;
+
+            int rx = (dx - dy) * 44;
+            int ry = (dx + dy) * 44;
+
+            int ax = Math.Abs(rx);
+            int ay = Math.Abs(ry);
+
+            Direction ret;
+
+            if (((ay >> 1) - ax) >= 0)
+                ret = (ry > 0) ? Direction.Up : Direction.Down;
+            else if (((ax >> 1) - ay) >= 0)
+                ret = (rx > 0) ? Direction.Left : Direction.Right;
+            else if (rx >= 0 && ry >= 0)
+                ret = Direction.West;
+            else if (rx >= 0 && ry < 0)
+                ret = Direction.South;
+            else if (rx < 0 && ry < 0)
+                ret = Direction.East;
+            else
+                ret = Direction.North;
+
+            return ret;
+        }
+
+
+        public double TransformMoveDelay(double delay)
+        {
+            bool isPassive = (delay == m_Mobile.PassiveSpeed);
+            bool isControlled = (m_Mobile.Controlled || m_Mobile.Summoned);
+
+            if (delay == 0.2)
+                delay = 0.3;
+            else if (delay == 0.25)
+                delay = 0.45;
+            else if (delay == 0.3)
+                delay = 0.6;
+            else if (delay == 0.4)
+                delay = 0.9;
+            else if (delay == 0.5)
+                delay = 1.05;
+            else if (delay == 0.6)
+                delay = 1.2;
+            else if (delay == 0.8)
+                delay = 1.5;
+
+            if (isPassive)
+                delay += 0.2;
+
+            if (!isControlled)
+            {
+                delay += 0.1;
+            }
+            else if (m_Mobile.Controlled)
+            {
+                if (m_Mobile.ControlOrder == OrderType.Follow && m_Mobile.ControlTarget == m_Mobile.ControlMaster)
+                    delay *= 0.5;
+
+                delay -= 0.075;
+            }
+
+            if (m_Mobile.ReduceSpeedWithDamage || m_Mobile.IsSubdued)
+            {
+                double offset = (double)m_Mobile.Hits / m_Mobile.HitsMax;
+
+                if (offset < 0.0)
+                    offset = 0.0;
+                else if (offset > 1.0)
+                    offset = 1.0;
+
+                offset = 1.0 - offset;
+
+                delay += (offset * 0.8);
+            }
+
+            if (delay < 0.0)
+                delay = 0.0;
+
+            return delay;
+        }
+
+        public virtual bool CheckMove()
+        {
+            return (DateTime.Now >= NextMove);
+        }
+
+        public virtual bool DoMove(Direction d)
+        {
+            return DoMove(d, false);
+        }
+
+        public virtual bool DoMove(Direction d, bool badStateOk)
+        {
+            MoveResult res = DoMoveImpl(d);
+
+            return (res == MoveResult.Success || res == MoveResult.SuccessAutoTurn || (badStateOk && res == MoveResult.BadState));
+        }
+
+        public virtual MoveResult DoMoveImpl(Direction d)
+        {
+            if (m_Mobile.Deleted || m_Mobile.Frozen || m_Mobile.Paralyzed || (m_Mobile.Spell != null && m_Mobile.Spell.IsCasting) || m_Mobile.DisallowAllMoves)
+                return MoveResult.BadState;
+            else if (!CheckMove())
+                return MoveResult.BadState;
+
+            // This makes them always move one step, never any direction changes
+            m_Mobile.Direction = d;
+
+            //TimeSpan delay = TimeSpan.FromSeconds(TransformMoveDelay(m_Mobile.CurrentSpeed));     
+            TimeSpan delay = TimeSpan.FromSeconds(m_Mobile.CurrentSpeed);
+
+            NextMove += delay;
+
+            m_Mobile.Pushing = false;
+
+            MoveImpl.IgnoreMovableImpassables = (m_Mobile.CanMoveOverObstacles && !m_Mobile.CanDestroyObstacles);
+
+            if ((m_Mobile.Direction & Direction.Mask) != (d & Direction.Mask))
+            {
+                bool v = m_Mobile.Move(d);
+
+                MoveImpl.IgnoreMovableImpassables = false;
+                return (v ? MoveResult.Success : MoveResult.Blocked);
+            }
+
+            else if (!m_Mobile.Move(d))
+            {
+                bool wasPushing = m_Mobile.Pushing;
+
+                bool blocked = true;
+
+                bool canOpenDoors = m_Mobile.CanOpenDoors;
+                bool canDestroyObstacles = m_Mobile.CanDestroyObstacles;
+
+                if (canOpenDoors || canDestroyObstacles)
+                {
+                    m_Mobile.DebugSay("My movement was blocked, I will try to clear some obstacles.");
+
+                    Map map = m_Mobile.Map;
+
+                    if (map != null)
+                    {
+                        int x = m_Mobile.X, y = m_Mobile.Y;
+                        Movement.Movement.Offset(d, ref x, ref y);
+
+                        int destroyables = 0;
+
+                        IPooledEnumerable eable = map.GetItemsInRange(new Point3D(x, y, m_Mobile.Location.Z), 1);
+
+                        foreach (Item item in eable)
+                        {
+                            if (canOpenDoors && item is BaseDoor && (item.Z + item.ItemData.Height) > m_Mobile.Z && (m_Mobile.Z + 16) > item.Z)
+                            {
+                                if (item.X != x || item.Y != y)
+                                    continue;
+
+                                BaseDoor door = (BaseDoor)item;
+
+                                if (!door.Locked || !door.UseLocks())
+                                    m_Obstacles.Enqueue(door);
+
+                                if (!canDestroyObstacles)
+                                    break;
+                            }
+                            else if (canDestroyObstacles && item.Movable && item.ItemData.Impassable && (item.Z + item.ItemData.Height) > m_Mobile.Z && (m_Mobile.Z + 16) > item.Z)
+                            {
+                                if (!m_Mobile.InRange(item.GetWorldLocation(), 1))
+                                    continue;
+
+                                m_Obstacles.Enqueue(item);
+                                ++destroyables;
+                            }
+                            else if ((canDestroyObstacles && item.Movable) && (item is FootStool || item is Candelabra))
+                            {
+                                if (!m_Mobile.InRange(item.GetWorldLocation(), 1))
+                                    continue;
+                                m_Obstacles.Enqueue(item);
+                                ++destroyables;
+                            }
+                        }
+
+                        eable.Free();
+
+                        if (destroyables > 0)
+                            Effects.PlaySound(new Point3D(x, y, m_Mobile.Z), m_Mobile.Map, 0x3B3);
+
+                        if (m_Obstacles.Count > 0)
+                            blocked = false; // retry movement
+
+                        while (m_Obstacles.Count > 0)
+                        {
+                            Item item = (Item)m_Obstacles.Dequeue();
+
+                            if (!item.Breakable)
+                            {
+                                m_Mobile.DebugSay("Can't break this " + item.Name + "!  It's unbreakable!");
+                            }
+                            else if (item is BaseDoor)
+                            {
+                                m_Mobile.DebugSay("Little do they expect, I've learned how to open doors. Didn't they read the script??");
+                                m_Mobile.DebugSay("*twist*");
+
+                                ((BaseDoor)item).Use(m_Mobile);
+                            }
+                            else
+                            {
+                                m_Mobile.DebugSay("Ugabooga. I'm so big and tough I can destroy it: {0}", item.GetType().Name);
+
+                                if (item is Container)
+                                {
+                                    Container cont = (Container)item;
+
+                                    for (int i = 0; i < cont.Items.Count; ++i)
+                                    {
+                                        Item check = cont.Items[i];
+
+                                        if (check.Movable && check.ItemData.Impassable && (item.Z + check.ItemData.Height) > m_Mobile.Z)
+                                            m_Obstacles.Enqueue(check);
+                                    }
+
+                                    cont.Destroy();
+                                }
+                                else
+                                {
+                                    item.Delete();
+                                }
+                            }
+                        }
+
+                        if (!blocked)
+                            blocked = !m_Mobile.Move(d);
+                    }
+                }
+
+                if (blocked)
+                {
+                    int offset = (Utility.RandomDouble() >= 0.6 ? 1 : -1);
+
+                    for (int i = 0; i < 2; ++i)
+                    {
+                        m_Mobile.TurnInternal(offset);
+
+                        if (m_Mobile.Move(m_Mobile.Direction))
+                        {
+                            MoveImpl.IgnoreMovableImpassables = false;
+                            return MoveResult.SuccessAutoTurn;
+                        }
+                    }
+
+                    MoveImpl.IgnoreMovableImpassables = false;
+                    return (wasPushing ? MoveResult.BadState : MoveResult.Blocked);
+                }
+                else
+                {
+                    MoveImpl.IgnoreMovableImpassables = false;
+                    return MoveResult.Success;
+                }
+            }
+
+            MoveImpl.IgnoreMovableImpassables = false;
+            return MoveResult.Success;
+        }
+
+        public virtual void WalkRandomAtPoint(Point3D location, int iChanceToNotMove, int iChanceToDir, int iSteps)
+        {
+            if (m_Mobile.Deleted || m_Mobile.DisallowAllMoves)
+                return;
+
+            for (int i = 0; i < iSteps; i++)
+            {
+                int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(location);
+
+                if (iCurrDist < m_Mobile.RangeHome * 0.5)
+                {
+                    WalkRandom(iChanceToNotMove, iChanceToDir, 1);
+                }
+
+                else if (iCurrDist > m_Mobile.RangeHome)
+                {
+                    DoMove(m_Mobile.GetDirectionTo(location));
+                }
+
+                else
+                {
+                    if (Utility.Random(10) > 5)
+                    {
+                        DoMove(m_Mobile.GetDirectionTo(location));
+                    }
+
+                    else
+                    {
+                        WalkRandom(iChanceToNotMove, iChanceToDir, 1);
+                    }
+                }
+            }
+        }
+
+        public virtual void WalkRandomInHome(int iChanceToNotMove, int iChanceToDir, int iSteps)
+        {
+            if (m_Mobile.Deleted || m_Mobile.DisallowAllMoves)
+                return;
+
+            if (m_Mobile.Home == Point3D.Zero)
+            {
+                if (m_Mobile.Spawner is SpawnEntry)
+                {
+                    Region region = ((SpawnEntry)m_Mobile.Spawner).Region;
+
+                    if (m_Mobile.Region.AcceptsSpawnsFrom(region))
+                    {
+                        m_Mobile.WalkRegion = region;
+                        WalkRandom(iChanceToNotMove, iChanceToDir, iSteps);
+                        m_Mobile.WalkRegion = null;
+                    }
+                    else
+                    {
+                        if (region.GoLocation != Point3D.Zero && Utility.Random(10) > 5)
+                        {
+                            DoMove(m_Mobile.GetDirectionTo(region.GoLocation));
+                        }
+                        else
+                        {
+                            WalkRandom(iChanceToNotMove, iChanceToDir, 1);
+                        }
+                    }
+                }
+                else
+                {
+                    WalkRandom(iChanceToNotMove, iChanceToDir, iSteps);
+                }
+            }
+
+            else
+            {
+                for (int i = 0; i < iSteps; i++)
+                {
+                    if (m_Mobile.RangeHome != 0)
+                    {
+                        int iCurrDist = (int)m_Mobile.GetDistanceToSqrt(m_Mobile.Home);
+
+                        if (iCurrDist < m_Mobile.RangeHome * 2 / 3)
+                        {
+                            WalkRandom(iChanceToNotMove, iChanceToDir, 1);
+                        }
+                        else if (iCurrDist > m_Mobile.RangeHome)
+                        {
+                            DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                        }
+                        else
+                        {
+                            if (Utility.Random(10) > 5)
+                            {
+                                DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                            }
+                            else
+                            {
+                                WalkRandom(iChanceToNotMove, iChanceToDir, 1);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (m_Mobile.Location != m_Mobile.Home)
+                        {
+                            DoMove(m_Mobile.GetDirectionTo(m_Mobile.Home));
+                        }
+                    }
+                }
+            }
+        }
+
+        public virtual void OnTeleported()
+        {
+            if (m_Path != null)
+            {
+                m_Mobile.DebugSay("Teleported; repathing");
+                m_Path.ForceRepath();
+            }
+        }
+
+        public virtual bool MoveTo(Mobile m, bool run, int range)
+        {
+            if (m_Mobile.Deleted || m_Mobile.DisallowAllMoves || m == null || m.Deleted)
+                return false;
+
+            if (m_Mobile.InRange(m, range))
+            {
+                m_Path = null;
+                return true;
+            }
+
+            if (m_Path != null && m_Path.Goal == m)
+            {
+                if (m_Path.Follow(run, 1))
+                {
+                    m_Path = null;
+                    return true;
+                }
+            }
+
+            else if (!DoMove(m_Mobile.GetDirectionTo(m), true))
+            {
+                m_Path = new PathFollower(m_Mobile, m);
+                m_Path.Mover = new MoveMethod(DoMoveImpl);
+
+                if (m_Path.Follow(run, 1))
+                {
+                    m_Path = null;
+                    return true;
+                }
+            }
+
+            else
+            {
+                m_Path = null;
+                return true;
+            }
+
+            return false;
+        }
+
+        public virtual void BeginPickTarget(Mobile from, OrderType order)
+        {
+            if (m_Mobile.Deleted || !m_Mobile.Controlled || !from.InRange(m_Mobile, 14) || from.Map != m_Mobile.Map)
+                return;
+
+            bool isOwner = (from == m_Mobile.ControlMaster);
+            bool isFriend = (!isOwner && m_Mobile.IsPetFriend(from));
+
+            if (!isOwner && !isFriend)
+                return;
+            else if (isFriend && order != OrderType.Follow && order != OrderType.Stay && order != OrderType.Stop)
+                return;
+
+            if (from.Target == null)
+            {
+                if (order == OrderType.Transfer)
+                {
+                    from.SendLocalizedMessage(502038); // Click on the person to transfer ownership to.
+                }
+
+                else if (order == OrderType.Friend)
+                {
+                    from.SendLocalizedMessage(502020); // Click on the player whom you wish to make a co-owner.
+                }
+
+                else if (order == OrderType.Unfriend)
+                {
+                    from.SendLocalizedMessage(1070948); // Click on the player whom you wish to remove as a co-owner.
+                }
+
+                //Pick Location For Patrol
+                if (order == OrderType.Patrol)
+                {
+                    from.BeginTarget(15, true, TargetFlags.None, new TargetCallback(PickPatrolTarget));
+                }
+
+                //Pick Mobile Target
+                else
+                {
+                    from.Target = new AIControlMobileTarget(this, order, m_Mobile);
+                }
+            }
+
+            else if (from.Target is AIControlMobileTarget)
+            {
+                AIControlMobileTarget t = (AIControlMobileTarget)from.Target;
+
+                if (t.Order == order)
+                    t.AddAI(this);
+            }
+        }
+
+        private void PickPatrolTarget(Mobile from, object obj)
+        {
+            IPoint3D p = obj as IPoint3D;
+
+            if (p == null)
+                return;
+
+            m_Mobile.ControlOrder = OrderType.Patrol;
+            m_Mobile.Home = new Point3D(p);
+            m_Mobile.ControlDest = new Point3D(p);
+        }
+
+        public virtual void EndPickTarget(Mobile from, Mobile target, OrderType order)
+        {
+            if (m_Mobile.Deleted || !m_Mobile.Controlled || !from.InRange(m_Mobile, 14) || from.Map != m_Mobile.Map || !from.CheckAlive())
+                return;
+
+            bool isOwner = (from == m_Mobile.ControlMaster);
+            bool isFriend = (!isOwner && m_Mobile.IsPetFriend(from));
+
+            if (!isOwner && !isFriend)
+                return;
+            else if (isFriend && order != OrderType.Follow && order != OrderType.Stay && order != OrderType.Stop)
+                return;
+
+            if (order == OrderType.Attack)
+            {
+                //Cannot Target Self
+                if (target == m_Mobile)
+                {
+                    return;
+                }
+
+                if (target is BaseCreature && ((BaseCreature)target).IsScaryToPets && m_Mobile.IsScaredOfScaryThings)
+                {
+                    m_Mobile.SayTo(from, "Your pet refuses to attack this creature!");
+                    return;
+                }
+
+                if ((SolenHelper.CheckRedFriendship(from) &&
+                            (target is RedSolenInfiltratorQueen
+                            || target is RedSolenInfiltratorWarrior
+                            || target is RedSolenQueen
+                            || target is RedSolenWarrior
+                            || target is RedSolenWorker))
+                    || (SolenHelper.CheckBlackFriendship(from) &&
+                            (target is BlackSolenInfiltratorQueen
+                            || target is BlackSolenInfiltratorWarrior
+                            || target is BlackSolenQueen
+                            || target is BlackSolenWarrior
+                            || target is BlackSolenWorker)))
+                {
+                    from.SendAsciiMessage("You can not force your pet to attack a creature you are protected from.");
+                    return;
+                }
+
+                if (target is Factions.BaseFactionGuard)
+                {
+                    m_Mobile.SayTo(from, "Your pet refuses to attack the guard.");
+                    return;
+                }
+            }
+
+            m_Mobile.ControlTarget = target;
+            m_Mobile.ControlOrder = order;
+        }
+
+        public virtual bool OnAtWayPoint()
+        {
+            return true;
+        }
+
+
+        public virtual bool CheckBardPacified()
+        {
+            //Currently Pacified and Timer Not Expired
+            if (m_Mobile.BardPacified && DateTime.Now < m_Mobile.BardEndTime)
+            {
+                return true;
+            }
+
+            //Timer Expired
+            m_Mobile.BardPacified = false;
+
+            return false;
+        }
+
+        public virtual bool CheckBardProvoked()
+        {
+            bool Provoked = false;
+            bool ProvokeTargetValid = false;
+
+            //Currently Provoked
+            if (m_Mobile.BardProvoked)
+            {
+                Provoked = true;
+                ProvokeTargetValid = true;
+
+                //Provocation Timer Expired
+                if (m_Mobile.BardEndTime < DateTime.Now)
+                {
+                    Provoked = false;
+                }
+
+                //Bard No Longer Valid
+                if (m_Mobile.BardMaster == null)
+                {
+                    Provoked = false;
+                }
+
+                //Bard Deleted
+                if (m_Mobile.BardMaster.Deleted)
+                {
+                    Provoked = false;
+                }
+
+                //Bard No Longer Alive
+                if (!m_Mobile.BardMaster.Alive)
+                {
+                    Provoked = false;
+                }
+
+                //Bard Not in Same Map
+                if (m_Mobile.BardMaster.Map != m_Mobile.Map)
+                {
+                    Provoked = false;
+                }
+
+                //Bard is More Than x2 Perception Distance Away
+                if (m_Mobile.GetDistanceToSqrt(m_Mobile.BardMaster) > (m_Mobile.RangePerception * 2))
+                {
+                    Provoked = false;
+                }
+
+                //BardTarget No Longer Valid
+                if (m_Mobile.BardTarget == null)
+                {
+                    Provoked = false;
+                    ProvokeTargetValid = false;
+                }
+
+                //BardTarget No Longer Valid
+                if (m_Mobile.BardTarget.Deleted)
+                {
+                    Provoked = false;
+                    ProvokeTargetValid = false;
+                }
+
+                //BardTarget No Longer Alive
+                if (!m_Mobile.BardTarget.Alive)
+                {
+                    Provoked = false;
+                    ProvokeTargetValid = false;
+                }
+
+                //BardTarget No Longer on Same Map
+                if (m_Mobile.Map != m_Mobile.BardTarget.Map)
+                {
+                    Provoked = false;
+                    ProvokeTargetValid = false;
+                }
+
+                //BardTarget Not Visible
+                if (!m_Mobile.CanSee(m_Mobile.BardTarget))
+                {
+                    Provoked = false;
+                }
+
+                //BardTarget is More Than x2 Perception Distance Away
+                if (m_Mobile.GetDistanceToSqrt(m_Mobile.BardTarget) > (m_Mobile.RangePerception * 2))
+                {
+                    Provoked = false;
+                }
+
+                //If Still Provoked and BardTarget Still Valid
+                if (Provoked && ProvokeTargetValid)
+                {
+                    m_Mobile.Combatant = m_Mobile.BardTarget;
+
+                    return true;
+                }
+
+                //Was Provoked But No Longer
+                else
+                {
+                    BaseCreature creatureBardTarget = m_Mobile.BardTarget as BaseCreature;
+
+                    m_Mobile.BardProvoked = false;
+                    m_Mobile.BardMaster = null;
+                    m_Mobile.BardTarget = null;
+                    m_Mobile.Combatant = null;
+
+                    //Remove creatureBardTarget from m_Mobile's Aggressors List
+                    int aggressorsCount = m_Mobile.Aggressors.Count;
+                    int position = 0;
+
+                    for (int i = 0; i < aggressorsCount; ++i)
+                    {
+                        AggressorInfo info = m_Mobile.Aggressors[position];
+
+                        Mobile attacker = info.Attacker;
+                        Mobile defender = info.Defender;
+
+                        if (creatureBardTarget != null)
+                        {
+                            if (attacker == creatureBardTarget || defender == creatureBardTarget)
+                            {
+                                m_Mobile.Aggressors.RemoveAt(position);
+                                position--;
+                            }
+
+                            position++;
+                        }
+                    }
+
+                    //Set BardTarget's Values (Do Both Now In Case Target Somehow Reaggros Before Making It's Own Check)
+                    if (ProvokeTargetValid)
+                    {
+                        //If Target Was a Creature
+                        if (creatureBardTarget != null)
+                        {
+                            creatureBardTarget.BardProvoked = false;
+                            creatureBardTarget.BardMaster = null;
+                            creatureBardTarget.BardTarget = null;
+                            creatureBardTarget.Combatant = null;
+
+                            //Remove m_Mobile from creatureBardTarget's Aggressors List
+                            aggressorsCount = creatureBardTarget.Aggressors.Count;
+                            position = 0;
+
+                            for (int i = 0; i < aggressorsCount; ++i)
+                            {
+                                AggressorInfo info = creatureBardTarget.Aggressors[position];
+
+                                Mobile attacker = info.Attacker;
+                                Mobile defender = info.Defender;
+
+                                if (attacker == m_Mobile || defender == m_Mobile)
+                                {
+                                    creatureBardTarget.Aggressors.RemoveAt(position);
+                                    position--;
+                                }
+
+                                position++;
+
+                            }
+
+                            //Creature Has AI
+                            if (creatureBardTarget.AIObject != null)
+                            {
+                                creatureBardTarget.AIObject.GuardMode();
+                                if (m_Mobile.Debug) { m_Mobile.DebugSay("ProvokeTargetValid bardtarget to Guardmode"); }
+                            }
+                        }
+                    }
+                    if (m_Mobile.Debug) { m_Mobile.DebugSay("Was provoked state to Guardmode"); }
+                    GuardMode();
+
+                    return false;
+                }
+            }
+
+            return false;
+        }
+        private IPoint3D AITargetLocation = null; // have to have this variable to "convert"
+        public virtual bool CheckHerding()
+        {
+            IPoint2D target = m_Mobile.TargetLocation; // NOTE: I took TargetLocation out of the herding skill, so it's only useful with the [direct command (see CreaturePossession.cs)
+
+            if (target == null)
+            {
+                AITargetLocation = null;
+                return false; // Creature is not being herded
+            }
+            else if (AITargetLocation == null || (AITargetLocation.X == target.X && AITargetLocation.Y == target.Y) == false)
+            {
+                AITargetLocation = new Point3D(target, m_Mobile.Z);
+            }
+
+            if (m_Mobile.Combatant != null) // only have them move if they aren't attacking something
+                return false;
+
+            if (WalkMobileRange(AITargetLocation, 1, true, 0, 2))
+            {
+                m_Mobile.TargetLocation = null; // reached the destination
+                AITargetLocation = null;
+                m_Mobile.ForceWaypoint = false;
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+            //double distance = m_Mobile.GetDistanceToSqrt(target);
+            //if (distance < 3 || distance > 15) // allow 2 squares away
+            //{
+                /*if (distance < 1 && target.X == 1076 && target.Y == 450 && (m_Mobile is HordeMinionFamiliar))
+                {
+                    PlayerMobile pm = m_Mobile.ControlMaster as PlayerMobile;
+
+                    if (pm != null)
+                    {
+                        QuestSystem qs = pm.Quest;
+                    }
+                }*/
+
+            //    m_Mobile.TargetLocation = null;
+             //   return false; // At the target or too far away
+            //}
+
+           // DoMove(m_Mobile.GetDirectionTo(target));
+
+            //return true;
+        }
+
+        public virtual Boolean CheckWaypoint()
+        {
+            if (m_Mobile.CurrentWayPoint == null || m_Mobile.Combatant != null) // only have them move if they aren't attacking something
+                return false;
+
+            WayPoint waypoint = m_Mobile.CurrentWayPoint;
+            IPoint3D targetLocation = waypoint.GetSubscribedLocation(m_Mobile);
+            /*
+            int pointRangeMinX = targetLocation.X - 1;
+            int pointRangeMaxX = targetLocation.X + 1;
+            int pointRangeMinY = targetLocation.Y - 1;
+            int pointRangeMaxY = targetLocation.Y + 1;
+
+            //Move Towards Waypoint
+            if ((m_Mobile.X < pointRangeMinX || m_Mobile.X > pointRangeMaxX)
+                && (m_Mobile.Y < pointRangeMinY || m_Mobile.Y > pointRangeMaxY)
+                && waypoint.Map == m_Mobile.Map && waypoint.Parent == null && !waypoint.Deleted)
+            {
+                DoMove(m_Mobile.GetDirectionTo(waypoint.GetSubscribedLocation(m_Mobile)));
+            }
+
+            //At Waypoint
+            else if (OnAtWayPoint())
+            {
+                m_Mobile.CurrentWayPoint = waypoint.NextPoint;
+
+                if (waypoint.NextPoint != null && waypoint.NextPoint.Deleted)
+                    m_Mobile.CurrentWayPoint = waypoint.NextPoint = waypoint.NextPoint.NextPoint;
+            }
+            return true;
+             */
+            if (WalkMobileRange(targetLocation, 1, false, 0, 1))
+            {
+                // reached destination
+                OnAtWayPoint();
+                m_Mobile.CurrentWayPoint = waypoint.NextPoint;
+
+                if (waypoint.NextPoint != null && waypoint.NextPoint.Deleted)
+                    m_Mobile.CurrentWayPoint = waypoint.NextPoint = waypoint.NextPoint.NextPoint;
+                else if (m_Mobile.TargetLocation != null)  // they might still have another place to go
+                    m_Mobile.ForceWaypoint = false;
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        //Misc
+        public virtual void OnCurrentSpeedChanged()
+        {
+            m_Timer.Stop();
+            m_Timer.Delay = TimeSpan.FromSeconds(Utility.RandomDouble());
+            m_Timer.Interval = TimeSpan.FromSeconds(Math.Max(0.0, m_Mobile.CurrentSpeed));
+            m_Timer.Start();
+        }
+
+        public virtual void Activate()
+        {
+            if (!m_Timer.Running)
+            {
+                m_Timer.Delay = TimeSpan.Zero;
+                m_Timer.Start();
+            }
+        }
+
+        public virtual void Deactivate()
+        {
+            if (m_Mobile.PlayerRangeSensitive)
+            {
+                m_Timer.Stop();
+
+                SpawnEntry se = m_Mobile.Spawner as SpawnEntry;
+
+                if (se != null && se.ReturnOnDeactivate && !m_Mobile.Controlled)
+                {
+                    if (se.HomeLocation == Point3D.Zero)
+                    {
+                        if (!m_Mobile.Region.AcceptsSpawnsFrom(se.Region))
+                        {
+                            Timer.DelayCall(TimeSpan.Zero, new TimerCallback(ReturnToHome));
+                        }
+                    }
+                    else if (!m_Mobile.InRange(se.HomeLocation, se.HomeRange))
+                    {
+                        Timer.DelayCall(TimeSpan.Zero, new TimerCallback(ReturnToHome));
+                    }
+                }
+            }
+        }
+
+        private void ReturnToHome()
+        {
+            SpawnEntry se = m_Mobile.Spawner as SpawnEntry;
+
+            if (se != null)
+            {
+                Point3D loc = se.RandomSpawnLocation(16, !m_Mobile.CantWalk, m_Mobile.CanSwim);
+
+                if (loc != Point3D.Zero)
+                {
+                    m_Mobile.MoveToWorld(loc, se.Region.Map);
+                    return;
+                }
+            }
+        }
+
+        //Detect Hidden
+        private DateTime m_NextDetectHidden;
+
+        public virtual bool CanDetectHidden { get { return m_Mobile.Skills[SkillName.DetectHidden].Value > 0; } }
+
+        public virtual void DetectHidden()
+        {
+            if (m_Mobile.Deleted || m_Mobile.Map == null)
+                return;
+
+            m_Mobile.DebugSay("Checking for hidden players");
+
+            double srcSkill = m_Mobile.Skills[SkillName.DetectHidden].Value;
+
+            if (srcSkill <= 0)
+                return;
+
+            foreach (Mobile trg in m_Mobile.GetMobilesInRange(m_Mobile.RangePerception))
+            {
+                if (trg != m_Mobile && trg.Player && trg.Alive && trg.Hidden && trg.AccessLevel == AccessLevel.Player && m_Mobile.InLOS(trg))
+                {
+                    m_Mobile.DebugSay("Trying to detect {0}", trg.Name);
+
+                    double trgHiding = trg.Skills[SkillName.Hiding].Value / 2.9;
+                    double trgStealth = trg.Skills[SkillName.Stealth].Value / 1.8;
+
+                    double chance = srcSkill / 1.2 - Math.Min(trgHiding, trgStealth);
+
+                    if (chance < srcSkill / 10)
+                        chance = srcSkill / 10;
+
+                    chance /= 100;
+
+                    if (chance > Utility.RandomDouble())
+                    {
+                        trg.RevealingAction();
+                        trg.SendLocalizedMessage(500814); // You have been revealed!
+                    }
+                }
+            }
+        }
+
+        //Creature Properties
+        private class InternalEntry : ContextMenuEntry
+        {
+            private Mobile m_From;
+            private BaseCreature m_Mobile;
+            private BaseAI m_AI;
+            private OrderType m_Order;
+
+            public InternalEntry(Mobile from, int number, int range, BaseCreature mobile, BaseAI ai, OrderType order)
+                : base(number, range)
+            {
+                m_From = from;
+                m_Mobile = mobile;
+                m_AI = ai;
+                m_Order = order;
+
+                if (mobile.IsDeadPet && (order == OrderType.Guard || order == OrderType.Attack || order == OrderType.Transfer || order == OrderType.Drop))
+                    Enabled = false;
+            }
+
+            public override void OnClick()
+            {
+                if (!m_Mobile.Deleted && m_Mobile.Controlled && m_From.CheckAlive())
+                {
+                    if (m_Mobile.IsDeadPet && (m_Order == OrderType.Guard || m_Order == OrderType.Attack || m_Order == OrderType.Transfer || m_Order == OrderType.Drop))
+                        return;
+
+                    bool isOwner = (m_From == m_Mobile.ControlMaster);
+                    bool isFriend = (!isOwner && m_Mobile.IsPetFriend(m_From));
+
+                    if (!isOwner && !isFriend)
+                        return;
+                    else if (isFriend && m_Order != OrderType.Follow && m_Order != OrderType.Stay && m_Order != OrderType.Stop)
+                        return;
+
+                    switch (m_Order)
+                    {
+                        case OrderType.Follow:
+
+                        case OrderType.Attack:
+
+                        case OrderType.Transfer:
+
+                        case OrderType.Friend:
+
+                        case OrderType.Unfriend:
+                            {
+                                if (m_Order == OrderType.Transfer && m_From.HasTrade)
+                                    m_From.SendLocalizedMessage(1010507); // You cannot transfer a pet with a trade pending
+
+                                else if (m_Order == OrderType.Friend && m_From.HasTrade)
+                                    m_From.SendLocalizedMessage(1070947); // You cannot friend a pet with a trade pending
+
+                                else
+                                    m_AI.BeginPickTarget(m_From, m_Order);
+
+                                break;
+                            }
+
+                        case OrderType.Release:
+                            {
+                                if (m_Mobile.Summoned)
+                                    goto default;
+                                else
+                                    m_From.SendGump(new Gumps.ConfirmReleaseGump(m_From, m_Mobile));
+
+                                break;
+                            }
+
+                        default:
+                            {
+                                m_Mobile.ControlOrder = m_Order;
+
+                                break;
+                            }
+                    }
+                }
+            }
+        }
+
+        public virtual void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
+        {
+            if (from.Alive && m_Mobile.Controlled && from.InRange(m_Mobile, 14))
+            {
+                if (from == m_Mobile.ControlMaster)
+                {
+                    list.Add(new InternalEntry(from, 6111, 14, m_Mobile, this, OrderType.Attack)); // Command: Kill
+                    list.Add(new InternalEntry(from, 6107, 14, m_Mobile, this, OrderType.Guard));  // Command: Guard
+                    //list.Add(new InternalEntry(from, 6115, 14, m_Mobile, this, OrderType.Patrol)); // Command: Patrol?
+                    list.Add(new InternalEntry(from, 6108, 14, m_Mobile, this, OrderType.Follow)); // Command: Follow
+                    list.Add(new InternalEntry(from, 6114, 14, m_Mobile, this, OrderType.Stay));   // Command: Stay
+                    list.Add(new InternalEntry(from, 6112, 14, m_Mobile, this, OrderType.Stop));   // Command: Stop
+                    list.Add(new InternalEntry(from, 6118, 14, m_Mobile, this, OrderType.Release)); // Release
+
+                    if (m_Mobile.CanDrop)
+                        //    list.Add(new InternalEntry(from, 6109, 14, m_Mobile, this, OrderType.Drop));   // Command: Drop
+
+                        if (!m_Mobile.Summoned && !(m_Mobile is GrizzledMare))
+                        {
+                            //list.Add(new InternalEntry(from, 6110, 14, m_Mobile, this, OrderType.Friend)); // Add Friend
+                            //list.Add(new InternalEntry(from, 6099, 14, m_Mobile, this, OrderType.Unfriend)); // Remove Friend
+                            list.Add(new InternalEntry(from, 6113, 14, m_Mobile, this, OrderType.Transfer)); // Transfer
+                        }
+                }
+
+                else if (m_Mobile.IsPetFriend(from))
+                {
+                    list.Add(new InternalEntry(from, 6108, 14, m_Mobile, this, OrderType.Follow)); // Command: Follow
+                    list.Add(new InternalEntry(from, 6112, 14, m_Mobile, this, OrderType.Stop));   // Command: Stop
+                    list.Add(new InternalEntry(from, 6114, 14, m_Mobile, this, OrderType.Stay));   // Command: Stay
+                }
+            }
+        }
+
+        private static SkillName[] m_KeywordTable = new SkillName[]
+		{
+			SkillName.Parry,
+			SkillName.Healing,
+			SkillName.Hiding,
+			SkillName.Stealing,
+			SkillName.Alchemy,
+			SkillName.AnimalLore,
+			SkillName.ItemID,
+			SkillName.ArmsLore,
+			SkillName.Begging,
+			SkillName.Blacksmith,
+			SkillName.Fletching,
+			SkillName.Peacemaking,
+			SkillName.Camping,
+			SkillName.Carpentry,
+			SkillName.Cartography,
+			SkillName.Cooking,
+			SkillName.DetectHidden,
+			SkillName.Discordance,//??
+			SkillName.EvalInt,
+			SkillName.Fishing,
+			SkillName.Provocation,
+			SkillName.Lockpicking,
+			SkillName.Magery,
+			SkillName.MagicResist,
+			SkillName.Tactics,
+			SkillName.Snooping,
+			SkillName.RemoveTrap,
+			SkillName.Musicianship,
+			SkillName.Poisoning,
+			SkillName.Archery,
+			SkillName.SpiritSpeak,
+			SkillName.Tailoring,
+			SkillName.AnimalTaming,
+			SkillName.TasteID,
+			SkillName.Tinkering,
+			SkillName.Veterinary,
+			SkillName.Forensics,
+			SkillName.Herding,
+			SkillName.Tracking,
+			SkillName.Stealth,
+			SkillName.Inscribe,
+			SkillName.Swords,
+			SkillName.Macing,
+			SkillName.Fencing,
+			SkillName.Wrestling,
+			SkillName.Lumberjacking,
+			SkillName.Mining,
+			SkillName.Meditation
+		};
+
+        public virtual bool WasNamed(string speech)
+        {
+            string name = m_Mobile.Name;
+
+            return (name != null && Insensitive.StartsWith(speech, name));
+        }
+
+        public virtual bool HandlesOnSpeech(Mobile from)
+        {
+            /*
+            if (from.AccessLevel >= AccessLevel.GameMaster)
+                return true;
+
+            if (from.Alive && m_Mobile.Controlled && m_Mobile.Commandable && (from == m_Mobile.ControlMaster || m_Mobile.IsPetFriend(from)))
+                return true;
+
+           // return (from.Alive && from.InRange(m_Mobile.Location, 3) && m_Mobile.IsHumanInTown());
+            return (from.Alive && from.InRange(m_Mobile.Location, 3));
+           */
+
+            return true;
+        }
+
+        public virtual void OnSpeech(SpeechEventArgs e)
+        {
+            bool isNonHuman = false;
+
+            if (m_Mobile != null && (m_Mobile.Body.IsAnimal || m_Mobile.Body.IsMonster || m_Mobile.Body.IsSea))
+            {
+                isNonHuman = true;
+            }
+
+            if (e.Mobile.Alive && e.Mobile.InRange(m_Mobile.Location, 3) && !isNonHuman)
+            {
+                if (m_Mobile is BaseVendor && !e.Handled)
+                {
+                    if (e.HasKeyword(0x14D)) // *vendor sell*
+                    {
+                        e.Handled = true;
+
+                        ((BaseVendor)m_Mobile).VendorSell(e.Mobile);
+                        m_Mobile.FocusMob = e.Mobile;
+                    }
+
+                    else if (e.HasKeyword(0x3C))
+                    {
+                        e.Handled = true;
+
+                        ((BaseVendor)m_Mobile).VendorBuy(e.Mobile);
+                        m_Mobile.FocusMob = e.Mobile;
+                    }
+
+                    else if (WasNamed(e.Speech))
+                    {
+                        e.Handled = true;
+
+                        if (e.HasKeyword(0x177)) // *sell*
+                            ((BaseVendor)m_Mobile).VendorSell(e.Mobile);
+
+                        else if (e.HasKeyword(0x171)) // *buy*
+                            ((BaseVendor)m_Mobile).VendorBuy(e.Mobile);
+
+                        m_Mobile.FocusMob = e.Mobile;
+                    }
+                }
+
+                else if (e.HasKeyword(0x9D) && WasNamed(e.Speech)) // *move*
+                {
+                    if (m_Mobile.Combatant != null)
+                    {
+                        // I am too busy fighting to deal with thee!
+                        m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 501482);
+                    }
+
+                    else
+                    {
+                        // Excuse me?
+                        m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 501516);
+                        WalkRandomInHome(2, 2, 1);
+                    }
+                }
+
+                else if (e.HasKeyword(0x9E) && WasNamed(e.Speech)) // *time*
+                {
+                    if (m_Mobile.Combatant != null)
+                    {
+                        // I am too busy fighting to deal with thee!
+                        m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 501482);
+                    }
+
+                    else
+                    {
+                        int generalNumber;
+                        string exactTime;
+
+                        Clock.GetTime(m_Mobile, out generalNumber, out exactTime);
+
+                        m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, generalNumber);
+                    }
+                }
+
+                else if (e.HasKeyword(0x6C) && WasNamed(e.Speech)) // *train
+                {
+                    if (m_Mobile.Combatant != null)
+                    {
+                        // I am too busy fighting to deal with thee!
+                        m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 501482);
+                    }
+
+                    else
+                    {
+                        bool foundSomething = false;
+
+                        Skills ourSkills = m_Mobile.Skills;
+                        Skills theirSkills = e.Mobile.Skills;
+
+                        for (int i = 0; i < ourSkills.Length && i < theirSkills.Length; ++i)
+                        {
+                            Skill skill = ourSkills[i];
+                            Skill theirSkill = theirSkills[i];
+
+                            if (skill != null && theirSkill != null && skill.Base >= 60.0 && m_Mobile.CheckTeach(skill.SkillName, e.Mobile))
+                            {
+                                double toTeach = skill.Base / 3.0;
+
+                                if (toTeach > 42.0)
+                                    toTeach = 42.0;
+
+                                if (toTeach > theirSkill.Base)
+                                {
+                                    int number = 1043059 + i;
+
+                                    if (number > 1043107)
+                                        continue;
+
+                                    if (!foundSomething)
+                                        m_Mobile.Say(1043058); // I can train the following:
+
+                                    m_Mobile.Say(number);
+
+                                    foundSomething = true;
+                                }
+                            }
+                        }
+
+                        if (!foundSomething)
+                            m_Mobile.Say(501505); // Alas, I cannot teach thee anything.
+                    }
+                }
+
+                else
+                {
+                    SkillName toTrain = (SkillName)(-1);
+
+                    for (int i = 0; toTrain == (SkillName)(-1) && i < e.Keywords.Length; ++i)
+                    {
+                        int keyword = e.Keywords[i];
+
+                        if (keyword == 0x154)
+                        {
+                            toTrain = SkillName.Anatomy;
+                        }
+                        else if (keyword >= 0x6D && keyword <= 0x9C)
+                        {
+                            int index = keyword - 0x6D;
+
+                            if (index >= 0 && index < m_KeywordTable.Length)
+                                toTrain = m_KeywordTable[index];
+                        }
+                    }
+
+                    if (toTrain != (SkillName)(-1) && WasNamed(e.Speech))
+                    {
+                        if (m_Mobile.Combatant != null)
+                        {
+                            // I am too busy fighting to deal with thee!
+                            m_Mobile.PublicOverheadMessage(MessageType.Regular, 0x3B2, 501482);
+                        }
+                        else
+                        {
+                            Skills skills = m_Mobile.Skills;
+                            Skill skill = skills[toTrain];
+
+                            if (skill == null || skill.Base < 60.0 || !m_Mobile.CheckTeach(toTrain, e.Mobile))
+                            {
+                                m_Mobile.Say(501507); // 'Tis not something I can teach thee of.
+                            }
+
+                            else
+                            {
+                                m_Mobile.Teach(toTrain, e.Mobile, 0, false);
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Creature Speech Handling
+            if (m_Mobile.Controlled && m_Mobile.Commandable)
+            {
+                m_Mobile.DebugSay("Listening...");
+
+                bool isOwner = (e.Mobile == m_Mobile.ControlMaster);
+                bool isFriend = (!isOwner && m_Mobile.IsPetFriend(e.Mobile));
+
+                string exceededFollowers = "You have currently exceeded your follower limit and they refuse to obey your command!";
+                string lowSkill = "You must have Animal Taming and Animal Lore skill equal to this creature's taming difficulty in order to command this creature!";
+
+                if (e.Mobile.Alive && (isOwner || isFriend))
+                {
+                    //If somehow player has more followers than allowed, all followers won't behave
+                    if (e.Mobile.Followers > e.Mobile.FollowersMax)
+                    {
+                        e.Mobile.SendMessage(exceededFollowers);
+                        return;
+                    }
+
+                    int[] keywords = e.Keywords;
+                    string speech = e.Speech;
+
+                    // First, check the all*
+                    for (int i = 0; i < keywords.Length; ++i)
+                    {
+                        int keyword = keywords[i];
+
+                        switch (keyword)
+                        {
+                            case 0x164: // all come
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Come;
+                                        m_Mobile.ControlDest = e.Mobile.Location;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x165: // all follow
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Follow);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+
+                            case 0x166: // all guard
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Guard;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x16B: // all guard me
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Guard;
+                                        m_Mobile.ControlMaster = e.Mobile;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x167: // all stop
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Stop;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x168: // all kill
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Attack);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x169: // all attack
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Attack);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x16C: // all follow me
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Follow;
+                                        m_Mobile.ControlTarget = e.Mobile;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x170: // all stay
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Stay;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                        }
+                    }
+
+                    // No all*, so check *command
+                    for (int i = 0; i < keywords.Length; ++i)
+                    {
+                        int keyword = keywords[i];
+
+                        switch (keyword)
+                        {
+                            case 0x155: // *come
+                                {
+                                    if (m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Come;
+                                        m_Mobile.ControlDest = e.Mobile.Location;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x156: // *drop
+                                {
+                                    if (!m_Mobile.IsDeadPet && !m_Mobile.Summoned && WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Drop;
+                                        m_Mobile.ControlTarget = null;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x15A: // *follow
+                                {
+                                    if (WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Follow);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x15B: // *friend
+                                {
+                                    /*
+                                    if (!isOwner)
+                                        break;
+
+                                    if (WasNamed(speech))
+                                    {
+                                        if (m_Mobile.Summoned || (m_Mobile is GrizzledMare))
+                                            e.Mobile.SendLocalizedMessage(1005481); // Summoned creatures are loyal only to their summoners.
+                                        else if (e.Mobile.HasTrade)
+                                            e.Mobile.SendLocalizedMessage(1070947); // You cannot friend a pet with a trade pending
+                                        else
+                                            BeginPickTarget(e.Mobile, OrderType.Friend);
+                                    }
+                                    */
+
+                                    return;
+                                }
+                            case 0x15C: // *guard
+                                {
+                                    if (!m_Mobile.IsDeadPet && WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Guard;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x15D: // *kill
+                                {
+                                    if (!m_Mobile.IsDeadPet && WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Attack);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x15E: // *attack
+                                {
+                                    if (!m_Mobile.IsDeadPet && WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Attack);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x15F: // *patrol
+                                {
+                                    if (!m_Mobile.IsDeadPet && WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        BeginPickTarget(e.Mobile, OrderType.Patrol);
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x161: // *stop
+                                {
+                                    if (WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Stop;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x163: // *follow me
+                                {
+                                    if (WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Follow;
+                                        m_Mobile.ControlTarget = e.Mobile;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                            case 0x16D: // *release
+                                {
+                                    if (!isOwner)
+                                        break;
+
+                                    if (WasNamed(speech) || Insensitive.StartsWith(speech, "all "))
+                                    {
+                                        if (!m_Mobile.Summoned)
+                                        {
+                                            e.Mobile.SendGump(new Gumps.ConfirmReleaseGump(e.Mobile, m_Mobile));
+                                        }
+
+                                        else
+                                        {
+                                            m_Mobile.ControlOrder = OrderType.Release;
+                                        }
+                                    }
+
+                                    return;
+                                }
+                            case 0x16E: // *transfer
+                                {
+                                    if (!isOwner)
+                                        break;
+
+                                    if (!m_Mobile.IsDeadPet && WasNamed(speech))
+                                    {
+                                        if (m_Mobile.Summoned || (m_Mobile is GrizzledMare))
+                                            e.Mobile.SendLocalizedMessage(1005487); // You cannot transfer ownership of a summoned creature.
+
+                                        else if (e.Mobile.HasTrade)
+                                            e.Mobile.SendLocalizedMessage(1010507); // You cannot transfer a pet with a trade pending
+
+                                        else
+                                            BeginPickTarget(e.Mobile, OrderType.Transfer);
+                                    }
+
+                                    return;
+                                }
+                            case 0x16F: // *stay
+                                {
+                                    if (WasNamed(speech) && m_Mobile.CheckControlChance(e.Mobile))
+                                    {
+                                        m_Mobile.ControlOrder = OrderType.Stay;
+                                    }
+
+                                    else
+                                    {
+                                        e.Mobile.SendMessage(lowSkill);
+                                    }
+
+                                    return;
+                                }
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                if (e.Mobile.AccessLevel >= AccessLevel.GameMaster)
+                {
+                    m_Mobile.DebugSay("It's from a GM");
+
+                    if (m_Mobile.FindMyName(e.Speech, true))
+                    {
+                        string[] str = e.Speech.Split(' ');
+                        int i;
+
+                        for (i = 0; i < str.Length; i++)
+                        {
+                            string word = str[i];
+
+                            if (Insensitive.Equals(word, "obey"))
+                            {
+                                m_Mobile.SetControlMaster(e.Mobile);
+
+                                if (m_Mobile.Summoned)
+                                    m_Mobile.SummonMaster = e.Mobile;
+
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private class TransferItem : Item
+        {
+            public static bool IsInCombat(BaseCreature creature)
+            {
+                return (creature != null && (creature.Aggressors.Count > 0 || creature.Aggressed.Count > 0));
+            }
+
+            private BaseCreature m_Creature;
+
+            public TransferItem(BaseCreature creature)
+                : base(ShrinkTable.Lookup(creature))
+            {
+                m_Creature = creature;
+
+                Movable = false;
+
+                if (!Core.AOS)
+                {
+                    Name = creature.Name;
+                }
+                else if (this.ItemID == ShrinkTable.DefaultItemID || creature.GetType().IsDefined(typeof(FriendlyNameAttribute), false))
+                    Name = FriendlyNameAttribute.GetFriendlyNameFor(creature.GetType()).ToString();
+
+                //(As Per OSI)No name.  Normally, set by the ItemID of the Shrink Item unless we either explicitly set it with an Attribute, or, no lookup found
+
+                Hue = creature.Hue & 0x0FFF;
+            }
+
+            public TransferItem(Serial serial)
+                : base(serial)
+            {
+            }
+
+            public override void Serialize(GenericWriter writer)
+            {
+                base.Serialize(writer);
+
+                writer.Write((int)0); // version
+            }
+
+            public override void Deserialize(GenericReader reader)
+            {
+                base.Deserialize(reader);
+
+                int version = reader.ReadInt();
+
+                Delete();
+            }
+
+            public override void GetProperties(ObjectPropertyList list)
+            {
+                base.GetProperties(list);
+
+                list.Add(1041603); // This item represents a pet currently in consideration for trade
+                list.Add(1041601, m_Creature.Name); // Pet Name: ~1_val~
+
+                if (m_Creature.ControlMaster != null)
+                    list.Add(1041602, m_Creature.ControlMaster.Name); // Owner: ~1_val~
+            }
+
+            public override bool AllowSecureTrade(Mobile from, Mobile to, Mobile newOwner, bool accepted)
+            {
+                if (!base.AllowSecureTrade(from, to, newOwner, accepted))
+                    return false;
+
+                if (Deleted || m_Creature == null || m_Creature.Deleted || m_Creature.ControlMaster != from || !from.CheckAlive() || !to.CheckAlive())
+                    return false;
+
+                if (from.Map != m_Creature.Map || !from.InRange(m_Creature, 14))
+                    return false;
+
+                if (accepted && !m_Creature.CanBeControlledBy(to))
+                {
+                    string args = String.Format("{0}\t{1}\t ", to.Name, from.Name);
+
+                    from.SendLocalizedMessage(1043248, args); // The pet refuses to be transferred because it will not obey ~1_NAME~.~3_BLANK~
+                    to.SendLocalizedMessage(1043249, args); // The pet will not accept you as a master because it does not trust you.~3_BLANK~
+
+                    return false;
+                }
+
+                else if (accepted && !m_Creature.CanBeControlledBy(from))
+                {
+                    string args = String.Format("{0}\t{1}\t ", to.Name, from.Name);
+
+                    from.SendLocalizedMessage(1043250, args); // The pet refuses to be transferred because it will not obey you sufficiently.~3_BLANK~
+                    to.SendLocalizedMessage(1043251, args); // The pet will not accept you as a master because it does not trust ~2_NAME~.~3_BLANK~
+                }
+
+                else if (accepted && (to.Followers + m_Creature.ControlSlots) > to.FollowersMax)
+                {
+                    to.SendLocalizedMessage(1049607); // You have too many followers to control that creature.
+
+                    return false;
+                }
+
+                else if (accepted && IsInCombat(m_Creature))
+                {
+                    from.SendMessage("You may not transfer a pet that has recently been in combat.");
+                    to.SendMessage("The pet may not be transfered to you because it has recently been in combat.");
+
+                    return false;
+                }
+
+                return true;
+            }
+
+            public override void OnSecureTrade(Mobile from, Mobile to, Mobile newOwner, bool accepted)
+            {
+                if (Deleted)
+                    return;
+
+                Delete();
+
+                if (m_Creature == null || m_Creature.Deleted || m_Creature.ControlMaster != from || !from.CheckAlive() || !to.CheckAlive())
+                    return;
+
+                if (from.Map != m_Creature.Map || !from.InRange(m_Creature, 14))
+                    return;
+
+                if (accepted)
+                {
+                    if (m_Creature.SetControlMaster(to))
+                    {
+                        if (m_Creature.Summoned)
+                            m_Creature.SummonMaster = to;
+
+                        m_Creature.BondingBegin = DateTime.MinValue;
+                        m_Creature.OwnerAbandonTime = DateTime.MinValue;
+                        m_Creature.IsBonded = false;
+
+                        m_Creature.PlaySound(m_Creature.GetIdleSound());
+
+                        string args = String.Format("{0}\t{1}\t{2}", from.Name, m_Creature.Name, to.Name);
+
+                        from.SendLocalizedMessage(1043253, args); // You have transferred your pet to ~3_GETTER~.
+                        to.SendLocalizedMessage(1043252, args); // ~1_NAME~ has transferred the allegiance of ~2_PET_NAME~ to you.
+                    }
+                }
+            }
+        }
+
+        //OLD VERSION: TEMPORARY - Exists Only for Faction Guards
+        public virtual bool AcquireFocusMob(int iRange, FightMode acqType, bool bPlayerOnly, bool bFacFriend, bool bFacFoe)
+        {
+            //Mobile is Dead
+            if (m_Mobile.Deleted)
+                return false;
+
+            //Blessed Things or Vendors Don't Acquire Targets
+            if (m_Mobile.Blessed || m_Mobile is BaseVendor)
+            {
+                return false;
+            }
+
+            //Mobile is Currently Provoked
+            if (m_Mobile.BardProvoked)
+            {
+                //Bard Target is No Longer Valid
+                if (m_Mobile.BardTarget == null || m_Mobile.BardTarget.Deleted)
+                {
+                    m_Mobile.FocusMob = null;
+
+                    return false;
+                }
+
+                else
+                {
+                    m_Mobile.FocusMob = m_Mobile.BardTarget;
+
+                    return (m_Mobile.FocusMob != null);
+                }
+            }
+
+            //Mobile is Controlled
+            else if (m_Mobile.Controlled)
+            {
+                //Mobile Cannot Get Target From Its Master
+                if (m_Mobile.ControlTarget == null || m_Mobile.ControlTarget.Deleted || m_Mobile.ControlTarget.Hidden || !m_Mobile.ControlTarget.Alive || m_Mobile.ControlTarget.IsDeadBondedPet || !m_Mobile.InRange(m_Mobile.ControlTarget, m_Mobile.RangePerception * 2))
+                {
+                    if (m_Mobile.ControlTarget != null && m_Mobile.ControlTarget != m_Mobile.ControlMaster)
+                        m_Mobile.ControlTarget = null;
+
+                    m_Mobile.FocusMob = null;
+
+                    return false;
+                }
+
+                //Mobile's Target is its Master's Target
+                else
+                {
+                    m_Mobile.FocusMob = m_Mobile.ControlTarget;
+                    return (m_Mobile.FocusMob != null);
+                }
+            }
+
+            //Mobile Has a Continuous Target: Currently Only Khadun Revenant
+            if (m_Mobile.ConstantFocus != null)
+            {
+                m_Mobile.FocusMob = m_Mobile.ConstantFocus;
+
+                return true;
+            }
+
+            Mobile firstMobileTarget = null;
+            Mobile bestMobileTarget = null;
+
+            double bestMobileTargetValue = 0.0;
+            double CheckMobileTargetValue = 0.0;
+
+            int validTargetCount = 0;
+
+            Map map = m_Mobile.Map;
+
+            if (map != null)
+            {
+                IPooledEnumerable eable = map.GetMobilesInRange(m_Mobile.Location, m_Mobile.RangePerception);
+
+                foreach (Mobile target in eable)
+                {
+                    //Ignore If Deleted or Blessed
+                    if (target.Deleted || target.Blessed)
+                        continue;
+
+                    //Ignore Self
+                    if (target == m_Mobile)
+                        continue;
+
+                    //Ignore If Dead
+                    if (!target.Alive || target.IsDeadBondedPet)
+                        continue;
+
+                    //Ignore ServerStaff
+                    if (target.AccessLevel > AccessLevel.Player)
+                        continue;
+
+                    //Ignore If Out of LOS
+                    if (!m_Mobile.CanSee(target))
+                        continue;
+
+                    //If Can't Hurt Target
+                    if (!m_Mobile.CanBeHarmful(target))
+                    {
+                        return false;
+                    }
+
+                    CheckMobileTargetValue = DetermineMobileTargetValue(target, bestMobileTarget, false);
+
+                    //Can Be a Valid Target
+                    if (CheckMobileTargetValue > 0)
+                    {
+                        //First Valid Target: Store Because It Can't Be Properly Compared (being compared to null for BonusWeights)
+                        if (validTargetCount == 0)
+                        {
+                            firstMobileTarget = target;
+                        }
+
+                        validTargetCount++;
+
+                        //If Target Has Better Targeting Value Than Current Best, It Becomes Best
+                        if (CheckMobileTargetValue > bestMobileTargetValue)
+                        {
+                            bestMobileTargetValue = CheckMobileTargetValue;
+                            bestMobileTarget = target;
+                        }
+                    }
+                }
+
+                //Check First Target Against Best Target: First Target Wasn't Properly Compared
+                if (firstMobileTarget != null && firstMobileTarget != bestMobileTarget)
+                {
+                    CheckMobileTargetValue = DetermineMobileTargetValue(firstMobileTarget, bestMobileTarget, false);
+
+                    if (CheckMobileTargetValue > bestMobileTargetValue)
+                    {
+                        bestMobileTarget = firstMobileTarget;
+                    }
+                }
+
+                //End Search
+                eable.Free();
+
+                if (bestMobileTarget != null)
+                {
+                    m_Mobile.FocusMob = bestMobileTarget;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+}
+
+/*
+ //Detect Hidden
+                if (m_Owner.CanDetectHidden && DateTime.Now > m_Owner.m_NextDetectHidden)
+                {
+                    m_Owner.DetectHidden();
+
+                    // Not exactly OSI style, approximation.
+                    int delay = (15000 / m_Owner.m_Mobile.Int);
+
+                    if (delay > 60)
+                        delay = 60;
+
+                    int min = delay * (9 / 10); // 13s at 1000 int, 33s at 400 int, 54s at <250 int
+                    int max = delay * (10 / 9); // 16s at 1000 int, 41s at 400 int, 66s at <250 int
+
+                    m_Owner.m_NextDetectHidden = DateTime.Now + TimeSpan.FromSeconds(Utility.RandomMinMax(min, max));
+                }
+*/

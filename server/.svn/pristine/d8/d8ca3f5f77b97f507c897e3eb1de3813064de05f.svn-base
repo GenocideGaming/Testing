@@ -1,0 +1,214 @@
+﻿using System;
+using System.Collections.Generic;
+using Server.Commands;
+using Server.Mobiles;
+using Server.Accounting;
+using Server.Network;
+using Server.Gumps;
+using Server.Targeting;
+using Server.Commands.Generic;
+using Server.Items;
+using Server.Engines.Craft;
+using Server.Scripts;
+
+namespace Server.Scripts.Custom.Crafting
+{
+	public class ImbuingGump : Gump
+	{
+
+        public static readonly int GumpOffsetX = PropsConfig.GumpOffsetX;
+        public static readonly int GumpOffsetY = PropsConfig.GumpOffsetY;
+
+		public static readonly int TextHue = PropsConfig.TextHue;
+		public static readonly int TextOffsetX = PropsConfig.TextOffsetX;
+
+		public static readonly int NextWidth = PropsConfig.NextWidth;
+		public static readonly int NextOffsetX = PropsConfig.NextOffsetX, NextOffsetY = PropsConfig.NextOffsetY;
+		public static readonly int ArrowButtonID1 = PropsConfig.NextButtonID1;
+        public static readonly int ArrowButtonID2 = PropsConfig.NextButtonID2;
+
+        private const int LabelColor32 = 0x000044;
+        private const int WIDTH = 400;
+        private const int HEIGHT = 100;
+        readonly public static int LEFT_EDGE = 10;
+        readonly public static int TOP_EDGE = 10;
+        readonly public static int ARROW_WIDTH = 20;
+        readonly public static int LABEL_WIDTH = 20;
+
+		private Mobile m_Owner;
+        private ImbuingTool m_Tool;
+
+        public ImbuingGump(Mobile owner, ImbuingTool tool)
+            : base(GumpOffsetX, GumpOffsetY)
+		{
+            owner.CloseGump(typeof( ImbuingGump ));
+			m_Owner = owner;
+            m_Tool = tool;
+            
+			InitializeGump();
+		}
+
+        
+
+        public string Center(string text)
+        {
+            return String.Format("<CENTER>{0}</CENTER>", text);
+        }
+        public string Color(string text, int color)
+        {
+            return String.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", color, text);
+        }
+
+        public enum BUTTON_IDS : int
+        {
+            Closed = 0,
+            Level1 = 1,
+            Level2 = 2,
+            Level3 = 3,
+        }
+
+        public void InitializeGump()
+        {
+            if (m_Owner == null || m_Tool == null) { return; }
+
+            int penX = LEFT_EDGE;
+            int penY = TOP_EDGE;
+            int lineHeight = 20;
+            double successchance = 0.0;
+
+            AddBackground(0, 0, WIDTH, HEIGHT, 5054);
+            AddAlphaRegion(LEFT_EDGE, TOP_EDGE, WIDTH - 2 * LEFT_EDGE, HEIGHT - 2 * TOP_EDGE);
+
+            AddHtml(penX, penY, WIDTH - 2 * LEFT_EDGE, lineHeight, Color(Center("<u>Artifact Service Contract Creation</u>"), LabelColor32), false, false);
+            penY += lineHeight;
+
+            AddButton(penX, penY, ArrowButtonID1, ArrowButtonID2, (int)BUTTON_IDS.Level1, GumpButtonType.Reply, 0);
+            penX += NextWidth;
+            // need to give chances here
+            AddLabel(penX, penY, TextHue, "Level 1 Contract (1 charge)");
+            penX = LEFT_EDGE + WIDTH / 4 * 3;
+            // need to give chances here
+            successchance = Math.Round(ImbuingTool.GetSuccessChance(m_Owner.Skills[m_Tool.CraftSystem.MainSkill].Value, FeatureList.ArtifactCrafting.Level1ContractSkillRequired) * 1000.0) / 10.0; // get the tenth's place
+            if (successchance < 0) { successchance = 0; }
+            else if (successchance > 100) { successchance = 100; }
+            AddLabel(penX, penY, TextHue, "Chance: " + successchance + "%");
+
+            penX = LEFT_EDGE;
+            penY += lineHeight;
+
+            AddButton(penX, penY, ArrowButtonID1, ArrowButtonID2, (int)BUTTON_IDS.Level2, GumpButtonType.Reply, 0);
+            penX += NextWidth;
+            // need to give chances here
+            AddLabel(penX, penY, TextHue, "Level 2 Contract (2 charges)");
+            penX = LEFT_EDGE + WIDTH / 4 * 3;
+            // need to give chances here
+            successchance = Math.Round(ImbuingTool.GetSuccessChance(m_Owner.Skills[m_Tool.CraftSystem.MainSkill].Value, FeatureList.ArtifactCrafting.Level2ContractSkillRequired) * 1000.0) / 10.0; // get the tenth's place
+            if (successchance < 0) { successchance = 0; }
+            else if (successchance > 100) { successchance = 100; }
+            AddLabel(penX, penY, TextHue, "Chance: " + successchance + "%");
+
+            penX = LEFT_EDGE;
+            penY += lineHeight;
+
+            AddButton(penX, penY, ArrowButtonID1, ArrowButtonID2, (int)BUTTON_IDS.Level3, GumpButtonType.Reply, 0);
+            penX += NextWidth;
+            // need to give chances here
+            AddLabel(penX, penY, TextHue, "Level 3 Contract (3 charges)");
+            penX = LEFT_EDGE + WIDTH / 4 * 3;
+            // need to give chances here
+            successchance = Math.Round(ImbuingTool.GetSuccessChance(m_Owner.Skills[m_Tool.CraftSystem.MainSkill].Value, FeatureList.ArtifactCrafting.Level3ContractSkillRequired) * 1000.0) / 10.0; // get the tenth's place
+            if (successchance < 0) { successchance = 0; }
+            else if (successchance > 100) { successchance = 100; }
+            AddLabel(penX, penY, TextHue, "Chance: " + successchance + "%");
+        }
+
+        public void AddContractToPack(int level)
+        {
+            if (m_Owner == null || m_Tool == null || level < 1 || level > 3) { return; }
+            if (m_Tool.CraftSystem == DefBlacksmithy.CraftSystem)
+            {
+                m_Owner.AddToBackpack(new ArtifactServiceBlacksmith(level));
+            }
+            else if (m_Tool.CraftSystem == DefCarpentry.CraftSystem)
+            {
+                m_Owner.AddToBackpack(new ArtifactServiceCarpenter(level));
+            }
+            else if (m_Tool.CraftSystem == DefTailoring.CraftSystem)
+            {
+                m_Owner.AddToBackpack(new ArtifactServiceTailor(level));
+            }
+            m_Owner.SendMessage("You have successfully forged the contract!");
+        }
+
+		public override void OnResponse( NetState state, RelayInfo info )
+		{
+            Mobile from = state.Mobile;
+
+            if (m_Tool == null) { return; }
+
+            if (m_Tool.UsesRemaining < 1)
+            {
+                from.SendMessage("The tool didn't have anything left!");
+                m_Tool.Consume();
+                return;
+            }
+
+			switch ( (BUTTON_IDS)info.ButtonID )
+			{
+                
+                case BUTTON_IDS.Closed:
+                    return;
+                case BUTTON_IDS.Level1:
+                    m_Tool.UsesRemaining -= 1;
+                    if (!ImbuingTool.SuccessRoll(from.Skills[m_Tool.CraftSystem.MainSkill].Value, FeatureList.ArtifactCrafting.Level1ContractSkillRequired))
+                    {
+                        from.SendMessage("You failed to forge the contract this time around.");
+                    }
+                    else
+                    {
+                        AddContractToPack(1);
+                    }
+                    break;
+                case BUTTON_IDS.Level2:
+                    if (m_Tool.UsesRemaining < 2)
+                    {
+                        m_Owner.SendMessage("Your tool doesn't have enough durability to handle fulfill that contract!");
+                        return;
+                    }
+                    m_Tool.UsesRemaining -= 2;
+                    if (!ImbuingTool.SuccessRoll(from.Skills[m_Tool.CraftSystem.MainSkill].Value, FeatureList.ArtifactCrafting.Level2ContractSkillRequired))
+                    {
+                        from.SendMessage("You failed to forge the contract this time around.");
+                    }
+                    else
+                    {
+                        AddContractToPack(2);
+                    }
+                    break;
+                case BUTTON_IDS.Level3:
+                    if (m_Tool.UsesRemaining < 3)
+                    {
+                        m_Owner.SendMessage("Your tool doesn't have enough durability to handle fulfill that contract!");
+                        return;
+                    }
+                    m_Tool.UsesRemaining -= 3;
+                    if (!ImbuingTool.SuccessRoll(from.Skills[m_Tool.CraftSystem.MainSkill].Value, FeatureList.ArtifactCrafting.Level3ContractSkillRequired))
+                    {
+                        from.SendMessage("You failed to forge the contract this time around.");
+                    }
+                    else
+                    {
+                        AddContractToPack(3);
+                    }
+                    break;
+			}
+            // get rid of the tool if it's out of charges (do this before and after)
+            if (m_Tool.UsesRemaining < 1)
+            {
+                from.SendMessage("The tool didn't have anything left!");
+                m_Tool.Consume();
+                return;
+            }
+		}
+	}
+}

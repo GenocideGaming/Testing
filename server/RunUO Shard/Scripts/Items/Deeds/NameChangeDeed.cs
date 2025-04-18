@@ -1,0 +1,52 @@
+using System;
+using Server.Network;
+using Server.Prompts;
+using Server.Items;
+using System.Collections.Generic;
+using System.Text;
+using Server.Commands;
+using Server.Scripts.Custom;
+using Server.Scripts.Custom.WebService;
+using Server.Gumps;
+
+namespace Server.Items
+{
+    public class NameChangeDeed : Item
+    {
+        [Constructable]
+        public NameChangeDeed()
+            : base(0x14F0)
+        {
+            base.Weight = 1.0;
+            base.Name = "a name change deed - once you double click there is no going back";
+        }
+
+        public NameChangeDeed(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+
+        public override void OnDoubleClick(Mobile from)
+        {
+            if (from.InRange(GetWorldLocation(), (Core.ML ? 3 : 1)))
+            {
+                from.SendGump(new RenamePlayerPrompt());
+                this.Delete();
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+using System;
+using System.Collections;
+using Server.Items;
+using Server.Targeting;
+using Server.Factions;
+
+namespace Server.Mobiles
+{
+	[CorpseName( "an ogre lords corpse" )]
+	public class OgreLord : BaseCreature
+	{
+		public override Ethics.Ethic EthicAllegiance { get { return Ethics.Ethic.Evil; } }
+
+		[Constructable]
+		public OgreLord () : base( AIType.AI_Generic, FightMode.Closest, 10, 1, 0.2, 0.4 )
+		{
+			Name = "an ogre lord";
+			Body = 83;
+			BaseSoundID = 427;
+            Hue = 745;
+
+            SetStr(600, 605);
+            SetDex(45, 50);
+            SetInt(25, 30);
+
+            SetHits(400, 500);            
+
+            SetDamage(25, 35);
+
+            VirtualArmor = 5;
+
+            SetSkill(SkillName.Tactics, 100.0, 100.0);
+
+            SetSkill(SkillName.MagicResist, 45.0, 50.0);
+
+            SetSkill(SkillName.Wrestling, 45.0, 50.0);
+
+			Fame = 7500;
+			Karma = -7500;			
+		}
+		 
+		public override void GenerateLoot()
+		{
+            base.PackAddGoldTier(7);
+            base.PackAddArtifactChanceTier(5);
+            base.PackAddMapChanceTier(5);
+
+            base.PackAddGemTier(3);
+
+			PackItem( new Club() );			
+		}
+
+		public override bool CanRummageCorpses{ get{ return true; } }
+		public override Poison PoisonImmune{ get{ return Poison.Regular; } }
+		
+		public override int Meat{ get{ return 2; } }
+
+		public OgreLord( Serial serial ) : base( serial )
+		{
+		}
+
+		public override void Serialize( GenericWriter writer )
+		{
+			base.Serialize( writer );
+			writer.Write( (int) 0 );
+		}
+
+		public override void Deserialize( GenericReader reader )
+		{
+			base.Deserialize( reader );
+			int version = reader.ReadInt();
+		}
+	}
+}

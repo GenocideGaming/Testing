@@ -1,0 +1,5 @@
+# to whitelist an ip address you can either do the in-game commands:
+# 	[whitelist add [ip] comment
+# 	[whitelist reload
+# or you can edit this file and just do the reload command
+127.0.0.1 	# allow any number of connections from localhost

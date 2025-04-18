@@ -1,0 +1,351 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\largebodacceptgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\largebodacceptgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\largebodgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\largebodgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\largecarpentrybod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\largecarpentrybod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\smallbodacceptgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\smallbodacceptgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\smallbodgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\smallbodgump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\smallcarpentrybod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\smallcarpentrybod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\spells\\base\\spellhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\spells\\base\\spellhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\items\\special\\veteran rewards\\treestump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\items\\special\\veteran rewards\\treestump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\misc\\resourceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\misc\\resourceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\harvest\\lumberjacking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\harvest\\lumberjacking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\bulkorders\\bulkmaterialtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\bulkorders\\bulkmaterialtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\items\\skill items\\carpenter items\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\items\\skill items\\carpenter items\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\items\\weapons\\baseweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\items\\weapons\\baseweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\items\\armor\\basearmor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\items\\armor\\basearmor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\craft\\defcarpentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\craft\\defcarpentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\craft\\core\\craftitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\craft\\core\\craftitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\craft\\defbowfletching.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\craft\\defbowfletching.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\items\\skill items\\lumberjack\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\items\\skill items\\lumberjack\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|c:\\users\\genocide\\documents\\github\\relwis\\server\\runuo shard\\scripts\\engines\\craft\\deftailoring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C590475-AB03-4F40-92CB-5E6B3B01E2FF}|RunUO Shard.csproj|solutionrelative:scripts\\engines\\craft\\deftailoring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TreeStump.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Special\\Veteran Rewards\\TreeStump.cs",
+              "RelativeDocumentMoniker": "Scripts\\Items\\Special\\Veteran Rewards\\TreeStump.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Special\\Veteran Rewards\\TreeStump.cs",
+              "RelativeToolTip": "Scripts\\Items\\Special\\Veteran Rewards\\TreeStump.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAAAFwAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:46:18.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpellHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Spells\\Base\\SpellHelper.cs",
+              "RelativeDocumentMoniker": "Scripts\\Spells\\Base\\SpellHelper.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Spells\\Base\\SpellHelper.cs",
+              "RelativeToolTip": "Scripts\\Spells\\Base\\SpellHelper.cs",
+              "ViewState": "AQIAACQDAAAAAAAAAAAtwDUDAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:45:51.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SmallCarpentryBOD.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\SmallCarpentryBOD.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\SmallCarpentryBOD.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\SmallCarpentryBOD.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\SmallCarpentryBOD.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAIAwwGYAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:43:45.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SmallBODGump.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\SmallBODGump.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\SmallBODGump.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\SmallBODGump.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\SmallBODGump.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAuwFcAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:43:25.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SmallBODAcceptGump.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\SmallBODAcceptGump.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\SmallBODAcceptGump.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\SmallBODAcceptGump.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\SmallBODAcceptGump.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAADwv2EAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:42:57.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ResourceInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Misc\\ResourceInfo.cs",
+              "RelativeDocumentMoniker": "Scripts\\Misc\\ResourceInfo.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Misc\\ResourceInfo.cs",
+              "RelativeToolTip": "Scripts\\Misc\\ResourceInfo.cs",
+              "ViewState": "AQIAAKUBAAAAAAAAAAAYwLoBAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:41:19.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Lumberjacking.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Harvest\\Lumberjacking.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\Harvest\\Lumberjacking.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Harvest\\Lumberjacking.cs",
+              "RelativeToolTip": "Scripts\\Engines\\Harvest\\Lumberjacking.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAgwGUAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:40:42.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LargeCarpentryBOD.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\LargeCarpentryBOD.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\LargeCarpentryBOD.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\LargeCarpentryBOD.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\LargeCarpentryBOD.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:40:35.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LargeBODGump.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\LargeBODGump.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\LargeBODGump.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\LargeBODGump.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\LargeBODGump.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAuwGgAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:40:13.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LargeBODAcceptGump.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\LargeBODAcceptGump.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\LargeBODAcceptGump.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\LargeBODAcceptGump.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\LargeBODAcceptGump.cs",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAuwG4AAABzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:39:07.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BulkMaterialType.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\BulkMaterialType.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\BulkOrders\\BulkMaterialType.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\BulkOrders\\BulkMaterialType.cs",
+              "RelativeToolTip": "Scripts\\Engines\\BulkOrders\\BulkMaterialType.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:38:41.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Skill Items\\Carpenter Items\\Board.cs",
+              "RelativeDocumentMoniker": "Scripts\\Items\\Skill Items\\Carpenter Items\\Board.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Skill Items\\Carpenter Items\\Board.cs",
+              "RelativeToolTip": "Scripts\\Items\\Skill Items\\Carpenter Items\\Board.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAIA6wI0AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:38:34.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BaseWeapon.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Weapons\\BaseWeapon.cs",
+              "RelativeDocumentMoniker": "Scripts\\Items\\Weapons\\BaseWeapon.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Weapons\\BaseWeapon.cs",
+              "RelativeToolTip": "Scripts\\Items\\Weapons\\BaseWeapon.cs",
+              "ViewState": "AQIAAPoMAAAAAAAAAAAAAPoMAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:38:33.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BaseArmor.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Armor\\BaseArmor.cs",
+              "RelativeDocumentMoniker": "Scripts\\Items\\Armor\\BaseArmor.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Armor\\BaseArmor.cs",
+              "RelativeToolTip": "Scripts\\Items\\Armor\\BaseArmor.cs",
+              "ViewState": "AQIAAGYGAAAAAAAAAAAAAGYGAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:38:32.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Log.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Skill Items\\Lumberjack\\Log.cs",
+              "RelativeDocumentMoniker": "Scripts\\Items\\Skill Items\\Lumberjack\\Log.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Items\\Skill Items\\Lumberjack\\Log.cs",
+              "RelativeToolTip": "Scripts\\Items\\Skill Items\\Lumberjack\\Log.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAAwJgAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:37:35.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DefBowFletching.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\DefBowFletching.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\Craft\\DefBowFletching.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\DefBowFletching.cs",
+              "RelativeToolTip": "Scripts\\Engines\\Craft\\DefBowFletching.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAGMAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:37:29.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CraftItem.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\Core\\CraftItem.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\Craft\\Core\\CraftItem.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\Core\\CraftItem.cs",
+              "RelativeToolTip": "Scripts\\Engines\\Craft\\Core\\CraftItem.cs",
+              "ViewState": "AQIAAC0BAAAAAAAAAAAgwD8BAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:37:25.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DefCarpentry.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\DefCarpentry.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\Craft\\DefCarpentry.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\DefCarpentry.cs",
+              "RelativeToolTip": "Scripts\\Engines\\Craft\\DefCarpentry.cs",
+              "ViewState": "AQIAAAgBAAAAAAAAAAAgwB0BAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:35:21.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DefTailoring.cs",
+              "DocumentMoniker": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\DefTailoring.cs",
+              "RelativeDocumentMoniker": "Scripts\\Engines\\Craft\\DefTailoring.cs",
+              "ToolTip": "C:\\Users\\Genocide\\Documents\\GitHub\\RelWis\\server\\RunUO Shard\\Scripts\\Engines\\Craft\\DefTailoring.cs",
+              "RelativeToolTip": "Scripts\\Engines\\Craft\\DefTailoring.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAPgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T21:33:27.63Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

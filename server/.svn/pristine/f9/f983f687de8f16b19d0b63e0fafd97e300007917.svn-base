@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Server.Factions;
+using Server.Scripts.Custom.Citizenship;
+
+namespace Server.Scripts.Engines.Factions.Instances.Towns
+{
+    public class Calor : Town
+    {
+        public Calor()
+        {
+            Definition = new TownDefinition(
+                3,
+                "Calor",
+                "Calor",
+                new TextDefinition("CALOR"),
+                new TextDefinition("TOWN STONE FOR CALOR"), //header
+                new TextDefinition("Militia Town Stone of Calor"),
+                new Point3D(0, 0, 0));
+
+            OwningCommonwealth = Commonwealth.Find(Definition.TownName);
+            Militia = Faction.Find(Definition.FriendlyName);
+        }
+    }
+}

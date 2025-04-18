@@ -1,0 +1,16 @@
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO Shard\RunUO.exe.config
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO Shard\RunUO.exe
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO Shard\RunUO.pdb
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO-Core\obj\x86\Debug\RunUO-Core.csproj.AssemblyReference.cache
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO-Core\obj\x86\Debug\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO-Core\obj\x86\Debug\RunUO.exe
+C:\Users\RelWiz Studios\Desktop\RelPor\RelPorOpenSource\RunUO-Core\obj\x86\Debug\RunUO.pdb
+C:\Ravenous\Ravenous Core\server\RunUO Shard\RunUO.exe.config
+C:\Ravenous\Ravenous Core\server\RunUO Shard\RunUO.exe
+C:\Ravenous\Ravenous Core\server\RunUO Shard\RunUO.pdb
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Debug\RunUO-Core.csproj.AssemblyReference.cache
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Debug\RunUO-Core.csproj.SuggestedBindingRedirects.cache
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Debug\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Debug\RunUO-Core.csproj.CopyComplete
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Debug\RunUO.exe
+C:\Ravenous\Ravenous Core\server\RunUO-Core\obj\x86\Debug\RunUO.pdb

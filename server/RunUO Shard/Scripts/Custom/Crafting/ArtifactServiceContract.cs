@@ -1,0 +1,209 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Server.Engines.Craft;
+using Server.Scripts;
+using Server.Items;
+using Server.Targeting;
+
+namespace Server.Scripts.Custom.Crafting
+{
+    public class ArtifactServiceContract : Item
+    {
+        private int m_Level = 0;
+        [CommandProperty(AccessLevel.GameMaster)]
+        public int Level { get { return m_Level; } set { m_Level = value; } }
+        
+        public virtual CraftSystem CraftSystem
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public ArtifactServiceContract(int itemID, int level)
+            : base(itemID)
+        {
+            this.Level = level;
+            if (level < 1) { level = 1; }
+            if (level > 3) { level = 3; }
+
+            if (level == 1)
+            {
+                this.Hue = 1837;
+            }
+            else if (level == 2)
+            {
+                this.Hue = 1840;
+            }
+            else if (level == 3)
+            {
+                this.Hue = 1843;
+            }
+        }
+
+        public ArtifactServiceContract(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+
+            writer.Write((int)m_Level);
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+
+            m_Level = reader.ReadInt();
+        }
+
+        public override void OnDoubleClick(Mobile from)
+        {
+            //from.BeginTarget(0, false, Targeting.TargetFlags.None, new TargetCallback(ItemTargetted));
+            if (!this.IsChildOf(from.Backpack))
+            {
+                from.SendLocalizedMessage(1061005); // must be in backpack
+                return;
+            }
+            from.SendMessage("Select a level " + this.Level + " (or below, though the higher level is wasted) artifact to apply using this service contract.");
+            from.Target = new InternalTarget(this);
+        }
+
+        private class InternalTarget : Target
+        {
+            private ArtifactServiceContract mContract;
+
+            public InternalTarget(ArtifactServiceContract contract)
+                : base(0, false, TargetFlags.None)
+            {
+                mContract = contract;
+            }
+
+            protected override void OnTarget(Mobile from, object targeted)
+            {
+                if (targeted is BaseArtifact)
+                {
+                    BaseArtifact artifact = (BaseArtifact)targeted;
+                    if (!artifact.IsChildOf(from.Backpack))
+                    {
+                        from.SendLocalizedMessage(1061005);
+                        return;
+                    }
+                    if (artifact.Level <= mContract.Level)
+                    {
+                        from.SendMessage("Target an item to enhance with the properties of your selected material.");
+                        from.Target = artifact.GetArtifactTarget(mContract);
+                    }
+                    else
+                    {
+                        from.SendMessage("A level " + mContract.Level + " contract does not cover a level " + artifact.Level + " artifact!");
+                    }
+                }
+                else
+                {
+                    from.SendMessage("You must target an appropriate artifact!");
+                }
+            }
+        }
+    }
+
+    public class ArtifactServiceBlacksmith : ArtifactServiceContract
+    {
+        public override int LabelNumber { get { return 1063515; } }
+
+        public override CraftSystem CraftSystem
+        {
+            get { return DefBlacksmithy.CraftSystem; }
+        }
+        
+        [Constructable]
+        public ArtifactServiceBlacksmith(int level) : base(0x14F0, level)
+        {
+            this.Name = "Blacksmithing Service Contract\n[Level " + level + "]";
+        }
+
+        public ArtifactServiceBlacksmith(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+
+            writer.Write((int)Level);
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+
+            Level = reader.ReadInt();
+        }
+    }
+
+    public class ArtifactServiceTailor : ArtifactServiceContract
+    {
+        public override int LabelNumber { get { return 1063515; } }
+
+        public override CraftSystem CraftSystem
+        {
+            get { return DefTailoring.CraftSystem; }
+        }
+        
+        [Constructable]
+        public ArtifactServiceTailor(int level) : base(0x14F0, level)
+        {
+            this.Name = "Tailoring Service Contract\n[Level " + level + "]";
+        }
+
+        public ArtifactServiceTailor(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+
+            writer.Write((int)Level);
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+
+            Level = reader.ReadInt();
+        }
+    }
+
+    public class ArtifactServiceCarpenter : ArtifactServiceContract
+    {
+        public override int LabelNumber { get { return 1063515; } }
+
+        public override CraftSystem CraftSystem
+        {
+            get { return DefCarpentry.CraftSystem; }
+        }
+
+        [Constructable]
+        public ArtifactServiceCarpenter(int level)
+            : base(0x14F0, level)
+        {
+            this.Name = "Carpentry Service Contract\n[Level " + level + "]";
+        }
+
+        public ArtifactServiceCarpenter(Serial serial) : base(serial) { }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); //version
+
+            writer.Write((int)Level);
+        }
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+
+            Level = reader.ReadInt();
+        }
+    }
+}
