@@ -32,6 +32,7 @@ namespace Server.Items
 		OakWood,
 		AshWood,
 		YewWood,
+		Heartwood,
 
 
         ArtifactOfMight = 401,
@@ -144,7 +145,7 @@ namespace Server.Items
 		public static readonly CraftAttributeInfo Blank;
 		public static readonly CraftAttributeInfo DullCopper, ShadowIron, Copper, Bronze, Golden, Agapite, Verite, Valorite;
 		public static readonly CraftAttributeInfo Spined, Horned, Barbed;
-		public static readonly CraftAttributeInfo OakWood, AshWood, YewWood;
+		public static readonly CraftAttributeInfo OakWood, AshWood, YewWood, Heartwood;
         public static readonly CraftAttributeInfo ArtifactOfRuin, ArtifactOfMight, ArtifactOfForce, ArtifaceOfPower, ArtifactOfVanquishing, 
             ArtifactOfAccuracy, ArtifactOfSurpassingAccuracy, ArtifactOfEminentAccuracy, ArtifactOfExceedingAccuracy, ArtifactOfSupremeAccuracy, ArtifactOfDefense,
             ArtifactOfGuarding, ArtifactOfHardening, ArtifactOfFortification, ArtifactOfInvulnerability, ArtifactOfUndeadSlayer, ArtifactOfElementalSlayer,
@@ -276,7 +277,12 @@ namespace Server.Items
 			YewWood = new CraftAttributeInfo();
             YewWood.ArmorDurabilityLevel = ArmorDurabilityLevel.Massive;
             YewWood.WeaponDurabilityLevel = WeaponDurabilityLevel.Massive;
-	
+
+			Heartwood = new CraftAttributeInfo();
+            Heartwood.ArmorDurabilityLevel = ArmorDurabilityLevel.Fortified;
+            Heartwood.WeaponDurabilityLevel = WeaponDurabilityLevel.Fortified;
+
+		
 		}
 	}
 	public class CraftResourceInfo
@@ -338,6 +344,7 @@ namespace Server.Items
 				new CraftResourceInfo( 0x7DA, 1072533, "Oak",			CraftAttributeInfo.OakWood,		CraftResource.OakWood,		typeof( OakLog ),		typeof( OakBoard ) ),
 				new CraftResourceInfo( 0x4A7, 1072534, "Ash",			CraftAttributeInfo.AshWood,		CraftResource.AshWood,		typeof( AshLog ),		typeof( AshBoard ) ),
 				new CraftResourceInfo( 0x4A8, 1072535, "Yew",			CraftAttributeInfo.YewWood,		CraftResource.YewWood,		typeof( YewLog ),		typeof( YewBoard ) ),
+				new CraftResourceInfo( 0x46E, 1072536, "Heartwood",		CraftAttributeInfo.Heartwood,	CraftResource.Heartwood,	typeof( HeartwoodLog ),	typeof( HeartwoodBoard ) ),
 			};
         private static CraftResourceInfo[] mArtifactInfo = new CraftResourceInfo[]
         {
@@ -436,7 +443,7 @@ namespace Server.Items
 			if ( resource >= CraftResource.RedScales && resource <= CraftResource.BlueScales )
 				return CraftResourceType.Scales;
 
-			if ( resource >= CraftResource.RegularWood && resource <= CraftResource.YewWood )
+			if ( resource >= CraftResource.RegularWood && resource <= CraftResource.Heartwood )
 				return CraftResourceType.Wood;
 
             if (resource >= CraftResource.ArtifactOfMight && resource <= CraftResource.ArtifactOfReptileSlayer)

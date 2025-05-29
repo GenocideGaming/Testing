@@ -494,7 +494,7 @@ namespace Server.Mobiles
             get { return m_Pseu_SpellBookRequired; }
             set { m_Pseu_SpellBookRequired = value; }
         }
-        
+
         private bool m_Pseu_KeepKillCredit = true; // if true, RegisterKill uses the controlled basecreature as the LastKiller, otherwise it uses the Last controlled pseudoseer playermobile as the LastKiller
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual bool Pseu_KeepKillCredit
@@ -518,7 +518,7 @@ namespace Server.Mobiles
             get { return m_Pseu_AllowInterrupts; }
             set { m_Pseu_AllowInterrupts = value; }
         }
-        
+
         private TimeSpan m_Pseu_SpellDelay = TimeSpan.Zero;
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual TimeSpan Pseu_SpellDelay
@@ -602,7 +602,8 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual ActionType AIAction
         {
-            get {
+            get
+            {
                 if (m_AI != null) { return m_AI.Action; }
                 else { return ActionType.None; }
             }
@@ -870,7 +871,7 @@ namespace Server.Mobiles
                 m_NextPoisonEffectAllowed = value;
             }
         }
-        
+
 
         [CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
         public int SpellDelayMin
@@ -1132,10 +1133,11 @@ namespace Server.Mobiles
         public virtual double HitPoisonChance { get { return 0.5; } }
         public virtual Poison PoisonImmune { get { return null; } }
 
-        
+
         private Poison m_PoisonCustomImmune = null;
         [CommandProperty(AccessLevel.GameMaster)]
-        public Poison PoisonCustomImmune {
+        public Poison PoisonCustomImmune
+        {
             get { return m_PoisonCustomImmune; }
             set { m_PoisonCustomImmune = value; }
         }
@@ -1153,7 +1155,7 @@ namespace Server.Mobiles
             get { return m_PoisonCustomChance; }
             set { m_PoisonCustomChance = value; }
         }
-        
+
 
         public virtual bool BardImmune { get { return false; } }
         public virtual bool Unprovokable { get { return BardImmune || BardImmuneCustom || m_IsDeadPet; } }
@@ -1257,7 +1259,7 @@ namespace Server.Mobiles
             if (!target.Alive || !CanBeHarmful(target))
                 return;
 
-            
+
 
             BreathPlayEffectSound();
             BreathPlayEffect(target);
@@ -1301,7 +1303,7 @@ namespace Server.Mobiles
 
         public virtual int BreathComputeDamage()
         {
-            int damage = (int)(HitsMax * FeatureList.BaseCreatureCombat.CreatureMaxHPBreathDamageScalar);           
+            int damage = (int)(HitsMax * FeatureList.BaseCreatureCombat.CreatureMaxHPBreathDamageScalar);
 
             return damage;
         }
@@ -1366,7 +1368,7 @@ namespace Server.Mobiles
 
         public override bool OnMoveOver(Mobile m)
         {
-            if (m is BaseCreature && !m.Deleted && m.NetState == null) 
+            if (m is BaseCreature && !m.Deleted && m.NetState == null)
             {
                 if (!((BaseCreature)m).Controlled)
                 {
@@ -1630,7 +1632,7 @@ namespace Server.Mobiles
             {
                 return base.Move(d);
             }
-            
+
             NetState ns = this.NetState;
 
             TimeSpan speed = ComputeMovementSpeed(d);
@@ -1646,12 +1648,12 @@ namespace Server.Mobiles
         }
 
         private static Type[] m_AnimateDeadTypes = new Type[]
-			{
-				typeof( HellSteed ), typeof( SkeletalMount ),
-				typeof( Wraith ), typeof( SkeletalDragon ),
-				typeof( LichLord ), typeof( Lich ),
-				typeof( SkeletalKnight ), typeof( BoneKnight ), typeof( Mummy ),
-				typeof( SkeletalMage ), typeof( BoneMagi )
+            {
+                typeof( HellSteed ), typeof( SkeletalMount ),
+                typeof( Wraith ), typeof( SkeletalDragon ),
+                typeof( LichLord ), typeof( Lich ),
+                typeof( SkeletalKnight ), typeof( BoneKnight ), typeof( Mummy ),
+                typeof( SkeletalMage ), typeof( BoneMagi )
             };
 
         public virtual bool IsAnimatedDead
@@ -1707,23 +1709,23 @@ namespace Server.Mobiles
             // This, I believe, is the source of the polymorph => 0 AR bug
             //if (this.Body.IsHuman)
             //{
-                AddArmorRating(ref rating, NeckArmor);
-                AddArmorRating(ref rating, HandArmor);
-                AddArmorRating(ref rating, HeadArmor);
-                AddArmorRating(ref rating, ArmsArmor);
-                AddArmorRating(ref rating, LegsArmor);
-                AddArmorRating(ref rating, ChestArmor);
+            AddArmorRating(ref rating, NeckArmor);
+            AddArmorRating(ref rating, HandArmor);
+            AddArmorRating(ref rating, HeadArmor);
+            AddArmorRating(ref rating, ArmsArmor);
+            AddArmorRating(ref rating, LegsArmor);
+            AddArmorRating(ref rating, ChestArmor);
 
-                BaseArmor shield = ShieldArmor as BaseArmor;
+            BaseArmor shield = ShieldArmor as BaseArmor;
 
-                if (shield != null)
-                {
-                    double arShield = FeatureList.ArmorChanges.ShieldARWithoutParry * shield.ArmorRating;
-                    double arShieldSkill = FeatureList.ArmorChanges.ShieldARParryBonus * (Skills.Parry.Value / 100) * shield.ArmorRating;
+            if (shield != null)
+            {
+                double arShield = FeatureList.ArmorChanges.ShieldARWithoutParry * shield.ArmorRating;
+                double arShieldSkill = FeatureList.ArmorChanges.ShieldARParryBonus * (Skills.Parry.Value / 100) * shield.ArmorRating;
 
-                    rating += arShield;
-                    rating += arShieldSkill;
-                }
+                rating += arShield;
+                rating += arShieldSkill;
+            }
             //}
 
             EquipmentArmor = rating;
@@ -1814,7 +1816,8 @@ namespace Server.Mobiles
 
                 if (m_CurrentWayPoint != null) { m_CurrentWayPoint.Unsubscribe(this); }
                 m_CurrentWayPoint = value;
-                if (m_CurrentWayPoint != null) { 
+                if (m_CurrentWayPoint != null)
+                {
                     m_CurrentWayPoint.Subscribe(this);
                     if (ReturnsHome == true) // if assigned a waypoint, don't return home anymore
                     {
@@ -2353,7 +2356,7 @@ namespace Server.Mobiles
 
             // Version 20
             writer.Write((bool)m_KillCriminals);
-            
+
             // Version 21
             writer.Write((bool)m_KillMurderers);
 
@@ -2401,14 +2404,14 @@ namespace Server.Mobiles
         }
 
         private static double[] m_StandardActiveSpeeds = new double[]
-			{
-				0.175, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8
-			};
+            {
+                0.175, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8
+            };
 
         private static double[] m_StandardPassiveSpeeds = new double[]
-			{
-				0.350, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.6, 2.0
-			};
+            {
+                0.350, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.6, 2.0
+            };
 
         public override void Deserialize(GenericReader reader)
         {
@@ -2765,51 +2768,51 @@ namespace Server.Mobiles
 
         #region Food
         private static Type[] m_Eggs = new Type[]
-			{
-				typeof( FriedEggs ), typeof( Eggs )
-			};
+            {
+                typeof( FriedEggs ), typeof( Eggs )
+            };
 
         private static Type[] m_Fish = new Type[]
-			{
-				typeof( FishSteak ), typeof( RawFishSteak )
-			};
+            {
+                typeof( FishSteak ), typeof( RawFishSteak )
+            };
 
         private static Type[] m_GrainsAndHay = new Type[]
-			{
-				typeof( BreadLoaf ), typeof( FrenchBread ), typeof( SheafOfHay )
-			};
+            {
+                typeof( BreadLoaf ), typeof( FrenchBread ), typeof( SheafOfHay )
+            };
 
         private static Type[] m_Meat = new Type[]
-			{
+            {
 				/* Cooked */
 				typeof( Bacon ), typeof( CookedBird ), typeof( Sausage ),
-				typeof( Ham ), typeof( Ribs ), typeof( LambLeg ),
-				typeof( ChickenLeg ),
+                typeof( Ham ), typeof( Ribs ), typeof( LambLeg ),
+                typeof( ChickenLeg ),
 
 				/* Uncooked */
 				typeof( RawBird ), typeof( RawRibs ), typeof( RawLambLeg ),
-				typeof( RawChickenLeg ),
+                typeof( RawChickenLeg ),
 
 				/* Body Parts */
 				typeof( Head ), typeof( LeftArm ), typeof( LeftLeg ),
-				typeof( Torso ), typeof( RightArm ), typeof( RightLeg )
-			};
+                typeof( Torso ), typeof( RightArm ), typeof( RightLeg )
+            };
 
         private static Type[] m_FruitsAndVegies = new Type[]
-			{
-				typeof( HoneydewMelon ), typeof( YellowGourd ), typeof( GreenGourd ),
-				typeof( Banana ), typeof( Bananas ), typeof( Lemon ), typeof( Lime ),
-				typeof( Dates ), typeof( Grapes ), typeof( Peach ), typeof( Pear ),
-				typeof( Apple ), typeof( Watermelon ), typeof( Squash ),
-				typeof( Cantaloupe ), typeof( Carrot ), typeof( Cabbage ),
-				typeof( Onion ), typeof( Lettuce ), typeof( Pumpkin )
-			};
+            {
+                typeof( HoneydewMelon ), typeof( YellowGourd ), typeof( GreenGourd ),
+                typeof( Banana ), typeof( Bananas ), typeof( Lemon ), typeof( Lime ),
+                typeof( Dates ), typeof( Grapes ), typeof( Peach ), typeof( Pear ),
+                typeof( Apple ), typeof( Watermelon ), typeof( Squash ),
+                typeof( Cantaloupe ), typeof( Carrot ), typeof( Cabbage ),
+                typeof( Onion ), typeof( Lettuce ), typeof( Pumpkin )
+            };
 
         private static Type[] m_Gold = new Type[]
-			{
+            {
 				// white wyrms eat gold..
 				typeof( Gold )
-			};
+            };
 
         public virtual bool CheckFoodPreference(Item f)
         {
@@ -3802,7 +3805,7 @@ namespace Server.Mobiles
             if (skill == SkillName.Stealth && from.Skills[SkillName.Hiding].Base < ((Core.SE) ? 50.0 : 80.0))
                 return false;
 
-           if (!Core.AOS && (skill == SkillName.Focus || skill == SkillName.Chivalry || skill == SkillName.Necromancy))
+            if (!Core.AOS && (skill == SkillName.Focus || skill == SkillName.Chivalry || skill == SkillName.Necromancy))
                 return false;
 
             return true;
@@ -4678,7 +4681,7 @@ namespace Server.Mobiles
         {
             int result;
 
-            result = min + (int)(Math.Round(Utility.RandomDouble() * (max - min)));            
+            result = min + (int)(Math.Round(Utility.RandomDouble() * (max - min)));
 
             return result;
         }
@@ -4717,7 +4720,7 @@ namespace Server.Mobiles
 
             if (chance >= Utility.RandomDouble())
             {
-                double check = Utility.RandomDouble();         
+                double check = Utility.RandomDouble();
 
                 //Slayer
                 if (check >= 0 && check < .30)
@@ -4770,14 +4773,14 @@ namespace Server.Mobiles
         {
             int chance = LootBag.LeatherDyeTubTiers[tier - 1, 0];
             int mDyeTubGroup = LootBag.LeatherDyeTubTiers[tier - 1, 1];
-            
 
-            
+
+
             if (chance >= Utility.RandomMinMax(1, 100))
             {
                 if (mDyeTubGroup == 0)
                 {
-                   PackItem(Loot.RandomLeatherDyeTubTypes1()); 
+                    PackItem(Loot.RandomLeatherDyeTubTypes1());
                 }
                 else if (mDyeTubGroup == 1)
                 {
@@ -4791,16 +4794,16 @@ namespace Server.Mobiles
                 {
                     PackItem(Loot.RandomLeatherDyeTubTypesAll());
                 }
-                
+
             }
 
-            
+
         }
 
         public void PackAddReagentTier(int tier)
         {
-            int minAmount = LootBag.ReagentTiers[tier-1, 0];
-            int maxAmount = LootBag.ReagentTiers[tier-1, 1];
+            int minAmount = LootBag.ReagentTiers[tier - 1, 0];
+            int maxAmount = LootBag.ReagentTiers[tier - 1, 1];
 
             int amount = GetRandomMinMax(minAmount, maxAmount);
 
@@ -4818,14 +4821,14 @@ namespace Server.Mobiles
 
         public void PackAddIngotTier(int tier)
         {
-            int minAmount = LootBag.IngotTiers[tier-1, 0];
-            int maxAmount = LootBag.IngotTiers[tier-1, 1];
+            int minAmount = LootBag.IngotTiers[tier - 1, 0];
+            int maxAmount = LootBag.IngotTiers[tier - 1, 1];
 
             int amount = GetRandomMinMax(minAmount, maxAmount);
 
             if (amount < 1)
             {
-               return;
+                return;
             }
 
             PackItem(new IronIngot(amount));
@@ -4833,14 +4836,14 @@ namespace Server.Mobiles
 
         public void PackAddBoardTier(int tier)
         {
-            int minAmount = LootBag.BoardTiers[tier-1, 0];
-            int maxAmount = LootBag.BoardTiers[tier-1, 1];
+            int minAmount = LootBag.BoardTiers[tier - 1, 0];
+            int maxAmount = LootBag.BoardTiers[tier - 1, 1];
 
             int amount = GetRandomMinMax(minAmount, maxAmount);
 
             if (amount < 1)
             {
-               return;
+                return;
             }
 
             PackItem(new Board(amount));
@@ -4848,14 +4851,14 @@ namespace Server.Mobiles
 
         public void PackAddBandageTier(int tier)
         {
-            int minAmount = LootBag.BandageTiers[tier-1, 0];
-            int maxAmount = LootBag.BandageTiers[tier-1, 1];
+            int minAmount = LootBag.BandageTiers[tier - 1, 0];
+            int maxAmount = LootBag.BandageTiers[tier - 1, 1];
 
             int amount = GetRandomMinMax(minAmount, maxAmount);
 
             if (amount < 1)
             {
-               return;
+                return;
             }
 
             PackItem(new Bandage(amount));
@@ -4863,14 +4866,14 @@ namespace Server.Mobiles
 
         public void PackAddArrowTier(int tier)
         {
-            int minAmount = LootBag.ArrowTiers[tier-1, 0];
-            int maxAmount = LootBag.ArrowTiers[tier-1, 1];
+            int minAmount = LootBag.ArrowTiers[tier - 1, 0];
+            int maxAmount = LootBag.ArrowTiers[tier - 1, 1];
 
             int amount = GetRandomMinMax(minAmount, maxAmount);
 
             if (amount < 1)
             {
-               return;
+                return;
             }
 
             PackItem(new Arrow(amount));
@@ -4893,14 +4896,14 @@ namespace Server.Mobiles
 
         public void PackAddGemTier(int tier)
         {
-            int minAmount = LootBag.GemTiers[tier-1, 0];
-            int maxAmount = LootBag.GemTiers[tier-1, 1];
+            int minAmount = LootBag.GemTiers[tier - 1, 0];
+            int maxAmount = LootBag.GemTiers[tier - 1, 1];
 
             int amount = GetRandomMinMax(minAmount, maxAmount);
 
             if (amount < 0)
             {
-               return;
+                return;
             }
 
             //Split Into Multipe Types At Some Point
@@ -4923,8 +4926,8 @@ namespace Server.Mobiles
 
             for (int i = 0; i < amount; ++i)
             {
-                PackItem(Loot.RandomScroll(minIndex, maxIndex, SpellbookType.Regular));   
-            }                  
+                PackItem(Loot.RandomScroll(minIndex, maxIndex, SpellbookType.Regular));
+            }
         }
 
         public void PackAddPoisonPotionTier(int tier)
@@ -4941,25 +4944,25 @@ namespace Server.Mobiles
             {
                 case 0:
                     poisonPotion = new LesserPoisonPotion();
-                break;
+                    break;
 
                 case 1:
                     poisonPotion = new PoisonPotion();
-                break;
+                    break;
 
                 case 2:
                     poisonPotion = new GreaterPoisonPotion();
-                break;
-                    
+                    break;
+
                 case 3:
                     poisonPotion = new DeadlyPoisonPotion();
-                break;    
+                    break;
 
                 default:
                     poisonPotion = new LesserPoisonPotion();
-                break;
+                    break;
             }
-            
+
             if (poisonPotion != null)
             {
                 if (amount < 1)
@@ -4979,7 +4982,7 @@ namespace Server.Mobiles
             int minAmount = LootBag.RandomPotionTiers[0, tier - 1, 1];
             int maxAmount = LootBag.RandomPotionTiers[0, tier - 1, 2];
 
-            int amount = GetRandomMinMax(minAmount, maxAmount);            
+            int amount = GetRandomMinMax(minAmount, maxAmount);
 
             if (potionLevel == 0)
             {
@@ -4988,7 +4991,7 @@ namespace Server.Mobiles
                     Item potion = Loot.RandomPotion();
 
                     if (potion != null)
-                    {                       
+                    {
                         PackItem(potion);
                     }
                 }
@@ -5005,7 +5008,7 @@ namespace Server.Mobiles
                         PackItem(potion);
                     }
                 }
-            }          
+            }
         }
 
         public void PackItem(Item item)
@@ -5314,7 +5317,7 @@ namespace Server.Mobiles
         public void PackReg(int min, int max)
         {
             PackReg(Utility.RandomMinMax(min, max));
-        }        
+        }
 
         public void PackReg(int amount)
         {
@@ -5326,7 +5329,7 @@ namespace Server.Mobiles
             reg.Amount = amount;
 
             PackItem(reg);
-        }        
+        }
 
         #endregion
 
@@ -5435,6 +5438,14 @@ namespace Server.Mobiles
                 m_HasGeneratedLoot = true;
             }
             */
+
+            //Start Zombiex edit
+            if (LastKiller is Zombiex)
+            {
+                Zombiex zomb = new Zombiex();
+                zomb.NewZombie(this);
+            }
+            //End Zombiex edit
 
             // if they are controlled by a pseudoseer, attempt to reconnect:
             if (this.NetState != null && !CreaturePossession.AttemptReturnToOriginalBody(this.NetState))
@@ -5717,7 +5728,7 @@ namespace Server.Mobiles
             else
             {
                 if (!Summoned && !m_NoKillAwards)
-                {                    
+                {
                     int totalFame = Fame / 100;
                     int totalKarma = -Karma / 100;
 
@@ -5855,9 +5866,9 @@ namespace Server.Mobiles
                                     double oldGold = (double)gold.Amount;
 
                                     gold.Amount += (int)(Math.Floor(oldGold * goldMultiplier));
-                                }     
+                                }
                             }
-                        }                                                   
+                        }
                     }
 
                     for (int i = 0; i < titles.Count; ++i)
@@ -5869,13 +5880,13 @@ namespace Server.Mobiles
                         // ... commenting this out might screw up party KILL quests???
                         //i'm moving it outside of this scope (see below)
                         //XmlQuest.RegisterKill(this, titles[i]);  
-                        
+
                     }
                 }
-                
+
                 XmlQuest.RegisterKill(this, this.LastKiller);
-                
-                
+
+
 
                 base.OnDeath(c);
 
@@ -5927,7 +5938,7 @@ namespace Server.Mobiles
             if (target is BaseFactionGuard)
                 return false;
 
-            if(this.Controlled && this.ControlMaster != null)
+            if (this.Controlled && this.ControlMaster != null)
             {
                 PlayerMobile pm = (PlayerMobile)this.ControlMaster;
 
@@ -5938,19 +5949,19 @@ namespace Server.Mobiles
                 Type[] urukhaiTypes = new Type[] { typeof(UrukGrunt), typeof(UrukRaider), typeof(UrukShaman), typeof(UrukScout), typeof(Gojira) };
                 Type[] paladinTypes = new Type[] { typeof(POSquire), typeof(POKnight), typeof(POPaladin), typeof(Amyr), typeof(DupreThePaladin) };
 
-                if( (playerFaction == Forsaken.Instance || pm.Citizenship == "Yew") && Array.Exists(forsakenTypes, element => element == target.GetType()) ) // forsaken , yew
+                if ((playerFaction == Forsaken.Instance || pm.Citizenship == "Yew") && Array.Exists(forsakenTypes, element => element == target.GetType())) // forsaken , yew
                 {
                     this.ControlOrder = OrderType.Stop;
                     this.ControlOrder = OrderType.Follow;
                     return false;
                 }
-                else if( (playerFaction == Urukhai.Instance || pm.Citizenship == "Blackrock") && Array.Exists(urukhaiTypes, element => element == target.GetType()) ) // urukhai , blackrock
+                else if ((playerFaction == Urukhai.Instance || pm.Citizenship == "Blackrock") && Array.Exists(urukhaiTypes, element => element == target.GetType())) // urukhai , blackrock
                 {
                     this.ControlOrder = OrderType.Stop;
                     this.ControlOrder = OrderType.Follow;
                     return false;
                 }
-                else if( (playerFaction == PaladinOrder.Instance || pm.Citizenship == "Trinsic") && Array.Exists(paladinTypes, element => element == target.GetType()) ) // palading , trinsic
+                else if ((playerFaction == PaladinOrder.Instance || pm.Citizenship == "Trinsic") && Array.Exists(paladinTypes, element => element == target.GetType())) // palading , trinsic
                 {
                     this.ControlOrder = OrderType.Stop;
                     this.ControlOrder = OrderType.Follow;
@@ -6017,7 +6028,7 @@ namespace Server.Mobiles
                 ControlMaster = m;
                 Controlled = true;
                 ControlTarget = null;
-                              
+
                 if (ControlMaster.Player)
                 {
                     ControlOrder = OrderType.Stop;
@@ -6028,7 +6039,7 @@ namespace Server.Mobiles
                     ControlOrder = OrderType.Guard;
                 }
 
-                Guild = null;                
+                Guild = null;
 
                 if (m_DeleteTimer != null)
                 {
@@ -6679,6 +6690,8 @@ namespace Server.Mobiles
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int RemoveStep { get { return m_RemoveStep; } set { m_RemoveStep = value; } }
+
+        public bool CanInfect { get; internal set; }
     }
 
     public class LoyaltyTimer : Timer

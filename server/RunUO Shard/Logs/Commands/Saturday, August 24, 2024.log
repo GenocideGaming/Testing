@@ -1,0 +1,166 @@
+##############################
+Log started on 8/24/2024 12:38:50 PM
+
+8/24/2024 12:39:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'addmenu '
+8/24/2024 12:39:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1883, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:32 PM: 127.0.0.1: Serials: 0x40000E29; 
+8/24/2024 12:39:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1881, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:45 PM: 127.0.0.1: Serials: 0x40000E79; 
+8/24/2024 12:39:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (854, 1881, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:45 PM: 127.0.0.1: Serials: 0x40000E7A; 
+8/24/2024 12:39:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:54 PM: 127.0.0.1: Serials: 0x40000EAF; 
+8/24/2024 12:39:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:55 PM: 127.0.0.1: Serials: 0x40000EB0; 
+8/24/2024 12:39:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:56 PM: 127.0.0.1: Serials: 0x40000EB1; 
+8/24/2024 12:39:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:56 PM: 127.0.0.1: Serials: 0x40000EB2; 
+8/24/2024 12:39:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:56 PM: 127.0.0.1: Serials: 0x40000EB3; 
+8/24/2024 12:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:57 PM: 127.0.0.1: Serials: 0x40000EB4; 
+8/24/2024 12:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:57 PM: 127.0.0.1: Serials: 0x40000EB5; 
+8/24/2024 12:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:57 PM: 127.0.0.1: Serials: 0x40000EB6; 
+8/24/2024 12:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:57 PM: 127.0.0.1: Serials: 0x40000EB7; 
+8/24/2024 12:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:57 PM: 127.0.0.1: Serials: 0x40000EB8; 
+8/24/2024 12:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "RangerTicket"
+8/24/2024 12:39:57 PM: 127.0.0.1: Serials: 0x40000EB9; 
+8/24/2024 12:40:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+8/24/2024 12:40:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'staffrunebook '
+8/24/2024 12:41:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 12:41:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1507'
+8/24/2024 12:41:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1507'
+8/24/2024 12:41:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 12:41:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000432C (UncutCloth) to (5342, 1137, 0)
+8/24/2024 12:41:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 2212'
+8/24/2024 12:41:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '2212'
+8/24/2024 12:42:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 12:42:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000432C (UncutCloth) to (5340, 1139, 0)
+8/24/2024 12:57:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 12:57:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000432C (UncutCloth) to (5341, 1138, 0)
+8/24/2024 12:57:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 12:57:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000432C (UncutCloth) to (5342, 1137, 0)
+8/24/2024 12:57:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1507'
+8/24/2024 12:57:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1507'
+8/24/2024 1:04:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1159'
+8/24/2024 1:04:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1159'
+8/24/2024 1:05:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 2149'
+8/24/2024 1:05:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '2149'
+8/24/2024 1:05:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 1:05:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 1:05:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 1:05:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'wipe '
+8/24/2024 1:05:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 1:05:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000432C (UncutCloth) to (5357, 1144, 0)
+8/24/2024 1:10:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 2141'
+8/24/2024 1:10:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '2141'
+8/24/2024 1:10:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 1:10:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000432C (UncutCloth) to (5358, 1143, 0)
+8/24/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1195'
+8/24/2024 1:15:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1195'
+8/24/2024 1:15:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1193'
+8/24/2024 1:16:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1193'
+8/24/2024 1:16:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1194'
+8/24/2024 1:16:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1194'
+8/24/2024 1:16:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1196'
+8/24/2024 1:16:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1196'
+8/24/2024 1:17:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:17:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:17:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:18:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:19:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:20:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:20:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:20:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:22:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:22:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:22:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:22:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:25:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1170'
+8/24/2024 1:25:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1170'
+8/24/2024 1:25:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1154'
+8/24/2024 1:25:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1154'
+8/24/2024 1:25:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1151'
+8/24/2024 1:25:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1151'
+8/24/2024 1:25:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1166'
+8/24/2024 1:25:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1166'
+8/24/2024 1:26:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:26:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:27:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:28:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:28:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:29:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:30:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:30:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:35:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1150'
+8/24/2024 1:35:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1150'
+8/24/2024 1:35:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1153'
+8/24/2024 1:35:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1153'
+8/24/2024 1:36:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 1:38:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 2118'
+8/24/2024 1:38:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40004C09 (UncutCloth) to '2118'
+8/24/2024 1:38:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1166'
+8/24/2024 1:38:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40004C0F (UncutCloth) to '1166'
+8/24/2024 1:38:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1151'
+8/24/2024 1:38:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40004C11 (UncutCloth) to '1151'
+8/24/2024 1:38:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1154'
+8/24/2024 1:38:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40004C1D (UncutCloth) to '1154'
+8/24/2024 1:38:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1170'
+8/24/2024 1:38:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40004C1D (UncutCloth) to '1170'
+8/24/2024 1:40:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1175'
+8/24/2024 1:40:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40005BD1 (Sandals) to '1175'
+8/24/2024 1:40:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 2118'
+8/24/2024 1:40:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x400059F1 (Sandals) to '2118'
+8/24/2024 1:41:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:41:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:41:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:42:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:42:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 0x48f'
+8/24/2024 1:42:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000432C (UncutCloth) to '1167'
+8/24/2024 1:43:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:43:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:43:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 1:43:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 2:23:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 2:23:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:23:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004C07 (UncutCloth) to (5349, 1153, 0)
+8/24/2024 2:26:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/24/2024 2:26:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:26:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004C09 (UncutCloth) to (5349, 1152, 0)
+8/24/2024 2:30:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 2:32:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/24/2024 2:32:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:32:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004C08 (UncutCloth) to (5352, 1164, 0)
+8/24/2024 2:43:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:43:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400045CF (UncutCloth) to (5353, 1164, 0)
+8/24/2024 2:43:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:43:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400045CF (UncutCloth) to (5351, 1166, 0)
+8/24/2024 2:43:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:43:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000463A (UncutCloth) to (5353, 1164, 0)
+8/24/2024 2:44:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:44:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004C1D (UncutCloth) to (5353, 1164, 0)
+8/24/2024 2:55:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:55:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004513 (UncutCloth) to (5353, 1164, 0)
+8/24/2024 2:57:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:57:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004384 (UncutCloth) to (5352, 1164, 0)
+8/24/2024 2:57:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:57:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004510 (UncutCloth) to (5352, 1164, 0)
+8/24/2024 2:58:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 2:58:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000450A (UncutCloth) to (5353, 1163, 0)
+8/24/2024 3:36:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 3:36:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004450 (UncutCloth) to (5353, 1164, 0)
+8/24/2024 3:39:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 3:40:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004451 (UncutCloth) to (5354, 1163, 0)
+8/24/2024 3:41:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 3:41:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000480C (UncutCloth) to (5354, 1163, 0)
+8/24/2024 3:48:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 3:49:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/24/2024 3:49:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 3:49:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400049FB (UncutCloth) to (5353, 1163, 0)
+8/24/2024 3:55:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/24/2024 3:55:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004A55 (UncutCloth) to (5354, 1163, 0)

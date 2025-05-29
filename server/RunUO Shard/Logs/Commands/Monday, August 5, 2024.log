@@ -1,0 +1,271 @@
+##############################
+Log started on 8/5/2024 2:56:01 PM
+
+8/5/2024 2:59:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add woodenbox'
+8/5/2024 2:59:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1252, 1270, 0) in Felucca: "woodenbox"
+8/5/2024 2:59:22 PM: 127.0.0.1: Serials: 0x40000012; 
+8/5/2024 3:01:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:01:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:03:05 PM: 127.0.0.1: Crafting 0x40000014 (ChainChest) with craft system DefBlacksmithy
+8/5/2024 3:04:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:04:39 PM: 127.0.0.1: Crafting 0x40000017 (ChainChest) with craft system DefBlacksmithy
+8/5/2024 3:13:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:13:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'ProtectionLevel' of 0x40000017 (ChainChest) to 'Guarding'
+8/5/2024 3:13:43 PM: 127.0.0.1: Crafting 0x40000018 (ChainChest) with craft system DefBlacksmithy
+8/5/2024 3:13:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:13:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400000CF (ArtifactOfGuarding) (inBag=False; amount=1)
+8/5/2024 3:13:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400000CF (ArtifactOfGuarding) creating 0x4000001A (ArtifactOfGuarding)
+8/5/2024 3:15:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:15:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000007B (ChainChest) (inBag=False; amount=1)
+8/5/2024 3:15:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000007B (ChainChest) creating 0x4000001B (ChainChest)
+8/5/2024 3:15:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:15:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400000D0 (ArtifactOfFortification) (inBag=False; amount=1)
+8/5/2024 3:15:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400000D0 (ArtifactOfFortification) creating 0x4000001C (ArtifactOfFortification)
+8/5/2024 3:15:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add imbuninghammer'
+8/5/2024 3:16:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1252, 1270, 0) in Felucca: "ImbuingHammer"
+8/5/2024 3:16:03 PM: 127.0.0.1: Serials: 0x4000001E; 
+8/5/2024 3:16:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:16:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000007B (ChainChest) (inBag=False; amount=1)
+8/5/2024 3:16:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000007B (ChainChest) creating 0x4000003E (ChainChest)
+8/5/2024 3:16:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:16:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400000CD (ArtifactOfInvulnerability) (inBag=False; amount=1)
+8/5/2024 3:16:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400000CD (ArtifactOfInvulnerability) creating 0x40000041 (ArtifactOfInvulnerability)
+8/5/2024 3:26:48 PM: 127.0.0.1: Crafting 0x40000043 (Katana) with craft system DefBlacksmithy
+8/5/2024 3:27:03 PM: 127.0.0.1: Crafting 0x40000044 (Katana) with craft system DefBlacksmithy
+8/5/2024 3:27:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:27:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:30:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:31:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:31:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000041 (ArtifactOfInvulnerability) (inBag=False; amount=1)
+8/5/2024 3:31:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000041 (ArtifactOfInvulnerability) creating 0x40000046 (ArtifactOfInvulnerability)
+8/5/2024 3:31:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 3:32:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000001D (ArtifactOfVanquishing) (inBag=False; amount=1)
+8/5/2024 3:32:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000001D (ArtifactOfVanquishing) creating 0x40000062 (ArtifactOfVanquishing)
+8/5/2024 3:32:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 3:32:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add golem'
+8/5/2024 3:33:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1268, 0) in Felucca: "golem"
+8/5/2024 3:33:00 PM: 127.0.0.1: Serials: 0x5; 
+8/5/2024 3:35:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'res '
+8/5/2024 3:35:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') resurrecting 0x1 "Johnny Ponytail" ('rws')
+8/5/2024 3:35:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 100'
+8/5/2024 3:35:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '100'
+8/5/2024 3:37:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add bandage'
+8/5/2024 3:37:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1272, 0) in Felucca: "bandage"
+8/5/2024 3:37:29 PM: 127.0.0.1: Serials: 0x400000A6; 
+8/5/2024 3:37:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 50'
+8/5/2024 3:37:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '50'
+8/5/2024 3:39:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm delete'
+8/5/2024 3:39:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000A1 (LargeTailorBOD)
+8/5/2024 3:39:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000009F (LargeTailorBOD)
+8/5/2024 3:39:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000007A (SmallTailorBOD)
+8/5/2024 3:39:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000039 (SmallTailorBOD)
+8/5/2024 3:39:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000057 (SmallTailorBOD)
+8/5/2024 3:39:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000037 (SmallTailorBOD)
+8/5/2024 3:39:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000A3 (LargeTailorBOD)
+8/5/2024 3:39:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000032 (LargeTailorBOD)
+8/5/2024 3:39:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000003C (SmallTailorBOD)
+8/5/2024 3:39:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000076 (SmallTailorBOD)
+8/5/2024 3:39:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000040 (LeatherChest)
+8/5/2024 3:39:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000035 (SmallTailorBOD)
+8/5/2024 3:39:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000004D (SmallTailorBOD)
+8/5/2024 3:39:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000008D (LargeTailorBOD)
+8/5/2024 3:39:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000056 (SmallTailorBOD)
+8/5/2024 3:39:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000C4 (HornedLeather)
+8/5/2024 3:39:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000B6 (LargeTailorBOD)
+8/5/2024 3:39:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000AC (LargeTailorBOD)
+8/5/2024 3:39:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000A0 (LargeTailorBOD)
+8/5/2024 3:39:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000009E (LargeTailorBOD)
+8/5/2024 3:39:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000036 (SmallTailorBOD)
+8/5/2024 3:39:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000015 (ImbuingSaw)
+8/5/2024 3:39:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000B2 (LargeTailorBOD)
+8/5/2024 3:39:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000006A (ArtifactOfElementalSlaying)
+8/5/2024 3:39:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000038 (SmallTailorBOD)
+8/5/2024 3:39:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000AD (LargeTailorBOD)
+8/5/2024 3:39:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000084 (LargeTailorBOD)
+8/5/2024 3:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000B3 (LargeTailorBOD)
+8/5/2024 3:39:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000AF (LargeTailorBOD)
+8/5/2024 3:39:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000003A (SmallTailorBOD)
+8/5/2024 3:39:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000B5 (LargeTailorBOD)
+8/5/2024 3:39:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000077 (SmallTailorBOD)
+8/5/2024 3:40:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000033 (LargeTailorBOD)
+8/5/2024 3:40:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000009A (LargeTailorBOD)
+8/5/2024 3:40:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000098 (LargeTailorBOD)
+8/5/2024 3:40:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000BC (BarbedLeather)
+8/5/2024 3:40:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000B0 (LargeTailorBOD)
+8/5/2024 3:40:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000004A (SmallTailorBOD)
+8/5/2024 3:40:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000074 (LargeTailorBOD)
+8/5/2024 3:40:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000B4 (LargeTailorBOD)
+8/5/2024 3:40:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000009C (LargeTailorBOD)
+8/5/2024 3:40:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000075 (SmallTailorBOD)
+8/5/2024 3:40:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add katana set quality exceptional'
+8/5/2024 3:40:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1269, 0) in Felucca: "katana" "set" "quality" "exceptional"
+8/5/2024 3:40:58 PM: 127.0.0.1: Serials: 0x400000A7; 
+8/5/2024 3:42:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 100'
+8/5/2024 3:42:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x5 "a golem" (no account) to '100'
+8/5/2024 3:42:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 200'
+8/5/2024 3:42:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x5 "a golem" (no account) to '200'
+8/5/2024 3:42:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 100'
+8/5/2024 3:42:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '100'
+8/5/2024 3:43:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 100'
+8/5/2024 3:43:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '100'
+8/5/2024 3:43:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 200'
+8/5/2024 3:44:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x5 "a golem" (no account) to '200'
+8/5/2024 3:49:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add gold 100'
+8/5/2024 3:49:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1258, 1278, 0) in Felucca: "gold" "100"
+8/5/2024 3:49:22 PM: 127.0.0.1: Serials: 0x400000B3; 
+8/5/2024 3:49:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 3:49:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1278, 0) in Felucca: "horse"
+8/5/2024 3:49:34 PM: 127.0.0.1: Serials: 0x6; 
+8/5/2024 3:51:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add fullspellbook'
+8/5/2024 3:51:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1263, 1272, 0) in Felucca: "fullspellbook"
+8/5/2024 3:51:12 PM: 127.0.0.1: Serials: 0x400000C5; 
+8/5/2024 3:51:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add bagofreagents'
+8/5/2024 3:51:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1263, 1272, 0) in Felucca: "bagofreagents"
+8/5/2024 3:51:21 PM: 127.0.0.1: Serials: 0x400000C7; 
+8/5/2024 4:17:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/5/2024 4:17:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x5 "a golem" (no account)
+8/5/2024 4:18:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 4:18:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1268, 0) in Felucca: "horse"
+8/5/2024 4:18:07 PM: 127.0.0.1: Serials: 0x7; 
+8/5/2024 4:18:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 4:18:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1271, 0) in Felucca: "horse"
+8/5/2024 4:18:36 PM: 127.0.0.1: Serials: 0x8; 
+8/5/2024 4:19:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 4:19:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 4:19:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 4:23:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+8/5/2024 4:23:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+8/5/2024 4:23:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') shutting down server (Restart: False) (Save: True)
+8/5/2024 4:23:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 8/5/2024 4:24:15 PM
+
+8/5/2024 4:24:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 4:24:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1266, 0) in Felucca: "horse"
+8/5/2024 4:24:24 PM: 127.0.0.1: Serials: 0x5; 
+8/5/2024 4:24:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 4:24:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1264, 0) in Felucca: "horse"
+8/5/2024 4:24:57 PM: 127.0.0.1: Serials: 0x6; 
+8/5/2024 4:25:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 4:25:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1269, 1266, 0) in Felucca: "horse"
+8/5/2024 4:25:15 PM: 127.0.0.1: Serials: 0x7; 
+8/5/2024 4:25:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add horse'
+8/5/2024 4:25:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1264, 0) in Felucca: "horse"
+8/5/2024 4:25:36 PM: 127.0.0.1: Serials: 0x8; 
+8/5/2024 4:26:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lute'
+8/5/2024 4:26:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1271, 1265, 0) in Felucca: "lute"
+8/5/2024 4:26:04 PM: 127.0.0.1: Serials: 0x400000A6; 
+8/5/2024 4:26:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/5/2024 4:26:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400000D7 (ArtifactOfRepondSlaying) (inBag=False; amount=1)
+8/5/2024 4:26:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400000D7 (ArtifactOfRepondSlaying) creating 0x400000A9 (ArtifactOfRepondSlaying)
+8/5/2024 4:26:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 4:27:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+8/5/2024 4:27:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') shutting down server (Restart: False) (Save: True)
+8/5/2024 4:27:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 8/5/2024 4:27:22 PM
+
+8/5/2024 4:27:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add gargoylepickaxe'
+8/5/2024 4:28:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1271, 1268, 0) in Felucca: "GargoylesPickaxe"
+8/5/2024 4:28:10 PM: 127.0.0.1: Serials: 0x40000015; 
+8/5/2024 4:30:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1270, 1271, 0) in Felucca: "HatOfTheMagi"
+8/5/2024 4:30:02 PM: 127.0.0.1: Serials: 0x40000017; 
+8/5/2024 4:30:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/5/2024 4:30:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000017 (HatOfTheMagi)
+##############################
+Log started on 8/5/2024 4:31:00 PM
+
+8/5/2024 4:34:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'addmenu '
+8/5/2024 4:34:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1280, 0) in Felucca: "Shovel"
+8/5/2024 4:34:42 PM: 127.0.0.1: Serials: 0x40000015; 
+8/5/2024 4:34:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1282, 0) in Felucca: "SturdyShovel"
+8/5/2024 4:34:46 PM: 127.0.0.1: Serials: 0x40000017; 
+8/5/2024 4:34:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1261, 1282, 0) in Felucca: "SturdyPickaxe"
+8/5/2024 4:34:57 PM: 127.0.0.1: Serials: 0x4000001D; 
+8/5/2024 4:35:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1281, 0) in Felucca: "Pickaxe"
+8/5/2024 4:35:01 PM: 127.0.0.1: Serials: 0x40000024; 
+8/5/2024 4:35:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1282, 0) in Felucca: "GargoylesPickaxe"
+8/5/2024 4:35:06 PM: 127.0.0.1: Serials: 0x40000032; 
+##############################
+Log started on 8/5/2024 4:41:58 PM
+
+8/5/2024 4:42:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lute'
+8/5/2024 4:42:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1269, 1263, 20) in Felucca: "lute"
+8/5/2024 4:42:15 PM: 127.0.0.1: Serials: 0x40000033; 
+##############################
+Log started on 8/5/2024 4:47:03 PM
+
+##############################
+Log started on 8/5/2024 4:47:35 PM
+
+8/5/2024 4:49:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lute'
+8/5/2024 4:49:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1265, 1274, 0) in Felucca: "lute"
+8/5/2024 4:49:44 PM: 127.0.0.1: Serials: 0x40000033; 
+8/5/2024 4:49:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add drum'
+8/5/2024 4:49:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1265, 1275, 0) in Felucca: "Drums"
+8/5/2024 4:49:56 PM: 127.0.0.1: Serials: 0x40000035; 
+8/5/2024 4:50:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1276, 0) in Felucca: "Harp"
+8/5/2024 4:50:04 PM: 127.0.0.1: Serials: 0x40000036; 
+8/5/2024 4:50:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1265, 1273, 0) in Felucca: "LapHarp"
+8/5/2024 4:50:08 PM: 127.0.0.1: Serials: 0x40000037; 
+##############################
+Log started on 8/5/2024 4:52:53 PM
+
+8/5/2024 4:53:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lute'
+8/5/2024 4:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1261, 1279, 0) in Felucca: "lute"
+8/5/2024 4:53:25 PM: 127.0.0.1: Serials: 0x40000038; 
+##############################
+Log started on 8/5/2024 4:55:04 PM
+
+##############################
+Log started on 8/5/2024 4:57:39 PM
+
+##############################
+Log started on 8/5/2024 4:59:12 PM
+
+##############################
+Log started on 8/5/2024 5:03:49 PM
+
+8/5/2024 5:10:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add prospectorstool'
+8/5/2024 5:10:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1263, 1279, 0) in Felucca: "prospectorstool"
+8/5/2024 5:10:16 PM: 127.0.0.1: Serials: 0x40000034; 
+8/5/2024 5:10:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 8/5/2024 5:11:07 PM
+
+8/5/2024 5:12:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add tambourine'
+8/5/2024 5:12:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1277, 0) in Felucca: "tambourine"
+8/5/2024 5:12:01 PM: 127.0.0.1: Serials: 0x40000038; 
+8/5/2024 5:12:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add tambourinetassel'
+8/5/2024 5:12:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1276, 0) in Felucca: "tambourinetassel"
+8/5/2024 5:12:15 PM: 127.0.0.1: Serials: 0x40000039; 
+8/5/2024 5:14:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add runebook'
+8/5/2024 5:14:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1261, 1275, 0) in Felucca: "runebook"
+8/5/2024 5:14:57 PM: 127.0.0.1: Serials: 0x4000003A; 
+8/5/2024 5:15:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add recallscroll 10'
+8/5/2024 5:15:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1276, 0) in Felucca: "recallscroll" "10"
+8/5/2024 5:15:04 PM: 127.0.0.1: Serials: 0x4000003C; 
+8/5/2024 5:16:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add foe'
+8/5/2024 5:16:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1275, 0) in Felucca: "Hammer"
+8/5/2024 5:16:59 PM: 127.0.0.1: Serials: 0x4000003D; 
+8/5/2024 5:17:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1275, 0) in Felucca: "SmithHammer"
+8/5/2024 5:17:07 PM: 127.0.0.1: Serials: 0x4000003F; 
+8/5/2024 5:18:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/5/2024 5:19:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set kills 1'
+8/5/2024 5:19:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'kills' of 0x1 "Johnny Ponytail" ('rws') to '1'
+8/5/2024 5:22:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+##############################
+Log started on 8/5/2024 9:38:32 PM
+
+##############################
+Log started on 8/5/2024 9:40:07 PM
+
+##############################
+Log started on 8/5/2024 9:42:31 PM
+
+##############################
+Log started on 8/5/2024 9:43:49 PM
+
+##############################
+Log started on 8/5/2024 9:46:41 PM
+

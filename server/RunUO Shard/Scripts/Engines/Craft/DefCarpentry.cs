@@ -283,7 +283,7 @@ namespace Server.Engines.Craft
 			AddSubRes( typeof( OakLog ), 1072644, 65.0, 1044041, 1072652 );
 			AddSubRes( typeof( AshLog ), 1072645, 80.0, 1044041, 1072652 );
 			AddSubRes( typeof( YewLog ), 1072646, 95.0, 1044041, 1072652 );
-			//AddSubRes( typeof( HeartwoodLog ), 1072647, 100.0, 1044041, 1072652 );
+			AddSubRes( typeof( HeartwoodLog ), 1072647, 100.0, 1044041, 1072652 );
 
 
             SetSubRes2(typeof(ArtifactOfMight), 1063490);

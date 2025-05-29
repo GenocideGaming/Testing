@@ -456,7 +456,9 @@ namespace Server
                 typeof( SpectralArmour ),                
                 typeof( SkeletalKnight ),
                 typeof( Cursed ),                
-                typeof( FailedExperiment )
+                typeof( FailedExperiment ),
+                typeof( Zombiex),
+                typeof (LesserZombie)
 			} ),
 			
 			new AICreatureList(AIGroup.Undead,AISubgroup.Mage1, new Type[]

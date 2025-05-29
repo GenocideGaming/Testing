@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Server.Engines.Quests;
 using Server.Mobiles;
 
 namespace Server.Items
@@ -1769,7 +1770,340 @@ namespace Server.Items
       }
     // End Rel Por Chests
 
-	public class FillableEntry
+    // Britain Survival Containers
+
+    [Flipable(0xE3D, 0xE3C)]
+    public class BritainSurvivalLargeCrate : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalLargeCrate()
+            : base(0xE3D)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalLargeCrate(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    [Flipable(0x9A9, 0xE7E)]
+    public class BritainSurvivalSmallCrate : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalSmallCrate()
+            : base(0x9A9)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalSmallCrate(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    [Flipable(0x9AA, 0xE7D)]
+    public class BritainSurvivalWoodenBox : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalWoodenBox()
+            : base(0x9AA)
+        {
+            Weight = 4.0;
+        }
+
+        public BritainSurvivalWoodenBox(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    [Flipable(0x9A8, 0xE80)]
+    public class BritainSurvivalMetalBox : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalMetalBox()
+            : base(0x9A8)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalMetalBox(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    public class BritainSurvivalBarrel : FillableContainer
+    {
+        public override bool IsLockable { get { return false; } }
+
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalBarrel()
+            : base(0xE77)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalBarrel(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    [Flipable(0x9AB, 0xE7C)]
+    public class BritainSurvivalMetalChest : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalMetalChest()
+            : base(0x9AB)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalMetalChest(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    [Flipable(0xE41, 0xE40)]
+    public class BritainSurvivalMetalGoldenChest : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalMetalGoldenChest()
+            : base(0xE41)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalMetalGoldenChest(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    [Flipable(0xE43, 0xE42)]
+    public class BritainSurvivalWoodenChest : FillableContainer
+    {
+        public override void AcquireContent()
+        {
+            if (m_Content != null)
+                return;
+
+            m_Content = FillableContent.BritainSurvival;
+
+            if (m_Content != null)
+                Respawn();
+        }
+
+        [Constructable]
+        public BritainSurvivalWoodenChest()
+            : base(0xE43)
+        {
+            Weight = 1.0;
+        }
+
+        public BritainSurvivalWoodenChest(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.WriteEncodedInt(1);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadEncodedInt();
+            if (version == 0 && m_Content == null)
+                Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AcquireContent));
+        }
+    }
+
+    // End Britain Survival Containers
+
+    public class FillableEntry
 	{
 		protected Type[] m_Types;
 		protected int m_Weight;
@@ -1883,26 +2217,26 @@ namespace Server.Items
 		}
 	}
 
-	public enum FillableContentType
-	{
-		None = -1,
-		Weaponsmith, Provisioner, Mage,
-		Alchemist, Armorer, ArtisanGuild,
-		Baker, Bard, Blacksmith,
-		Bowyer, Butcher, Carpenter,
-		Clothier, Cobbler, Docks,
-		Farm, FighterGuild, Guard,
-		Healer, Herbalist, Inn,
-		Jeweler, Library, Merchant,
-		Mill, Mine, Observatory,
-		Painter, Ranger, Stables,
-		Tanner, Tavern, ThiefGuild,
-		Tinker, Veterinarian, TownChestsT1,
+    public enum FillableContentType
+    {
+        None = -1,
+        Weaponsmith, Provisioner, Mage,
+        Alchemist, Armorer, ArtisanGuild,
+        Baker, Bard, Blacksmith,
+        Bowyer, Butcher, Carpenter,
+        Clothier, Cobbler, Docks,
+        Farm, FighterGuild, Guard,
+        Healer, Herbalist, Inn,
+        Jeweler, Library, Merchant,
+        Mill, Mine, Observatory,
+        Painter, Ranger, Stables,
+        Tanner, Tavern, ThiefGuild,
+        Tinker, Veterinarian, TownChestsT1,
         TownChestsT2, DungeonChestsT2, DungeonChestsT3,
-        DungeonChestsT4
-	}
+        DungeonChestsT4, BritainSurvival
+    }
 
-	public class FillableContent
+    public class FillableContent
 	{
 		private int m_Level;
 		private Type[] m_Vendors;
@@ -1997,7 +2331,24 @@ namespace Server.Items
                 new FillableEntry(1, Loot.HighScrollTypes, 1)
             });
 
-		public static FillableContent Alchemist = new FillableContent(
+        public static FillableContent BritainSurvival = new FillableContent(
+            1,
+            new Type[] { },
+            new FillableEntry[]
+            {
+                new FillableEntry(5, new Type[] { typeof(LesserHealPotion) }, 1),
+                new FillableEntry(5, new Type[] { typeof(LesserCurePotion) }, 1),
+                new FillableEntry(5, new Type[] { typeof(RefreshPotion) }, 1),
+                new FillableEntry(10, new Type[] { typeof(Bandage) }, 1),
+                new FillableEntry(5, new Type[] { typeof(Bandage) }, 3),
+                new FillableEntry(3, new Type[] { typeof(Apple) }, 1),
+                new FillableEntry(3, new Type[] { typeof(BreadLoaf) }, 1),
+                new FillableEntry(1, new Type[] { typeof(Kindling) }, 1),
+                new FillableEntry(1, new Type[] { typeof(RawFishSteak) }, 1),
+                new FillableEntry(1, new Type[] { typeof(Torch) }, 1)
+            });
+
+        public static FillableContent Alchemist = new FillableContent(
 			1,
 			new Type[]
 			{
@@ -2736,25 +3087,25 @@ namespace Server.Items
 
 		private static Hashtable m_AcquireTable;
 
-		private static FillableContent[] m_ContentTypes = new FillableContent[]
-			{
-				Weaponsmith,	Provisioner,	Mage,
-				Alchemist,		Armorer,		ArtisanGuild,
-				Baker,			Bard,			Blacksmith,
-				Bowyer,			Butcher,		Carpenter,
-				Clothier,		Cobbler,		Docks,
-				Farm,			FighterGuild,	Guard,
-				Healer,			Herbalist,		Inn,
-				Jeweler,		Library,		Merchant,
-				Mill,			Mine,			Observatory,
-				Painter,		Ranger,			Stables,
-				Tanner,			Tavern,			ThiefGuild,
-				Tinker,			Veterinarian,   TownChestsT1,
-                TownChestsT2,   DungeonChestsT2,DungeonChestsT3,
-                DungeonChestsT4
-			};
+        private static FillableContent[] m_ContentTypes = new FillableContent[]
+            {
+                Weaponsmith, Provisioner, Mage,
+                Alchemist, Armorer, ArtisanGuild,
+                Baker, Bard, Blacksmith,
+                Bowyer, Butcher, Carpenter,
+                Clothier, Cobbler, Docks,
+                Farm, FighterGuild, Guard,
+                Healer, Herbalist, Inn,
+                Jeweler, Library, Merchant,
+                Mill, Mine, Observatory,
+                Painter, Ranger, Stables,
+                Tanner, Tavern, ThiefGuild,
+                Tinker, Veterinarian, TownChestsT1,
+                TownChestsT2, DungeonChestsT2, DungeonChestsT3,
+                DungeonChestsT4, BritainSurvival
+            };
 
-		public static FillableContent Acquire( Point3D loc, Map map )
+        public static FillableContent Acquire( Point3D loc, Map map )
 		{
 			if( map == null || map == Map.Internal )
 				return null;

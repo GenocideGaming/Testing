@@ -92,7 +92,7 @@ namespace Server.Mobiles
             }
             return true;
         }
-        
+
         private class CountAndTimeStamp
         {
             private int m_Count;
@@ -346,7 +346,8 @@ namespace Server.Mobiles
         public bool BountyHunter
         {
             get { return m_BountyHunter; }
-            set {
+            set
+            {
                 m_BountyHunter = value;
                 //ApplyCorrectTitle();
             }
@@ -374,7 +375,8 @@ namespace Server.Mobiles
         public MurdererStatus PlayerMurdererStatus
         {
             get { return m_PlayerMurdererStatus; }
-            set {
+            set
+            {
                 m_PlayerMurdererStatus = value;
                 //ApplyCorrectTitle();
             }
@@ -539,7 +541,7 @@ namespace Server.Mobiles
         {
             get
             {
-                if (PseudoSeerStone.Instance == null) 
+                if (PseudoSeerStone.Instance == null)
                 {
                     return null;
                 }
@@ -556,7 +558,7 @@ namespace Server.Mobiles
                 if (value == null)
                 {
                     PseudoSeerStone.Instance.PseudoSeerRemove = this;
-                }   
+                }
                 else
                 {
                     PseudoSeerStone.Instance.PseudoSeerAdd = this;
@@ -591,7 +593,7 @@ namespace Server.Mobiles
         public virtual AITeamList.TeamFlags TeamFlagsDelete { get { return AITeamList.TeamFlags.None; } set { m_TeamFlags &= ~(ulong)value; } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual ulong TeamFlagsCitizenship 
+        public virtual ulong TeamFlagsCitizenship
         {
             get
             {
@@ -906,9 +908,9 @@ namespace Server.Mobiles
         public TimeSpan Pseu_NextPossessDelay
         {
             get { return m_Pseu_NextPossessDelay; }
-            set 
-            { 
-                m_Pseu_NextPossessDelay = value; 
+            set
+            {
+                m_Pseu_NextPossessDelay = value;
                 if (DateTime.Now + m_Pseu_NextPossessDelay < Pseu_NextPossessAllowed)
                 {
                     Pseu_NextPossessAllowed = DateTime.Now + m_Pseu_NextPossessDelay;
@@ -1057,7 +1059,7 @@ namespace Server.Mobiles
                 // reduce all skill values by 20%
                 sk.Base = sk.Base - (sk.Base * 0.2); // 100 - (100 * 0.20) = 80.0
             }
-            
+
             this.PlayerMurdererStatus = MurdererStatus.None;
         }
 
@@ -1082,9 +1084,10 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public string IP
         {
-            get {
+            get
+            {
                 if (this.Deleted || this.NetState == null || this.NetState.Address == null) { return null; }
-                return "" + this.NetState.Address.ToString().Replace(".","-");
+                return "" + this.NetState.Address.ToString().Replace(".", "-");
             }
         }
 
@@ -1277,7 +1280,7 @@ namespace Server.Mobiles
             //Skill Amounts Changing: Re-evaluate Certain Skill-Based Properties
 
             //If AnimalLore / Spirit Speak Changed, FollowersMax May Change                  
-            FollowersMax = DetermineFollowersMax();            
+            FollowersMax = DetermineFollowersMax();
         }
 
         public override int GetMaxResistance(ResistanceType type)
@@ -1424,7 +1427,7 @@ namespace Server.Mobiles
 
                 pm.ClaimAutoStabledPets();
 
-                pm.CheckIfNoLongerBountyHunter();               
+                pm.CheckIfNoLongerBountyHunter();
 
                 WorldWarsRegion wwRegion = WorldWarsRegion.Find(pm.Location, Map.Felucca) as WorldWarsRegion;
 
@@ -1880,7 +1883,7 @@ namespace Server.Mobiles
                     pm.m_Quest.StopTimer();
 
                 pm.m_SpeechLog = null;
-                pm.LastOnline = DateTime.Now;                
+                pm.LastOnline = DateTime.Now;
             }
 
             DisguiseTimers.StopTimer(from);
@@ -1946,17 +1949,17 @@ namespace Server.Mobiles
             Type[] urukhaiTypes = new Type[] { typeof(UrukGrunt), typeof(UrukRaider), typeof(UrukShaman), typeof(UrukScout), typeof(Gojira) };
             Type[] paladinTypes = new Type[] { typeof(POSquire), typeof(POKnight), typeof(POPaladin), typeof(Amyr), typeof(DupreThePaladin) };
 
-            if( (playerFaction == Forsaken.Instance || this.Citizenship == "Yew") && Array.Exists(forsakenTypes, element => element == target.GetType()) ) // forsaken , yew
+            if ((playerFaction == Forsaken.Instance || this.Citizenship == "Yew") && Array.Exists(forsakenTypes, element => element == target.GetType())) // forsaken , yew
             {
                 SendMessage(cannotAttackMsg);
                 return false;
             }
-            else if( (playerFaction == Urukhai.Instance || this.Citizenship == "Blackrock") && Array.Exists(urukhaiTypes, element => element == target.GetType()) ) // urukhai , blackrock
+            else if ((playerFaction == Urukhai.Instance || this.Citizenship == "Blackrock") && Array.Exists(urukhaiTypes, element => element == target.GetType())) // urukhai , blackrock
             {
                 SendMessage(cannotAttackMsg);
                 return false;
             }
-            else if( (playerFaction == PaladinOrder.Instance || this.Citizenship == "Trinsic") && Array.Exists(paladinTypes, element => element == target.GetType()) ) // palading , trinsic
+            else if ((playerFaction == PaladinOrder.Instance || this.Citizenship == "Trinsic") && Array.Exists(paladinTypes, element => element == target.GetType())) // palading , trinsic
             {
                 SendMessage(cannotAttackMsg);
                 return false;
@@ -2028,23 +2031,23 @@ namespace Server.Mobiles
             // This, I believe, is the source of the polymorph => 0 AR bug
             //if (this.Body.IsHuman)
             //{
-                AddArmorRating(ref rating, NeckArmor);
-                AddArmorRating(ref rating, HandArmor);
-                AddArmorRating(ref rating, HeadArmor);
-                AddArmorRating(ref rating, ArmsArmor);
-                AddArmorRating(ref rating, LegsArmor);
-                AddArmorRating(ref rating, ChestArmor);
+            AddArmorRating(ref rating, NeckArmor);
+            AddArmorRating(ref rating, HandArmor);
+            AddArmorRating(ref rating, HeadArmor);
+            AddArmorRating(ref rating, ArmsArmor);
+            AddArmorRating(ref rating, LegsArmor);
+            AddArmorRating(ref rating, ChestArmor);
 
-                BaseArmor shield = ShieldArmor as BaseArmor;
+            BaseArmor shield = ShieldArmor as BaseArmor;
 
-                if (shield != null)
-                {
-                    double arShield = FeatureList.ArmorChanges.ShieldARWithoutParry * shield.ArmorRating;
-                    double arShieldSkill = FeatureList.ArmorChanges.ShieldARParryBonus * (Skills.Parry.Value / 100) * shield.ArmorRating;
+            if (shield != null)
+            {
+                double arShield = FeatureList.ArmorChanges.ShieldARWithoutParry * shield.ArmorRating;
+                double arShieldSkill = FeatureList.ArmorChanges.ShieldARParryBonus * (Skills.Parry.Value / 100) * shield.ArmorRating;
 
-                    rating += arShield;
-                    rating += arShieldSkill;
-                }
+                rating += arShield;
+                rating += arShieldSkill;
+            }
             //}
 
             EquipmentArmor = rating;
@@ -2206,12 +2209,12 @@ namespace Server.Mobiles
         public SkillName[] AnimalFormRestrictedSkills { get { return m_AnimalFormRestrictedSkills; } }
 
         private SkillName[] m_AnimalFormRestrictedSkills = new SkillName[]
-		{
-			SkillName.ArmsLore,	SkillName.Begging, SkillName.Discordance, SkillName.Forensics,
-			SkillName.Inscribe, SkillName.ItemID, SkillName.Meditation, SkillName.Peacemaking,
-			SkillName.Provocation, SkillName.RemoveTrap, SkillName.SpiritSpeak, SkillName.Stealing,
-			SkillName.TasteID
-		};
+        {
+            SkillName.ArmsLore, SkillName.Begging, SkillName.Discordance, SkillName.Forensics,
+            SkillName.Inscribe, SkillName.ItemID, SkillName.Meditation, SkillName.Peacemaking,
+            SkillName.Provocation, SkillName.RemoveTrap, SkillName.SpiritSpeak, SkillName.Stealing,
+            SkillName.TasteID
+        };
 
         public override bool AllowSkillUse(SkillName skill)
         {
@@ -2848,12 +2851,12 @@ namespace Server.Mobiles
 
             if (this.Alive && !wasAlive)
             {
-                
-                
+
+
                 //Wearing Paints
                 if (HueMod == 1451 || HueMod == 1108 || HueMod == 1882 || HueMod == 0)
                 {
-                   // this.HueMod = -1; // this will reset hue on death. 
+                    // this.HueMod = -1; // this will reset hue on death. 
                 }
 
                 //Otherwise Remove HueMods on Ress (From Polymorph or Effect)
@@ -2861,7 +2864,7 @@ namespace Server.Mobiles
                 {
                     this.HueMod = -1;
                 }
-				if (this.Region.IsPartOf(typeof(WorldWarsRegion)) || this.Region.IsPartOf(typeof(StagingAreaRegion)))
+                if (this.Region.IsPartOf(typeof(WorldWarsRegion)) || this.Region.IsPartOf(typeof(StagingAreaRegion)))
                     return;
 
                 if (Server.Scripts.Custom.VorshunWarsEquipment.VorshunStorage.ContainsStuffBelongingTo(this))
@@ -2928,6 +2931,14 @@ namespace Server.Mobiles
                 state.CancelAllTrades();
 
             DropHolding();
+
+            //Zombiex
+            if (FindMostRecentDamager(true) is Zombiex)
+            {
+                Zombiex zomb = new Zombiex();
+                zomb.NewZombie(this);
+            }
+            //Zombiex end
 
             if (Backpack != null && !Backpack.Deleted)
             {
@@ -3095,12 +3106,12 @@ namespace Server.Mobiles
             }
 
             // This will also count if the player's pet does the kill
-            if(BountyHunter && killer != null && killer is PlayerMobile && killer.Kills >= 5)
+            if (BountyHunter && killer != null && killer is PlayerMobile && killer.Kills >= 5)
             {
                 Mobile killed = (Mobile)this;
 
-                Faction.ApplyBountyHunterSkillLoss( killed );
-                
+                Faction.ApplyBountyHunterSkillLoss(killed);
+
                 this.SendMessage("You have suffered stat loss for 15 minutes due to being killed by {0}", killer.Name);
             }
 
@@ -3125,7 +3136,7 @@ namespace Server.Mobiles
                 }
             }
 
-            if(this.PlayerMurdererStatus == MurdererStatus.Parole)
+            if (this.PlayerMurdererStatus == MurdererStatus.Parole)
             {
                 this.SufferBountyStatloss();
             }
@@ -3283,20 +3294,20 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public int BloodCoins
         {
-            get {return _BloodCoins;}
-            set {_BloodCoins = value;}
+            get { return _BloodCoins; }
+            set { _BloodCoins = value; }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int PlatinumCoins
         {
-            get {return _PlatinumCoins;}
-            set {_PlatinumCoins = value;}
+            get { return _PlatinumCoins; }
+            set { _PlatinumCoins = value; }
         }
 
         public bool AddBloodCoins(int amount)
         {
-            if(_BloodCoins + amount <= OneBillion)
+            if (_BloodCoins + amount <= OneBillion)
                 return true;
 
             return false;
@@ -3304,7 +3315,7 @@ namespace Server.Mobiles
 
         public bool AddPlatinumCoins(int amount)
         {
-            if(_PlatinumCoins + amount <= OneBillion)
+            if (_PlatinumCoins + amount <= OneBillion)
                 return true;
 
             return false;
@@ -4110,7 +4121,7 @@ namespace Server.Mobiles
             if (m_LongTermElapse < this.GameTime)
             {
                 m_LongTermElapse += TimeSpan.FromHours(40);
-                
+
                 if (Kills > 0)
                     --Kills;
             }
@@ -4150,7 +4161,7 @@ namespace Server.Mobiles
             //Beholder or Behold is Delete or Not In Correct Map
             if (this.Deleted || m.Deleted || this.Map == Map.Internal || m.Map == Map.Internal)
                 return false;
-            
+
             //Display Character Statue Stuff
             if (m is CharacterStatue)
                 ((CharacterStatue)m).OnRequestedAnimation(this);
@@ -4167,7 +4178,7 @@ namespace Server.Mobiles
 
             //Visibility List For Player Watching
             if (pm != null && pm.m_VisList.Contains(this))
-                return true;           
+                return true;
 
             //Player is Alive OR they are a pseudoseer or dead staffmember
             if (this.Alive || (PseudoSeerStone.Instance != null && CreaturePossession.HasAnyPossessPermissions(this)))
@@ -4181,12 +4192,12 @@ namespace Server.Mobiles
                         //Cannot Passive Detect/Track Staff
                         if (m.AccessLevel > AccessLevel.Player)
                             return false;
-                       
+
                         //Detect Hidden + Tracking Override                        
                         double trackingSkill = Math.Floor(this.Skills[SkillName.Tracking].Value / 5) - 4;
 
-                        if (trackingSkill < 0)                        
-                            trackingSkill = 0;                        
+                        if (trackingSkill < 0)
+                            trackingSkill = 0;
 
                         double detectHiddenSkill = Math.Floor(this.Skills[SkillName.DetectHidden].Value / 5) - 4;
 
@@ -4211,14 +4222,14 @@ namespace Server.Mobiles
 
                         //Base Range Multiplier
                         effectiveRange *= 1;
-                        
+
                         //In Same Guild or Party
                         if ((this.Guild != null && this.Guild == m.Guild) || (this.Party != null && this.Party == m.Party))
-                        {                       
+                        {
                             //Fix This Eventually
                             //DONT TOUCH UNTIL PACKET ADDING/REMOVAL FOR ADDING / REMOVING PARTY RESOLVED
                             effectiveRange *= 1;
-                        }                       
+                        }
 
                         //IF They Can Detect At Least 1 Space and Can Detect Them at Their Range
                         if (effectiveRange >= 1 && (effectiveRange >= distanceToTarget))
@@ -4230,7 +4241,7 @@ namespace Server.Mobiles
                         else
                         {
                             return false;
-                        }                        
+                        }
                     }
 
                     //Target is Revealed
@@ -4239,7 +4250,7 @@ namespace Server.Mobiles
                         return true;
                     }
                 }
-                    
+
                 //Target is Dead
                 else
                 {
@@ -4270,7 +4281,7 @@ namespace Server.Mobiles
                 else if ((this.Guild != null && this.Guild == m.Guild) || (this.Party != null && this.Party == m.Party))
                 {
                     return true;
-                }                                    
+                }
 
                 //Target Has Recently Used Spirit Speaking
                 else if (pm != null && pm.SpiritSpeakGhostSightExpiration > DateTime.Now)
@@ -4283,7 +4294,7 @@ namespace Server.Mobiles
                 {
                     return false;
                 }
-            } 
+            }
 
             /*
             if (m_Deleted || m.m_Deleted || m_Map == Map.Internal || m.m_Map == Map.Internal)
@@ -4373,14 +4384,14 @@ namespace Server.Mobiles
                         text = "[Minister of " + CitizenshipPlayerState.Commonwealth.Definition.TownName + "]";
                     else
                         text = "[Citizen of " + CitizenshipPlayerState.Commonwealth.Definition.TownName + "]";
-                    
-                    if(CitizenshipPlayerState.Commonwealth.Militia != null)
+
+                    if (CitizenshipPlayerState.Commonwealth.Militia != null)
                         hue = CitizenshipPlayerState.Commonwealth.Militia.Definition.HueSecondary + FeatureList.Citizenship.TagTextHueModifier;
                 }
 
                 Faction faction = pl.Faction;
 
-                if (faction != null) 
+                if (faction != null)
                 {
                     if (faction.Commander == this)
                         text = String.Concat(this.Female ? "[Commanding Lady of the " : "[Commanding Lord of the ", faction.Definition.FriendlyName, "]");
@@ -4397,10 +4408,10 @@ namespace Server.Mobiles
                     hue = faction.Definition.HueSecondary;
                 }
             }
-            
-            
 
-            if(prefix != string.Empty)
+
+
+            if (prefix != string.Empty)
                 text = String.Concat(prefix, " ", text);
 
             PrivateOverheadMessage(MessageType.Label, hue, ascii, text, from.NetState);
@@ -4415,11 +4426,11 @@ namespace Server.Mobiles
         }
 
         private static string[] m_GuildTypes = new string[]
-			{
-				"",
-				" (Chaos)",
-				" (Order)"
-			};
+            {
+                "",
+                " (Chaos)",
+                " (Order)"
+            };
 
         public void ShowName(Mobile from)
         {
@@ -4474,7 +4485,7 @@ namespace Server.Mobiles
                 prefix = "Dreadlord";
                 hue = 0x020; // dark red
             }
-            else if (Title == " " && Notoriety.GetHue(Notoriety.Compute(this,from)) == 0x022) 
+            else if (Title == " " && Notoriety.GetHue(Notoriety.Compute(this, from)) == 0x022)
             {
                 // this is a murderer, seeing a bounty hunter 
                 //hue = 0x47E; // bright white
@@ -4537,7 +4548,7 @@ namespace Server.Mobiles
                 if (m_RunningStepsTaken >= FeatureList.PlayerMovement.RunningStepsForStaminaLoss)
                 {
                     if (this.Stam > 0)
-                    {                      
+                    {
                         this.Stam--;
                     }
 
@@ -4561,13 +4572,13 @@ namespace Server.Mobiles
                     RevealingAction();
                 }
             }
-            
+
             mStepsWalkedThisSession++;
-          
+
             return true;
         }
         #region RPSkillChanges        
-       
+
         //returns true if there is a revealing action
         private bool CheckStealthSkillForRevealingAction()
         {
@@ -4580,7 +4591,7 @@ namespace Server.Mobiles
                 AllowedStealthSteps--;
                 return false;
             }
-                
+
             //No Free Steps Remaining
             else
             {
@@ -4592,12 +4603,12 @@ namespace Server.Mobiles
                 if (chance >= Utility.RandomDouble())
                 {
                     return false;
-                }               
+                }
             }
 
             return true;
         }
-        
+
         public override void OnSaid(SpeechEventArgs e)
         {
             if (Squelched)
@@ -4691,7 +4702,7 @@ namespace Server.Mobiles
                 return 0f;
 
             CommonwealthSkillBonus csb = mCitizenshipPlayerState.SkillBonuses.Find(
-                delegate(CommonwealthSkillBonus x)
+                delegate (CommonwealthSkillBonus x)
                 {
                     if (x.SkillNames.Contains(skill.SkillName))
                     {
@@ -4774,7 +4785,7 @@ namespace Server.Mobiles
                 Delta(MobileDelta.Noto);
                 InvalidateProperties();
             }
-            else if (this.Kills >= 5 && this.BountyHunter) 
+            else if (this.Kills >= 5 && this.BountyHunter)
             {
                 this.BountyHunter = false;
                 this.SendMessage("You are no longer considered a bounty hunter as a result of your actions!");
@@ -5666,14 +5677,14 @@ namespace Server.Mobiles
         {
             private PlayerMobile mPlayer;
 
-            public DatabaseUpdateTimer(PlayerMobile player) : 
-                base(TimeSpan.FromSeconds(10.0), 
+            public DatabaseUpdateTimer(PlayerMobile player) :
+                base(TimeSpan.FromSeconds(10.0),
                 TimeSpan.FromSeconds(FeatureList.Database.CharacterUpdateTimeInSeconds))
             {
                 mPlayer = player;
             }
 
-            protected override void  OnTick()
+            protected override void OnTick()
             {
                 base.OnTick();
 

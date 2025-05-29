@@ -70,8 +70,7 @@ namespace Server.Items
 		public LanternOfSouls( Serial serial ) : base( serial )
 		{
 		}
-
-		public override void Serialize( GenericWriter writer )
+        public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
 			writer.Write( (int) 0 );

@@ -1,0 +1,169 @@
+##############################
+Log started on 8/16/2024 8:13:56 AM
+
+##############################
+Log started on 8/16/2024 8:26:06 AM
+
+8/16/2024 8:26:25 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 8:26:40 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 8:26:50 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 8:26:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatefactions '
+8/16/2024 8:27:14 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+##############################
+Log started on 8/16/2024 8:28:09 AM
+
+##############################
+Log started on 8/16/2024 8:32:26 AM
+
+8/16/2024 8:32:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 8:32:38 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 8:32:40 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatefactions '
+8/16/2024 8:32:42 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 8:32:52 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+##############################
+Log started on 8/16/2024 8:33:08 AM
+
+8/16/2024 8:33:33 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 8:33:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 8:33:44 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 8:33:49 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatefactions '
+8/16/2024 8:34:08 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+##############################
+Log started on 8/16/2024 8:34:58 AM
+
+8/16/2024 8:35:05 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 8:35:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 8:35:13 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 8:35:16 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatefactions '
+8/16/2024 8:35:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+##############################
+Log started on 8/16/2024 8:52:20 AM
+
+8/16/2024 8:52:25 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 8:52:27 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 8:52:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatefactions '
+8/16/2024 8:52:31 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 8:52:43 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+8/16/2024 8:53:14 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:56:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:57:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'addmenu joinstone'
+8/16/2024 8:57:56 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1909, 2717, 20) in Felucca: "JoinStone"
+8/16/2024 8:57:56 AM: 127.0.0.1: Serials: 0x40001181; 
+8/16/2024 8:58:00 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:58:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40001181 (JoinStone) to '(-null-)'
+8/16/2024 8:58:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40001181 (JoinStone) to 'Forsaken'
+8/16/2024 8:58:35 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:58:40 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40001181 (JoinStone) to '(-null-)'
+8/16/2024 8:58:46 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40001181 (JoinStone) to '(-null-)'
+8/16/2024 8:58:51 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:59:00 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40001181 (JoinStone) to '(-null-)'
+8/16/2024 8:59:05 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:59:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/16/2024 8:59:13 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40001181 (JoinStone)
+8/16/2024 8:59:18 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'addmenu joinstone'
+8/16/2024 8:59:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1909, 2717, 20) in Felucca: "JoinStone"
+8/16/2024 8:59:20 AM: 127.0.0.1: Serials: 0x4000121C; 
+8/16/2024 8:59:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:59:26 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:59:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x4000121C (JoinStone) to '(-null-)'
+8/16/2024 8:59:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 8:59:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x4000121C (JoinStone) to 'Forsaken'
+8/16/2024 9:00:01 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:00:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set citizenship yew'
+8/16/2024 9:00:19 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go yew'
+8/16/2024 9:00:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:00:28 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 9:00:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+##############################
+Log started on 8/16/2024 9:00:33 AM
+
+8/16/2024 9:01:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:01:15 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:02:11 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'factionreset '
+8/16/2024 9:02:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 9:02:44 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone'
+8/16/2024 9:02:45 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1907, 2717, 20) in Felucca: "joinstone"
+8/16/2024 9:02:45 AM: 127.0.0.1: Serials: 0x40000F85; 
+8/16/2024 9:02:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:02:55 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40000F85 (JoinStone) to '(-null-)'
+##############################
+Log started on 8/16/2024 9:03:44 AM
+
+8/16/2024 9:03:55 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 9:04:05 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 9:04:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 9:04:09 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 9:04:21 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone PaladinOrder'
+8/16/2024 9:04:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1905, 2717, 20) in Felucca: "joinstone" "PaladinOrder"
+8/16/2024 9:04:55 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone "Paladin Order"'
+8/16/2024 9:04:57 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1905, 2717, 20) in Felucca: "joinstone" "Paladin Order"
+8/16/2024 9:05:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone Paladin Order'
+8/16/2024 9:05:07 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1905, 2717, 20) in Felucca: "joinstone" "Paladin" "Order"
+8/16/2024 9:05:11 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone'
+8/16/2024 9:05:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1905, 2717, 20) in Felucca: "joinstone"
+8/16/2024 9:05:12 AM: 127.0.0.1: Serials: 0x40000E4A; 
+8/16/2024 9:05:14 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:05:19 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40000E4A (JoinStone) to '(-null-)'
+8/16/2024 9:05:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone Paladins'
+8/16/2024 9:05:50 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1907, 2717, 20) in Felucca: "joinstone" "Paladins"
+8/16/2024 9:06:01 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone Paladins PaL'
+8/16/2024 9:06:02 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1907, 2717, 20) in Felucca: "joinstone" "Paladins" "PaL"
+8/16/2024 9:06:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone forsaken'
+8/16/2024 9:06:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1908, 2716, 20) in Felucca: "joinstone" "forsaken"
+8/16/2024 9:07:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone forsaken forsaken'
+8/16/2024 9:07:14 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1908, 2717, 20) in Felucca: "joinstone" "forsaken" "forsaken"
+8/16/2024 9:07:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go yew'
+8/16/2024 9:07:25 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone'
+8/16/2024 9:07:27 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (535, 991, 0) in Felucca: "joinstone"
+8/16/2024 9:07:27 AM: 127.0.0.1: Serials: 0x400010A5; 
+8/16/2024 9:07:28 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:07:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 9:07:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x400010A5 (JoinStone) to 'Forsaken'
+8/16/2024 9:07:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+##############################
+Log started on 8/16/2024 10:34:30 AM
+
+##############################
+Log started on 8/16/2024 2:12:03 PM
+
+8/16/2024 2:13:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go trinsic'
+8/16/2024 2:13:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/16/2024 2:13:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add citizenship'
+8/16/2024 2:14:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go yew'
+8/16/2024 2:14:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'generatetownships '
+8/16/2024 2:14:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 2:15:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+8/16/2024 2:16:35 PM: 127.0.0.1: Player 0x6 "audix" ('audix') used command 'relwis '
+8/16/2024 2:16:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 2:17:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+##############################
+Log started on 8/16/2024 2:39:55 PM
+
+8/16/2024 2:40:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/16/2024 2:40:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000046 (ArtifactOfInvulnerability) (inBag=False; amount=1)
+8/16/2024 2:40:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000046 (ArtifactOfInvulnerability) creating 0x40000DBD (ArtifactOfInvulnerability)
+8/16/2024 2:40:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add leatherpants'
+8/16/2024 2:40:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (534, 993, 0) in Felucca: "LeatherLegs"
+8/16/2024 2:40:51 PM: 127.0.0.1: Serials: 0x40000E44; 
+8/16/2024 2:41:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (534, 992, 0) in Felucca: "ImbuingSewingKit"
+8/16/2024 2:41:07 PM: 127.0.0.1: Serials: 0x40000E88; 
+##############################
+Log started on 8/16/2024 4:58:33 PM
+
+##############################
+Log started on 8/16/2024 5:01:40 PM
+
+8/16/2024 5:03:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone'
+8/16/2024 5:03:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (535, 991, 0) in Felucca: "joinstone"
+8/16/2024 5:03:27 PM: 127.0.0.1: Serials: 0x40000E2D; 
+8/16/2024 5:03:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 5:03:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40000E2D (JoinStone) to 'Forsaken'
+##############################
+Log started on 8/16/2024 5:04:13 PM
+
+8/16/2024 5:04:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add joinstone'
+8/16/2024 5:04:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (535, 990, 0) in Felucca: "joinstone"
+8/16/2024 5:04:42 PM: 127.0.0.1: Serials: 0x40000DE1; 
+8/16/2024 5:04:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/16/2024 5:04:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40000DE1 (JoinStone) to '(-null-)'
+8/16/2024 5:04:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Faction' of 0x40000DE1 (JoinStone) to 'Forsaken'

@@ -1,0 +1,156 @@
+##############################
+Log started on 9/15/2024 7:41:31 AM
+
+9/15/2024 7:48:01 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+9/15/2024 7:48:46 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'helpinfo '
+9/15/2024 7:49:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'xmlspawnerload data/ravenous.xml'
+9/15/2024 7:49:17 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'xmlspawnerrespawnall '
+9/15/2024 7:49:44 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'respawnallregions '
+9/15/2024 7:50:04 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') added to XmlSpawner 0x40000246 'Spawner-85fdd64e-0497-421b-a2c8-f4ee419e4707' [1152, 1569] (Felucca) : crazedminer
+9/15/2024 7:50:28 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+9/15/2024 7:51:19 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') shutting down server (Restart: False) (Save: True)
+##############################
+Log started on 9/15/2024 8:06:57 AM
+
+9/15/2024 8:07:17 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Tele'
+9/15/2024 8:07:24 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 8:07:25 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1279, 1367, 0) in Felucca: "crazedfarmer"
+9/15/2024 8:07:25 AM: 127.0.0.1: Serials: 0x2; 
+9/15/2024 8:07:45 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'admin '
+##############################
+Log started on 9/15/2024 8:16:24 AM
+
+9/15/2024 8:16:35 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 8:16:36 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x2 "a crazed farmer" (no account)
+9/15/2024 8:16:40 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazed farmer'
+9/15/2024 8:16:43 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1366, 0) in Felucca: "CrazedFarmer"
+9/15/2024 8:16:43 AM: 127.0.0.1: Serials: 0x2; 
+9/15/2024 8:16:59 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'admin '
+9/15/2024 8:18:24 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazed peasent'
+9/15/2024 8:18:28 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1278, 1373, 0) in Felucca: "CrazedPeasant"
+9/15/2024 8:18:28 AM: 127.0.0.1: Serials: 0x5; 
+9/15/2024 8:19:45 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 8:19:59 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x5 "a crazed peasant" (no account)
+9/15/2024 8:20:17 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x2 "a crazed farmer" (no account)
+##############################
+Log started on 9/15/2024 8:44:56 AM
+
+9/15/2024 8:45:12 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 8:45:13 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x2 "a crazed farmer" (no account)
+9/15/2024 8:45:28 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedalchemist'
+9/15/2024 8:45:29 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1274, 1365, 0) in Felucca: "crazedalchemist"
+9/15/2024 8:45:29 AM: 127.0.0.1: Serials: 0x2; 
+9/15/2024 8:46:16 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'remove '
+9/15/2024 8:46:17 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x2 "a crazed alchemist" (no account)
+9/15/2024 8:46:24 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedpeasant'
+9/15/2024 8:46:25 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1364, 0) in Felucca: "crazedpeasant"
+9/15/2024 8:46:25 AM: 127.0.0.1: Serials: 0x4; 
+9/15/2024 8:46:30 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'remove '
+9/15/2024 8:46:32 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x4 "a crazed peasant" (no account)
+9/15/2024 8:46:35 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 8:46:36 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1366, 0) in Felucca: "crazedfarmer"
+9/15/2024 8:46:36 AM: 127.0.0.1: Serials: 0x5; 
+9/15/2024 8:46:44 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'remove '
+9/15/2024 8:46:45 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x5 "a crazed farmer" (no account)
+9/15/2024 8:46:48 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 8:46:49 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1364, 0) in Felucca: "crazedfarmer"
+9/15/2024 8:46:49 AM: 127.0.0.1: Serials: 0x6; 
+9/15/2024 8:46:53 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'remove '
+9/15/2024 8:46:54 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x6 "a crazed farmer" (no account)
+9/15/2024 8:46:56 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 8:46:57 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1276, 1361, 0) in Felucca: "crazedfarmer"
+9/15/2024 8:46:57 AM: 127.0.0.1: Serials: 0x7; 
+9/15/2024 8:47:01 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'remove '
+9/15/2024 8:47:07 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x7 "a crazed farmer" (no account)
+9/15/2024 8:47:25 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add randomchild'
+9/15/2024 8:47:26 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1275, 1366, 0) in Felucca: "randomchild"
+9/15/2024 8:47:26 AM: 127.0.0.1: Serials: 0x8; 
+9/15/2024 8:48:42 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add gold 100'
+9/15/2024 8:48:43 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1279, 1367, 0) in Felucca: "gold" "100"
+9/15/2024 8:48:43 AM: 127.0.0.1: Serials: 0x40000096; 
+9/15/2024 8:49:26 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'remove '
+9/15/2024 8:49:28 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x8 "an orphan" (no account)
+9/15/2024 8:56:35 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add orcbomber'
+9/15/2024 8:56:36 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1278, 1367, 0) in Felucca: "orcbomber"
+9/15/2024 8:56:36 AM: 127.0.0.1: Serials: 0x9; 
+9/15/2024 8:57:16 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add bagofreagents'
+9/15/2024 8:57:16 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1275, 1390, 0) in Felucca: "bagofreagents"
+9/15/2024 8:57:16 AM: 127.0.0.1: Serials: 0x400000B5; 
+9/15/2024 8:57:20 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'set str 100'
+9/15/2024 8:57:21 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'str' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:57:23 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'set hits 100'
+9/15/2024 8:57:24 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'hits' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:57:27 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'setskill magery 100'
+9/15/2024 8:57:28 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'Magery.Base' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:57:31 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'setskill evalint 100'
+9/15/2024 8:57:32 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'EvalInt.Base' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:57:37 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'set int 100'
+9/15/2024 8:57:37 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'int' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:57:41 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'set mana 100'
+9/15/2024 8:57:42 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'mana' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:57:44 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'set hits 100'
+9/15/2024 8:57:44 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') set property 'hits' of 0x3 "dsjsag" ('genocide') to '100'
+9/15/2024 8:59:36 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'ADD GARGOYLEENFORCER'
+9/15/2024 8:59:38 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1276, 1378, 0) in Felucca: "GARGOYLEENFORCER"
+9/15/2024 8:59:38 AM: 127.0.0.1: Serials: 0xA; 
+9/15/2024 8:59:41 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 8:59:42 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0xA "Gargoyle Enforcer" (no account)
+9/15/2024 8:59:47 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add orcishmage'
+9/15/2024 8:59:48 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1374, 0) in Felucca: "orcishmage"
+9/15/2024 8:59:48 AM: 127.0.0.1: Serials: 0xB; 
+9/15/2024 8:59:50 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 8:59:52 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0xB "an orcish mage" (no account)
+9/15/2024 9:00:14 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 9:00:15 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1371, 0) in Felucca: "crazedfarmer"
+9/15/2024 9:00:15 AM: 127.0.0.1: Serials: 0xC; 
+9/15/2024 9:00:30 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 9:00:30 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0xC "a crazed farmer" (no account)
+9/15/2024 9:00:33 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 9:00:34 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1276, 1373, 0) in Felucca: "crazedfarmer"
+9/15/2024 9:00:34 AM: 127.0.0.1: Serials: 0xD; 
+9/15/2024 9:00:38 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 9:00:39 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1276, 1376, 0) in Felucca: "crazedfarmer"
+9/15/2024 9:00:39 AM: 127.0.0.1: Serials: 0xE; 
+9/15/2024 9:00:43 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 9:00:44 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0xE "a crazed farmer" (no account)
+9/15/2024 9:00:45 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0xD "a crazed farmer" (no account)
+9/15/2024 9:00:47 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 9:00:48 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1372, 0) in Felucca: "crazedfarmer"
+9/15/2024 9:00:48 AM: 127.0.0.1: Serials: 0xF; 
+9/15/2024 9:00:52 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 9:00:54 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0xF "a crazed farmer" (no account)
+9/15/2024 9:00:56 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add crazedfarmer'
+9/15/2024 9:00:57 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1276, 1373, 0) in Felucca: "crazedfarmer"
+9/15/2024 9:00:57 AM: 127.0.0.1: Serials: 0x10; 
+9/15/2024 9:01:04 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'M Remove'
+9/15/2024 9:01:05 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') deleting 0x10 "a crazed farmer" (no account)
+##############################
+Log started on 9/15/2024 9:09:47 AM
+
+9/15/2024 9:09:54 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add xmlspawner'
+9/15/2024 9:09:55 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1276, 1379, 0) in Felucca: "xmlspawner"
+9/15/2024 9:09:55 AM: 127.0.0.1: Serials: 0x4000001F; 
+9/15/2024 9:10:00 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') added to XmlSpawner 0x4000001F 'Spawner' [1276, 1379] (Felucca) : crazedfarmer
+##############################
+Log started on 9/15/2024 9:11:28 AM
+
+9/15/2024 9:11:36 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add xmlspawner'
+9/15/2024 9:11:37 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1275, 1378, 0) in Felucca: "xmlspawner"
+9/15/2024 9:11:37 AM: 127.0.0.1: Serials: 0x4000001F; 
+9/15/2024 9:11:44 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') added to XmlSpawner 0x4000001F 'Spawner' [1275, 1378] (Felucca) : crazedfarmer
+9/15/2024 9:13:10 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') changed XmlSpawner 0x4000001F 'Spawner' [1275, 1378] (Felucca) : crazedfarmer to crazedpeasant
+##############################
+Log started on 9/15/2024 9:19:05 AM
+
+##############################
+Log started on 9/15/2024 9:19:55 AM
+
+9/15/2024 9:20:23 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') used command 'add meatpie'
+9/15/2024 9:20:24 AM: 127.0.0.1: Owner 0x1 "asdgljk" ('rws') building at (1277, 1378, 0) in Felucca: "meatpie"
+9/15/2024 9:20:24 AM: 127.0.0.1: Serials: 0x40000056; 
+##############################
+Log started on 9/15/2024 9:22:39 AM
+
+##############################
+Log started on 9/15/2024 9:24:10 AM
+

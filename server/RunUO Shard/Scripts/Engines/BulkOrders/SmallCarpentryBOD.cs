@@ -95,12 +95,12 @@ namespace Server.Engines.BulkOrders
 
                         switch (check)
                         {
-                            case BulkMaterialType.OakWood: skillReq = 80.0; break;   //65
-                            case BulkMaterialType.AshWood: skillReq = 85.0; break;   //70
-                            case BulkMaterialType.YewWood: skillReq = 90.0; break;   //75
-                            //case BulkMaterialType.Heartwood: skillReq = 90.0; break; //80
-                            //case BulkMaterialType.Bloodwood: skillReq = 95.0; break; //85
-                            //case BulkMaterialType.Frostwood: skillReq = 100.0; break; //90
+                            case BulkMaterialType.OakWood: skillReq = 75.0; break;   //65
+                            case BulkMaterialType.AshWood: skillReq = 80.0; break;   //70
+                            case BulkMaterialType.YewWood: skillReq = 85.0; break;   //75
+                            case BulkMaterialType.Heartwood: skillReq = 90.0; break; //80
+                            case BulkMaterialType.Bloodwood: skillReq = 95.0; break; //85
+                            case BulkMaterialType.Frostwood: skillReq = 100.0; break; //90
                         }
 
                         if (theirSkill >= skillReq)

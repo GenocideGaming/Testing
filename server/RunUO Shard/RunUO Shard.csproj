@@ -240,15 +240,10 @@
     <Compile Include="Scripts\Custom\NPC\Architects\VesperArchitect.cs" />
     <Compile Include="Scripts\Custom\NPC\Architects\WindArchitect.cs" />
     <Compile Include="Scripts\Custom\NPC\Architects\YewArchitect.cs" />
+    <Compile Include="Scripts\Custom\NPC\BlackMarket\BlackmarketBanker.cs" />
+    <Compile Include="Scripts\Custom\NPC\BlackMarket\BlackmarketVendor.cs" />
     <Compile Include="Scripts\Custom\PrincessDungeonRegion.cs" />
     <Compile Include="Scripts\Custom\RelwisGump.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\BaseUndead.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\BaseZombieKillerPotion.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\Monsternest\MonsterNest.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\Monsternest\MonsterNestLoot.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\Monsternest\ZombiexNest.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\ZombieKillerPotion.cs" />
-    <Compile Include="Scripts\Custom\Mobs\Skara Dungeon\ZombieX.cs" />
     <Compile Include="Scripts\Custom\Texas Hold%27em\Card.cs" />
     <Compile Include="Scripts\Custom\Texas Hold%27em\Deck.cs" />
     <Compile Include="Scripts\Custom\Texas Hold%27em\Enums.cs" />
@@ -598,6 +593,14 @@
     <Compile Include="Scripts\Custom\zerodowned\BloodCoin.cs" />
     <Compile Include="Scripts\Custom\zerodowned\CoinBox.cs" />
     <Compile Include="Scripts\Custom\zerodowned\StaffOrb.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\BaseUndead.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\BaseZombieKillerPotion.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\LesserZombie.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\Monsternest\MonsterNest.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\Monsternest\MonsterNestLoot.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\Monsternest\ZombiexNest.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\ZombieKillerPotion.cs" />
+    <Compile Include="Scripts\Custom\ZombieX\ZombieX.cs" />
     <Compile Include="Scripts\Engines\BulkOrders\Books\BOBFilter.cs" />
     <Compile Include="Scripts\Engines\BulkOrders\Books\BOBFilterGump.cs" />
     <Compile Include="Scripts\Engines\BulkOrders\Books\BOBGump.cs" />
@@ -841,6 +844,18 @@
     <Compile Include="Scripts\Engines\Quests\Core\Items\EnchantedSextant.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\Items\HornOfRetreat.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\Items\QuestItem.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\GideonTheProvisioner.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\LioraTheAnimalTamer.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\OutpostPackhorse.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\OutpostTraderunQuest.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\RorikTheAnimalTamer.cs" />
+    <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBOutpostAnimalTrainer.cs" />
+    <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBOutpostProvisioner.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\SeleneTheProvisioner.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\TaliaTheProvisioner.cs" />
+    <Compile Include="Scripts\Engines\Quests\OutpostTraderun\VarnTheAnimalTamer.cs" />
+    <Compile Include="Scripts\Engines\Quests\PurgeUndead\HighPriestessLiora.cs" />
+    <Compile Include="Scripts\Engines\Quests\PurgeUndead\PurgeUndeadQuest.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\QuestCallbackEntry.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\QuestConversation.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\QuestItemInfo.cs" />
@@ -852,6 +867,16 @@
     <Compile Include="Scripts\Engines\Quests\Core\Regions\QuestCompleteObjectiveRegion.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\Regions\QuestNoEntryRegion.cs" />
     <Compile Include="Scripts\Engines\Quests\Core\Regions\QuestOfferRegion.cs" />
+    <Compile Include="Scripts\Engines\Quests\Scavengers\GloktaTheScavenger.cs" />
+    <Compile Include="Scripts\Engines\Quests\Scavengers\ScavengersHaulQuest.cs" />
+    <Compile Include="Scripts\Engines\Quests\SupplyRun\LostSupplyCrate.cs" />
+    <Compile Include="Scripts\Engines\Quests\SupplyRun\MasterBlacksmithTorren.cs" />
+    <Compile Include="Scripts\Engines\Quests\SupplyRun\SupplyCrateSpawnManager.cs" />
+    <Compile Include="Scripts\Engines\Quests\SupplyRun\SupplyRecoveryQuest.cs" />
+    <Compile Include="Scripts\Engines\Quests\Survivor\CommanderElenaVoss.cs" />
+    <Compile Include="Scripts\Engines\Quests\Survivor\SurvivorEscortable.cs" />
+    <Compile Include="Scripts\Engines\Quests\Survivor\SurvivorRescueQuest.cs" />
+    <Compile Include="Scripts\Engines\Quests\Survivor\SurvivorSpawnManager.cs" />
     <Compile Include="Scripts\Engines\RemoteAdmin\Network.cs" />
     <Compile Include="Scripts\Engines\RemoteAdmin\PacketHandlers.cs" />
     <Compile Include="Scripts\Engines\RemoteAdmin\Packets.cs" />
@@ -2740,6 +2765,8 @@
     <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBard.cs" />
     <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBarkeeper.cs" />
     <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBeekeeper.cs" />
+    <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBlackmarket.cs" />
+    <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBlackmarketBanker.cs" />
     <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBlackrockHouseDeed.cs" />
     <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBlacksmith.cs" />
     <Compile Include="Scripts\Mobiles\Vendors\SBInfo\SBBowyer.cs" />
@@ -2993,6 +3020,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\Custom\Heroes\Town Heroes\" />
+    <Folder Include="Scripts\Custom\Mobs\Skara Dungeon\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -3013,7 +3041,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\Custom\Mobs\Skara Dungeon\ZombexDistroEdits.txt" />
+    <Content Include="Scripts\Custom\ZombieX\ZombexDistroEdits.txt" />
     <Content Include="Scripts\Output\Scripts.CS.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

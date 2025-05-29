@@ -22,3 +22,19 @@ C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Releas
 C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CopyComplete
 C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO.exe
 C:\Users\RelWiz Studios\Documents\GitHub\RelWis\server\RunUO-Core\obj\x86\Release\RunUO.pdb
+C:\RelWis\server\RunUO Shard\RunUO.exe.config
+C:\RelWis\server\RunUO Shard\RunUO.exe
+C:\RelWis\server\RunUO Shard\RunUO.pdb
+C:\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.AssemblyReference.cache
+C:\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\RelWis\server\RunUO-Core\obj\x86\Release\RunUO.exe
+C:\RelWis\server\RunUO-Core\obj\x86\Release\RunUO.pdb
+C:\RelWis\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.Up2Date
+C:\UOApocalypse\server\RunUO Shard\RunUO.exe.config
+C:\UOApocalypse\server\RunUO Shard\RunUO.exe
+C:\UOApocalypse\server\RunUO Shard\RunUO.pdb
+C:\UOApocalypse\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.AssemblyReference.cache
+C:\UOApocalypse\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.CoreCompileInputs.cache
+C:\UOApocalypse\server\RunUO-Core\obj\x86\Release\RunUO-Core.csproj.Up2Date
+C:\UOApocalypse\server\RunUO-Core\obj\x86\Release\RunUO.exe
+C:\UOApocalypse\server\RunUO-Core\obj\x86\Release\RunUO.pdb

@@ -6,170 +6,91 @@ using EDI = Server.Mobiles.EscortDestinationInfo;
 
 namespace Server.Mobiles
 {
-	public class SeekerOfAdventure : BaseEscortable
-	{
-
-        int TownHome = (Utility.RandomMinMax(1, 5));
-        
-        private string Town;
-
-        public override string PickRandomDestination()
+    public class SeekerOfAdventure : BaseEscortable
+    {
+        private static string[] m_Dungeons = new string[]
         {
-            return Town;
-        }
-        
-        public override string TakeMe()
+            "Trinsic", "Skara", "Blackrock", "Yew", "Destard", "Shame",    //Phase2
+            "Covetous", "Deceit", "Despise", "Wrong",		//Phase3
+			"Cove", "Serpent's Hold", "Jhelom", "Hythloth", "Nujel'm"    //Phase4
+        };
+
+
+        public override string[] GetPossibleDestinations()
         {
-            return "Don't let me end up like the others. Please take me home!"; 
+            return m_Dungeons;
         }
-
-        public override string LeadOn()
-        {
-            return "I'll follow you! Keep me safe and out of danger!";
-        }
-
-        public override string ThankYou()
-        {
-            return "Thank you for saving me! Here is your reward.";
-        }
-
-
-        public override int GoldAmount()
-        {
-            return 1100;  // how much gold these guys give
-        }
-        
-
-
 
         [Constructable]
-
         public SeekerOfAdventure()
-		{
-            Name = "";
+        {
+            Title = "the seeker of adventure";
+        }
 
-            if (TownHome == 1)
+        public override bool ClickTitle { get { return false; } } // Do not display 'the seeker of adventure' when single-clicking
+
+        private static int GetRandomHue()
+        {
+            switch (Utility.Random(6))
             {
-                Town = "Calor";
-                Name = "Calori Citizen";
-                int TownColor = 2137;
-                Item Cloak = new Cloak();
-                Cloak.Movable = false;
-                Cloak.Hue = TownColor;
-                AddItem(Cloak);
-
+                default:
+                case 0: return 0;
+                case 1: return Utility.RandomBlueHue();
+                case 2: return Utility.RandomGreenHue();
+                case 3: return Utility.RandomRedHue();
+                case 4: return Utility.RandomYellowHue();
+                case 5: return Utility.RandomNeutralHue();
             }
-            else if (TownHome == 2)
-            {
-                Town = "Vermell";
-                Name = "Vermell Citizen";
-                int TownColor = 2149;
-                Item Cloak = new Cloak();
-                Cloak.Movable = false;
-                Cloak.Hue = TownColor;
-                AddItem(Cloak);
+        }
 
-            }
-            else if (TownHome == 3)
-            {
-                Town = "Arbor";
-                Name = "Arbor Citizen";
-                int TownColor = 2133;
-                Item Cloak = new Cloak();
-                Cloak.Movable = false;
-                Cloak.Hue = TownColor;
-                AddItem(Cloak);
+        public override void InitOutfit()
+        {
+            if (Female)
+                AddItem(new FancyDress(GetRandomHue()));
+            else
+                AddItem(new FancyShirt(GetRandomHue()));
 
-            }
-            else if (TownHome == 4)
-            {
-                Town = "Pedran";
-                Name = "Pedran Citizen";
-                int TownColor = 2145;
-                Item Cloak = new Cloak();
-                Cloak.Movable = false;
-                Cloak.Hue = TownColor;
-                AddItem(Cloak);
+            int lowHue = GetRandomHue();
 
-            }
-            else if (TownHome == 5)
-            {
-                Town = "Lillano";
-                Name = "Lillano Citizen";
-                int TownColor = 2141;
-                Item Cloak = new Cloak();
-                Cloak.Movable = false;
-                Cloak.Hue = TownColor;
-                AddItem(Cloak);
-            }
+            AddItem(new ShortPants(lowHue));
 
+            if (Female)
+                AddItem(new ThighBoots(lowHue));
+            else
+                AddItem(new Boots(lowHue));
 
-            
-            
-		}
+            if (!Female)
+                AddItem(new BodySash(lowHue));
 
-        
+            AddItem(new Cloak(GetRandomHue()));
 
-		public override bool ClickTitle{ get{ return false; } } // Do not display 'the seeker of adventure' when single-clicking
+            AddItem(new Longsword());
 
-        
+            Utility.AssignRandomHair(this);
 
-		private static int GetRandomHue()
-		{
-			switch ( Utility.Random( 6 ) )
-			{
-				default:
-				case 0: return 0;
-				case 1: return Utility.RandomBlueHue();
-				case 2: return Utility.RandomGreenHue();
-				case 3: return Utility.RandomRedHue();
-				case 4: return Utility.RandomYellowHue();
-				case 5: return Utility.RandomNeutralHue();
-			}
-		}
+            PackGold(100, 150);
+        }
+        public override int GoldAmount()
+        {
+            return Utility.RandomMinMax(800, 1200);  
+        }
 
-		public override void InitOutfit()
-		{
-			if ( Female )
-				AddItem( new FancyDress( GetRandomHue() ) );
-			else
-				AddItem( new FancyShirt( GetRandomHue() ) );
+        public SeekerOfAdventure(Serial serial) : base(serial)
+        {
+        }
 
-			int lowHue = GetRandomHue();
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-			AddItem( new ShortPants( lowHue ) );
+            writer.Write((int)0); // version
+        }
 
-			if ( Female )
-				AddItem( new ThighBoots( lowHue ) );
-			else
-				AddItem( new Boots( lowHue ) );
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-			if ( !Female )
-				AddItem( new BodySash( lowHue ) );
-
-
-			AddItem( new Longsword() );
-
-			Utility.AssignRandomHair( this );
-
-		}
-        
-		public SeekerOfAdventure( Serial serial ) : base( serial )
-		{
-		}
-
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
-
-			writer.Write( (int) 0 ); // version
-		}
-
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
-
-			int version = reader.ReadInt();
-		}
-	}
+            int version = reader.ReadInt();
+        }
+    }
 }

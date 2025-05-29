@@ -1,0 +1,307 @@
+##############################
+Log started on 8/25/2024 9:55:13 AM
+
+8/25/2024 9:55:31 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add sturdypickaxe'
+8/25/2024 9:55:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5353, 1164, 0) in Felucca: "sturdypickaxe"
+8/25/2024 9:55:32 AM: 127.0.0.1: Serials: 0x400000C2; 
+8/25/2024 9:55:38 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add sturdyshovel'
+8/25/2024 9:55:41 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5353, 1164, 0) in Felucca: "sturdyshovel"
+8/25/2024 9:55:41 AM: 127.0.0.1: Serials: 0x400000D3; 
+8/25/2024 9:55:43 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:55:45 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000D3 (SturdyShovel) to (5354, 1164, 0)
+8/25/2024 9:55:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:56:00 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000C2 (SturdyPickaxe) to (5354, 1164, 0)
+8/25/2024 9:56:02 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:56:04 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000C2 (SturdyPickaxe) to (5354, 1164, 0)
+8/25/2024 9:56:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:56:08 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000C2 (SturdyPickaxe) to (5354, 1164, 0)
+8/25/2024 9:56:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:56:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000D3 (SturdyShovel) to (5355, 1164, 0)
+8/25/2024 9:57:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:57:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000C2 (SturdyPickaxe) to (5353, 1165, 0)
+8/25/2024 9:57:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:57:50 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000D3 (SturdyShovel) to (5354, 1164, 0)
+8/25/2024 9:57:54 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:57:56 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000D3 (SturdyShovel) to (5353, 1163, 0)
+8/25/2024 9:57:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 9:58:00 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x400000C2 (SturdyPickaxe) to (5354, 1165, 0)
+8/25/2024 10:41:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'addmenu brazier'
+8/25/2024 10:41:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5351, 1167, 0) in Felucca: "RewardBrazier"
+8/25/2024 10:41:58 AM: 127.0.0.1: Serials: 0x400032E8; 
+8/25/2024 10:42:03 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5351, 1166, 0) in Felucca: "RewardBrazierDeed"
+8/25/2024 10:42:03 AM: 127.0.0.1: Serials: 0x400033E9; 
+8/25/2024 10:53:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5351, 1165, 0) in Felucca: "HangingArmor"
+8/25/2024 10:53:48 AM: 127.0.0.1: Serials: 0x400042CD; 
+8/25/2024 10:54:02 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5348, 1168, 0) in Felucca: "RedHangingLantern"
+8/25/2024 10:54:02 AM: 127.0.0.1: Serials: 0x400042D4; 
+8/25/2024 10:54:05 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 10:54:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400042D4 (RedHangingLantern)
+8/25/2024 11:06:35 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5351, 1167, 0) in Felucca: "HangingAxesDeed"
+8/25/2024 11:06:35 AM: 127.0.0.1: Serials: 0x40004D6E; 
+8/25/2024 11:06:40 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5352, 1166, 0) in Felucca: "HangingSwordsDeed"
+8/25/2024 11:06:40 AM: 127.0.0.1: Serials: 0x40004D78; 
+8/25/2024 11:06:46 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 11:06:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400032E8 (RewardBrazier)
+8/25/2024 11:06:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400042CD (HangingArmor)
+8/25/2024 11:06:54 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 11:07:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add smallfieldstonehousedeed'
+8/25/2024 11:07:24 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5381, 1178, 0) in Felucca: "FieldStoneHouseDeed"
+8/25/2024 11:07:24 AM: 127.0.0.1: Serials: 0x40004DDA; 
+8/25/2024 11:07:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 11:07:38 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004DE4 (LocalizedAddonComponent) to (5369, 1178, 0)
+8/25/2024 11:07:56 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 11:07:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004DFB (LocalizedAddonComponent) to (5384, 1175, 4)
+8/25/2024 11:07:59 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 11:08:03 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 11:08:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40004DFB (LocalizedAddonComponent) to (5369, 1183, 0)
+8/25/2024 11:29:37 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5371, 1188, 0) in Felucca: "ImbuingHammer"
+8/25/2024 11:29:37 AM: 127.0.0.1: Serials: 0x40006287; 
+8/25/2024 12:52:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5377, 1182, 0) in Felucca: "MiningCartDeed"
+8/25/2024 12:52:37 PM: 127.0.0.1: Serials: 0x4000AE55; 
+8/25/2024 12:53:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5382, 1171, 7) in Felucca: "MiningCartDeed"
+8/25/2024 12:53:08 PM: 127.0.0.1: Serials: 0x4000AEA7; 
+8/25/2024 12:53:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000AE9D (AddonComponent) to (5368, 1168, 0)
+8/25/2024 12:53:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:53:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000AF6C (AddonComponent) to (5370, 1168, 0)
+8/25/2024 12:53:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000AF6C (AddonComponent) to (5367, 1170, 0)
+8/25/2024 12:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:53:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000AF6C (AddonComponent) to (5365, 1170, 0)
+8/25/2024 12:53:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:53:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000AF6C (AddonComponent) to (5367, 1169, 0)
+8/25/2024 12:53:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5382, 1171, 7) in Felucca: "MiningCartDeed"
+8/25/2024 12:53:54 PM: 127.0.0.1: Serials: 0x4000B024; 
+8/25/2024 12:54:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:54:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000AF6C (AddonComponent) to (5364, 1173, 0)
+8/25/2024 12:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:54:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000B097 (AddonComponent) to (5369, 1169, 0)
+8/25/2024 12:54:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:54:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000B097 (AddonComponent) to (5376, 1168, 0)
+8/25/2024 12:54:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5382, 1172, 7) in Felucca: "MiningCartDeed"
+8/25/2024 12:54:38 PM: 127.0.0.1: Serials: 0x4000B16C; 
+8/25/2024 12:54:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:54:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000B16E (LocalizedAddonComponent) to (5370, 1169, 0)
+8/25/2024 12:54:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:54:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000B16E (LocalizedAddonComponent) to (5370, 1170, 0)
+8/25/2024 12:54:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 12:54:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000B16E (LocalizedAddonComponent) to (5369, 1169, 0)
+8/25/2024 12:54:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 12:55:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 12:55:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000AF6C (AddonComponent)
+8/25/2024 2:18:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5367, 1173, 0) in Felucca: "SuitOfGoldArmorDeed"
+8/25/2024 2:18:28 PM: 127.0.0.1: Serials: 0x4001078B; 
+8/25/2024 2:18:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5367, 1174, 0) in Felucca: "SuitOfSilverArmorDeed"
+8/25/2024 2:18:31 PM: 127.0.0.1: Serials: 0x4001078C; 
+8/25/2024 2:18:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 2:20:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010790 (SuitOfGoldArmorComponent) to (5371, 1163, 0)
+8/25/2024 2:20:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5372, 1162, 0)
+8/25/2024 2:20:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 2:20:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5372, 1163, 0)
+8/25/2024 2:20:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5372, 1163, 15)
+8/25/2024 2:20:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5372, 1163, 0)
+8/25/2024 2:20:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5371, 1164, 0)
+8/25/2024 2:20:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:20:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5372, 1162, 0)
+8/25/2024 2:21:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:21:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010792 (SuitOfSilverArmorComponent) to (5370, 1163, 0)
+8/25/2024 2:21:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:21:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+8/25/2024 2:21:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40010790 (SuitOfGoldArmorComponent) to (5371, 1164, 0)
+8/25/2024 7:51:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 7:51:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000B097 (AddonComponent)
+8/25/2024 7:51:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 7:51:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40010790 (SuitOfGoldArmorComponent)
+8/25/2024 7:51:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40010792 (SuitOfSilverArmorComponent)
+8/25/2024 7:51:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000B188 (AddonComponent)
+8/25/2024 7:51:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000AE9D (AddonComponent)
+8/25/2024 7:51:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40004DE5 (LocalizedAddonComponent)
+8/25/2024 7:51:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40004DE1 (HouseSign)
+8/25/2024 7:51:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 7:51:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 7:51:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40021695 (HangingAxesDeed)
+8/25/2024 7:51:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add large carpentrybod'
+8/25/2024 7:51:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:51:48 PM: 127.0.0.1: Serials: 0x4002169D; 
+8/25/2024 7:51:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:51:59 PM: 127.0.0.1: Serials: 0x400216CE; 
+8/25/2024 7:52:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:00 PM: 127.0.0.1: Serials: 0x400216CF; 
+8/25/2024 7:52:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:00 PM: 127.0.0.1: Serials: 0x400216D0; 
+8/25/2024 7:52:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:00 PM: 127.0.0.1: Serials: 0x400216D1; 
+8/25/2024 7:52:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:01 PM: 127.0.0.1: Serials: 0x400216D2; 
+8/25/2024 7:52:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:01 PM: 127.0.0.1: Serials: 0x400216D3; 
+8/25/2024 7:52:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:01 PM: 127.0.0.1: Serials: 0x400216D4; 
+8/25/2024 7:52:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:01 PM: 127.0.0.1: Serials: 0x400216D5; 
+8/25/2024 7:52:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:01 PM: 127.0.0.1: Serials: 0x400216D6; 
+8/25/2024 7:52:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:02 PM: 127.0.0.1: Serials: 0x400216D7; 
+8/25/2024 7:52:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:02 PM: 127.0.0.1: Serials: 0x400216D8; 
+8/25/2024 7:52:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:02 PM: 127.0.0.1: Serials: 0x400216D9; 
+8/25/2024 7:52:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:02 PM: 127.0.0.1: Serials: 0x400216DA; 
+8/25/2024 7:52:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:02 PM: 127.0.0.1: Serials: 0x400216DB; 
+8/25/2024 7:52:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:02 PM: 127.0.0.1: Serials: 0x400216DC; 
+8/25/2024 7:52:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:03 PM: 127.0.0.1: Serials: 0x400216DD; 
+8/25/2024 7:52:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:03 PM: 127.0.0.1: Serials: 0x400216DE; 
+8/25/2024 7:52:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:03 PM: 127.0.0.1: Serials: 0x400216DF; 
+8/25/2024 7:52:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:03 PM: 127.0.0.1: Serials: 0x400216E0; 
+8/25/2024 7:52:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:52:03 PM: 127.0.0.1: Serials: 0x400216E1; 
+8/25/2024 7:53:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 7:53:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216CF (LargeCarpentryBOD)
+8/25/2024 7:53:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D0 (LargeCarpentryBOD)
+8/25/2024 7:53:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D1 (LargeCarpentryBOD)
+8/25/2024 7:53:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D2 (LargeCarpentryBOD)
+8/25/2024 7:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D3 (LargeCarpentryBOD)
+8/25/2024 7:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D4 (LargeCarpentryBOD)
+8/25/2024 7:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D5 (LargeCarpentryBOD)
+8/25/2024 7:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D6 (LargeCarpentryBOD)
+8/25/2024 7:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D7 (LargeCarpentryBOD)
+8/25/2024 7:53:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D8 (LargeCarpentryBOD)
+8/25/2024 7:53:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216D9 (LargeCarpentryBOD)
+8/25/2024 7:53:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216DA (LargeCarpentryBOD)
+8/25/2024 7:53:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216DB (LargeCarpentryBOD)
+8/25/2024 7:53:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216DC (LargeCarpentryBOD)
+8/25/2024 7:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216DD (LargeCarpentryBOD)
+8/25/2024 7:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216CE (LargeCarpentryBOD)
+8/25/2024 7:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216DE (LargeCarpentryBOD)
+8/25/2024 7:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216DF (LargeCarpentryBOD)
+8/25/2024 7:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216E0 (LargeCarpentryBOD)
+8/25/2024 7:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400216E1 (LargeCarpentryBOD)
+8/25/2024 7:53:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40003597 (LargeSmithBOD)
+8/25/2024 7:53:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400042B1 (LargeSmithBOD)
+8/25/2024 7:53:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000429D (LargeSmithBOD)
+8/25/2024 7:53:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400041A3 (LargeSmithBOD)
+8/25/2024 7:53:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40004A08 (LargeSmithBOD)
+8/25/2024 7:53:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40004C5E (SmallSmithBOD)
+8/25/2024 7:53:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000E6E (LargeSmithBOD)
+8/25/2024 7:53:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40004B06 (LargeSmithBOD)
+8/25/2024 7:53:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400033E9 (RewardBrazierDeed)
+8/25/2024 7:53:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000432C (UncutCloth)
+8/25/2024 7:53:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000EBF (LargeSmithBOD)
+8/25/2024 7:53:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 0) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:35 PM: 127.0.0.1: Serials: 0x400217A6; 
+8/25/2024 7:53:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 1) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:35 PM: 127.0.0.1: Serials: 0x400217A7; 
+8/25/2024 7:53:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:35 PM: 127.0.0.1: Serials: 0x400217A8; 
+8/25/2024 7:53:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:35 PM: 127.0.0.1: Serials: 0x400217A9; 
+8/25/2024 7:53:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:35 PM: 127.0.0.1: Serials: 0x400217AA; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217AB; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217AC; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217B2; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217B3; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217B4; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217B5; 
+8/25/2024 7:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:36 PM: 127.0.0.1: Serials: 0x400217B6; 
+8/25/2024 7:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:37 PM: 127.0.0.1: Serials: 0x400217B7; 
+8/25/2024 7:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:37 PM: 127.0.0.1: Serials: 0x400217B8; 
+8/25/2024 7:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:37 PM: 127.0.0.1: Serials: 0x400217B9; 
+8/25/2024 7:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:37 PM: 127.0.0.1: Serials: 0x400217BA; 
+8/25/2024 7:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:37 PM: 127.0.0.1: Serials: 0x400217BB; 
+8/25/2024 7:53:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:37 PM: 127.0.0.1: Serials: 0x400217BC; 
+8/25/2024 7:53:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:38 PM: 127.0.0.1: Serials: 0x400217BD; 
+8/25/2024 7:53:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:38 PM: 127.0.0.1: Serials: 0x400217BE; 
+8/25/2024 7:53:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:38 PM: 127.0.0.1: Serials: 0x400217BF; 
+8/25/2024 7:53:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:38 PM: 127.0.0.1: Serials: 0x400217C0; 
+8/25/2024 7:53:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:38 PM: 127.0.0.1: Serials: 0x400217C1; 
+8/25/2024 7:53:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:39 PM: 127.0.0.1: Serials: 0x400217C2; 
+8/25/2024 7:53:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:39 PM: 127.0.0.1: Serials: 0x400217C3; 
+8/25/2024 7:53:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:39 PM: 127.0.0.1: Serials: 0x400217C4; 
+8/25/2024 7:53:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:39 PM: 127.0.0.1: Serials: 0x400217C5; 
+8/25/2024 7:53:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:39 PM: 127.0.0.1: Serials: 0x400217C6; 
+8/25/2024 7:53:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:40 PM: 127.0.0.1: Serials: 0x400217C8; 
+8/25/2024 7:53:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:40 PM: 127.0.0.1: Serials: 0x400217C9; 
+8/25/2024 7:53:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 2) in Felucca: "LargeCarpentryBOD"
+8/25/2024 7:53:40 PM: 127.0.0.1: Serials: 0x400217CA; 
+8/25/2024 7:55:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add bow'
+8/25/2024 7:55:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1176, 0) in Felucca: "bow"
+8/25/2024 7:55:50 PM: 127.0.0.1: Serials: 0x400218B5; 
+8/25/2024 7:55:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/25/2024 7:57:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x400218B5 (Bow) to 'OakWood'
+8/25/2024 7:57:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x400218B5 (Bow) to 'AshWood'
+8/25/2024 7:58:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x400218B5 (Bow) to 'Heartwood'
+8/25/2024 7:58:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add gnarled staff set resource oakwood'
+8/25/2024 7:58:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5378, 1175, 0) in Felucca: "GnarledStaff"
+8/25/2024 7:58:31 PM: 127.0.0.1: Serials: 0x40021AFF; 
+8/25/2024 7:58:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/25/2024 7:58:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x40021AFF (GnarledStaff) to 'OakWood'
+8/25/2024 7:59:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x40021AFF (GnarledStaff) to 'AshWood'
+8/25/2024 7:59:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x40021AFF (GnarledStaff) to 'Heartwood'
+8/25/2024 7:59:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Resource' of 0x400218B5 (Bow) to 'Iron'
+8/25/2024 8:00:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5377, 1176, 0) in Felucca: "HeartwoodBoard"
+8/25/2024 8:00:13 PM: 127.0.0.1: Serials: 0x40021BF5; 
+8/25/2024 8:00:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set amount 100'
+8/25/2024 8:00:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'amount' of 0x40021BF5 (HeartwoodBoard) to '100'
+8/25/2024 8:00:33 PM: 127.0.0.1: Crafting 0x40021C6C (Bow) with craft system DefCarpentry
+8/25/2024 8:00:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add yewboard 100'
+8/25/2024 8:01:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5377, 1174, 0) in Felucca: "yewboard" "100"
+8/25/2024 8:01:01 PM: 127.0.0.1: Serials: 0x40021CC4; 
+8/25/2024 8:01:08 PM: 127.0.0.1: Crafting 0x40021CC6 (Bow) with craft system DefCarpentry
+8/25/2024 8:01:32 PM: 127.0.0.1: Crafting 0x40021CDE (GnarledStaff) with craft system DefCarpentry
+8/25/2024 8:01:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/25/2024 8:01:44 PM: 127.0.0.1: Crafting 0x40021CE0 (LargeCrate) with craft system DefCarpentry
+8/25/2024 8:02:07 PM: 127.0.0.1: Crafting 0x40021D3D (Lute) with craft system DefCarpentry
+8/25/2024 8:04:48 PM: 127.0.0.1: Crafting 0x40021DF6 (Stool) with craft system DefCarpentry
+8/25/2024 8:05:10 PM: 127.0.0.1: Crafting 0x40021E59 (WoodenChest) with craft system DefCarpentry
+8/25/2024 8:09:07 PM: 127.0.0.1: Crafting 0x40022183 (Shaft) with craft system DefCarpentry
+8/25/2024 8:11:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add phoenixticket'
+8/25/2024 8:11:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (5385, 1157, 0) in Felucca: "phoenixticket"
+8/25/2024 8:11:06 PM: 127.0.0.1: Serials: 0x40022294; 
+8/25/2024 8:11:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 8:11:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'wipe '
+8/25/2024 8:11:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') wiping from (5405, 1114, 0) to (5405, 1114, 0) in Felucca (Items, Mobiles)
+8/25/2024 8:11:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 8:11:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+8/25/2024 8:37:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/25/2024 8:38:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '

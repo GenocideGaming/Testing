@@ -1151,6 +1151,55 @@ namespace Server.Items
         }
     }
 
+    public class ScavengerHood : BaseHat
+    {
+        public override int InitMinHits { get { return 20; } }
+        public override int InitMaxHits { get { return 30; } }
+        public override int LabelNumber
+        {
+            get
+            {
+                return 1063522;
+            }
+        }
+        [Constructable]
+        public ScavengerHood()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public ScavengerHood(int hue)
+            : base(0x551D, hue)
+        {
+            Weight = 1.0;
+
+        }
+
+        public ScavengerHood(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+
+            int version = reader.ReadInt();
+        }
+        public override bool Dye(Mobile from, DyeTub sender)
+        {
+            return false;
+        }
+    }
+
     public class Monocle : BaseHat
     {
          public override int InitMinHits { get { return 20; } }

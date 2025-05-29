@@ -90,12 +90,13 @@ namespace Server.Items
 				{
 					Item logs = null;
 
-					switch ( Utility.Random( 4 ) )
+					switch ( Utility.Random( 7 ) )
 					{
 						case 0: logs = new Log(); break;
 						case 1: logs = new AshLog(); break;
 						case 2: logs = new OakLog(); break;
 						case 3: logs = new YewLog(); break;
+						case 4: logs = new HeartwoodLog(); break;
 
 					}
 

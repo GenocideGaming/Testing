@@ -1,0 +1,1028 @@
+##############################
+Log started on 7/20/2024 8:02:21 AM
+
+7/20/2024 8:02:40 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'setallskills 100'
+7/20/2024 8:02:41 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'EverySkill.Base' of 0x1 "jp" ('rws') to '100'
+7/20/2024 8:02:44 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add carpenter'
+7/20/2024 8:02:45 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1290, 0) in Felucca: "carpenter"
+7/20/2024 8:02:46 AM: 127.0.0.1: Serials: 0x2; 
+##############################
+Log started on 7/20/2024 8:27:35 AM
+
+7/20/2024 8:27:53 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'setallskills 60'
+7/20/2024 8:27:55 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'EverySkill.Base' of 0x1 "jp" ('rws') to '60'
+7/20/2024 8:27:59 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add tailor'
+7/20/2024 8:28:00 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1291, 0) in Felucca: "tailor"
+7/20/2024 8:28:01 AM: 127.0.0.1: Serials: 0x2; 
+7/20/2024 8:28:12 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add carpenter'
+7/20/2024 8:28:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1289, 0) in Felucca: "carpenter"
+7/20/2024 8:28:13 AM: 127.0.0.1: Serials: 0x3; 
+7/20/2024 8:28:21 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smalltailorbod'
+7/20/2024 8:28:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1290, 0) in Felucca: "smalltailorbod"
+7/20/2024 8:28:22 AM: 127.0.0.1: Serials: 0x4000002A; 
+7/20/2024 8:28:30 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 8:28:31 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1291, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:28:31 AM: 127.0.0.1: Serials: 0x4000002B; 
+##############################
+Log started on 7/20/2024 8:33:50 AM
+
+7/20/2024 8:34:16 AM: 127.0.0.1: Owner 0x1 "her" ('rws') used command 'setallskills 60'
+7/20/2024 8:34:18 AM: 127.0.0.1: Owner 0x1 "her" ('rws') set property 'EverySkill.Base' of 0x1 "her" ('rws') to '60'
+7/20/2024 8:34:28 AM: 127.0.0.1: Owner 0x1 "her" ('rws') used command 'add smalltailorbod'
+7/20/2024 8:34:29 AM: 127.0.0.1: Owner 0x1 "her" ('rws') building at (1277, 1288, 0) in Felucca: "smalltailorbod"
+7/20/2024 8:34:29 AM: 127.0.0.1: Serials: 0x4000001A; 
+7/20/2024 8:34:39 AM: 127.0.0.1: Owner 0x1 "her" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 8:34:41 AM: 127.0.0.1: Owner 0x1 "her" ('rws') building at (1277, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:34:41 AM: 127.0.0.1: Serials: 0x4000001B; 
+##############################
+Log started on 7/20/2024 8:38:13 AM
+
+7/20/2024 8:38:34 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'setallskills 60'
+7/20/2024 8:38:35 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'EverySkill.Base' of 0x1 "jp" ('rws') to '60'
+7/20/2024 8:38:49 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 8:38:49 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:38:49 AM: 127.0.0.1: Serials: 0x4000001A; 
+7/20/2024 8:38:59 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smalltailorbod'
+7/20/2024 8:39:00 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1287, 0) in Felucca: "smalltailorbod"
+7/20/2024 8:39:00 AM: 127.0.0.1: Serials: 0x4000001B; 
+7/20/2024 8:39:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:39:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:39:26 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'AmountMax' of 0x4000001A (SmallCarpentryBOD) to '20'
+7/20/2024 8:39:58 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Number' of 0x4000001A (SmallCarpentryBOD) to '1071428'
+7/20/2024 8:40:01 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add bow'
+7/20/2024 8:40:03 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1287, 0) in Felucca: "bow"
+7/20/2024 8:40:03 AM: 127.0.0.1: Serials: 0x4000001C; 
+7/20/2024 8:40:05 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:40:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:40:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add gnarledstaff'
+7/20/2024 8:40:18 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 0) in Felucca: "gnarledstaff"
+7/20/2024 8:40:18 AM: 127.0.0.1: Serials: 0x4000001D; 
+7/20/2024 8:40:20 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:40:53 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Graphic' of 0x4000001A (SmallCarpentryBOD) to '5112'
+7/20/2024 8:41:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'RequireExceptional' of 0x4000001A (SmallCarpentryBOD) to 'True'
+7/20/2024 8:41:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Type' of 0x4000001A (SmallCarpentryBOD) to 'Server.Items.GnarledStaff'
+7/20/2024 8:41:33 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Hue' of 0x4000001A (SmallCarpentryBOD) to '1512'
+7/20/2024 8:42:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:42:45 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set material oak'
+7/20/2024 8:42:54 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:43:53 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Resource' of 0x4000001D (GnarledStaff) to 'OakWood'
+7/20/2024 8:43:58 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'dupe '
+7/20/2024 8:44:00 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') duping 0x4000001D (GnarledStaff) (inBag=False; amount=1)
+7/20/2024 8:44:00 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') duped 0x4000001D (GnarledStaff) creating 0x4000001E (GnarledStaff)
+7/20/2024 8:44:03 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm dupe'
+7/20/2024 8:44:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'dupe '
+7/20/2024 8:44:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') duping 0x4000001E (GnarledStaff) (inBag=False; amount=1)
+7/20/2024 8:44:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') duped 0x4000001E (GnarledStaff) creating 0x4000001F (GnarledStaff)
+7/20/2024 8:44:26 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set quality exception'
+7/20/2024 8:44:29 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set quality exception'
+7/20/2024 8:44:39 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set quality exceptional'
+7/20/2024 8:44:40 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'quality' of 0x4000001E (GnarledStaff) to 'Exceptional'
+7/20/2024 8:44:41 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set quality exceptional'
+7/20/2024 8:44:43 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'quality' of 0x4000001F (GnarledStaff) to 'Exceptional'
+7/20/2024 8:44:44 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set quality exceptional'
+7/20/2024 8:44:46 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'quality' of 0x4000001D (GnarledStaff) to 'Exceptional'
+7/20/2024 8:44:57 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 8:45:04 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'AmountCur' of 0x4000001A (SmallCarpentryBOD) to '20'
+7/20/2024 8:45:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add carpenter'
+7/20/2024 8:45:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1289, 0) in Felucca: "carpenter"
+7/20/2024 8:45:17 AM: 127.0.0.1: Serials: 0x2; 
+7/20/2024 8:45:24 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'setallskills 100'
+7/20/2024 8:45:25 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'EverySkill.Base' of 0x1 "jp" ('rws') to '100'
+##############################
+Log started on 7/20/2024 8:52:35 AM
+
+7/20/2024 8:53:03 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add smallcarpentrybod'
+7/20/2024 8:53:04 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1291, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:04 AM: 127.0.0.1: Serials: 0x40000021; 
+7/20/2024 8:53:04 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1291, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:04 AM: 127.0.0.1: Serials: 0x40000022; 
+7/20/2024 8:53:05 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:05 AM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 8:53:05 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:05 AM: 127.0.0.1: Serials: 0x40000024; 
+7/20/2024 8:53:05 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:05 AM: 127.0.0.1: Serials: 0x40000025; 
+7/20/2024 8:53:05 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:05 AM: 127.0.0.1: Serials: 0x40000026; 
+7/20/2024 8:53:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:06 AM: 127.0.0.1: Serials: 0x40000027; 
+7/20/2024 8:53:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:06 AM: 127.0.0.1: Serials: 0x40000028; 
+7/20/2024 8:53:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:06 AM: 127.0.0.1: Serials: 0x40000029; 
+7/20/2024 8:53:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:06 AM: 127.0.0.1: Serials: 0x4000002A; 
+7/20/2024 8:53:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1292, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:06 AM: 127.0.0.1: Serials: 0x4000002B; 
+7/20/2024 8:53:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1292, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:07 AM: 127.0.0.1: Serials: 0x4000002C; 
+7/20/2024 8:53:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:07 AM: 127.0.0.1: Serials: 0x4000002D; 
+7/20/2024 8:53:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1275, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:07 AM: 127.0.0.1: Serials: 0x4000002E; 
+7/20/2024 8:53:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1274, 1295, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:07 AM: 127.0.0.1: Serials: 0x4000002F; 
+7/20/2024 8:53:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1296, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:07 AM: 127.0.0.1: Serials: 0x40000030; 
+7/20/2024 8:53:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1296, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:07 AM: 127.0.0.1: Serials: 0x40000031; 
+7/20/2024 8:53:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:08 AM: 127.0.0.1: Serials: 0x40000032; 
+7/20/2024 8:53:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:08 AM: 127.0.0.1: Serials: 0x40000033; 
+7/20/2024 8:53:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1295, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:08 AM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 8:53:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1295, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:08 AM: 127.0.0.1: Serials: 0x40000035; 
+7/20/2024 8:53:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1285, 1295, 29) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:08 AM: 127.0.0.1: Serials: 0x40000036; 
+7/20/2024 8:53:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:08 AM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 8:53:09 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:09 AM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 8:53:09 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1275, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:09 AM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 8:53:09 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1273, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:09 AM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 8:53:09 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1274, 1292, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:09 AM: 127.0.0.1: Serials: 0x4000003B; 
+7/20/2024 8:53:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1281, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:10 AM: 127.0.0.1: Serials: 0x4000003C; 
+7/20/2024 8:53:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1285, 1294, 29) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:10 AM: 127.0.0.1: Serials: 0x4000003D; 
+7/20/2024 8:53:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1281, 1290, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:10 AM: 127.0.0.1: Serials: 0x4000003E; 
+7/20/2024 8:53:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1289, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:10 AM: 127.0.0.1: Serials: 0x4000003F; 
+7/20/2024 8:53:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1281, 1287, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:10 AM: 127.0.0.1: Serials: 0x40000040; 
+7/20/2024 8:53:10 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1285, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:10 AM: 127.0.0.1: Serials: 0x40000041; 
+7/20/2024 8:53:11 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1290, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:11 AM: 127.0.0.1: Serials: 0x40000042; 
+7/20/2024 8:53:11 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1274, 1292, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 8:53:11 AM: 127.0.0.1: Serials: 0x40000043; 
+##############################
+Log started on 7/20/2024 8:56:13 AM
+
+7/20/2024 8:56:27 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add saw'
+7/20/2024 8:56:28 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "saw"
+7/20/2024 8:56:28 AM: 127.0.0.1: Serials: 0x40000021; 
+7/20/2024 8:57:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add oak 100'
+7/20/2024 8:57:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add oakboard 100'
+7/20/2024 8:57:23 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "oakboard" "100"
+7/20/2024 8:57:23 AM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 8:57:34 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'setallskills 100'
+7/20/2024 8:57:35 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'EverySkill.Base' of 0x1 "jp" ('rws') to '100'
+7/20/2024 8:57:38 AM: 127.0.0.1: Crafting 0x40000024 (FootStool) with craft system DefCarpentry
+7/20/2024 8:57:53 AM: 127.0.0.1: Crafting 0x40000025 (BarrelStaves) with craft system DefCarpentry
+7/20/2024 8:57:58 AM: 127.0.0.1: Crafting 0x40000026 (BarrelLid) with craft system DefCarpentry
+7/20/2024 8:58:05 AM: 127.0.0.1: Crafting 0x40000027 (Stool) with craft system DefCarpentry
+7/20/2024 8:58:15 AM: 127.0.0.1: Crafting 0x40000028 (GnarledStaff) with craft system DefCarpentry
+7/20/2024 8:58:26 AM: 127.0.0.1: Crafting 0x40000029 (QuarterStaff) with craft system DefCarpentry
+7/20/2024 8:58:34 AM: 127.0.0.1: Crafting 0x4000002A (ShepherdsCrook) with craft system DefCarpentry
+7/20/2024 8:58:48 AM: 127.0.0.1: Crafting 0x4000002B (Bow) with craft system DefCarpentry
+7/20/2024 8:58:56 AM: 127.0.0.1: Crafting 0x4000002C (Crossbow) with craft system DefCarpentry
+7/20/2024 8:59:00 AM: 127.0.0.1: Crafting 0x4000002D (HeavyCrossbow) with craft system DefCarpentry
+7/20/2024 8:59:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'set amount 1000'
+7/20/2024 8:59:19 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'amount' of 0x40000023 (OakBoard) to '1000'
+7/20/2024 8:59:25 AM: 127.0.0.1: Crafting 0x4000002E (WoodenBox) with craft system DefCarpentry
+7/20/2024 8:59:28 AM: 127.0.0.1: Crafting 0x40000030 (SmallCrate) with craft system DefCarpentry
+7/20/2024 8:59:38 AM: 127.0.0.1: Crafting 0x40000032 (MediumCrate) with craft system DefCarpentry
+7/20/2024 8:59:39 AM: 127.0.0.1: Crafting 0x40000034 (LargeCrate) with craft system DefCarpentry
+7/20/2024 8:59:45 AM: 127.0.0.1: Crafting 0x40000036 (WoodenChest) with craft system DefCarpentry
+7/20/2024 9:00:43 AM: 127.0.0.1: Crafting 0x40000038 (Kindling) with craft system DefCarpentry
+7/20/2024 9:00:45 AM: 127.0.0.1: Crafting 0x40000039 (Shaft) with craft system DefCarpentry
+7/20/2024 9:01:52 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add oakboard 1000'
+7/20/2024 9:01:55 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1287, 0) in Felucca: "oakboard" "1000"
+7/20/2024 9:01:55 AM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 9:02:02 AM: 127.0.0.1: Crafting 0x4000003B (WoodenBench) with craft system DefCarpentry
+7/20/2024 9:02:04 AM: 127.0.0.1: Crafting 0x4000003C (WoodenThrone) with craft system DefCarpentry
+##############################
+Log started on 7/20/2024 9:12:34 AM
+
+7/20/2024 9:13:01 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 9:13:02 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1289, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:02 AM: 127.0.0.1: Serials: 0x40000021; 
+7/20/2024 9:13:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add smallcarpentrybod'
+7/20/2024 9:13:11 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1289, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:11 AM: 127.0.0.1: Serials: 0x40000022; 
+7/20/2024 9:13:11 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1289, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:11 AM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 9:13:12 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1289, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:12 AM: 127.0.0.1: Serials: 0x40000024; 
+7/20/2024 9:13:12 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1289, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:12 AM: 127.0.0.1: Serials: 0x40000025; 
+7/20/2024 9:13:12 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1290, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:12 AM: 127.0.0.1: Serials: 0x40000026; 
+7/20/2024 9:13:12 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1290, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:12 AM: 127.0.0.1: Serials: 0x40000027; 
+7/20/2024 9:13:12 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1290, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:12 AM: 127.0.0.1: Serials: 0x40000028; 
+7/20/2024 9:13:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1290, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:13 AM: 127.0.0.1: Serials: 0x40000029; 
+7/20/2024 9:13:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:13 AM: 127.0.0.1: Serials: 0x4000002A; 
+7/20/2024 9:13:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:13 AM: 127.0.0.1: Serials: 0x4000002B; 
+7/20/2024 9:13:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:13 AM: 127.0.0.1: Serials: 0x4000002C; 
+7/20/2024 9:13:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:13 AM: 127.0.0.1: Serials: 0x4000002D; 
+7/20/2024 9:13:13 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:13 AM: 127.0.0.1: Serials: 0x4000002E; 
+7/20/2024 9:13:14 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:14 AM: 127.0.0.1: Serials: 0x4000002F; 
+7/20/2024 9:13:14 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:14 AM: 127.0.0.1: Serials: 0x40000030; 
+7/20/2024 9:13:14 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1289, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:14 AM: 127.0.0.1: Serials: 0x40000031; 
+7/20/2024 9:13:14 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:14 AM: 127.0.0.1: Serials: 0x40000032; 
+7/20/2024 9:13:14 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:14 AM: 127.0.0.1: Serials: 0x40000033; 
+7/20/2024 9:13:14 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:14 AM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 9:13:15 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:15 AM: 127.0.0.1: Serials: 0x40000035; 
+7/20/2024 9:13:15 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:15 AM: 127.0.0.1: Serials: 0x40000036; 
+7/20/2024 9:13:15 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:15 AM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 9:13:15 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:15 AM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 9:13:15 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:15 AM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 9:13:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:16 AM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 9:13:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:16 AM: 127.0.0.1: Serials: 0x4000003B; 
+7/20/2024 9:13:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:16 AM: 127.0.0.1: Serials: 0x4000003C; 
+7/20/2024 9:13:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:16 AM: 127.0.0.1: Serials: 0x4000003D; 
+7/20/2024 9:13:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:16 AM: 127.0.0.1: Serials: 0x4000003E; 
+7/20/2024 9:13:16 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:16 AM: 127.0.0.1: Serials: 0x4000003F; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1287, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000040; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000041; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000042; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000043; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000044; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000045; 
+7/20/2024 9:13:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1280, 1288, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:17 AM: 127.0.0.1: Serials: 0x40000046; 
+7/20/2024 9:13:18 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:18 AM: 127.0.0.1: Serials: 0x40000047; 
+7/20/2024 9:13:18 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:18 AM: 127.0.0.1: Serials: 0x40000048; 
+7/20/2024 9:13:18 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:18 AM: 127.0.0.1: Serials: 0x40000049; 
+7/20/2024 9:13:18 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:18 AM: 127.0.0.1: Serials: 0x4000004A; 
+7/20/2024 9:13:19 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:19 AM: 127.0.0.1: Serials: 0x4000004B; 
+7/20/2024 9:13:19 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:19 AM: 127.0.0.1: Serials: 0x4000004C; 
+7/20/2024 9:13:20 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:20 AM: 127.0.0.1: Serials: 0x4000004D; 
+7/20/2024 9:13:20 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:20 AM: 127.0.0.1: Serials: 0x4000004E; 
+7/20/2024 9:13:20 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:20 AM: 127.0.0.1: Serials: 0x4000004F; 
+7/20/2024 9:13:20 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:20 AM: 127.0.0.1: Serials: 0x40000050; 
+7/20/2024 9:13:20 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:20 AM: 127.0.0.1: Serials: 0x40000051; 
+7/20/2024 9:13:21 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:21 AM: 127.0.0.1: Serials: 0x40000052; 
+7/20/2024 9:13:21 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:21 AM: 127.0.0.1: Serials: 0x40000053; 
+7/20/2024 9:13:21 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:21 AM: 127.0.0.1: Serials: 0x40000054; 
+7/20/2024 9:13:21 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:21 AM: 127.0.0.1: Serials: 0x40000055; 
+7/20/2024 9:13:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:22 AM: 127.0.0.1: Serials: 0x40000056; 
+7/20/2024 9:13:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:22 AM: 127.0.0.1: Serials: 0x40000057; 
+7/20/2024 9:13:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:22 AM: 127.0.0.1: Serials: 0x40000058; 
+7/20/2024 9:13:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:22 AM: 127.0.0.1: Serials: 0x40000059; 
+7/20/2024 9:13:22 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 9:13:22 AM: 127.0.0.1: Serials: 0x4000005A; 
+##############################
+Log started on 7/20/2024 9:21:08 AM
+
+7/20/2024 9:21:47 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 9:21:49 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:21:49 AM: 127.0.0.1: Serials: 0x40000021; 
+##############################
+Log started on 7/20/2024 9:29:49 AM
+
+7/20/2024 9:30:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 9:30:09 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1285, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:30:09 AM: 127.0.0.1: Serials: 0x40000022; 
+##############################
+Log started on 7/20/2024 9:40:48 AM
+
+7/20/2024 9:41:04 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 9:41:05 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1286, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:41:05 AM: 127.0.0.1: Serials: 0x40000023; 
+##############################
+Log started on 7/20/2024 9:53:24 AM
+
+7/20/2024 9:53:44 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 9:53:45 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1286, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:53:45 AM: 127.0.0.1: Serials: 0x40000023; 
+##############################
+Log started on 7/20/2024 9:54:35 AM
+
+7/20/2024 9:54:55 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 9:54:56 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1285, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 9:54:56 AM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 9:55:53 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add axe'
+7/20/2024 9:55:54 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1286, 0) in Felucca: "axe"
+7/20/2024 9:55:54 AM: 127.0.0.1: Serials: 0x40000024; 
+7/20/2024 9:55:57 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 9:56:26 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add arrows'
+7/20/2024 9:56:33 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1286, 0) in Felucca: "Arrow"
+7/20/2024 9:56:33 AM: 127.0.0.1: Serials: 0x40000025; 
+7/20/2024 9:56:35 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 9:57:15 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1287, 0) in Felucca: "Bolt"
+7/20/2024 9:57:15 AM: 127.0.0.1: Serials: 0x40000026; 
+7/20/2024 9:57:17 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 9:57:23 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add arrows'
+7/20/2024 9:57:26 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 9:57:48 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add kindling'
+7/20/2024 9:57:49 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1285, 0) in Felucca: "kindling"
+7/20/2024 9:57:49 AM: 127.0.0.1: Serials: 0x40000027; 
+7/20/2024 9:57:52 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 9:58:07 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add shaft'
+7/20/2024 9:58:08 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1285, 0) in Felucca: "shaft"
+7/20/2024 9:58:08 AM: 127.0.0.1: Serials: 0x40000028; 
+7/20/2024 9:58:11 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:03:36 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add footstool'
+7/20/2024 10:03:37 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1288, 0) in Felucca: "footstool"
+7/20/2024 10:03:37 AM: 127.0.0.1: Serials: 0x40000029; 
+7/20/2024 10:03:39 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:03:49 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add barrelstaves'
+7/20/2024 10:03:51 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 0) in Felucca: "barrelstaves"
+7/20/2024 10:03:51 AM: 127.0.0.1: Serials: 0x4000002A; 
+7/20/2024 10:03:52 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:03:56 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add barrelstaves'
+7/20/2024 10:03:58 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1288, 0) in Felucca: "barrelstaves"
+7/20/2024 10:03:58 AM: 127.0.0.1: Serials: 0x4000002B; 
+7/20/2024 10:04:06 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:04:26 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add barrellid'
+7/20/2024 10:04:27 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1287, 0) in Felucca: "barrellid"
+7/20/2024 10:04:27 AM: 127.0.0.1: Serials: 0x4000002C; 
+7/20/2024 10:04:29 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:04:47 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:05:11 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 10:06:32 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add woodenbox'
+7/20/2024 10:06:33 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1275, 1287, 0) in Felucca: "woodenbox"
+7/20/2024 10:06:33 AM: 127.0.0.1: Serials: 0x4000002D; 
+7/20/2024 10:06:34 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+##############################
+Log started on 7/20/2024 10:10:43 AM
+
+7/20/2024 10:10:59 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 10:11:01 AM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1288, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 10:11:01 AM: 127.0.0.1: Serials: 0x40000023; 
+##############################
+Log started on 7/20/2024 12:58:52 PM
+
+7/20/2024 12:59:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 12:59:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:24 PM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 12:59:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add smallcarpentrybod'
+7/20/2024 12:59:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:33 PM: 127.0.0.1: Serials: 0x4000002E; 
+7/20/2024 12:59:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:33 PM: 127.0.0.1: Serials: 0x4000002F; 
+7/20/2024 12:59:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:33 PM: 127.0.0.1: Serials: 0x40000030; 
+7/20/2024 12:59:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:34 PM: 127.0.0.1: Serials: 0x40000031; 
+7/20/2024 12:59:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:34 PM: 127.0.0.1: Serials: 0x40000032; 
+7/20/2024 12:59:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:34 PM: 127.0.0.1: Serials: 0x40000033; 
+7/20/2024 12:59:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:34 PM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 12:59:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:34 PM: 127.0.0.1: Serials: 0x40000035; 
+7/20/2024 12:59:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:34 PM: 127.0.0.1: Serials: 0x40000036; 
+7/20/2024 12:59:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:35 PM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 12:59:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1294, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 12:59:35 PM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 1:00:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:00:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000035 (SmallCarpentryBOD)
+7/20/2024 1:00:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000032 (SmallCarpentryBOD)
+7/20/2024 1:00:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002E (SmallCarpentryBOD)
+7/20/2024 1:00:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000037 (SmallCarpentryBOD)
+7/20/2024 1:00:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002F (SmallCarpentryBOD)
+7/20/2024 1:00:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000030 (SmallCarpentryBOD)
+7/20/2024 1:00:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000031 (SmallCarpentryBOD)
+7/20/2024 1:00:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000033 (SmallCarpentryBOD)
+7/20/2024 1:00:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000023 (SmallCarpentryBOD)
+7/20/2024 1:00:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000036 (SmallCarpentryBOD)
+7/20/2024 1:00:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000034 (SmallCarpentryBOD)
+7/20/2024 1:00:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000038 (SmallCarpentryBOD)
+7/20/2024 1:00:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'setallskills 100'
+7/20/2024 1:00:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'EverySkill.Base' of 0x1 "jp" ('rws') to '100'
+7/20/2024 1:00:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add smallcarpentrybod'
+7/20/2024 1:00:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:50 PM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 1:00:51 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:51 PM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 1:00:51 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:51 PM: 127.0.0.1: Serials: 0x4000003B; 
+7/20/2024 1:00:51 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:51 PM: 127.0.0.1: Serials: 0x4000003C; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x4000003D; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x4000003E; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x4000003F; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x40000040; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x40000041; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x40000042; 
+7/20/2024 1:00:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:52 PM: 127.0.0.1: Serials: 0x40000043; 
+7/20/2024 1:00:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:53 PM: 127.0.0.1: Serials: 0x40000044; 
+7/20/2024 1:00:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:53 PM: 127.0.0.1: Serials: 0x40000045; 
+7/20/2024 1:00:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:53 PM: 127.0.0.1: Serials: 0x40000046; 
+7/20/2024 1:00:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 7) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:53 PM: 127.0.0.1: Serials: 0x40000047; 
+7/20/2024 1:00:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 8) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:53 PM: 127.0.0.1: Serials: 0x40000048; 
+7/20/2024 1:00:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 9) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:53 PM: 127.0.0.1: Serials: 0x40000049; 
+7/20/2024 1:00:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 10) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:54 PM: 127.0.0.1: Serials: 0x4000004A; 
+7/20/2024 1:00:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 11) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:54 PM: 127.0.0.1: Serials: 0x4000004B; 
+7/20/2024 1:00:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 12) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:54 PM: 127.0.0.1: Serials: 0x4000004C; 
+7/20/2024 1:00:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1276, 1293, 13) in Felucca: "smallcarpentrybod"
+7/20/2024 1:00:54 PM: 127.0.0.1: Serials: 0x4000004D; 
+7/20/2024 1:02:05 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:02:11 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'AmountCur' of 0x4000003A (SmallCarpentryBOD) to '20'
+7/20/2024 1:02:15 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add carpenter'
+7/20/2024 1:02:16 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1292, 0) in Felucca: "carpenter"
+7/20/2024 1:02:16 PM: 127.0.0.1: Serials: 0x2; 
+7/20/2024 1:02:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add largecarpentrydeed'
+7/20/2024 1:03:00 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:03:01 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000045 (SmallCarpentryBOD)
+7/20/2024 1:03:01 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000046 (SmallCarpentryBOD)
+7/20/2024 1:03:01 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000047 (SmallCarpentryBOD)
+7/20/2024 1:03:02 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000049 (SmallCarpentryBOD)
+7/20/2024 1:03:02 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000048 (SmallCarpentryBOD)
+7/20/2024 1:03:03 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004A (SmallCarpentryBOD)
+7/20/2024 1:03:04 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000012 (Gold)
+7/20/2024 1:03:04 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000017 (ClumsyScroll)
+7/20/2024 1:03:05 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000056 (ProspectorsTool)
+7/20/2024 1:03:05 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000041 (SmallCarpentryBOD)
+7/20/2024 1:03:06 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000040 (SmallCarpentryBOD)
+7/20/2024 1:03:06 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004D (SmallCarpentryBOD)
+7/20/2024 1:03:07 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000042 (SmallCarpentryBOD)
+7/20/2024 1:03:08 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000043 (SmallCarpentryBOD)
+7/20/2024 1:03:08 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004B (SmallCarpentryBOD)
+7/20/2024 1:03:08 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000039 (SmallCarpentryBOD)
+7/20/2024 1:03:09 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000018 (ReactiveArmorScroll)
+7/20/2024 1:03:09 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003B (SmallCarpentryBOD)
+7/20/2024 1:03:10 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004C (SmallCarpentryBOD)
+7/20/2024 1:03:10 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000016 (ClumsyScroll)
+7/20/2024 1:03:11 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000011 (RedBook)
+7/20/2024 1:03:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003C (SmallCarpentryBOD)
+7/20/2024 1:03:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000014 (Candle)
+7/20/2024 1:03:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003D (SmallCarpentryBOD)
+7/20/2024 1:03:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003E (SmallCarpentryBOD)
+7/20/2024 1:03:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003F (SmallCarpentryBOD)
+7/20/2024 1:03:14 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000044 (SmallCarpentryBOD)
+7/20/2024 1:03:15 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm addlargecarpentrybod'
+7/20/2024 1:03:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:03:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:25 PM: 127.0.0.1: Serials: 0x40000058; 
+7/20/2024 1:03:27 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:27 PM: 127.0.0.1: Serials: 0x40000059; 
+7/20/2024 1:03:27 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:27 PM: 127.0.0.1: Serials: 0x4000005A; 
+7/20/2024 1:03:27 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:27 PM: 127.0.0.1: Serials: 0x4000005B; 
+7/20/2024 1:03:27 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:27 PM: 127.0.0.1: Serials: 0x4000005C; 
+7/20/2024 1:03:28 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:28 PM: 127.0.0.1: Serials: 0x4000005D; 
+7/20/2024 1:03:28 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:28 PM: 127.0.0.1: Serials: 0x4000005E; 
+7/20/2024 1:03:28 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:28 PM: 127.0.0.1: Serials: 0x4000005F; 
+7/20/2024 1:03:28 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 7) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:28 PM: 127.0.0.1: Serials: 0x40000060; 
+7/20/2024 1:03:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 8) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:29 PM: 127.0.0.1: Serials: 0x40000061; 
+7/20/2024 1:03:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 9) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:29 PM: 127.0.0.1: Serials: 0x40000062; 
+7/20/2024 1:03:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 10) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:29 PM: 127.0.0.1: Serials: 0x40000063; 
+7/20/2024 1:03:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 11) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:29 PM: 127.0.0.1: Serials: 0x40000064; 
+7/20/2024 1:03:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 12) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:29 PM: 127.0.0.1: Serials: 0x40000065; 
+7/20/2024 1:03:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 13) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:29 PM: 127.0.0.1: Serials: 0x40000066; 
+7/20/2024 1:03:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1277, 1293, 14) in Felucca: "largecarpentrybod"
+7/20/2024 1:03:30 PM: 127.0.0.1: Serials: 0x40000067; 
+7/20/2024 1:04:01 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+##############################
+Log started on 7/20/2024 1:08:07 PM
+
+7/20/2024 1:08:22 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:08:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000063 (LargeCarpentryBOD)
+7/20/2024 1:08:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000062 (LargeCarpentryBOD)
+7/20/2024 1:08:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000061 (LargeCarpentryBOD)
+7/20/2024 1:08:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000060 (LargeCarpentryBOD)
+7/20/2024 1:08:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005F (LargeCarpentryBOD)
+7/20/2024 1:08:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005E (LargeCarpentryBOD)
+7/20/2024 1:08:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005D (LargeCarpentryBOD)
+7/20/2024 1:08:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005C (LargeCarpentryBOD)
+7/20/2024 1:08:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005B (LargeCarpentryBOD)
+7/20/2024 1:08:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005A (LargeCarpentryBOD)
+7/20/2024 1:08:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000059 (LargeCarpentryBOD)
+7/20/2024 1:08:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000058 (LargeCarpentryBOD)
+7/20/2024 1:08:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:08:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:37 PM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 1:08:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:37 PM: 127.0.0.1: Serials: 0x4000002E; 
+7/20/2024 1:08:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:37 PM: 127.0.0.1: Serials: 0x4000002F; 
+7/20/2024 1:08:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:37 PM: 127.0.0.1: Serials: 0x40000030; 
+7/20/2024 1:08:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:37 PM: 127.0.0.1: Serials: 0x40000031; 
+7/20/2024 1:08:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:38 PM: 127.0.0.1: Serials: 0x40000032; 
+7/20/2024 1:08:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:38 PM: 127.0.0.1: Serials: 0x40000033; 
+7/20/2024 1:08:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 7) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:38 PM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 1:08:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 7) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:38 PM: 127.0.0.1: Serials: 0x40000035; 
+7/20/2024 1:08:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 8) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:38 PM: 127.0.0.1: Serials: 0x40000036; 
+7/20/2024 1:08:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 8) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:39 PM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 1:08:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 9) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:39 PM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 1:08:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 10) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:39 PM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 1:08:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 11) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:39 PM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 1:08:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 12) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:39 PM: 127.0.0.1: Serials: 0x4000003B; 
+7/20/2024 1:08:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 13) in Felucca: "largecarpentrybod"
+7/20/2024 1:08:39 PM: 127.0.0.1: Serials: 0x4000003C; 
+7/20/2024 1:08:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm remove'
+7/20/2024 1:08:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000018 (StrengthScroll)
+7/20/2024 1:08:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000016 (HealScroll)
+7/20/2024 1:08:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000012 (Gold)
+7/20/2024 1:08:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000011 (RedBook)
+7/20/2024 1:08:52 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000014 (Candle)
+7/20/2024 1:08:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000017 (ProtectionScroll)
+7/20/2024 1:08:55 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000013 (Dagger)
+##############################
+Log started on 7/20/2024 1:15:15 PM
+
+7/20/2024 1:15:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:15:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000036 (LargeCarpentryBOD)
+7/20/2024 1:15:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000037 (LargeCarpentryBOD)
+7/20/2024 1:15:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000035 (LargeCarpentryBOD)
+7/20/2024 1:15:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000034 (LargeCarpentryBOD)
+7/20/2024 1:15:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000033 (LargeCarpentryBOD)
+7/20/2024 1:15:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000032 (LargeCarpentryBOD)
+7/20/2024 1:15:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000031 (LargeCarpentryBOD)
+7/20/2024 1:15:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000030 (LargeCarpentryBOD)
+7/20/2024 1:15:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002F (LargeCarpentryBOD)
+7/20/2024 1:15:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002E (LargeCarpentryBOD)
+7/20/2024 1:15:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000023 (LargeCarpentryBOD)
+7/20/2024 1:15:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:15:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:46 PM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 1:15:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:47 PM: 127.0.0.1: Serials: 0x40000029; 
+7/20/2024 1:15:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:47 PM: 127.0.0.1: Serials: 0x4000002D; 
+7/20/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:48 PM: 127.0.0.1: Serials: 0x4000002E; 
+7/20/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:48 PM: 127.0.0.1: Serials: 0x4000002F; 
+7/20/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:48 PM: 127.0.0.1: Serials: 0x40000030; 
+7/20/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:48 PM: 127.0.0.1: Serials: 0x40000031; 
+7/20/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:48 PM: 127.0.0.1: Serials: 0x40000032; 
+7/20/2024 1:15:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 7) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:48 PM: 127.0.0.1: Serials: 0x40000033; 
+7/20/2024 1:15:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 8) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:49 PM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 1:15:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 9) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:49 PM: 127.0.0.1: Serials: 0x40000035; 
+7/20/2024 1:15:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 10) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:50 PM: 127.0.0.1: Serials: 0x40000036; 
+7/20/2024 1:15:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 10) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:50 PM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 1:15:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 11) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:50 PM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 1:15:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 12) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:50 PM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 1:15:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 12) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:50 PM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 1:15:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1294, 13) in Felucca: "largecarpentrybod"
+7/20/2024 1:15:50 PM: 127.0.0.1: Serials: 0x4000003B; 
+##############################
+Log started on 7/20/2024 1:21:23 PM
+
+7/20/2024 1:21:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:21:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:39 PM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 1:21:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:39 PM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 1:21:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:40 PM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 1:21:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:40 PM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 1:21:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:40 PM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 1:21:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:40 PM: 127.0.0.1: Serials: 0x4000003B; 
+7/20/2024 1:21:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:40 PM: 127.0.0.1: Serials: 0x4000003C; 
+7/20/2024 1:21:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:40 PM: 127.0.0.1: Serials: 0x4000003D; 
+7/20/2024 1:21:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:41 PM: 127.0.0.1: Serials: 0x4000003E; 
+7/20/2024 1:21:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:41 PM: 127.0.0.1: Serials: 0x4000003F; 
+7/20/2024 1:21:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:41 PM: 127.0.0.1: Serials: 0x40000040; 
+7/20/2024 1:21:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:41 PM: 127.0.0.1: Serials: 0x40000041; 
+7/20/2024 1:21:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:41 PM: 127.0.0.1: Serials: 0x40000042; 
+7/20/2024 1:21:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1284, 1286, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:21:41 PM: 127.0.0.1: Serials: 0x40000043; 
+##############################
+Log started on 7/20/2024 1:34:24 PM
+
+7/20/2024 1:34:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add smallcarpentrybod'
+7/20/2024 1:34:43 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:43 PM: 127.0.0.1: Serials: 0x40000034; 
+7/20/2024 1:34:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:45 PM: 127.0.0.1: Serials: 0x40000037; 
+7/20/2024 1:34:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:45 PM: 127.0.0.1: Serials: 0x40000038; 
+7/20/2024 1:34:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:45 PM: 127.0.0.1: Serials: 0x40000039; 
+7/20/2024 1:34:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:45 PM: 127.0.0.1: Serials: 0x4000003A; 
+7/20/2024 1:34:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:45 PM: 127.0.0.1: Serials: 0x4000003B; 
+7/20/2024 1:34:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:46 PM: 127.0.0.1: Serials: 0x4000003C; 
+7/20/2024 1:34:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:46 PM: 127.0.0.1: Serials: 0x4000003D; 
+7/20/2024 1:34:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 7) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:46 PM: 127.0.0.1: Serials: 0x4000003E; 
+7/20/2024 1:34:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 8) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:46 PM: 127.0.0.1: Serials: 0x4000003F; 
+7/20/2024 1:34:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 9) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:46 PM: 127.0.0.1: Serials: 0x40000040; 
+7/20/2024 1:34:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 10) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:46 PM: 127.0.0.1: Serials: 0x40000041; 
+7/20/2024 1:34:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1286, 11) in Felucca: "smallcarpentrybod"
+7/20/2024 1:34:47 PM: 127.0.0.1: Serials: 0x40000042; 
+7/20/2024 1:35:29 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add smallcarpentrybod'
+7/20/2024 1:35:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:30 PM: 127.0.0.1: Serials: 0x40000043; 
+7/20/2024 1:35:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:30 PM: 127.0.0.1: Serials: 0x40000044; 
+7/20/2024 1:35:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:30 PM: 127.0.0.1: Serials: 0x40000045; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x40000046; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x40000047; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x40000048; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x40000049; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x4000004A; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x4000004B; 
+7/20/2024 1:35:31 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:31 PM: 127.0.0.1: Serials: 0x4000004C; 
+7/20/2024 1:35:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:32 PM: 127.0.0.1: Serials: 0x4000004D; 
+7/20/2024 1:35:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:32 PM: 127.0.0.1: Serials: 0x40000056; 
+7/20/2024 1:35:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:32 PM: 127.0.0.1: Serials: 0x40000057; 
+7/20/2024 1:35:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 7) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:32 PM: 127.0.0.1: Serials: 0x40000058; 
+7/20/2024 1:35:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 8) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:32 PM: 127.0.0.1: Serials: 0x40000059; 
+7/20/2024 1:35:32 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 9) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:32 PM: 127.0.0.1: Serials: 0x4000005A; 
+7/20/2024 1:35:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 10) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:33 PM: 127.0.0.1: Serials: 0x4000005B; 
+7/20/2024 1:35:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 11) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:33 PM: 127.0.0.1: Serials: 0x4000005C; 
+7/20/2024 1:35:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 11) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:33 PM: 127.0.0.1: Serials: 0x4000005D; 
+7/20/2024 1:35:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 12) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:33 PM: 127.0.0.1: Serials: 0x4000005E; 
+7/20/2024 1:35:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 13) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:33 PM: 127.0.0.1: Serials: 0x4000005F; 
+7/20/2024 1:35:33 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 14) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:33 PM: 127.0.0.1: Serials: 0x40000060; 
+7/20/2024 1:35:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 15) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:34 PM: 127.0.0.1: Serials: 0x40000061; 
+7/20/2024 1:35:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1287, 15) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:34 PM: 127.0.0.1: Serials: 0x40000062; 
+7/20/2024 1:35:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 1) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:34 PM: 127.0.0.1: Serials: 0x40000063; 
+7/20/2024 1:35:34 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 2) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:34 PM: 127.0.0.1: Serials: 0x40000064; 
+7/20/2024 1:35:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:35 PM: 127.0.0.1: Serials: 0x40000065; 
+7/20/2024 1:35:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 3) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:35 PM: 127.0.0.1: Serials: 0x40000066; 
+7/20/2024 1:35:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 4) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:35 PM: 127.0.0.1: Serials: 0x40000067; 
+7/20/2024 1:35:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 5) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:35 PM: 127.0.0.1: Serials: 0x40000068; 
+7/20/2024 1:35:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 6) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:36 PM: 127.0.0.1: Serials: 0x40000069; 
+7/20/2024 1:35:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 7) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:36 PM: 127.0.0.1: Serials: 0x4000006A; 
+7/20/2024 1:35:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 8) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:36 PM: 127.0.0.1: Serials: 0x4000006B; 
+7/20/2024 1:35:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 8) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:36 PM: 127.0.0.1: Serials: 0x4000006C; 
+7/20/2024 1:35:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 9) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:36 PM: 127.0.0.1: Serials: 0x4000006D; 
+7/20/2024 1:35:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 10) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:36 PM: 127.0.0.1: Serials: 0x4000006E; 
+7/20/2024 1:35:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 11) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:37 PM: 127.0.0.1: Serials: 0x4000006F; 
+7/20/2024 1:35:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 12) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:37 PM: 127.0.0.1: Serials: 0x40000070; 
+7/20/2024 1:35:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 13) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:37 PM: 127.0.0.1: Serials: 0x40000071; 
+7/20/2024 1:35:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 14) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:37 PM: 127.0.0.1: Serials: 0x40000072; 
+7/20/2024 1:35:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 15) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:37 PM: 127.0.0.1: Serials: 0x40000073; 
+7/20/2024 1:35:37 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1283, 1287, 16) in Felucca: "smallcarpentrybod"
+7/20/2024 1:35:37 PM: 127.0.0.1: Serials: 0x40000074; 
+7/20/2024 1:36:01 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:36:06 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'AmountCur' of 0x4000003F (SmallCarpentryBOD) to '20'
+7/20/2024 1:37:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:37:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000012 (Gold)
+7/20/2024 1:37:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000017 (AgilityScroll)
+7/20/2024 1:37:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000041 (SmallCarpentryBOD)
+7/20/2024 1:37:38 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000014 (Candle)
+7/20/2024 1:37:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000042 (SmallCarpentryBOD)
+7/20/2024 1:37:40 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000016 (WeakenScroll)
+7/20/2024 1:37:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000018 (TeleportScroll)
+7/20/2024 1:37:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000043 (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000046 (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000047 (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000048 (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000049 (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004A (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004B (SmallCarpentryBOD)
+7/20/2024 1:37:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004C (SmallCarpentryBOD)
+7/20/2024 1:37:43 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000004D (SmallCarpentryBOD)
+7/20/2024 1:37:43 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000011 (RedBook)
+7/20/2024 1:37:43 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000056 (SmallCarpentryBOD)
+7/20/2024 1:37:43 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000057 (SmallCarpentryBOD)
+7/20/2024 1:37:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000058 (SmallCarpentryBOD)
+7/20/2024 1:37:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000059 (SmallCarpentryBOD)
+7/20/2024 1:37:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005A (SmallCarpentryBOD)
+7/20/2024 1:37:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005B (SmallCarpentryBOD)
+7/20/2024 1:37:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005C (SmallCarpentryBOD)
+7/20/2024 1:37:44 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005D (SmallCarpentryBOD)
+7/20/2024 1:37:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005E (SmallCarpentryBOD)
+7/20/2024 1:37:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000005F (SmallCarpentryBOD)
+7/20/2024 1:37:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000060 (SmallCarpentryBOD)
+7/20/2024 1:37:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000061 (SmallCarpentryBOD)
+7/20/2024 1:37:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000062 (SmallCarpentryBOD)
+7/20/2024 1:37:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000044 (SmallCarpentryBOD)
+7/20/2024 1:37:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000045 (SmallCarpentryBOD)
+7/20/2024 1:37:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000063 (SmallCarpentryBOD)
+7/20/2024 1:37:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000064 (SmallCarpentryBOD)
+7/20/2024 1:37:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000065 (SmallCarpentryBOD)
+7/20/2024 1:37:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000066 (SmallCarpentryBOD)
+7/20/2024 1:37:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000068 (SmallCarpentryBOD)
+7/20/2024 1:37:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000069 (SmallCarpentryBOD)
+7/20/2024 1:37:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000006A (SmallCarpentryBOD)
+7/20/2024 1:37:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000006B (SmallCarpentryBOD)
+7/20/2024 1:37:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000006C (SmallCarpentryBOD)
+7/20/2024 1:37:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000067 (SmallCarpentryBOD)
+7/20/2024 1:37:47 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000006D (SmallCarpentryBOD)
+7/20/2024 1:37:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000006E (SmallCarpentryBOD)
+7/20/2024 1:37:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000006F (SmallCarpentryBOD)
+7/20/2024 1:37:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000070 (SmallCarpentryBOD)
+7/20/2024 1:37:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000071 (SmallCarpentryBOD)
+7/20/2024 1:37:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000072 (SmallCarpentryBOD)
+7/20/2024 1:37:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000073 (SmallCarpentryBOD)
+7/20/2024 1:37:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000074 (SmallCarpentryBOD)
+7/20/2024 1:37:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000034 (SmallCarpentryBOD)
+7/20/2024 1:37:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000037 (SmallCarpentryBOD)
+7/20/2024 1:37:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000038 (SmallCarpentryBOD)
+7/20/2024 1:37:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000039 (SmallCarpentryBOD)
+7/20/2024 1:37:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003A (SmallCarpentryBOD)
+7/20/2024 1:37:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003B (SmallCarpentryBOD)
+7/20/2024 1:37:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003C (SmallCarpentryBOD)
+7/20/2024 1:37:50 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003D (SmallCarpentryBOD)
+7/20/2024 1:37:51 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000003E (SmallCarpentryBOD)
+7/20/2024 1:37:51 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000040 (SmallCarpentryBOD)
+7/20/2024 1:38:07 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:38:08 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000022 (SmallCarpentryBOD)
+7/20/2024 1:38:08 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000024 (Axe)
+7/20/2024 1:38:10 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000001C (Bow)
+7/20/2024 1:38:10 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000021 (SmallCarpentryBOD)
+7/20/2024 1:38:11 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002A (BarrelStaves)
+7/20/2024 1:38:11 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002B (BarrelStaves)
+7/20/2024 1:38:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000036 (LargeCarpentryBOD)
+7/20/2024 1:38:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000035 (LargeCarpentryBOD)
+7/20/2024 1:38:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000032 (LargeCarpentryBOD)
+7/20/2024 1:38:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000031 (LargeCarpentryBOD)
+7/20/2024 1:38:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002F (LargeCarpentryBOD)
+7/20/2024 1:38:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002E (LargeCarpentryBOD)
+7/20/2024 1:38:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x4000002D (LargeCarpentryBOD)
+7/20/2024 1:38:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000030 (LargeCarpentryBOD)
+7/20/2024 1:38:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000033 (LargeCarpentryBOD)
+7/20/2024 1:38:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000023 (LargeCarpentryBOD)
+7/20/2024 1:38:14 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000029 (LargeCarpentryBOD)
+7/20/2024 1:38:20 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:38:22 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:22 PM: 127.0.0.1: Serials: 0x40000077; 
+7/20/2024 1:38:22 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:22 PM: 127.0.0.1: Serials: 0x40000078; 
+7/20/2024 1:38:22 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:22 PM: 127.0.0.1: Serials: 0x40000079; 
+7/20/2024 1:38:22 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:22 PM: 127.0.0.1: Serials: 0x4000007A; 
+7/20/2024 1:38:22 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:22 PM: 127.0.0.1: Serials: 0x4000007B; 
+7/20/2024 1:38:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:23 PM: 127.0.0.1: Serials: 0x4000007C; 
+7/20/2024 1:38:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:23 PM: 127.0.0.1: Serials: 0x4000007D; 
+7/20/2024 1:38:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:23 PM: 127.0.0.1: Serials: 0x4000007E; 
+7/20/2024 1:38:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:23 PM: 127.0.0.1: Serials: 0x4000007F; 
+7/20/2024 1:38:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:23 PM: 127.0.0.1: Serials: 0x40000080; 
+7/20/2024 1:38:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 7) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:23 PM: 127.0.0.1: Serials: 0x40000081; 
+7/20/2024 1:38:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 8) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:24 PM: 127.0.0.1: Serials: 0x40000082; 
+7/20/2024 1:38:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 8) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:24 PM: 127.0.0.1: Serials: 0x40000083; 
+7/20/2024 1:38:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 9) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:24 PM: 127.0.0.1: Serials: 0x40000084; 
+7/20/2024 1:38:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 10) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:24 PM: 127.0.0.1: Serials: 0x40000085; 
+7/20/2024 1:38:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 11) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:24 PM: 127.0.0.1: Serials: 0x40000086; 
+7/20/2024 1:38:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 12) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:24 PM: 127.0.0.1: Serials: 0x40000087; 
+7/20/2024 1:38:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 13) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:25 PM: 127.0.0.1: Serials: 0x40000088; 
+7/20/2024 1:38:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 12) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:25 PM: 127.0.0.1: Serials: 0x40000089; 
+7/20/2024 1:38:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 14) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:25 PM: 127.0.0.1: Serials: 0x4000008A; 
+7/20/2024 1:38:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1282, 1288, 14) in Felucca: "largecarpentrybod"
+7/20/2024 1:38:25 PM: 127.0.0.1: Serials: 0x4000008B; 
+##############################
+Log started on 7/20/2024 1:44:26 PM
+
+7/20/2024 1:44:43 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:44:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:45 PM: 127.0.0.1: Serials: 0x40000020; 
+7/20/2024 1:44:45 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:45 PM: 127.0.0.1: Serials: 0x40000021; 
+7/20/2024 1:44:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:46 PM: 127.0.0.1: Serials: 0x40000022; 
+7/20/2024 1:44:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:46 PM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 1:44:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:46 PM: 127.0.0.1: Serials: 0x40000024; 
+7/20/2024 1:44:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:46 PM: 127.0.0.1: Serials: 0x40000029; 
+7/20/2024 1:44:46 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:44:46 PM: 127.0.0.1: Serials: 0x4000002A; 
+##############################
+Log started on 7/20/2024 1:45:56 PM
+
+7/20/2024 1:46:11 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:46:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:12 PM: 127.0.0.1: Serials: 0x40000020; 
+7/20/2024 1:46:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 1) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:12 PM: 127.0.0.1: Serials: 0x40000021; 
+7/20/2024 1:46:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 2) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:12 PM: 127.0.0.1: Serials: 0x40000022; 
+7/20/2024 1:46:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 3) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:12 PM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 1:46:12 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 4) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:12 PM: 127.0.0.1: Serials: 0x40000024; 
+7/20/2024 1:46:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 5) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:13 PM: 127.0.0.1: Serials: 0x40000029; 
+7/20/2024 1:46:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:13 PM: 127.0.0.1: Serials: 0x4000002A; 
+7/20/2024 1:46:13 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1291, 6) in Felucca: "largecarpentrybod"
+7/20/2024 1:46:13 PM: 127.0.0.1: Serials: 0x4000002B; 
+##############################
+Log started on 7/20/2024 1:47:43 PM
+
+7/20/2024 1:47:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:47:55 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1288, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:47:55 PM: 127.0.0.1: Serials: 0x40000020; 
+##############################
+Log started on 7/20/2024 1:52:07 PM
+
+7/20/2024 1:52:23 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'm add largecarpentrybod'
+7/20/2024 1:52:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 0) in Felucca: "largecarpentrybod"
+7/20/2024 1:52:24 PM: 127.0.0.1: Serials: 0x40000020; 
+7/20/2024 1:52:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:52:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:53:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 1:53:26 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1292, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:53:26 PM: 127.0.0.1: Serials: 0x40000021; 
+7/20/2024 1:53:28 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:54:05 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Graphic' of 0x40000021 (SmallCarpentryBOD) to '5042'
+7/20/2024 1:54:16 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Material' of 0x40000021 (SmallCarpentryBOD) to 'OakWood'
+7/20/2024 1:54:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add bow'
+7/20/2024 1:54:26 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1292, 0) in Felucca: "bow"
+7/20/2024 1:54:26 PM: 127.0.0.1: Serials: 0x40000022; 
+7/20/2024 1:54:30 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Type' of 0x40000021 (SmallCarpentryBOD) to 'Server.Items.Bow'
+7/20/2024 1:54:36 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'AmountCur' of 0x40000021 (SmallCarpentryBOD) to '10'
+7/20/2024 1:54:53 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add smallcarpentrybod'
+7/20/2024 1:54:54 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1278, 1293, 0) in Felucca: "smallcarpentrybod"
+7/20/2024 1:54:54 PM: 127.0.0.1: Serials: 0x40000023; 
+7/20/2024 1:54:59 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:55:06 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add crossbow'
+7/20/2024 1:55:07 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1293, 0) in Felucca: "crossbow"
+7/20/2024 1:55:07 PM: 127.0.0.1: Serials: 0x40000024; 
+7/20/2024 1:55:09 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Type' of 0x40000023 (SmallCarpentryBOD) to 'Server.Items.Crossbow'
+7/20/2024 1:55:15 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Material' of 0x40000023 (SmallCarpentryBOD) to 'OakWood'
+7/20/2024 1:55:21 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:55:35 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Graphic' of 0x40000023 (SmallCarpentryBOD) to '3919'
+7/20/2024 1:55:42 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'AmountCur' of 0x40000023 (SmallCarpentryBOD) to '10'
+7/20/2024 1:55:48 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'dupe '
+7/20/2024 1:55:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') duping 0x40000023 (SmallCarpentryBOD) (inBag=False; amount=1)
+7/20/2024 1:55:49 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') duped 0x40000023 (SmallCarpentryBOD) creating 0x40000029 (SmallCarpentryBOD)
+7/20/2024 1:55:59 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'add heavycrossbow'
+7/20/2024 1:56:01 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') building at (1279, 1292, 0) in Felucca: "heavycrossbow"
+7/20/2024 1:56:01 PM: 127.0.0.1: Serials: 0x4000002A; 
+7/20/2024 1:56:06 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'props '
+7/20/2024 1:56:09 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Type' of 0x40000029 (SmallCarpentryBOD) to 'Server.Items.HeavyCrossbow'
+7/20/2024 1:56:17 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') set property 'Graphic' of 0x40000029 (SmallCarpentryBOD) to '5117'
+7/20/2024 1:56:24 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'M Remove'
+7/20/2024 1:56:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000012 (Gold)
+7/20/2024 1:56:25 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000017 (MagicArrowScroll)
+7/20/2024 1:56:26 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000018 (MagicLockScroll)
+7/20/2024 1:56:26 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000014 (Candle)
+7/20/2024 1:56:27 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000016 (FeeblemindScroll)
+7/20/2024 1:56:27 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000011 (RedBook)
+7/20/2024 1:56:28 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') deleting 0x40000013 (Dagger)
+7/20/2024 1:56:39 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') used command 'bank '
+7/20/2024 1:56:41 PM: 127.0.0.1: Owner 0x1 "jp" ('rws') opening bank box of 0x1 "jp" ('rws')

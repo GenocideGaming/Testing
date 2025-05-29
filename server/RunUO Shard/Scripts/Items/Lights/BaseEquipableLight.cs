@@ -28,7 +28,7 @@ namespace Server.Items
 					else if ( this is Torch )
 						holder.SendLocalizedMessage( 502971 ); // You put the torch in your left hand.
 
-					base.Ignite();
+						base.Ignite();
 				}
 				else
 				{

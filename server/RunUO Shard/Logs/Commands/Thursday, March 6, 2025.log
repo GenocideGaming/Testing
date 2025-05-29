@@ -1,0 +1,20 @@
+##############################
+Log started on 3/6/2025 10:13:29 PM
+
+3/6/2025 10:15:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go britain'
+3/6/2025 10:15:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+3/6/2025 10:16:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'speedboost '
+3/6/2025 10:17:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add fullspellbook'
+3/6/2025 10:17:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1418, 1906, 0) in Felucca: "fullspellbook"
+3/6/2025 10:17:50 PM: 127.0.0.1: Serials: 0x40004CBF; 
+3/6/2025 10:17:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add bagofreagents'
+3/6/2025 10:17:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1419, 1907, 0) in Felucca: "bagofreagents"
+3/6/2025 10:17:58 PM: 127.0.0.1: Serials: 0x40004ED7; 
+3/6/2025 10:18:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set int 100'
+3/6/2025 10:18:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'int' of 0x1 "Johnny Ponytail" ('rws') to '100'
+3/6/2025 10:18:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set str 100'
+3/6/2025 10:18:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'str' of 0x1 "Johnny Ponytail" ('rws') to '100'
+3/6/2025 10:18:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set str 100'
+3/6/2025 10:18:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'str' of 0x1 "Johnny Ponytail" ('rws') to '100'
+3/6/2025 10:19:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+3/6/2025 10:30:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'

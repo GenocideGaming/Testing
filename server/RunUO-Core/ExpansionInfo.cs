@@ -120,7 +120,7 @@ namespace Server
 		private static ExpansionInfo[] m_Table = new ExpansionInfo[]
 			{
 				new ExpansionInfo( 0, "None",			ClientFlags.None,		FeatureFlags.ExpansionNone,	CharacterListFlags.ExpansionNone,	0x0000 ),
-				new ExpansionInfo( 1, "The Second Age",		ClientFlags.Felucca,		FeatureFlags.ExpansionT2A,	CharacterListFlags.ExpansionT2A,	0x0000 ),
+				new ExpansionInfo( 1, "The Second Age",		ClientFlags.Felucca,		FeatureFlags.ExpansionLBR,	CharacterListFlags.ExpansionT2A,	0x0000 ),
 				new ExpansionInfo( 2, "Renaissance",		ClientFlags.Trammel,		FeatureFlags.ExpansionUOR,	CharacterListFlags.ExpansionUOR,	0x0000 ),
 				new ExpansionInfo( 3, "Third Dawn",		ClientFlags.Ilshenar,		FeatureFlags.ExpansionUOTD,	CharacterListFlags.ExpansionUOTD,	0x0000 ),
 				new ExpansionInfo( 4, "Blackthorn's Revenge",	ClientFlags.Ilshenar,		FeatureFlags.ExpansionLBR,	CharacterListFlags.ExpansionLBR,	0x0000 ),

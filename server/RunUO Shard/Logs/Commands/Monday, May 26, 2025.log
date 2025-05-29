@@ -1,0 +1,841 @@
+##############################
+Log started on 5/26/2025 12:40:39 AM
+
+5/26/2025 12:41:09 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Tele'
+5/26/2025 12:42:29 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Tele'
+5/26/2025 12:45:26 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Tele'
+5/26/2025 12:47:15 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycreate'
+5/26/2025 12:47:19 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1278, 1294, 0) in Felucca: "LostSupplyCrate"
+5/26/2025 12:47:19 AM: 127.0.0.1: Serials: 0x40000076; 
+5/26/2025 12:47:27 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:47:28 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x6 "A Covidead" (no account)
+5/26/2025 12:47:28 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x7 "A Covidead" (no account)
+5/26/2025 12:47:29 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x5 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:47:34 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycreate'
+5/26/2025 12:47:39 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:47:40 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1277, 1297, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:47:40 AM: 127.0.0.1: Serials: 0x4000007D; 
+5/26/2025 12:47:46 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:47:46 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0xB "A Covidead" (no account)
+5/26/2025 12:47:47 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x8 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:47:53 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x9 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:47:56 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0xA "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:02 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:48:03 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1276, 1298, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:48:03 AM: 127.0.0.1: Serials: 0x40000086; 
+5/26/2025 12:48:07 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:48:07 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0xD "A Covidead" (no account)
+5/26/2025 12:48:08 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0xC "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:12 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:48:13 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0xF "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:13 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0xE "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:16 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:48:17 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1277, 1297, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:48:17 AM: 127.0.0.1: Serials: 0x4000008F; 
+5/26/2025 12:48:20 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:48:21 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x12 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:22 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x10 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:23 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x11 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:24 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:48:25 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1277, 1298, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:48:25 AM: 127.0.0.1: Serials: 0x40000096; 
+5/26/2025 12:48:29 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:48:29 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x15 "A Covidead" (no account)
+5/26/2025 12:48:30 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x14 "A Covidead" (no account)
+5/26/2025 12:48:31 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x13 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:47 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:48:47 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x18 "A Covidead" (no account)
+5/26/2025 12:48:48 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x16 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:49 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x17 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:48:55 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:48:56 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1278, 1297, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:48:56 AM: 127.0.0.1: Serials: 0x400000A3; 
+5/26/2025 12:49:01 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:49:03 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x19 "A Covidead" (no account)
+5/26/2025 12:49:04 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x1A "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:49:04 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x1C "A Covidead" (no account)
+5/26/2025 12:49:05 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x1B "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:49:09 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:49:10 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1279, 1297, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:49:10 AM: 127.0.0.1: Serials: 0x400000AC; 
+5/26/2025 12:49:12 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:49:12 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1279, 1298, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:49:12 AM: 127.0.0.1: Serials: 0x400000AD; 
+5/26/2025 12:49:14 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'add lostsupplycrate'
+5/26/2025 12:49:14 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') building at (1279, 1298, 0) in Felucca: "lostsupplycrate"
+5/26/2025 12:49:14 AM: 127.0.0.1: Serials: 0x400000AE; 
+5/26/2025 12:49:21 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:49:22 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x1E "A Covidead" (no account)
+5/26/2025 12:49:24 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x24 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:49:24 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x22 "A Covidead" (no account)
+5/26/2025 12:49:25 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x1F "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:49:26 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x20 "A Covidead" (no account)
+5/26/2025 12:49:26 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x23 "A Covidead" (no account)
+5/26/2025 12:49:27 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x25 "A Covidead" (no account)
+5/26/2025 12:49:27 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x26 "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:49:28 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x21 "A Covidead" (no account)
+5/26/2025 12:49:29 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x1D "A Lesser Contagious Zombie" (no account)
+5/26/2025 12:49:52 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') used command 'M Remove'
+5/26/2025 12:49:53 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x28 "A Covidead" (no account)
+5/26/2025 12:49:54 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x27 "A Covidead" (no account)
+5/26/2025 12:49:54 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x29 "A Covidead" (no account)
+5/26/2025 12:49:55 AM: 127.0.0.1: Owner 0x1 "dfhdfhd" ('rws') deleting 0x2A "A Lesser Contagious Zombie" (no account)
+##############################
+Log started on 5/26/2025 10:47:27 AM
+
+5/26/2025 10:48:18 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') used command 'add lostsupplycrate'
+5/26/2025 10:48:20 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') building at (1276, 1299, 0) in Felucca: "lostsupplycrate"
+5/26/2025 10:48:20 AM: 127.0.0.1: Serials: 0x4000004C; 
+5/26/2025 10:48:23 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') used command 'M Remove'
+5/26/2025 10:48:23 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') deleting 0x7 "A Covidead" (no account)
+5/26/2025 10:48:24 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') deleting 0x5 "A Lesser Contagious Zombie" (no account)
+5/26/2025 10:48:25 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') deleting 0x6 "A Covidead" (no account)
+5/26/2025 10:48:26 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') deleting 0x8 "A Lesser Contagious Zombie" (no account)
+5/26/2025 10:48:29 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') used command 'dupe '
+5/26/2025 10:48:30 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duping 0x4000004C (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 10:48:30 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duped 0x4000004C (LostSupplyCrate) creating 0x40000055 (LostSupplyCrate)
+5/26/2025 10:48:32 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') used command 'dupe '
+5/26/2025 10:48:32 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duping 0x4000004C (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 10:48:32 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duped 0x4000004C (LostSupplyCrate) creating 0x40000063 (LostSupplyCrate)
+5/26/2025 10:48:33 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') used command 'dupe '
+5/26/2025 10:48:33 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duping 0x4000004C (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 10:48:33 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duped 0x4000004C (LostSupplyCrate) creating 0x40000064 (LostSupplyCrate)
+5/26/2025 10:48:34 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') used command 'dupe '
+5/26/2025 10:48:35 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duping 0x4000004C (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 10:48:35 AM: 127.0.0.1: Owner 0x1 "sdhgasdh" ('rws') duped 0x4000004C (LostSupplyCrate) creating 0x40000065 (LostSupplyCrate)
+##############################
+Log started on 5/26/2025 11:04:28 AM
+
+5/26/2025 11:05:15 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 11:05:16 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1277, 1289, 0) in Felucca: "lostsupplycrate"
+5/26/2025 11:05:16 AM: 127.0.0.1: Serials: 0x40000037; 
+5/26/2025 11:05:19 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 11:05:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x5 "A Lesser Contagious Zombie" (no account)
+5/26/2025 11:05:21 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x6 "A Lesser Contagious Zombie" (no account)
+5/26/2025 11:05:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x8 "A Covidead" (no account)
+5/26/2025 11:05:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x7 "A Covidead" (no account)
+5/26/2025 11:05:27 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 11:05:28 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1277, 1289, 0) in Felucca: "lostsupplycrate"
+5/26/2025 11:05:28 AM: 127.0.0.1: Serials: 0x40000040; 
+5/26/2025 11:05:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 11:05:33 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xB "A Covidead" (no account)
+5/26/2025 11:05:33 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xA "A Covidead" (no account)
+5/26/2025 11:05:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xC "A Lesser Contagious Zombie" (no account)
+5/26/2025 11:05:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x9 "A Lesser Contagious Zombie" (no account)
+5/26/2025 11:05:43 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:05:45 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000040 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:05:45 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000040 (LostSupplyCrate) creating 0x40000049 (LostSupplyCrate)
+5/26/2025 11:05:45 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:05:46 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000049 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:05:46 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000049 (LostSupplyCrate) creating 0x4000004A (LostSupplyCrate)
+5/26/2025 11:05:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:05:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000049 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:05:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000049 (LostSupplyCrate) creating 0x4000004B (LostSupplyCrate)
+5/26/2025 11:06:18 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 5/26/2025 11:13:57 AM
+
+5/26/2025 11:14:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 11:14:55 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1279, 1292, 0) in Felucca: "lostsupplycrate"
+5/26/2025 11:14:55 AM: 127.0.0.1: Serials: 0x40000037; 
+5/26/2025 11:14:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 11:14:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x6 "A Covidead" (no account)
+5/26/2025 11:14:59 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x8 "A Covidead" (no account)
+5/26/2025 11:15:01 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x5 "A Covidead" (no account)
+5/26/2025 11:15:03 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x7 "A Lesser Contagious Zombie" (no account)
+5/26/2025 11:15:05 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:15:07 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000037 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:15:07 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000037 (LostSupplyCrate) creating 0x40000040 (LostSupplyCrate)
+5/26/2025 11:15:07 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:15:08 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000040 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:15:08 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000040 (LostSupplyCrate) creating 0x40000041 (LostSupplyCrate)
+5/26/2025 11:15:08 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:15:09 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000041 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:15:09 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000041 (LostSupplyCrate) creating 0x40000042 (LostSupplyCrate)
+5/26/2025 11:15:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 11:15:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000037 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 11:15:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000037 (LostSupplyCrate) creating 0x40000043 (LostSupplyCrate)
+5/26/2025 11:15:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 5/26/2025 11:15:30 AM
+
+5/26/2025 11:18:41 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 5/26/2025 11:24:54 AM
+
+##############################
+Log started on 5/26/2025 11:25:22 AM
+
+##############################
+Log started on 5/26/2025 11:25:58 AM
+
+##############################
+Log started on 5/26/2025 11:27:04 AM
+
+##############################
+Log started on 5/26/2025 11:29:24 AM
+
+5/26/2025 11:31:19 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add xmlspawner'
+5/26/2025 11:31:21 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1277, 0) in Felucca: "xmlspawner"
+5/26/2025 11:31:21 AM: 127.0.0.1: Serials: 0x40000037; 
+5/26/2025 11:31:29 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') added to XmlSpawner 0x40000037 'Spawner' [1260, 1277] (Felucca) : MasterBlacksmithTorren
+5/26/2025 11:31:44 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'SpawnRange' of 0x40000037 (XmlSpawner) to '0'
+5/26/2025 11:32:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set direction southeast'
+5/26/2025 11:32:34 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:32:46 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'staffrunebook '
+5/26/2025 11:32:54 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Direction' of 0x8 "Master Blacksmith Torren" (no account) to 'Right'
+5/26/2025 11:33:00 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Direction' of 0x8 "Master Blacksmith Torren" (no account) to 'Down'
+5/26/2025 11:41:40 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add dyetub'
+5/26/2025 11:41:42 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1279, 0) in Felucca: "dyetub"
+5/26/2025 11:41:42 AM: 127.0.0.1: Serials: 0x4000006D; 
+5/26/2025 11:41:44 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add dye'
+5/26/2025 11:41:48 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1279, 0) in Felucca: "Dyes"
+5/26/2025 11:41:48 AM: 127.0.0.1: Serials: 0x4000006E; 
+5/26/2025 11:43:21 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1102'
+5/26/2025 11:43:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000067 (LongPants) to '1102'
+5/26/2025 11:43:35 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add hairdye'
+5/26/2025 11:43:37 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1280, 0) in Felucca: "hairdye"
+5/26/2025 11:43:37 AM: 127.0.0.1: Serials: 0x4000006F; 
+5/26/2025 11:44:10 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:44:14 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:44:35 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hairhue 1146'
+5/26/2025 11:44:36 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hairhue' of 0x8 "Master Blacksmith Torren" (no account) to '1146'
+5/26/2025 11:45:38 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'FacialHairItemID' of 0x1 "Johnny Ponytail" ('rws') to '8257'
+5/26/2025 11:45:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'FacialHairItemID' of 0x1 "Johnny Ponytail" ('rws') to '8255'
+5/26/2025 11:47:52 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add skirt'
+5/26/2025 11:47:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1260, 1279, 0) in Felucca: "skirt"
+5/26/2025 11:47:53 AM: 127.0.0.1: Serials: 0x40000071; 
+5/26/2025 11:48:02 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add kilt'
+5/26/2025 11:48:03 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1280, 0) in Felucca: "kilt"
+5/26/2025 11:48:03 AM: 127.0.0.1: Serials: 0x40000072; 
+5/26/2025 11:48:15 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add halfapron'
+5/26/2025 11:48:16 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1279, 0) in Felucca: "halfapron"
+5/26/2025 11:48:16 AM: 127.0.0.1: Serials: 0x40000073; 
+5/26/2025 11:48:34 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add shortpants'
+5/26/2025 11:48:35 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1279, 0) in Felucca: "shortpants"
+5/26/2025 11:48:35 AM: 127.0.0.1: Serials: 0x40000074; 
+5/26/2025 11:49:56 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 0'
+5/26/2025 11:49:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000066 (Shirt) to '0'
+5/26/2025 11:50:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lantern'
+5/26/2025 11:50:07 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1280, 0) in Felucca: "lantern"
+5/26/2025 11:50:07 AM: 127.0.0.1: Serials: 0x40000075; 
+5/26/2025 11:50:19 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:51:14 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:51:35 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:51:56 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add boots'
+5/26/2025 11:51:57 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1259, 1279, 0) in Felucca: "boots"
+5/26/2025 11:51:57 AM: 127.0.0.1: Serials: 0x40000076; 
+5/26/2025 11:53:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 11:57:12 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1206'
+5/26/2025 11:57:13 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000071 (Skirt) to '1206'
+5/26/2025 11:57:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1209'
+5/26/2025 11:57:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000071 (Skirt) to '1209'
+5/26/2025 11:57:53 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 11:57:54 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000001F (XmlSpawner)
+5/26/2025 11:57:56 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 11:58:20 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 11:58:21 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1423, 1614, 20) in Felucca: "lostsupplycrate"
+5/26/2025 11:58:21 AM: 127.0.0.1: Serials: 0x400000AB; 
+5/26/2025 11:58:25 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 11:58:25 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x400000AB (LostSupplyCrate)
+5/26/2025 11:58:27 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 11:59:31 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 12:00:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set direction east'
+5/26/2025 12:00:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'direction' of 0x2 "Commander Elena Voss" (no account) to 'East'
+5/26/2025 12:01:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+##############################
+Log started on 5/26/2025 12:19:13 PM
+
+5/26/2025 12:20:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 12:20:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 12:20:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'SpawnRange' of 0x40000056 (XmlSpawner) to '0'
+5/26/2025 12:20:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 12:21:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+##############################
+Log started on 5/26/2025 12:45:59 PM
+
+5/26/2025 12:46:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 12:46:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add xmlspawner'
+5/26/2025 12:46:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1898, 1390, 0) in Felucca: "xmlspawner"
+5/26/2025 12:46:48 PM: 127.0.0.1: Serials: 0x40000075; 
+5/26/2025 12:47:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') added to XmlSpawner 0x40000075 'Spawner' [1898, 1390] (Felucca) : HighPriestessLiora
+5/26/2025 12:47:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'SpawnRange' of 0x40000075 (XmlSpawner) to '0'
+5/26/2025 12:47:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 5/26/2025 12:48:01 PM
+
+5/26/2025 12:49:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add skeleton'
+5/26/2025 12:49:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1397, 0) in Felucca: "skeleton"
+5/26/2025 12:49:38 PM: 127.0.0.1: Serials: 0x3; 
+5/26/2025 12:49:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1397, 0) in Felucca: "skeleton"
+5/26/2025 12:49:38 PM: 127.0.0.1: Serials: 0x6; 
+5/26/2025 12:49:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1397, 0) in Felucca: "skeleton"
+5/26/2025 12:49:38 PM: 127.0.0.1: Serials: 0x7; 
+5/26/2025 12:49:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1397, 0) in Felucca: "skeleton"
+5/26/2025 12:49:38 PM: 127.0.0.1: Serials: 0x8; 
+5/26/2025 12:49:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1397, 0) in Felucca: "skeleton"
+5/26/2025 12:49:39 PM: 127.0.0.1: Serials: 0x9; 
+5/26/2025 12:49:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add bagofreagents'
+5/26/2025 12:49:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1893, 1395, 0) in Felucca: "bagofreagents"
+5/26/2025 12:49:51 PM: 127.0.0.1: Serials: 0x40000044; 
+5/26/2025 12:49:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add fullspellbook'
+5/26/2025 12:49:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1394, 0) in Felucca: "fullspellbook"
+5/26/2025 12:49:59 PM: 127.0.0.1: Serials: 0x4000004D; 
+5/26/2025 12:50:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'setallskills 100'
+5/26/2025 12:50:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'EverySkill.Base' of 0x1 "Johnny Ponytail" ('rws') to '100'
+5/26/2025 12:50:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set str 100'
+5/26/2025 12:50:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'str' of 0x1 "Johnny Ponytail" ('rws') to '100'
+5/26/2025 12:50:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set int 100'
+5/26/2025 12:50:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'int' of 0x1 "Johnny Ponytail" ('rws') to '100'
+5/26/2025 12:50:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 100'
+5/26/2025 12:50:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '100'
+5/26/2025 12:50:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set int 300'
+5/26/2025 12:50:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'int' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:50:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set mana 300'
+5/26/2025 12:50:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'mana' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:50:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 300'
+5/26/2025 12:50:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:50:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set str 30'
+5/26/2025 12:50:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'str' of 0x1 "Johnny Ponytail" ('rws') to '30'
+5/26/2025 12:50:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set str 300'
+5/26/2025 12:50:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'str' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:50:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hits 300'
+5/26/2025 12:50:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hits' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:51:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set mana 300'
+5/26/2025 12:51:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'mana' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:51:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add zombie'
+5/26/2025 12:51:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1395, 0) in Felucca: "zombie"
+5/26/2025 12:51:21 PM: 127.0.0.1: Serials: 0xA; 
+5/26/2025 12:51:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1395, 0) in Felucca: "zombie"
+5/26/2025 12:51:21 PM: 127.0.0.1: Serials: 0xB; 
+5/26/2025 12:51:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1395, 0) in Felucca: "zombie"
+5/26/2025 12:51:22 PM: 127.0.0.1: Serials: 0xC; 
+5/26/2025 12:51:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1395, 0) in Felucca: "zombie"
+5/26/2025 12:51:22 PM: 127.0.0.1: Serials: 0xD; 
+5/26/2025 12:51:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1395, 0) in Felucca: "zombie"
+5/26/2025 12:51:22 PM: 127.0.0.1: Serials: 0xE; 
+5/26/2025 12:51:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1395, 0) in Felucca: "zombie"
+5/26/2025 12:51:23 PM: 127.0.0.1: Serials: 0xF; 
+5/26/2025 12:52:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set mana 300'
+5/26/2025 12:52:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'mana' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:52:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add lich'
+5/26/2025 12:52:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1889, 1397, 0) in Felucca: "lich"
+5/26/2025 12:52:48 PM: 127.0.0.1: Serials: 0x10; 
+5/26/2025 12:52:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1397, 0) in Felucca: "lich"
+5/26/2025 12:52:49 PM: 127.0.0.1: Serials: 0x11; 
+5/26/2025 12:52:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1396, 0) in Felucca: "lich"
+5/26/2025 12:52:49 PM: 127.0.0.1: Serials: 0x12; 
+5/26/2025 12:52:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1890, 1398, 0) in Felucca: "lich"
+5/26/2025 12:52:49 PM: 127.0.0.1: Serials: 0x13; 
+5/26/2025 12:52:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1398, 0) in Felucca: "lich"
+5/26/2025 12:52:50 PM: 127.0.0.1: Serials: 0x14; 
+5/26/2025 12:53:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set amount 999'
+5/26/2025 12:53:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'amount' of 0x40000045 (BlackPearl) to '999'
+5/26/2025 12:54:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set mana 300'
+5/26/2025 12:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'mana' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 12:54:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add boggle'
+5/26/2025 12:54:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add bogle'
+5/26/2025 12:54:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1889, 1397, 0) in Felucca: "bogle"
+5/26/2025 12:54:29 PM: 127.0.0.1: Serials: 0x15; 
+5/26/2025 12:54:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1889, 1398, 0) in Felucca: "bogle"
+5/26/2025 12:54:29 PM: 127.0.0.1: Serials: 0x16; 
+5/26/2025 12:54:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1396, 0) in Felucca: "bogle"
+5/26/2025 12:54:30 PM: 127.0.0.1: Serials: 0x17; 
+5/26/2025 12:54:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1394, 0) in Felucca: "bogle"
+5/26/2025 12:54:30 PM: 127.0.0.1: Serials: 0x18; 
+5/26/2025 12:54:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1398, 0) in Felucca: "bogle"
+5/26/2025 12:54:30 PM: 127.0.0.1: Serials: 0x19; 
+5/26/2025 12:55:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add warith'
+5/26/2025 12:55:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add wraith'
+5/26/2025 12:55:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1887, 1396, 0) in Felucca: "wraith"
+5/26/2025 12:55:16 PM: 127.0.0.1: Serials: 0x1A; 
+5/26/2025 12:55:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1889, 1396, 0) in Felucca: "wraith"
+5/26/2025 12:55:17 PM: 127.0.0.1: Serials: 0x1B; 
+5/26/2025 12:55:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1888, 1397, 0) in Felucca: "wraith"
+5/26/2025 12:55:17 PM: 127.0.0.1: Serials: 0x1C; 
+5/26/2025 12:55:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1890, 1397, 0) in Felucca: "wraith"
+5/26/2025 12:55:17 PM: 127.0.0.1: Serials: 0x1D; 
+5/26/2025 12:55:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1890, 1396, 0) in Felucca: "wraith"
+5/26/2025 12:55:18 PM: 127.0.0.1: Serials: 0x1E; 
+##############################
+Log started on 5/26/2025 1:00:13 PM
+
+5/26/2025 1:02:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 1:02:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 1:02:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm kill'
+5/26/2025 1:02:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') killing 0x11 "a lich" (no account)
+5/26/2025 1:02:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') killing 0x13 "a lich" (no account)
+5/26/2025 1:02:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') killing 0x12 "a lich" (no account)
+5/26/2025 1:02:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') killing 0x10 "a lich" (no account)
+5/26/2025 1:03:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'admin '
+5/26/2025 1:03:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+##############################
+Log started on 5/26/2025 1:05:25 PM
+
+##############################
+Log started on 5/26/2025 3:58:54 PM
+
+5/26/2025 4:00:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add skeleton'
+5/26/2025 4:00:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1397, 0) in Felucca: "skeleton"
+5/26/2025 4:00:07 PM: 127.0.0.1: Serials: 0x3; 
+5/26/2025 4:00:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add bogle'
+5/26/2025 4:00:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1399, 0) in Felucca: "bogle"
+5/26/2025 4:00:37 PM: 127.0.0.1: Serials: 0x6; 
+5/26/2025 4:00:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1895, 1399, 0) in Felucca: "bogle"
+5/26/2025 4:00:37 PM: 127.0.0.1: Serials: 0x7; 
+5/26/2025 4:00:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1895, 1399, 0) in Felucca: "bogle"
+5/26/2025 4:00:37 PM: 127.0.0.1: Serials: 0x8; 
+5/26/2025 4:00:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1895, 1399, 0) in Felucca: "bogle"
+5/26/2025 4:00:38 PM: 127.0.0.1: Serials: 0x9; 
+5/26/2025 4:00:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1895, 1399, 0) in Felucca: "bogle"
+5/26/2025 4:00:38 PM: 127.0.0.1: Serials: 0xA; 
+5/26/2025 4:00:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set amoutn 99999'
+5/26/2025 4:01:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set amount 999'
+5/26/2025 4:01:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'amount' of 0x40000045 (BlackPearl) to '999'
+5/26/2025 4:01:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add wraith'
+5/26/2025 4:01:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1397, 0) in Felucca: "wraith"
+5/26/2025 4:01:59 PM: 127.0.0.1: Serials: 0xB; 
+5/26/2025 4:01:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1397, 0) in Felucca: "wraith"
+5/26/2025 4:01:59 PM: 127.0.0.1: Serials: 0xC; 
+5/26/2025 4:01:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1397, 0) in Felucca: "wraith"
+5/26/2025 4:01:59 PM: 127.0.0.1: Serials: 0xD; 
+5/26/2025 4:01:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1397, 0) in Felucca: "wraith"
+5/26/2025 4:01:59 PM: 127.0.0.1: Serials: 0xE; 
+5/26/2025 4:01:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1894, 1397, 0) in Felucca: "wraith"
+5/26/2025 4:01:59 PM: 127.0.0.1: Serials: 0xF; 
+5/26/2025 4:02:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set mana 300'
+5/26/2025 4:02:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'mana' of 0x1 "Johnny Ponytail" ('rws') to '300'
+5/26/2025 4:03:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 4:03:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:03:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1271, 1287, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:03:32 PM: 127.0.0.1: Serials: 0x40000109; 
+5/26/2025 4:03:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:03:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x11 "A Covidead" (no account)
+5/26/2025 4:03:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x12 "A Covidead" (no account)
+5/26/2025 4:03:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x10 "A Lesser Contagious Zombie" (no account)
+##############################
+Log started on 5/26/2025 4:12:16 PM
+
+5/26/2025 4:12:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 4:12:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000109 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 4:12:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000109 (LostSupplyCrate) creating 0x4000001F (LostSupplyCrate)
+5/26/2025 4:12:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:12:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x7 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:12:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x6 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:12:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x3 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:13:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:13:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1265, 1283, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:13:08 PM: 127.0.0.1: Serials: 0x40000035; 
+5/26/2025 4:13:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:13:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x9 "A Covidead" (no account)
+5/26/2025 4:13:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x8 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:13:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 4:13:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000001F (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 4:13:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000001F (LostSupplyCrate) creating 0x4000003B (LostSupplyCrate)
+5/26/2025 4:13:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 4:13:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000035 (LostSupplyCrate) (inBag=False; amount=1)
+5/26/2025 4:13:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000035 (LostSupplyCrate) creating 0x4000003C (LostSupplyCrate)
+5/26/2025 4:25:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:25:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1279, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:25:28 PM: 127.0.0.1: Serials: 0x4000003F; 
+5/26/2025 4:25:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:25:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xA "A Covidead" (no account)
+5/26/2025 4:25:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xC "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:25:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xB "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:25:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xD "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:25:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:25:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1265, 1283, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:25:55 PM: 127.0.0.1: Serials: 0x40000052; 
+5/26/2025 4:26:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:26:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xE "A Covidead" (no account)
+5/26/2025 4:26:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xF "A Covidead" (no account)
+5/26/2025 4:26:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:26:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1283, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:26:28 PM: 127.0.0.1: Serials: 0x40000058; 
+5/26/2025 4:26:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:26:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x10 "A Covidead" (no account)
+5/26/2025 4:26:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x12 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:26:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x11 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:26:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x13 "A Lesser Contagious Zombie" (no account)
+##############################
+Log started on 5/26/2025 4:32:07 PM
+
+5/26/2025 4:32:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:32:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000052 (LostSupplyCrate)
+5/26/2025 4:32:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000003F (LostSupplyCrate)
+5/26/2025 4:32:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000058 (LostSupplyCrate)
+5/26/2025 4:32:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:32:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1283, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:32:53 PM: 127.0.0.1: Serials: 0x40000039; 
+5/26/2025 4:32:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:32:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x7 "A Covidead" (no account)
+5/26/2025 4:32:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x5 "A Covidead" (no account)
+5/26/2025 4:32:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x6 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:33:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:33:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1280, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:33:06 PM: 127.0.0.1: Serials: 0x40000042; 
+5/26/2025 4:33:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:33:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xA "A Covidead" (no account)
+5/26/2025 4:33:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xB "A Covidead" (no account)
+5/26/2025 4:33:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x9 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:33:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x8 "A Covidead" (no account)
+##############################
+Log started on 5/26/2025 4:35:46 PM
+
+5/26/2025 4:36:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:36:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000058 (LostSupplyCrate)
+5/26/2025 4:36:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000052 (LostSupplyCrate)
+5/26/2025 4:36:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000003F (LostSupplyCrate)
+5/26/2025 4:36:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:36:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1280, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:36:12 PM: 127.0.0.1: Serials: 0x4000001F; 
+5/26/2025 4:36:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:36:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x6 "A Covidead" (no account)
+5/26/2025 4:36:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x3 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:36:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:36:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1264, 1280, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:36:23 PM: 127.0.0.1: Serials: 0x40000033; 
+5/26/2025 4:36:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:36:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xA "A Covidead" (no account)
+5/26/2025 4:36:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x8 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:36:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x9 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:36:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x7 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:36:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:36:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1262, 1282, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:36:49 PM: 127.0.0.1: Serials: 0x4000003F; 
+5/26/2025 4:36:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:36:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xB "A Covidead" (no account)
+5/26/2025 4:36:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xC "A Covidead" (no account)
+5/26/2025 4:36:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xD "A Covidead" (no account)
+5/26/2025 4:36:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xE "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:37:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:37:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1268, 1282, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:37:22 PM: 127.0.0.1: Serials: 0x40000052; 
+5/26/2025 4:37:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:37:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x10 "A Covidead" (no account)
+5/26/2025 4:37:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x11 "A Covidead" (no account)
+5/26/2025 4:37:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0xF "A Covidead" (no account)
+5/26/2025 4:37:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lostsupplycrate'
+5/26/2025 4:37:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1266, 1283, 0) in Felucca: "lostsupplycrate"
+5/26/2025 4:37:35 PM: 127.0.0.1: Serials: 0x4000005A; 
+5/26/2025 4:37:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 4:37:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x13 "A Covidead" (no account)
+5/26/2025 4:37:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x14 "A Covidead" (no account)
+5/26/2025 4:37:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x12 "A Lesser Contagious Zombie" (no account)
+5/26/2025 4:37:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x15 "A Covidead" (no account)
+5/26/2025 4:37:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 4:38:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 4:38:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add zombie'
+5/26/2025 4:38:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1893, 1395, 0) in Felucca: "zombie"
+5/26/2025 4:38:37 PM: 127.0.0.1: Serials: 0x16; 
+5/26/2025 4:38:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm add zombie'
+5/26/2025 4:38:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1891, 1397, 0) in Felucca: "zombie"
+5/26/2025 4:38:55 PM: 127.0.0.1: Serials: 0x17; 
+5/26/2025 4:38:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1895, 1398, 0) in Felucca: "zombie"
+5/26/2025 4:38:56 PM: 127.0.0.1: Serials: 0x18; 
+5/26/2025 4:38:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1892, 1395, 0) in Felucca: "zombie"
+5/26/2025 4:38:56 PM: 127.0.0.1: Serials: 0x19; 
+5/26/2025 4:38:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1896, 1396, 0) in Felucca: "zombie"
+5/26/2025 4:38:56 PM: 127.0.0.1: Serials: 0x1A; 
+5/26/2025 4:38:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1899, 1397, 0) in Felucca: "zombie"
+5/26/2025 4:38:57 PM: 127.0.0.1: Serials: 0x1B; 
+5/26/2025 4:40:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+##############################
+Log started on 5/26/2025 5:38:36 PM
+
+5/26/2025 5:38:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add xmlspawner'
+5/26/2025 5:38:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1489, 1881, 0) in Felucca: "xmlspawner"
+5/26/2025 5:38:49 PM: 127.0.0.1: Serials: 0x4000001F; 
+5/26/2025 5:39:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') added to XmlSpawner 0x4000001F 'Spawner' [1489, 1881] (Felucca) : BlackmarketBanker()         {
+5/26/2025 5:39:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') changed XmlSpawner 0x4000001F 'Spawner' [1489, 1881] (Felucca) : BlackmarketBanker()         { to BlackmarketBanker
+5/26/2025 5:39:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add floppyhat'
+5/26/2025 5:39:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1881, 0) in Felucca: "floppyhat"
+5/26/2025 5:39:41 PM: 127.0.0.1: Serials: 0x4000003A; 
+5/26/2025 5:39:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1'
+5/26/2025 5:39:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000003A (FloppyHat) to '1'
+5/26/2025 5:39:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'SpawnRange' of 0x4000001F (XmlSpawner) to '0'
+5/26/2025 5:40:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hairhue 0'
+5/26/2025 5:40:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hairhue' of 0x6 "Darren" (no account) to '0'
+5/26/2025 5:40:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hair hue 1'
+5/26/2025 5:40:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hairhue 1'
+5/26/2025 5:40:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hairhue' of 0x6 "Darren" (no account) to '1'
+5/26/2025 5:40:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hairhue 2204'
+5/26/2025 5:40:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hairhue' of 0x6 "Darren" (no account) to '2204'
+5/26/2025 5:40:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hairhue 2246'
+5/26/2025 5:40:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hairhue' of 0x6 "Darren" (no account) to '2246'
+5/26/2025 5:41:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 5:41:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hairhue 1108'
+5/26/2025 5:41:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hairhue' of 0x6 "Darren" (no account) to '1108'
+5/26/2025 5:41:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 5:41:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8254'
+5/26/2025 5:41:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8254'
+5/26/2025 5:41:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8253'
+5/26/2025 5:41:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8253'
+5/26/2025 5:42:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8255'
+5/26/2025 5:42:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8255'
+5/26/2025 5:42:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8256'
+5/26/2025 5:42:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8256'
+5/26/2025 5:42:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8257'
+5/26/2025 5:42:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8257'
+5/26/2025 5:42:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8258'
+5/26/2025 5:42:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8258'
+5/26/2025 5:42:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8259'
+5/26/2025 5:42:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8259'
+5/26/2025 5:42:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8260'
+5/26/2025 5:42:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8260'
+5/26/2025 5:42:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8252'
+5/26/2025 5:42:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8252'
+5/26/2025 5:42:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8254'
+5/26/2025 5:42:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x6 "Darren" (no account) to '8254'
+5/26/2025 5:42:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'FacialHairHue' of 0x1 "Johnny Ponytail" ('rws') to '1108'
+5/26/2025 5:42:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'FacialHairItemID' of 0x1 "Johnny Ponytail" ('rws') to '8255'
+5/26/2025 5:43:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairhue 1108'
+5/26/2025 5:43:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairhue' of 0x6 "Darren" (no account) to '1108'
+5/26/2025 5:43:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add boots'
+5/26/2025 5:43:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1881, 0) in Felucca: "boots"
+5/26/2025 5:43:33 PM: 127.0.0.1: Serials: 0x40000051; 
+5/26/2025 5:43:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add tunic'
+5/26/2025 5:43:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1491, 1879, 0) in Felucca: "tunic"
+5/26/2025 5:43:43 PM: 127.0.0.1: Serials: 0x40000052; 
+5/26/2025 5:43:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add doublet'
+5/26/2025 5:43:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1491, 1880, 0) in Felucca: "doublet"
+5/26/2025 5:43:48 PM: 127.0.0.1: Serials: 0x40000053; 
+5/26/2025 5:44:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add skirt 1108'
+5/26/2025 5:44:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1491, 1879, 0) in Felucca: "skirt" "1108"
+5/26/2025 5:44:10 PM: 127.0.0.1: Serials: 0x40000054; 
+5/26/2025 5:44:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1108'
+5/26/2025 5:44:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000051 (Boots) to '1108'
+5/26/2025 5:44:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1108'
+5/26/2025 5:44:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x4000003A (FloppyHat) to '1108'
+5/26/2025 5:44:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1109'
+5/26/2025 5:44:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000042 (HalfApron) to '1109'
+5/26/2025 5:44:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1109'
+5/26/2025 5:44:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000053 (Doublet) to '1109'
+5/26/2025 5:44:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add fancyshirt'
+5/26/2025 5:44:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1880, 0) in Felucca: "fancyshirt"
+5/26/2025 5:44:45 PM: 127.0.0.1: Serials: 0x40000055; 
+5/26/2025 5:44:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1108'
+5/26/2025 5:44:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000055 (FancyShirt) to '1108'
+5/26/2025 5:45:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 5:45:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add strawhat'
+5/26/2025 5:45:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1491, 1880, 0) in Felucca: "strawhat"
+5/26/2025 5:45:20 PM: 127.0.0.1: Serials: 0x40000057; 
+5/26/2025 5:45:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1109'
+5/26/2025 5:45:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000057 (StrawHat) to '1109'
+5/26/2025 5:45:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 1109'
+5/26/2025 5:45:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x40000055 (FancyShirt) to '1109'
+5/26/2025 5:46:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x6 "Darren" (no account) to '8260'
+5/26/2025 5:46:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x6 "Darren" (no account) to '8259'
+5/26/2025 5:46:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x6 "Darren" (no account) to '8262'
+5/26/2025 5:46:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x6 "Darren" (no account) to '8263'
+5/26/2025 5:46:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x6 "Darren" (no account) to '8264'
+5/26/2025 5:46:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x6 "Darren" (no account) to '8265'
+5/26/2025 5:47:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairHue' of 0x6 "Darren" (no account) to '1109'
+5/26/2025 5:47:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'FacialHairHue' of 0x6 "Darren" (no account) to '1109'
+5/26/2025 5:47:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 5:48:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set hue 33770'
+5/26/2025 5:48:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'hue' of 0x6 "Darren" (no account) to '33770'
+5/26/2025 5:48:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add diamondring'
+5/26/2025 5:48:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1487, 1881, 0) in Felucca: "GoldEarrings"
+5/26/2025 5:48:47 PM: 127.0.0.1: Serials: 0x40000059; 
+5/26/2025 5:48:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1881, 0) in Felucca: "GoldRing"
+5/26/2025 5:48:58 PM: 127.0.0.1: Serials: 0x4000005A; 
+5/26/2025 5:49:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1881, 0) in Felucca: "GoldBracelet"
+5/26/2025 5:49:29 PM: 127.0.0.1: Serials: 0x4000005B; 
+5/26/2025 5:49:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1491, 1881, 0) in Felucca: "GoldBeadNecklace"
+5/26/2025 5:49:53 PM: 127.0.0.1: Serials: 0x4000005C; 
+5/26/2025 5:50:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1881, 0) in Felucca: "GoldNecklace"
+5/26/2025 5:50:00 PM: 127.0.0.1: Serials: 0x4000005D; 
+5/26/2025 5:50:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1490, 1881, 0) in Felucca: "PendantOfTheMagi"
+5/26/2025 5:50:17 PM: 127.0.0.1: Serials: 0x4000005E; 
+5/26/2025 5:50:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 5:50:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000005E (PendantOfTheMagi)
+5/26/2025 5:50:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000005C (GoldBeadNecklace)
+5/26/2025 5:55:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+##############################
+Log started on 5/26/2025 6:04:25 PM
+
+##############################
+Log started on 5/26/2025 6:07:16 PM
+
+5/26/2025 6:07:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 6:08:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 6:08:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'FacialHairItemID' of 0x3 "Ephram" (no account) to '8254'
+5/26/2025 6:08:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8254'
+5/26/2025 6:09:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8256'
+5/26/2025 6:09:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8260'
+5/26/2025 6:09:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8240'
+5/26/2025 6:09:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8241'
+5/26/2025 6:09:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8242'
+5/26/2025 6:09:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8243'
+5/26/2025 6:09:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8250'
+5/26/2025 6:09:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8252'
+5/26/2025 6:09:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8251'
+5/26/2025 6:10:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8253'
+5/26/2025 6:10:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8254'
+5/26/2025 6:10:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8255'
+5/26/2025 6:10:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8256'
+5/26/2025 6:10:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8257'
+5/26/2025 6:10:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8258'
+5/26/2025 6:10:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8262'
+5/26/2025 6:11:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8263'
+5/26/2025 6:11:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8264'
+5/26/2025 6:11:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'HairItemID' of 0x3 "Ephram" (no account) to '8265'
+##############################
+Log started on 5/26/2025 6:14:06 PM
+
+5/26/2025 6:15:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairid 8264'
+5/26/2025 6:15:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8246'
+5/26/2025 6:15:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x3 "Ephram" (no account) to '8246'
+5/26/2025 6:15:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8264'
+5/26/2025 6:15:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x3 "Ephram" (no account) to '8264'
+5/26/2025 6:15:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8254'
+5/26/2025 6:15:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x3 "Ephram" (no account) to '8254'
+5/26/2025 6:15:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8253'
+5/26/2025 6:15:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x3 "Ephram" (no account) to '8253'
+5/26/2025 6:15:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set facialhairitemid 8252'
+5/26/2025 6:15:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'facialhairitemid' of 0x3 "Ephram" (no account) to '8252'
+##############################
+Log started on 5/26/2025 6:16:30 PM
+
+##############################
+Log started on 5/26/2025 6:17:14 PM
+
+5/26/2025 6:17:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') added to XmlSpawner 0x4000001F 'Spawner' [1489, 1881] (Felucca) : BlackmarketVendor
+5/26/2025 6:18:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+##############################
+Log started on 5/26/2025 6:18:44 PM
+
+##############################
+Log started on 5/26/2025 6:25:42 PM
+
+5/26/2025 6:26:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add doublet set hue 1109'
+5/26/2025 6:26:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1492, 1881, 0) in Felucca: "doublet" "set" "hue" "1109"
+5/26/2025 6:26:24 PM: 127.0.0.1: Serials: 0x4000005B; 
+##############################
+Log started on 5/26/2025 6:27:29 PM
+
+##############################
+Log started on 5/26/2025 6:33:14 PM
+
+##############################
+Log started on 5/26/2025 6:33:17 PM
+
+##############################
+Log started on 5/26/2025 6:34:44 PM
+
+##############################
+Log started on 5/26/2025 6:35:47 PM
+
+##############################
+Log started on 5/26/2025 6:36:36 PM
+
+##############################
+Log started on 5/26/2025 6:38:06 PM
+
+5/26/2025 6:39:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:39:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000001F (XmlSpawner) to (1495, 1883, 0)
+5/26/2025 6:39:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+5/26/2025 6:39:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000001F (XmlSpawner) (inBag=False; amount=1)
+5/26/2025 6:39:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000001F (XmlSpawner) creating 0x4000007D (XmlSpawner)
+5/26/2025 6:39:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 6:39:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000001F (XmlSpawner)
+5/26/2025 6:39:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go sewers'
+5/26/2025 6:39:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'staffrunebook '
+5/26/2025 6:40:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'staffrunebook '
+5/26/2025 6:41:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 6:42:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:42:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x4000007D (XmlSpawner) to (6049, 1432, 4)
+5/26/2025 6:42:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add xmlspawner'
+5/26/2025 6:42:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6037, 1435, 4) in Felucca: "xmlspawner"
+5/26/2025 6:42:53 PM: 127.0.0.1: Serials: 0x400000EC; 
+5/26/2025 6:43:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') added to XmlSpawner 0x400000EC 'Spawner' [6037, 1435] (Felucca) : BlackmarketVendor
+5/26/2025 6:43:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'SpawnRange' of 0x400000EC (XmlSpawner) to '1'
+5/26/2025 6:43:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'SpawnRange' of 0x4000007D (XmlSpawner) to '1'
+5/26/2025 6:44:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') removed from XmlSpawner 0x4000007D 'Spawner' [6049, 1432] (Felucca) : BlackmarketVendor
+5/26/2025 6:44:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add lamppost'
+5/26/2025 6:44:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6047, 1440, 2) in Felucca: "LampPost1"
+5/26/2025 6:44:23 PM: 127.0.0.1: Serials: 0x40000114; 
+5/26/2025 6:44:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6042, 1447, 2) in Felucca: "WallTorch"
+5/26/2025 6:44:43 PM: 127.0.0.1: Serials: 0x40000115; 
+5/26/2025 6:44:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 6:44:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6041, 1447, 27)
+5/26/2025 6:45:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6041, 1447, 27)
+5/26/2025 6:45:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6042, 1447, 2)
+5/26/2025 6:45:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6041, 1448, 27)
+5/26/2025 6:45:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 6:45:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 6:45:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6038, 1445, 0)
+5/26/2025 6:45:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6041, 1448, 27)
+5/26/2025 6:45:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:45:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000115 (WallTorch) to (6042, 1447, 2)
+5/26/2025 6:46:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 6:46:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set z 10'
+5/26/2025 6:46:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'z' of 0x40000115 (WallTorch) to '10'
+5/26/2025 6:46:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set z 20'
+5/26/2025 6:46:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'z' of 0x40000115 (WallTorch) to '20'
+5/26/2025 6:46:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6046, 1432, 6) in Felucca: "WallTorch"
+5/26/2025 6:46:40 PM: 127.0.0.1: Serials: 0x40000116; 
+5/26/2025 6:46:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6036, 1439, 2) in Felucca: "WallTorch"
+5/26/2025 6:46:41 PM: 127.0.0.1: Serials: 0x40000117; 
+5/26/2025 6:46:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6036, 1433, 2) in Felucca: "WallTorch"
+5/26/2025 6:46:45 PM: 127.0.0.1: Serials: 0x40000118; 
+5/26/2025 6:46:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 6:47:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:47:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set z 20'
+5/26/2025 6:47:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'z' of 0x40000117 (WallTorch) to '20'
+5/26/2025 6:47:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set z 20'
+5/26/2025 6:47:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'z' of 0x40000118 (WallTorch) to '20'
+5/26/2025 6:47:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6050, 1430, 2) in Felucca: "WallTorch"
+5/26/2025 6:47:32 PM: 127.0.0.1: Serials: 0x40000119; 
+5/26/2025 6:47:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set z 20'
+5/26/2025 6:47:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'z' of 0x40000119 (WallTorch) to '20'
+5/26/2025 6:47:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set itemid 1958'
+5/26/2025 6:47:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'itemid' of 0x40000119 (WallTorch) to '1958'
+5/26/2025 6:48:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set itemid 1957'
+5/26/2025 6:48:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set y 1446'
+5/26/2025 6:48:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set y 1446'
+5/26/2025 6:48:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'y' of 0x40000119 (WallTorch) to '1446'
+5/26/2025 6:48:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set y 1447'
+5/26/2025 6:48:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set y 1447'
+5/26/2025 6:48:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'y' of 0x40000119 (WallTorch) to '1447'
+5/26/2025 6:48:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:48:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:48:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:49:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:49:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'move '
+5/26/2025 6:49:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') moving 0x40000119 (WallTorch) to (6049, 1430, 2)
+5/26/2025 6:49:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set x 20'
+5/26/2025 6:49:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'x' of 0x40000119 (WallTorch) to '20'
+5/26/2025 6:49:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set x 20'
+5/26/2025 6:49:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'x' of 0x1 "Johnny Ponytail" ('rws') to '20'
+5/26/2025 6:49:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set x 10'
+5/26/2025 6:49:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'x' of 0x40000119 (WallTorch) to '10'
+5/26/2025 6:49:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 6:49:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000119 (WallTorch)
+5/26/2025 6:49:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set x 0'
+5/26/2025 6:49:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'x' of 0x1 "Johnny Ponytail" ('rws') to '0'
+5/26/2025 6:50:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'staffrunebook '
+5/26/2025 6:50:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 6:50:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'Get ItemID'
+5/26/2025 6:50:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+5/26/2025 6:50:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (6050, 1430, 2) in Felucca: "WallTorch"
+5/26/2025 6:50:47 PM: 127.0.0.1: Serials: 0x40000128; 
+5/26/2025 6:51:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set itemid 1957'
+5/26/2025 6:51:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'itemid' of 0x40000128 (WallTorch) to '1957'
+5/26/2025 6:51:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+5/26/2025 6:51:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Z' of 0x40000128 (WallTorch) to '10'
+5/26/2025 6:51:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Z' of 0x40000128 (WallTorch) to '20'
+5/26/2025 6:51:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'X' of 0x40000128 (WallTorch) to '6048'
+5/26/2025 6:51:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'X' of 0x40000128 (WallTorch) to '6049'
+5/26/2025 6:52:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+5/26/2025 6:52:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40000114 (LampPost1)

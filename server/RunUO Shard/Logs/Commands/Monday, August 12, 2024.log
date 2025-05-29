@@ -1,0 +1,461 @@
+##############################
+Log started on 8/12/2024 8:18:28 AM
+
+8/12/2024 8:18:45 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add leathermininggloves'
+8/12/2024 8:19:16 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add LeatherGlovesOfMining'
+8/12/2024 8:19:18 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "LeatherGlovesOfMining"
+8/12/2024 8:19:22 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add LeatherGlovesOfMining 5'
+8/12/2024 8:19:23 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1881, 5) in Felucca: "LeatherGlovesOfMining" "5"
+8/12/2024 8:19:23 AM: 127.0.0.1: Serials: 0x40000DF2; 
+8/12/2024 8:19:50 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 8:20:40 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/12/2024 8:20:41 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40003E0F (MountedPixieBlueComponent)
+##############################
+Log started on 8/12/2024 8:45:23 AM
+
+8/12/2024 8:46:18 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+##############################
+Log started on 8/12/2024 3:19:33 PM
+
+8/12/2024 4:55:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add saw'
+8/12/2024 4:55:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1882, 5) in Felucca: "saw"
+8/12/2024 4:55:52 PM: 127.0.0.1: Serials: 0x40006366; 
+8/12/2024 4:58:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add tinktools'
+8/12/2024 4:58:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1883, 5) in Felucca: "TinkersTools"
+8/12/2024 4:58:35 PM: 127.0.0.1: Serials: 0x4000659F; 
+8/12/2024 5:07:03 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add blankscroll'
+8/12/2024 5:07:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "blankscroll"
+8/12/2024 5:07:05 PM: 127.0.0.1: Serials: 0x40006DDF; 
+8/12/2024 5:07:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:09:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add smithhammer'
+8/12/2024 5:09:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1883, 5) in Felucca: "smithhammer"
+8/12/2024 5:09:02 PM: 127.0.0.1: Serials: 0x4000704C; 
+8/12/2024 5:09:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add tinktools'
+8/12/2024 5:09:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add smithhammer'
+8/12/2024 5:09:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "smithhammer"
+8/12/2024 5:09:24 PM: 127.0.0.1: Serials: 0x40007104; 
+8/12/2024 5:09:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add blankscroll'
+8/12/2024 5:09:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "blankscroll"
+8/12/2024 5:09:29 PM: 127.0.0.1: Serials: 0x40007106; 
+8/12/2024 5:09:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:14:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add leatherglovesofmining 5'
+8/12/2024 5:14:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1881, 5) in Felucca: "leatherglovesofmining" "5"
+8/12/2024 5:14:22 PM: 127.0.0.1: Serials: 0x4000757D; 
+8/12/2024 5:14:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+##############################
+Log started on 8/12/2024 5:32:30 PM
+
+##############################
+Log started on 8/12/2024 5:34:08 PM
+
+##############################
+Log started on 8/12/2024 5:35:48 PM
+
+8/12/2024 5:37:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add RingmailGlovesOfMining 3'
+8/12/2024 5:37:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "RingmailGlovesOfMining" "3"
+8/12/2024 5:37:11 PM: 127.0.0.1: Serials: 0x40000E60; 
+8/12/2024 5:37:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add predatorhellcat'
+8/12/2024 5:37:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1882, 5) in Felucca: "predatorhellcat"
+8/12/2024 5:37:37 PM: 127.0.0.1: Serials: 0x55; 
+8/12/2024 5:37:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/12/2024 5:37:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x55 "a hell cat" (no account)
+8/12/2024 5:41:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add ancienthammer 60'
+8/12/2024 5:42:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add AncientSmithyHammer 60'
+8/12/2024 5:42:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1881, 5) in Felucca: "AncientSmithyHammer" "60"
+8/12/2024 5:42:22 PM: 127.0.0.1: Serials: 0x400011C3; 
+8/12/2024 5:42:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add AncientSmithyHammer 30'
+8/12/2024 5:42:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1881, 5) in Felucca: "AncientSmithyHammer" "30"
+8/12/2024 5:42:30 PM: 127.0.0.1: Serials: 0x400011CF; 
+8/12/2024 5:42:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:42:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+##############################
+Log started on 8/12/2024 5:44:28 PM
+
+8/12/2024 5:44:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add imbuinghammer 10'
+8/12/2024 5:44:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1882, 5) in Felucca: "imbuinghammer" "10"
+8/12/2024 5:44:43 PM: 127.0.0.1: Serials: 0x4000019F; 
+8/12/2024 5:44:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add imbuinghammer 60'
+8/12/2024 5:44:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1881, 5) in Felucca: "imbuinghammer" "60"
+8/12/2024 5:44:52 PM: 127.0.0.1: Serials: 0x400001AA; 
+8/12/2024 5:49:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:49:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:49:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40001098 (LargeSmithBOD)
+8/12/2024 5:49:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:49:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001098 (LargeSmithBOD) to 'Verite'
+8/12/2024 5:50:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:50:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:50:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x4000112D (LargeSmithBOD)
+8/12/2024 5:50:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:50:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000112D (LargeSmithBOD) to 'Agapite'
+8/12/2024 5:50:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:50:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:50:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40001162 (LargeSmithBOD)
+8/12/2024 5:50:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:50:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001162 (LargeSmithBOD) to 'Agapite'
+8/12/2024 5:51:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Remove'
+8/12/2024 5:51:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40001165 (BankCheck)
+8/12/2024 5:51:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x4000109C (BankCheck)
+8/12/2024 5:51:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40001164 (ImbuingHammer)
+8/12/2024 5:51:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') deleting 0x40001130 (BankCheck)
+8/12/2024 5:52:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:52:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:52:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:52:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40001339 (LargeSmithBOD)
+8/12/2024 5:52:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:52:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001339 (LargeSmithBOD) to 'Gold'
+8/12/2024 5:53:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:53:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:53:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x400013C9 (LargeSmithBOD)
+8/12/2024 5:53:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:53:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400013C9 (LargeSmithBOD) to 'Gold'
+8/12/2024 5:54:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:54:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:54:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:54:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x4000151F (LargeSmithBOD)
+8/12/2024 5:54:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'set material gold'
+8/12/2024 5:54:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'material' of 0x4000151F (LargeSmithBOD) to 'Gold'
+8/12/2024 5:54:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:54:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:54:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x4000155B (LargeSmithBOD)
+8/12/2024 5:54:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:54:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000155B (LargeSmithBOD) to 'Bronze'
+8/12/2024 5:56:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:56:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:56:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:56:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x4000162A (LargeSmithBOD)
+8/12/2024 5:56:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:57:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000162A (LargeSmithBOD) to 'Copper'
+8/12/2024 5:57:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 5:57:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 5:57:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x4000183D (LargeSmithBOD)
+8/12/2024 5:57:47 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 5:57:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000183D (LargeSmithBOD) to 'ShadowIron'
+##############################
+Log started on 8/12/2024 6:05:22 PM
+
+8/12/2024 6:05:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:05:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400056DE (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:05:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400056DE (LargeSmithBOD) creating 0x400001AB (LargeSmithBOD)
+8/12/2024 6:06:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:06:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400056DE (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:06:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400056DE (LargeSmithBOD) creating 0x40000E96 (LargeSmithBOD)
+8/12/2024 6:06:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:06:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000E96 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:06:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000E96 (LargeSmithBOD) creating 0x40000E97 (LargeSmithBOD)
+8/12/2024 6:06:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:07:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40000E97 (LargeSmithBOD) to 'Valorite'
+8/12/2024 6:07:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:07:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40000E96 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:07:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40000E96 (LargeSmithBOD) creating 0x40000F9A (LargeSmithBOD)
+8/12/2024 6:07:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:07:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40000F9A (LargeSmithBOD) to 'Agapite'
+8/12/2024 6:08:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:11:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:11:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40004D4E (LargeSmithBOD) to 'DullCopper'
+8/12/2024 6:13:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:13:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:13:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40001415 (LargeSmithBOD)
+8/12/2024 6:13:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:13:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001415 (LargeSmithBOD) to 'DullCopper'
+8/12/2024 6:15:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:15:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40000E96 (LargeSmithBOD) to 'None'
+8/12/2024 6:16:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:16:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:16:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x4000168E (LargeSmithBOD)
+8/12/2024 6:16:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:16:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000168E (LargeSmithBOD) to 'None'
+8/12/2024 6:16:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:16:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:16:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40001814 (LargeSmithBOD)
+8/12/2024 6:16:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:16:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40001814 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:16:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40001814 (LargeSmithBOD) creating 0x40001815 (LargeSmithBOD)
+8/12/2024 6:16:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:17:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001815 (LargeSmithBOD) to 'DullCopper'
+8/12/2024 6:17:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:17:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001814 (LargeSmithBOD) to 'None'
+8/12/2024 6:17:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:22:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:22:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:22:20 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40001CAB (LargeSmithBOD)
+8/12/2024 6:22:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:22:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001CAB (LargeSmithBOD) to 'DullCopper'
+8/12/2024 6:53:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:53:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004A08 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:53:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004A08 (LargeSmithBOD) creating 0x40003597 (LargeSmithBOD)
+8/12/2024 6:53:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:53:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40003597 (LargeSmithBOD) to 'Gold'
+8/12/2024 6:54:04 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:54:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000464B (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000464B (LargeSmithBOD) creating 0x40003642 (LargeSmithBOD)
+8/12/2024 6:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40003642 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:54:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40003642 (LargeSmithBOD) creating 0x4000366B (LargeSmithBOD)
+8/12/2024 6:54:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:54:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000366B (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:54:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000366B (LargeSmithBOD) creating 0x40003679 (LargeSmithBOD)
+8/12/2024 6:54:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:54:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40003642 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:54:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40003642 (LargeSmithBOD) creating 0x4000367A (LargeSmithBOD)
+8/12/2024 6:54:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:54:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000367A (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:54:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000367A (LargeSmithBOD) creating 0x4000367C (LargeSmithBOD)
+8/12/2024 6:54:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:54:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000367C (LargeSmithBOD) to 'Gold'
+8/12/2024 6:55:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:55:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000367A (LargeSmithBOD) to 'Bronze'
+8/12/2024 6:55:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:55:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40003642 (LargeSmithBOD) to 'Copper'
+8/12/2024 6:56:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:56:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40003679 (LargeSmithBOD) to 'ShadowIron'
+8/12/2024 6:56:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 6:56:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000366B (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 6:56:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000366B (LargeSmithBOD) creating 0x400039F7 (LargeSmithBOD)
+8/12/2024 6:56:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:57:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400039F7 (LargeSmithBOD) to 'DullCopper'
+8/12/2024 6:58:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 6:58:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000366B (LargeSmithBOD) to 'None'
+8/12/2024 6:59:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:00:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:00:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x4000464B (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:00:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x4000464B (LargeSmithBOD) creating 0x40003D11 (LargeSmithBOD)
+8/12/2024 7:00:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:00:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40003D11 (LargeSmithBOD) to 'None'
+8/12/2024 7:01:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:01:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004B06 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:01:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004B06 (LargeSmithBOD) creating 0x40003E08 (LargeSmithBOD)
+8/12/2024 7:01:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:01:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40003E08 (LargeSmithBOD) to 'None'
+8/12/2024 7:01:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:02:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largeboddeed'
+8/12/2024 7:02:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:02:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:02:51 PM: 127.0.0.1: Serials: 0x4000413A; 
+8/12/2024 7:02:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:02:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:02:59 PM: 127.0.0.1: Serials: 0x4000415C; 
+8/12/2024 7:03:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:07 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:07 PM: 127.0.0.1: Serials: 0x4000415F; 
+8/12/2024 7:03:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:13 PM: 127.0.0.1: Serials: 0x40004161; 
+8/12/2024 7:03:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:18 PM: 127.0.0.1: Serials: 0x400041A0; 
+8/12/2024 7:03:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:28 PM: 127.0.0.1: Serials: 0x400041A3; 
+8/12/2024 7:03:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:40 PM: 127.0.0.1: Serials: 0x4000429D; 
+8/12/2024 7:03:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:49 PM: 127.0.0.1: Serials: 0x400042AB; 
+8/12/2024 7:03:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:03:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:03:56 PM: 127.0.0.1: Serials: 0x400042B1; 
+8/12/2024 7:04:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:12 PM: 127.0.0.1: Serials: 0x400042E2; 
+8/12/2024 7:04:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:17 PM: 127.0.0.1: Serials: 0x400042E3; 
+8/12/2024 7:04:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:25 PM: 127.0.0.1: Serials: 0x40004304; 
+8/12/2024 7:04:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:30 PM: 127.0.0.1: Serials: 0x4000430C; 
+8/12/2024 7:04:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:34 PM: 127.0.0.1: Serials: 0x4000430D; 
+8/12/2024 7:04:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:40 PM: 127.0.0.1: Serials: 0x40004334; 
+8/12/2024 7:04:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:45 PM: 127.0.0.1: Serials: 0x40004336; 
+8/12/2024 7:04:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:50 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:50 PM: 127.0.0.1: Serials: 0x40004338; 
+8/12/2024 7:04:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:04:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:04:56 PM: 127.0.0.1: Serials: 0x4000433A; 
+8/12/2024 7:05:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:02 PM: 127.0.0.1: Serials: 0x40004340; 
+8/12/2024 7:05:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:08 PM: 127.0.0.1: Serials: 0x40004341; 
+8/12/2024 7:05:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:16 PM: 127.0.0.1: Serials: 0x40004343; 
+8/12/2024 7:05:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:22 PM: 127.0.0.1: Serials: 0x40004346; 
+8/12/2024 7:05:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:27 PM: 127.0.0.1: Serials: 0x4000434E; 
+8/12/2024 7:05:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:35 PM: 127.0.0.1: Serials: 0x40004351; 
+8/12/2024 7:05:40 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:41 PM: 127.0.0.1: Serials: 0x40004356; 
+8/12/2024 7:05:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:46 PM: 127.0.0.1: Serials: 0x4000435D; 
+8/12/2024 7:05:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:51 PM: 127.0.0.1: Serials: 0x40004393; 
+8/12/2024 7:05:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:05:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "largesmithbod"
+8/12/2024 7:05:55 PM: 127.0.0.1: Serials: 0x400043B4; 
+8/12/2024 7:06:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:06:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:06:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'AmountMax' of 0x400043B4 (LargeSmithBOD) to '20'
+8/12/2024 7:06:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400043B4 (LargeSmithBOD) to 'Valorite'
+8/12/2024 7:06:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add largesmithbod'
+8/12/2024 7:06:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (858, 1881, 5) in Felucca: "largesmithbod"
+8/12/2024 7:06:56 PM: 127.0.0.1: Serials: 0x40004516; 
+8/12/2024 7:07:09 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:07:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add dagger'
+8/12/2024 7:07:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "dagger"
+8/12/2024 7:07:23 PM: 127.0.0.1: Serials: 0x40004571; 
+8/12/2024 7:07:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x4000436F (SmallSmithBOD) to 'Server.Items.Dagger'
+8/12/2024 7:07:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:07:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:07:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x400045A6 (SmallSmithBOD)
+8/12/2024 7:07:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add kryss'
+8/12/2024 7:07:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1882, 5) in Felucca: "kryss"
+8/12/2024 7:07:58 PM: 127.0.0.1: Serials: 0x400045A8; 
+8/12/2024 7:08:02 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:08:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x400045A6 (SmallSmithBOD) to 'Server.Items.Kryss'
+8/12/2024 7:08:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:08:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:08:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x400045B0 (SmallSmithBOD)
+8/12/2024 7:08:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add shortspear'
+8/12/2024 7:08:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1881, 5) in Felucca: "shortspear"
+8/12/2024 7:08:23 PM: 127.0.0.1: Serials: 0x400045D6; 
+8/12/2024 7:08:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:08:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x400045B0 (SmallSmithBOD) to 'Server.Targeting.StaticTarget'
+8/12/2024 7:08:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:08:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x400045B0 (SmallSmithBOD) to 'Server.Items.ShortSpear'
+8/12/2024 7:08:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:08:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:08:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x40004651 (SmallSmithBOD)
+8/12/2024 7:09:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:09:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add spear'
+8/12/2024 7:09:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1882, 5) in Felucca: "spear"
+8/12/2024 7:09:10 PM: 127.0.0.1: Serials: 0x400046B5; 
+8/12/2024 7:09:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40004651 (SmallSmithBOD) to 'Server.Targeting.StaticTarget'
+8/12/2024 7:09:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40004651 (SmallSmithBOD) to 'Server.Items.Spear'
+8/12/2024 7:09:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add warfork'
+8/12/2024 7:09:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1883, 5) in Felucca: "warfork"
+8/12/2024 7:09:31 PM: 127.0.0.1: Serials: 0x400046FB; 
+8/12/2024 7:09:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:09:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:09:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x40004765 (SmallSmithBOD)
+8/12/2024 7:09:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:09:41 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40004765 (SmallSmithBOD) to 'Server.Items.WarFork'
+8/12/2024 7:09:48 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:09:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:09:51 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x40004834 (LargeSmithBOD)
+8/12/2024 7:10:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:10:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:10:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x400048A2 (LargeSmithBOD)
+##############################
+Log started on 8/12/2024 7:11:21 PM
+
+8/12/2024 7:11:45 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add dagger'
+8/12/2024 7:11:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (857, 1882, 5) in Felucca: "dagger"
+8/12/2024 7:11:46 PM: 127.0.0.1: Serials: 0x40000E02; 
+8/12/2024 7:11:49 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:11:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x4000436F (SmallSmithBOD) to 'Server.Targeting.StaticTarget'
+8/12/2024 7:11:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x4000436F (SmallSmithBOD) to 'Server.Items.Dagger'
+8/12/2024 7:12:06 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:12:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:12:08 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x40000E78 (SmallSmithBOD)
+8/12/2024 7:12:13 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add shortspear'
+8/12/2024 7:12:14 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1882, 5) in Felucca: "shortspear"
+8/12/2024 7:12:14 PM: 127.0.0.1: Serials: 0x40000E7B; 
+8/12/2024 7:12:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:12:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40000E78 (SmallSmithBOD) to 'Server.Items.ShortSpear'
+8/12/2024 7:12:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:12:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:12:27 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x40000E7F (SmallSmithBOD)
+8/12/2024 7:12:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add spear'
+8/12/2024 7:12:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (856, 1883, 5) in Felucca: "spear"
+8/12/2024 7:12:36 PM: 127.0.0.1: Serials: 0x40000E83; 
+8/12/2024 7:12:39 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:12:44 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40000E7F (SmallSmithBOD) to 'Server.Items.Spear'
+8/12/2024 7:12:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add warfork'
+8/12/2024 7:12:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1882, 5) in Felucca: "warfork"
+8/12/2024 7:12:53 PM: 127.0.0.1: Serials: 0x40000EB1; 
+8/12/2024 7:12:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add spear'
+8/12/2024 7:12:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:12:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x40004367 (SmallSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:12:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x40004367 (SmallSmithBOD) creating 0x40000EE3 (SmallSmithBOD)
+8/12/2024 7:12:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:13:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40000EE3 (SmallSmithBOD) to 'Server.Items.WarFork'
+8/12/2024 7:13:15 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add kyrss'
+8/12/2024 7:13:23 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add kryss'
+8/12/2024 7:13:24 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (855, 1883, 5) in Felucca: "kryss"
+8/12/2024 7:13:24 PM: 127.0.0.1: Serials: 0x40000EE7; 
+8/12/2024 7:13:28 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:13:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Type' of 0x40004367 (SmallSmithBOD) to 'Server.Items.Kryss'
+8/12/2024 7:13:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:13:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:13:43 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x40000F21 (LargeSmithBOD)
+8/12/2024 7:13:46 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+8/12/2024 7:13:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:13:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:13:56 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x40000F55 (LargeSmithBOD)
+8/12/2024 7:13:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'save '
+8/12/2024 7:14:33 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:14:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:14:35 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x4000103C (LargeSmithBOD)
+8/12/2024 7:14:36 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:14:42 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000103C (LargeSmithBOD) to 'Verite'
+8/12/2024 7:15:18 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:15:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:15:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x400010D7 (LargeSmithBOD)
+8/12/2024 7:15:21 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:15:25 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400010D7 (LargeSmithBOD) to 'Agapite'
+8/12/2024 7:15:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:15:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:15:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x40001109 (LargeSmithBOD)
+8/12/2024 7:15:55 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:16:01 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001109 (LargeSmithBOD) to 'Gold'
+8/12/2024 7:16:29 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:16:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:16:30 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x40001168 (LargeSmithBOD)
+8/12/2024 7:16:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:16:37 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001168 (LargeSmithBOD) to 'Bronze'
+8/12/2024 7:16:57 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:16:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:16:58 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x400011DA (LargeSmithBOD)
+8/12/2024 7:17:00 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:17:05 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400011DA (LargeSmithBOD) to 'Copper'
+8/12/2024 7:17:16 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:17:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:17:17 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x400011F4 (LargeSmithBOD)
+8/12/2024 7:17:19 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:17:26 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400011F4 (LargeSmithBOD) to 'Copper'
+8/12/2024 7:17:31 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:17:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:17:32 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x40001223 (LargeSmithBOD)
+8/12/2024 7:17:34 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:17:38 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x40001223 (LargeSmithBOD) to 'ShadowIron'
+8/12/2024 7:18:10 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:18:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:18:11 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x400012F7 (LargeSmithBOD)
+8/12/2024 7:18:12 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:18:22 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x400012F7 (LargeSmithBOD) to 'DullCopper'
+8/12/2024 7:18:52 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'dupe '
+8/12/2024 7:18:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duping 0x400043B4 (LargeSmithBOD) (inBag=False; amount=1)
+8/12/2024 7:18:53 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') duped 0x400043B4 (LargeSmithBOD) creating 0x4000133E (LargeSmithBOD)
+8/12/2024 7:18:54 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'props '
+8/12/2024 7:18:59 PM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') set property 'Material' of 0x4000133E (LargeSmithBOD) to 'None'

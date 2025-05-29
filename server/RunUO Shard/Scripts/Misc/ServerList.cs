@@ -40,7 +40,7 @@ namespace Server.Misc
         // ==================================================================================
         // YOUR SERVERS NAME
         // ==================================================================================
-        public const string ServerName = "Rel Wis Beta";    // Server Name Goes Here
+        public const string ServerName = "UO Apocalypse";    // Server Name Goes Here
         public const string ServerNameA = "Test Center";  // Other Sever Name Goes Here
  
  
@@ -97,7 +97,7 @@ namespace Server.Misc
             // Show info in console
             // ----------------------------------------------------
             //Console.WriteLine("ServerList 2.2");
-            Console.WriteLine("Welcome to Rel Wis");
+            Console.WriteLine("Welcome to UO Apocalypse");
            
             // ----------------------------------------------------
             // Lets find internet ip

@@ -21,8 +21,10 @@ namespace Server.Engines.BulkOrders
         Barbed,
         OakWood,
         AshWood,
-        YewWood
-
+        YewWood,
+        Heartwood,
+        Bloodwood,
+        Frostwood
     }
 
     public enum BulkGenericType

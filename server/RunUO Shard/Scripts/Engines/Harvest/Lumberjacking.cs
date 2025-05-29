@@ -90,7 +90,7 @@ namespace Server.Engines.Harvest
 				new HarvestResource(  65.0, 25.0, 105.0, 1072541, typeof( OakLog ) ),
 				new HarvestResource(  80.0, 40.0, 120.0, 1072542, typeof( AshLog ) ),
 				new HarvestResource(  95.0, 55.0, 135.0, 1072543, typeof( YewLog ) ),
-				//new HarvestResource( 100.0, 60.0, 140.0, 1072544, typeof( HeartwoodLog ) )
+				new HarvestResource( 100.0, 60.0, 140.0, 1072544, typeof( HeartwoodLog ) )
 			};
 
 			veins = new HarvestVein[]
@@ -99,7 +99,7 @@ namespace Server.Engines.Harvest
 				new HarvestVein( 30.0, 0.5, res[1], res[0] ), // Oak
 				new HarvestVein( 10.0, 0.5, res[2], res[0] ), // Ash
 				new HarvestVein( 05.0, 0.5, res[3], res[0] ), // Yew
-				//new HarvestVein( 03.0, 0.5, res[4], res[0] ), // Heartwood
+				new HarvestVein( 03.0, 0.5, res[4], res[0] ), // Heartwood
 			};
 			lumber.Resources = res;
 			lumber.Veins = veins;

@@ -1,0 +1,18 @@
+##############################
+Log started on 8/31/2024 11:06:22 AM
+
+8/31/2024 11:06:30 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go britain'
+8/31/2024 11:06:58 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add robe set hue 1109'
+8/31/2024 11:06:59 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1496, 1629, 10) in Felucca: "robe" "set" "hue" "1109"
+8/31/2024 11:06:59 AM: 127.0.0.1: Serials: 0x400001AC; 
+8/31/2024 11:10:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'M Tele'
+##############################
+Log started on 8/31/2024 11:13:59 AM
+
+8/31/2024 11:14:06 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go britain'
+8/31/2024 11:14:26 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'add robe set hue 1109'
+8/31/2024 11:14:27 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') building at (1496, 1630, 10) in Felucca: "robe" "set" "hue" "1109"
+8/31/2024 11:14:27 AM: 127.0.0.1: Serials: 0x40000198; 
+8/31/2024 11:14:32 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm tele'
+8/31/2024 11:16:47 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'go yew'
+8/31/2024 11:16:49 AM: 127.0.0.1: Owner 0x1 "Johnny Ponytail" ('rws') used command 'm tele'

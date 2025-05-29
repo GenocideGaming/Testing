@@ -13,7 +13,7 @@ namespace Server.Misc
 		 * 
 		 * private const string CustomPath = @"C:\UltimaOnline\Classic Client";
 		 */
-        private static string CustomPath = @"C:\RelWis\Client";
+        private static string CustomPath = @"C:\UOApocalypse\Client";
 
 		/* The following is a list of files which a required for proper execution:
 		 * 
